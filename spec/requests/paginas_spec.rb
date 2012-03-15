@@ -1,13 +1,6 @@
 require 'spec_helper'
 
 describe "Paginas" do
-  #describe "GET /paginas" do
-  #  it "works! (now write some real specs)" do
-  #    # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-  #    get paginas_index_path
-  #    response.status.should be(200)
-  #  end
-  #end
   
   subject { page }
   
@@ -23,8 +16,7 @@ describe "Paginas" do
     
     it_should_behave_like "all paginas"
     
-    it { should have_link('Registrate Ahora!') }
-  end
-   
+    it { should have_link('Registrate Ahora!', href: signup_path ) }
+  end   
   
 end
