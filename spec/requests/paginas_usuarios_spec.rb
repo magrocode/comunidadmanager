@@ -7,9 +7,7 @@ describe "PaginasUsuarios" do
   describe "pagina de 'sign up'" do
     before { visit signup_path }
     
-    it "debe tener titulo 'Signup'" do
-      should have_selector('title', text: "Signup" )
-    end 
+    it { should have_selector('title', text: "Signup" ) } 
     
   end
   
