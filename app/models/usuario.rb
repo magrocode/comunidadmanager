@@ -16,6 +16,7 @@
 class Usuario < ActiveRecord::Base
   attr_accessible :nombre_comunidad, :email, :direccion, :ciudad, :region, :pais
   
-  validates :nombre_comunidad, :presence => true
+  validates :nombre_comunidad, :presence => true, :length => { :maximum => 50 }
   validates :email, :presence => true, :uniqueness => true 
+
 end
