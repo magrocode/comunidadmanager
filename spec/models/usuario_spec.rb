@@ -51,11 +51,23 @@ describe Usuario do
   end
   
   describe "Cuando formato email es valido" do
-    emails_validos = %w[usuario@foo.com mario.espinoza@magrocode.com mario_espinoza@magrocode.com]
+    emails_validos = %w[example.user@foo. mario.espinoza@magrocode.com mario_espinoza@magrocode.com]
     emails_validos.each do |email_valido|
       before { @usuario.email = email_valido }
       it { should be_valid }
     end
   end
+  
+  describe "Cuando email ya existe" do
+    before do
+      usuario_con_mismo_email = @usuario.dup
+      usuario_con_mismo_email.email = @usuario.email.upcase
+      usuario_con_mismo_email.save      
+    end
+    
+    it { should_not be_valid }
+  end
+  
+  
   
 end
