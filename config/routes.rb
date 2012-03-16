@@ -3,6 +3,8 @@ Comunidadmanager::Application.routes.draw do
 
   get "paginas/home"
   
+  resources :usuarios
+  
   match '/signup', to: 'usuarios#new'
 
   root :to => 'paginas#home'

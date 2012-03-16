@@ -57,7 +57,7 @@ describe Usuario do
   end
   
   describe "Cuando formato email es valido" do
-    emails_validos = %w[example.user@foo. mario.espinoza@magrocode.com mario_espinoza@magrocode.com]
+    emails_validos = %w[example.user@foo.com mario.espinoza@magrocode.com mario_espinoza@magrocode.com]
     emails_validos.each do |email_valido|
       before { @usuario.email = email_valido }
       it { should be_valid }
@@ -80,7 +80,7 @@ describe Usuario do
   end
   
   describe "Cuando el password no coincide con la confirmacion" do
-    before { @usuario.password_confirmation = "mismatch" }
+    before { @usuario.password_confirmation = "nocoincidente" }
     it { should_not be_valid }
   end
   
@@ -88,6 +88,5 @@ describe Usuario do
     before { @usuario.password_confirmation = nil }
     it { should_not be_valid }
   end
-  
-  
+    
 end
