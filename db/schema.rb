@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120315185149) do
+ActiveRecord::Schema.define(:version => 20120315231711) do
 
   create_table "usuarios", :force => true do |t|
     t.string   "nombre_comunidad"
@@ -26,5 +26,7 @@ ActiveRecord::Schema.define(:version => 20120315185149) do
     t.string   "remember_token"
     t.boolean  "admin"
   end
+
+  add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true
 
 end

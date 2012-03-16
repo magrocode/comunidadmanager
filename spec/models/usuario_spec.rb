@@ -11,6 +11,9 @@
 #  pais             :string(255)
 #  created_at       :datetime        not null
 #  updated_at       :datetime        not null
+#  password_digest  :string(255)
+#  remember_token   :string(255)
+#  admin            :boolean
 #
 
 require 'spec_helper'
@@ -19,7 +22,7 @@ describe Usuario do
   
   before { @usuario = Usuario.new(nombre_comunidad: "Comunidad de Ejemplo", email: "mario@magrocode.com", 
                                   direccion: "Huerfanos 1055", ciudad: "Santiago", region: "Region metropolitana",
-                                  pais: "Chile") }
+                                  pais: "Chile", password: "foobar", password_confirmation: "foobar") }
                                   
   subject { @usuario }
   
@@ -29,6 +32,9 @@ describe Usuario do
   it { should respond_to(:ciudad) }
   it { should respond_to(:region) }
   it { should respond_to(:pais) }
+  it { should respond_to(:password_digest) }
+  it { should respond_to(:password) }
+  it { should respond_to(:password_confirmation) }
   
   it { should be_valid }
   
@@ -68,6 +74,20 @@ describe Usuario do
     it { should_not be_valid }
   end
   
+  describe "Cuando el password no esta presente" do
+    before { @usuario.password = @usuario.password_confirmation = " " }
+    it { should_not be_valid }
+  end
+  
+  describe "Cuando el password no coincide con la confirmacion" do
+    before { @usuario.password_confirmation = "mismatch" }
+    it { should_not be_valid }
+  end
+  
+  describe "Cuando confirmacion de password esta vacia" do
+    before { @usuario.password_confirmation = nil }
+    it { should_not be_valid }
+  end
   
   
 end
