@@ -1,18 +1,23 @@
-<% provide(:titulo, 'Signup')%>
+<% provide(:titulo, 'Sign up')%>
 <h1>Sign up</h1>
 
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@usuario) do |f| %>
+			<%= render 'shared/error_messages' %>
+			<%= f.label :nombre_comunidad %>
+			<%= f.text_field :nombre_comunidad %>
+		
+			<%= f.label :email %>
+			<%= f.text_field :email %>
 
-<%= form_for(@usuario) do |f| %>
-	<div class="field">
-		<%= f.label :nombre_comunidad %><br />
-		<%= f.text_field :nombre_comunidad %>
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+
+			<%= f.label :password_confirmation, "Confirmacion" %>
+			<%= f.password_field :password_confirmation %>
+				
+			<%= f.submit "Crear mi cuenta", :class => "btn btn-large btn-primary" %>
+		<% end %>
 	</div>
-	<div class="field">
-		<%= f.label :email %><br />
-		<%= f.text_field :email %>
-	</div>
-	<div class="field">
-		<%= f.label :password %><br />
-		<%= f.password_field :password %>
-	</div>
-<% end %>
+</div>
