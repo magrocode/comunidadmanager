@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20120315231711) do
 
-  create_table "usuarios", :force => true do |t|
+  create_table "comunidads", :force => true do |t|
     t.string   "nombre_comunidad"
     t.string   "email"
     t.string   "direccion"
@@ -24,9 +24,8 @@ ActiveRecord::Schema.define(:version => 20120315231711) do
     t.datetime "updated_at",       :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin"
   end
 
-  add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true
+  add_index "comunidads", ["email"], :name => "index_comunidads_on_email", :unique => true
 
 end

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :usuario do
+  factory :comunidad do
     nombre_comunidad "Comunidad Nuevo Horizonte"
     email "mario@magrocode.com"
     password "foobar"

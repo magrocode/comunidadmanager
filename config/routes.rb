@@ -3,9 +3,9 @@ Comunidadmanager::Application.routes.draw do
 
   get "paginas/home"
   
-  resources :usuarios
+  resources :comunidads
   
-  match '/signup', to: 'usuarios#new'
+  match '/signup', to: 'comunidads#new'
 
   root :to => 'paginas#home'
   # The priority is based upon order of creation:
