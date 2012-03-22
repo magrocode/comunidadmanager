@@ -27,5 +27,6 @@ ActiveRecord::Schema.define(:version => 20120315231711) do
   end
 
   add_index "comunidads", ["email"], :name => "index_comunidads_on_email", :unique => true
+  add_index "comunidads", ["remember_token"], :name => "index_comunidads_on_remember_token"
 
 end

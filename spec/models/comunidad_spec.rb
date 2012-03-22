@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: comunidads
+#
+#  id               :integer         not null, primary key
+#  nombre_comunidad :string(255)
+#  email            :string(255)
+#  direccion        :string(255)
+#  ciudad           :string(255)
+#  region           :string(255)
+#  pais             :string(255)
+#  created_at       :datetime        not null
+#  updated_at       :datetime        not null
+#  password_digest  :string(255)
+#  remember_token   :string(255)
+#
+
 require 'spec_helper'
 
 describe Comunidad do
@@ -17,6 +34,7 @@ describe Comunidad do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   
   it { should be_valid }
@@ -91,6 +109,11 @@ describe Comunidad do
       it { should_not == comunidad_para_password_invalido }
       specify { comunidad_para_password_invalido.should be_false }
     end
+  end
+  
+  describe "remember token" do
+    before { @comunidad.save }
+    its(:remember_token) { should_not be_blank }
   end
     
 end
