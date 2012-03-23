@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Paginas de Comunidads" do
+describe "Paginas de Comunidad" do
 
   subject { page }
   
@@ -41,6 +41,16 @@ describe "Paginas de Comunidads" do
         expect do
           click_button "Crear mi cuenta"
         end.to change(Comunidad, :count).by(1)   
+      end
+      
+      describe "despues de guardar comunidad" do
+        before { click_button "Crear mi cuenta" }
+        let(:comunidad) { Comunidad.find_by_email('mario@foobar.com') }
+
+        it { should have_selector('title', text: comunidad.nombre_comunidad) }
+        #it { should have_selector('div.flash.success', text: 'Bienvenido') }
+        it { should have_selector('div.alert.alert-success', text: 'Bienvenido')}
+        it { should have_link('Sign out') }
       end
     end
     

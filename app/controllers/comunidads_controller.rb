@@ -11,6 +11,7 @@ class ComunidadsController < ApplicationController
   def create
     @comunidad = Comunidad.new(params[:comunidad])
     if @comunidad.save
+      sign_in @comunidad
       flash[:success] = "Bienvenido a Comunidad Manager!"
       redirect_to @comunidad
     else
