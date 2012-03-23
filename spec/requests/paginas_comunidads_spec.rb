@@ -9,6 +9,7 @@ describe "Paginas de Comunidad" do
     
     it { should have_selector('h1', text: "Sign up") }
     it { should have_selector('title', text: "Sign up") } 
+    
   end
   
   describe "pagina del perfil" do
@@ -40,7 +41,7 @@ describe "Paginas de Comunidad" do
       it "debe crear un comunidad" do
         expect do
           click_button "Crear mi cuenta"
-        end.to change(Comunidad, :count).by(1)   
+        end.to change(Comunidad, :count).by(1)
       end
       
       describe "despues de guardar comunidad" do
@@ -49,7 +50,7 @@ describe "Paginas de Comunidad" do
 
         it { should have_selector('title', text: comunidad.nombre_comunidad) }
         #it { should have_selector('div.flash.success', text: 'Bienvenido') }
-        it { should have_selector('div.alert.alert-success', text: 'Bienvenido')}
+        it { should have_selector('div.alert.alert-success', text: 'Bienvenido') }
         it { should have_link('Sign out') }
       end
     end
