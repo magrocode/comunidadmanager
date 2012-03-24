@@ -1,4 +1,6 @@
 Comunidadmanager::Application.routes.draw do
+  get "unidads/new"
+
   #get "usuarios/new"
 
   get "paginas/home"

@@ -3,7 +3,7 @@
 # Table name: comunidads
 #
 #  id               :integer         not null, primary key
-#  nombre_comunidad :string(255)
+#  nombre           :string(255)
 #  email            :string(255)
 #  direccion        :string(255)
 #  ciudad           :string(255)
@@ -17,11 +17,11 @@
 
 class Comunidad < ActiveRecord::Base
   
-  attr_accessible :nombre_comunidad, :email, :direccion, :ciudad, :region, :pais, :password, :password_confirmation
+  attr_accessible :nombre, :email, :direccion, :ciudad, :region, :pais, :password, :password_confirmation
   has_secure_password
   before_save :create_remember_token
     
-  validates :nombre_comunidad, presence: true, length: { maximum: 50 }
+  validates :nombre, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }

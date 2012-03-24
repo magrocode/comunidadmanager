@@ -3,7 +3,7 @@
 # Table name: comunidads
 #
 #  id               :integer         not null, primary key
-#  nombre_comunidad :string(255)
+#  nombre :string(255)
 #  email            :string(255)
 #  direccion        :string(255)
 #  ciudad           :string(255)
@@ -19,13 +19,13 @@ require 'spec_helper'
 
 describe Comunidad do
   
-  before { @comunidad = Comunidad.new(nombre_comunidad: "Comunidad de Ejemplo", email: "mario@magrocode.com", 
+  before { @comunidad = Comunidad.new(nombre: "Comunidad de Ejemplo", email: "mario@magrocode.com", 
                                   direccion: "Huerfanos 1055", ciudad: "Santiago", region: "Region metropolitana",
                                   pais: "Chile", password: "foobar", password_confirmation: "foobar") }
                                   
   subject { @comunidad }
   
-  it { should respond_to(:nombre_comunidad) }
+  it { should respond_to(:nombre) }
   it { should respond_to(:email) }
   it { should respond_to(:direccion) }  
   it { should respond_to(:ciudad) }
@@ -40,12 +40,12 @@ describe Comunidad do
   it { should be_valid }
   
   describe "Cuando Comunidad invalido" do
-    before { @comunidad.nombre_comunidad = " " }
+    before { @comunidad.nombre = " " }
     it { should_not be_valid }
   end
   
   describe "Cuando nombre es demasiado largo" do
-    before { @comunidad.nombre_comunidad = "a" * 51 }
+    before { @comunidad.nombre = "a" * 51 }
     it { should_not be_valid }    
   end
   
