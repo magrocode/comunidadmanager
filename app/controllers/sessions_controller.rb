@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     comunidad = Comunidad.find_by_email(params[:session][:email])
     if comunidad && comunidad.authenticate(params[:session][:password])
       # Sign la comunidad y redirecciona a la pagina de comunidad
-      sign_in comunidad  # necesita definirse
+      sign_in comunidad 
       redirect_to comunidad
     else
       # crea un mensaje de error y re-renderiza el formulario signin

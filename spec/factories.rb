@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :comunidad do
-    nombre "Comunidad Nuevo Horizonte"
-    email "mario@magrocode.com"
+    nombre "Condominio Alcazar"
+    email "alcazar@gmail.com"
     password "foobar"
     password_confirmation "foobar"
   end
@@ -9,6 +9,6 @@ FactoryGirl.define do
   factory :unidad do
     identificador "A101"
     participacion 0.86
-    comunidad_id 1  
+    comunidad
   end
 end

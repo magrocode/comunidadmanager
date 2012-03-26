@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Paginas de Comunidad" do
 
   subject { page }
-  
+   
   describe "pagina signup" do
     before { visit signup_path }
     

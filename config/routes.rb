@@ -6,7 +6,9 @@ Comunidadmanager::Application.routes.draw do
   get "paginas/home"
   
   resources :comunidads
+  resources :unidads
   resources :sessions, only: [:new, :create, :destroy]
+  
   
   match '/signup', to: 'comunidads#new'
   match '/signin', to: 'sessions#new'

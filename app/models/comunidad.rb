@@ -20,6 +20,8 @@ class Comunidad < ActiveRecord::Base
   attr_accessible :nombre, :email, :direccion, :ciudad, :region, :pais, :password, :password_confirmation
   has_secure_password
   before_save :create_remember_token
+  
+  has_many :unidads, dependent: :destroy
     
   validates :nombre, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

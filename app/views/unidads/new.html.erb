@@ -1,2 +1,18 @@
-<h1>Unidads#new</h1>
-<p>Find me in app/views/unidads/new.html.erb</p>
+<% provide(:titulo, 'Unidad') %>
+<h1>Unidad</h1>
+
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@unidad) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			
+			<%= f.label :identificador %>
+			<%= f.text_field :identificador %>
+			
+			<%= f.label :participacion %>
+			<%= f.number_field :participacion %>
+			
+			<%= f.submit "Crear unidad", :class => "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>

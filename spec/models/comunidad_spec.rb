@@ -111,9 +111,29 @@ describe Comunidad do
     end
   end
   
-  describe "remember token" do
+  describe "recuerda token" do
     before { @comunidad.save }
     its(:remember_token) { should_not be_blank }
   end
     
+  describe "unidades de la comunidad" do
+    
+    before { @comunidad.save }
+    let!(:unidad) do
+      FactoryGirl.create(:unidad, comunidad: @comunidad)
+    end
+    
+    it "debe tener las unidades correctas" do
+      @comunidad.unidads.should == [unidad]
+    end
+    
+    it "debe destruir las unidades de la comunidad" do
+      unidads = @comunidad.unidads
+      @comunidad.destroy
+      unidads.each do |unidad|
+        Unidad.find_by_id(unidad.id).should be_nil
+      end
+    end
+  end
+  
 end
