@@ -26,8 +26,13 @@ describe "UnidadPages" do
       
       # pendiente de escribir
       before do
-        
+        fill_in 'Identificador', with: "A101"
+        fill_in 'Participacion', with: 6
+      end
+      it "debe crear una unidad" do
+        expect { click_button "Crear unidad" }.should change(Unidad, :count).by(1)
       end
     end
+    
   end
 end
