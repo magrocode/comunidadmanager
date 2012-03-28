@@ -13,6 +13,15 @@ group :development, :test do
   gem 'annotate', '~> 2.4.1.beta'
 end
 
+group :test do
+  gem 'capybara', '1.1.2'
+  gem 'factory_girl_rails', '1.4.0'
+end
+
+group :production do
+  gem 'pg'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -22,11 +31,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-group :test do
-  gem 'capybara', '1.1.2'
-  gem 'factory_girl_rails', '1.4.0'
-end
 
 
 
