@@ -14,10 +14,25 @@ describe "Paginas de Comunidad" do
   
   describe "pagina del perfil" do
     let(:comunidad) { FactoryGirl.create(:comunidad) }
-    before { visit comunidad_path(comunidad) }
-    
+    before do
+      sign_in comunidad
+      visit comunidad_path(comunidad) 
+    end 
+      
     it { should have_selector('h1', text: comunidad.nombre) }
     it { should have_selector('title', text: comunidad.nombre) }
+  end
+  
+  describe "No puede ver perfiles de otras comunidades" do
+    let(:comunidad1) { FactoryGirl.create(:comunidad) }
+    let(:comunidad2) { FactoryGirl.create(:comunidad) }
+    before do
+      sign_in comunidad1
+      visit comunidad_path(comunidad2) 
+    end 
+    
+    it { should_not have_selector('h1', text: comunidad2.nombre) }
+    it { should_not have_selector('title', text: comunidad2.nombre) }
   end
   
   describe "Signup" do
@@ -49,7 +64,6 @@ describe "Paginas de Comunidad" do
         let(:comunidad) { Comunidad.find_by_email('mario@foobar.com') }
 
         it { should have_selector('title', text: comunidad.nombre) }
-        #it { should have_selector('div.flash.success', text: 'Bienvenido') }
         it { should have_selector('div.alert.alert-success', text: 'Bienvenido') }
         it { should have_link('Sign out') }
       end

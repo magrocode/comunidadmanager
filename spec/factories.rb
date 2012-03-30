@@ -1,9 +1,13 @@
 FactoryGirl.define do
   factory :comunidad do
-    nombre "Condominio Alcazar"
-    email "alcazar@gmail.com"
+    sequence(:nombre) { |n| "Condominio #{n}" }
+    sequence(:email) { |n| "condominio#{n}@gmail.com" }
     password "foobar"
     password_confirmation "foobar"
+    
+    #factory :admin do
+    #  admin true
+    #end
   end
   
   factory :unidad do

@@ -9,7 +9,7 @@ class UnidadsController < ApplicationController
     @unidad = current_user.unidads.build(params[:unidad])
     if @unidad.save
       flash[:success] = "Unidad creada!"
-      redirect_to @unidad ## este debe ser reemplazado por el path de unidades
+      redirect_to @unidad
     else
        render 'new'  
     end
