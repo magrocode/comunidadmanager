@@ -10,7 +10,7 @@
 			<%= f.text_field :identificador %>
 			
 			<%= f.label :participacion %>
-			<%= f.number_field :participacion %>
+			<%= f.number_field :participacion, :step => "0.1", :min => 0 %>
 			
 			<%= f.submit "Crear unidad", :class => "btn btn-large btn-primary" %>
 		<% end %>

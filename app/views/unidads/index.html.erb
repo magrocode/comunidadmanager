@@ -1,0 +1,24 @@
+<h1>Listando unidades</h1>
+
+<table>
+	<tr>
+		<th>Identificador</th>
+		<th>Participacion</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+<% @unidads.each do |unidad| %>
+	<tr>
+		<td><%= unidad.identificador %></td>
+		<td><%= unidad.participacion %></td>
+		<td><%= link_to 'Mostrar', unidad %></td>
+		<td><%= link_to 'Editar', edit_unidad_path(unidad) %></td>
+		<td><%= link_to 'Destroy', unidad, confirm: 'Estas seguro?', :method => :delete %></td>
+	</tr>
+<% end %>	
+</table>
+
+<br />
+
+<%= link_to 'Nueva unidad', new_unidad_path %>

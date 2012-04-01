@@ -11,8 +11,8 @@ FactoryGirl.define do
   end
   
   factory :unidad do
-    identificador "A101"
-    participacion 0.86
+    sequence(:identificador) { |n| "DEP#{n}0#{n}" }
+    participacion 0.25
     comunidad
   end
 end
