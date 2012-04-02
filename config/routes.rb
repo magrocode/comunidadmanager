@@ -1,11 +1,16 @@
 Comunidadmanager::Application.routes.draw do
-  get "unidads/new"
+  #get "unidads/new"
 
   #get "usuarios/new"
 
   get "paginas/home"
   
-  resources :comunidads
+  resources :comunidads do
+    member do
+      get :unidads
+    end
+  end
+  
   resources :unidads
   resources :sessions, only: [:new, :create, :destroy]
   

@@ -1,3 +1,5 @@
 <% provide(:titulo, @comunidad.nombre)%>
 <h1><%= @comunidad.nombre %></h1>
 
+<h2><%= @comunidad.unidads.count() %> <small><%= link_to 'Unidades', unidads_comunidad_path(@comunidad) %></small></h2>
+

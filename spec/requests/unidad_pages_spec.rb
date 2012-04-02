@@ -29,11 +29,25 @@ describe "UnidadPages" do
         fill_in 'Identificador', with: "DEP101"
         fill_in 'Participacion', with: 0.25
       end
+      
       it "debe crear una unidad" do
         expect { click_button "Crear unidad" }.should change(Unidad, :count).by(1)
       end
+      
+      describe "despues de guardar la unidad" do
+        before { click_button "Crear unidad" }
+        let(:unidad) { Unidad.find_by_identificador('DEP101') }
+        
+        it { should have_selector('title', text: unidad.identificador) }
+      end
     end
-    
   end
-
+  
+  describe "Viendo unidades de otras comunidades" do
+    let(:comunidad1) { FactoryGirl.create(:comunidad) }
+    let(:unidad1) { FactoryGirl.create(:unidad, comunidad: comunidad1) }    
+    before { visit unidad_path(unidad1) }
+    
+    it { should_not have_selector('title', text: unidad1.identificador) }
+  end
 end

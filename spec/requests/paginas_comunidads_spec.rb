@@ -23,7 +23,7 @@ describe "Paginas de Comunidad" do
     it { should have_selector('title', text: comunidad.nombre) }
   end
   
-  describe "No puede ver perfiles de otras comunidades" do
+  describe "Viendo perfil de otras comunidades" do
     let(:comunidad1) { FactoryGirl.create(:comunidad) }
     let(:comunidad2) { FactoryGirl.create(:comunidad) }
     before do

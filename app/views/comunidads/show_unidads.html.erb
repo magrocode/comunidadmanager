@@ -1,0 +1,27 @@
+<h2>Unidades <small><%= @comunidad.nombre %></small></h2>
+
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>Identificador</th>
+		<th>% Participacion</th>
+		<th></th>
+	</tr>
+<% @unidads.each do |unidad| %>
+	<tr>
+		<td><%= link_to unidad.identificador, unidad %></td>
+		<td><%= unidad.participacion %></td>
+		<td class="ar">
+			<small>
+			<%= link_to 'Mostrar', unidad %> |
+			<%= link_to 'Editar', edit_unidad_path(unidad) %> |
+			<%= link_to 'Eliminar', unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+			</small>
+		</td>		
+	</tr>
+<% end %>	
+</table>
+
+<br />
+
+<%= link_to 'Nueva unidad', new_unidad_path, :class => 'btn btn-primary btn-large' %>
+<%= link_to 'Agregar unidad', new_unidad_path, :class => 'add' %>

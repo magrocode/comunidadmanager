@@ -1,6 +1,6 @@
 class ComunidadsController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit, :update]
-  before_filter :correct_user, only: [:show]
+  before_filter :signed_in_user, only: [:index, :edit, :update, :unidads]
+  before_filter :correct_user, only: [:show, :unidads]
   #before_filter :admin_user, only: [:edit, :update]
   
   def new
@@ -22,7 +22,13 @@ class ComunidadsController < ApplicationController
     end
   end
   
-   private
+  def unidads
+    @comunidad = Comunidad.find(params[:id])
+    @unidads = @comunidad.unidads
+    render 'show_unidads'
+  end
+  
+  private
   
     #def signed_in_user
     #  redirect_to signin_path, notice: "Por favor autentiquese." unless signed_in?      

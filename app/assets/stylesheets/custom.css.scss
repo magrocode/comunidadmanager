@@ -59,9 +59,12 @@ h2 {
   font-size: 1.7em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $grayLight;
+  /* text-align: left; */
+  float:left;
+  text-transform: uppercase;
+  text-shadow:#FFFFFF 1px 1px 0;
+  /* font-weight: normal;*/
+  /* color: $grayLight; */
 }
 
 p {
@@ -148,3 +151,16 @@ input, textarea, select, .uneditable-input {
   @extend .control-group;
   @extend .error;
  }
+ 
+
+/* tablas */
+table small {
+  color:#999999;
+  font-size:11px;
+}
+
+
+/* Aliniacion */ 
+.ar {
+  text-align: right;
+}
