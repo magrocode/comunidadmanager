@@ -50,4 +50,6 @@ describe "UnidadPages" do
     
     it { should_not have_selector('title', text: unidad1.identificador) }
   end
+  
+
 end

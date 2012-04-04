@@ -22,11 +22,11 @@ class ComunidadsController < ApplicationController
     end
   end
   
-  def unidads
-    @comunidad = Comunidad.find(params[:id])
-    @unidads = @comunidad.unidads
-    render 'show_unidads'
-  end
+  #def unidads
+  #  @comunidad = Comunidad.find(params[:id])
+  #  @unidads = @comunidad.unidads
+  #  render 'show_unidads'
+  #end
   
   private
   
