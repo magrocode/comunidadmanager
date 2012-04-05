@@ -1,6 +1,6 @@
 class UnidadsController < ApplicationController
   before_filter :signed_in_user
-  #before_filter :correct_user, only: [:index, :new]
+  #before_filter :correct_user :only => []
   
   def index
     @comunidad = Comunidad.find(params[:comunidad_id])
@@ -17,6 +17,7 @@ class UnidadsController < ApplicationController
       flash[:success] = "Unidad creada!"
       redirect_to @unidad
     else
+       #redirect_to(new_comunidad_unidad_path(current_user))
        render 'new'  
     end
   end
