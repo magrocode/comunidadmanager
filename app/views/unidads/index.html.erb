@@ -1,3 +1,5 @@
+<% provide(:titulo, 'Unidades') %>
+<h2>Unidades <small><%= @comunidad.nombre %></small></h2>
 <table class="table table-bordered table-striped">
 	<tr>
 		<th>Identificador</th>
@@ -10,8 +12,8 @@
 		<td><%= unidad.participacion %></td>
 		<td class="ar">
 			<small>
-			<%= link_to 'Mostrar', '#' %> |
-			<%= link_to 'Editar', '#' %> |
+			<%= link_to 'Mostrar', unidad_path(unidad) %> |
+			<%= link_to 'Editar', edit_unidad_path(unidad) %> |
 			<%= link_to 'Eliminar', unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
 			</small>
 		</td>	

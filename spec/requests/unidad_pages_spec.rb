@@ -8,7 +8,7 @@ describe "UnidadPages" do
   before { sign_in comunidad }
   
   describe "Creacion de unidad" do 
-    before { visit new_unidad_path }
+    before { visit new_comunidad_unidad_path(comunidad) }
    
     describe "con informacion invalida" do
       it "no debe crear una unidad" do
