@@ -8,13 +8,13 @@
 	</tr>
 <% @unidads.each do |unidad| %>
 	<tr>
-		<td><%= link_to unidad.identificador, comunidad_unidad_path(@comunidad, unidad) %></td>
+		<td><%= link_to unidad.identificador, unidad %></td>
 		<td><%= unidad.participacion %></td>
 		<td class="ar">
 			<small>
-			<%= link_to 'Mostrar', comunidad_unidad_path(@comunidad, unidad) %> |
-			<%= link_to 'Editar', edit_comunidad_unidad_path(@comunidad, unidad) %> |
-			<%= link_to 'Eliminar', [@comunidad,unidad], confirm: 'Estas seguro de eliminar?', :method => :delete %>
+			<%= link_to 'Mostrar', unidad %> |
+			<%= link_to 'Editar', edit_unidad_path(unidad) %> |
+			<%= link_to 'Eliminar', unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
 			</small>
 		</td>	
 	</tr>
