@@ -5,20 +5,22 @@ Comunidadmanager::Application.routes.draw do
 
   get "paginas/home"
   
+    
+  
   resources :comunidads do
     #member do
       resources :unidads
     #end
   end
-  
-  resources :unidads
+  #resources :unidads
+
   resources :sessions, only: [:new, :create, :destroy]
   
   
   match '/signup', to: 'comunidads#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-
+  
   root :to => 'paginas#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.

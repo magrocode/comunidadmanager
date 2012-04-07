@@ -1,44 +1,57 @@
 class UnidadsController < ApplicationController
   before_filter :signed_in_user
-  #before_filter :correct_user :only => []
+  before_filter :correct_user
   
   def index
     @comunidad = Comunidad.find(params[:comunidad_id])
     @unidads = @comunidad.unidads
   end
   
-  def new
-    @unidad = Unidad.new
+  def new 
+    @comunidad = Comunidad.find(params[:comunidad_id])
+    @unidad = @comunidad.unidads.build
   end
   
-  def create
-    @unidad = current_user.unidads.build(params[:unidad])
+  def create  
+    @comunidad = Comunidad.find(params[:comunidad_id])
+    @unidad = @comunidad.unidads.build(params[:unidad])
+    
     if @unidad.save
       flash[:success] = "Unidad creada!"
-      redirect_to @unidad
+      redirect_to [@comunidad, @unidad]
     else
-       #redirect_to(new_comunidad_unidad_path(current_user))
-       render 'new'  
+       render action: 'new'  
     end
   end
   
   def show
-    @unidad = Unidad.find(params[:id])
+    @comunidad = Comunidad.find(params[:comunidad_id])
+    @unidad = @comunidad.unidads.find(params[:id])
   end
   
   def edit
-    @unidad = Unidad.find(params[:id])
+    @comunidad = Comunidad.find(params[:comunidad_id])
+    @unidad = @comunidad.unidads.find(params[:id])
   end
       
   def update
-    @unidad = Unidad.find(params[:id])
+    @comunidad = Comunidad.find(params[:comunidad_id])
+    @unidad = @comunidad.unidads.find(params[:id])
     
     if @unidad.update_attributes(params[:unidad])
-       flash[:success] = "Unidad actualizada"
-       redirect_to @unidad
+       flash[:success] = "Unidad fue actualizada satisfactoriamente."
+       redirect_to comunidad_unidad_path
      else
-       render 'edit'
+       render action: 'edit'
     end
+  end
+  
+  def destroy
+    @unidad = Unidad.find(params[:id])
+    @unidad.destroy
+    @comunidad = Comunidad.find(params[:comunidad_id])
+    
+    redirect_to comunidad_unidads_path
   end
   
   private
@@ -54,7 +67,7 @@ class UnidadsController < ApplicationController
     
     def correct_user
       @comunidad = Comunidad.find(params[:comunidad_id])
-      redirect_to(root_path) unless current_user?(@comunidad)
+      redirect_to(root_path, notice: "No esta habilitado para ver la informacion!") unless current_user?(@comunidad)
     end
   
 end

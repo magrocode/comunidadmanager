@@ -12,10 +12,10 @@
 			<%= @unidad.participacion %>
 		</p>
 		<p>
-			<span class="badge badge-inverse"><%= @unidad.comunidad.nombre %></span>	
+			<span class="badge badge-inverse"><%= @comunidad.nombre %></span>	
 		</p>
 	</div>
 </div>
 		
-<%= link_to 'Editar', edit_unidad_path(@unidad) %>
-<%= link_to 'Unidades', comunidad_unidads_path(@unidad.comunidad) %>
+<%= link_to 'Editar', edit_comunidad_unidad_path %>
+<%= link_to 'Unidades', comunidad_unidads_path %>
