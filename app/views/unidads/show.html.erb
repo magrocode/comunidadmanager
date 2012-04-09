@@ -1,8 +1,23 @@
 <% provide(:titulo, @unidad.identificador) %>
-<h1>Unidad</h1>
-
 <div class="row">
-	<div class="span6 offset3">
+	<div class="span12">
+		<h2>Unidad <%= @unidad.identificador %></h2>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span2">
+		<div class="sidebar-nav">
+			<ul class="nav nav-tabs nav-stacked">
+				<li><%= link_to 'Resumen', '#' %></li>
+				<li><%= link_to 'Arriendos de instalaciones', '#' %></li>
+				<li><%= link_to 'Multas e infracciones', '#' %></li>
+				<li><%= link_to 'Pagos historicos', '#' %></li>
+				<li><%= link_to 'Cobros historicos', '#' %></li>
+				<li><%= link_to 'Usuarios autorizados', '#' %></li>
+			</ul>
+		</div>
+	</div>
+	<div class="span9">
 		<p>
 			<b>Identificador:</b>
 			<%= @unidad.identificador %>
@@ -11,11 +26,9 @@
 			<b>Participacion:</b>
 			<%= @unidad.participacion %>
 		</p>
-		<p>
-			<span class="badge badge-inverse"><%= @unidad.comunidad.nombre %></span>	
-		</p>
+		
+		<%= link_to 'Editar', edit_unidad_path %>
+		<%= link_to 'Unidades', comunidad_unidads_path(@comunidad) %>
 	</div>
 </div>
 		
-<%= link_to 'Editar', edit_unidad_path %>
-<%= link_to 'Unidades', comunidad_unidads_path(@comunidad) %>
