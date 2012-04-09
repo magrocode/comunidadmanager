@@ -5,7 +5,7 @@ class UnidadsController < ApplicationController
   
   def index
     @comunidad = Comunidad.find(params[:comunidad_id])
-    @unidads = @comunidad.unidads
+    @unidads = @comunidad.unidads.paginate(page: params[:page], :per_page => 3)
   end
   
   def new 

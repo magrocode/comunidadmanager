@@ -18,4 +18,6 @@ class Unidad < ActiveRecord::Base
   validates :identificador, presence: true, length: { maximum: 50 }
   validates :participacion, presence: true, 
                 numericality: { greater_than_or_equal_to: 0 }
+                
+  default_scope order: 'unidads.identificador ASC'
 end
