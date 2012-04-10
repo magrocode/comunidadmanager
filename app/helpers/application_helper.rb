@@ -1,7 +1,7 @@
 module ApplicationHelper
   # retorna el titulo completo sobre una pagina
   def full_title(page_title)
-    base_title = "Comunidad Manager"
+    base_title = "Bloombee"
     if page_title.empty?
       base_title
     else
