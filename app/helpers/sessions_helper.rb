@@ -44,9 +44,14 @@ module SessionsHelper
   
   private
   
+    #def user_from_remember_token
+    #  remember_token = cookies[:remember_token]
+    #  Comunidad.find_by_remember_token(remember_token) unless remember_token.nil?
+    #end
+    
     def user_from_remember_token
       remember_token = cookies[:remember_token]
-      Comunidad.find_by_remember_token(remember_token) unless remember_token.nil?
+      Usuario.find_by_remember_token(remember_token) unless remember_token.nil?
     end
     
     def clear_return_to

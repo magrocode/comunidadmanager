@@ -1,10 +1,16 @@
 class ComunidadsController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit, :update, :unidads]
+  before_filter :signed_in_user, only: [:index, :edit, :update]
   before_filter :correct_user, only: [:show, :unidads]
   #before_filter :admin_user, only: [:edit, :update]
   
   def new
     @comunidad = Comunidad.new
+    @usuario = Usuario.new
+    @usuario.email = "admin@foobar.com"
+    @usuario.nombre = "administrador"
+    @usuario.administrador = true
+    @usuario.password = "foobar"
+    @usuario.password_confirmation = "foobar"
   end
 
   def show
@@ -13,10 +19,12 @@ class ComunidadsController < ApplicationController
   
   def create
     @comunidad = Comunidad.new(params[:comunidad])
+    @usuario = Usuario.new(params[:usuario])
     if @comunidad.save
-      sign_in @comunidad
+      @usuario.save 
+      #sign_in @comunidad
       flash[:success] = "Bienvenido a Comunidad Manager!"
-      redirect_to @comunidad
+      #redirect_to @comunidad
     else
       render 'new'
     end

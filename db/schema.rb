@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120323230931) do
+ActiveRecord::Schema.define(:version => 20120410203153) do
 
   create_table "comunidads", :force => true do |t|
     t.string   "nombre"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(:version => 20120323230931) do
     t.integer  "comunidad_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "usuarios", :force => true do |t|
+    t.string   "email"
+    t.string   "nombre"
+    t.boolean  "administrador"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

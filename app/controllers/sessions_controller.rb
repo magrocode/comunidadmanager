@@ -4,11 +4,11 @@ class SessionsController < ApplicationController
   end
   
   def create
-    comunidad = Comunidad.find_by_email(params[:session][:email])
-    if comunidad && comunidad.authenticate(params[:session][:password])
+    usuario = Usuario.find_by_email(params[:session][:email])
+    if usuario && usuario.authenticate(params[:session][:password])
       # Sign la comunidad y redirecciona a la pagina de comunidad
-      sign_in comunidad 
-      redirect_to comunidad
+      sign_in usuario 
+      redirect_to usuario
     else
       # crea un mensaje de error y re-renderiza el formulario signin
       flash.now[:error] = 'Combinacion email/password es invalida'
