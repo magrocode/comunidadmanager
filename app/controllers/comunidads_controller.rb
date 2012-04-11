@@ -6,11 +6,6 @@ class ComunidadsController < ApplicationController
   def new
     @comunidad = Comunidad.new
     @usuario = Usuario.new
-    @usuario.email = "admin@foobar.com"
-    @usuario.nombre = "administrador"
-    @usuario.administrador = true
-    @usuario.password = "foobar"
-    @usuario.password_confirmation = "foobar"
   end
 
   def show
@@ -19,12 +14,18 @@ class ComunidadsController < ApplicationController
   
   def create
     @comunidad = Comunidad.new(params[:comunidad])
-    @usuario = Usuario.new(params[:usuario])
+    @usuario = Usuario.new(:email => "mario@magrocode.com", 
+                            :nombre => "Mario Espinoza", 
+                            :administrador => true,
+                            :password => "foobar",
+                            :password_confirmation => "foobar")
     if @comunidad.save
-      @usuario.save 
-      #sign_in @comunidad
-      flash[:success] = "Bienvenido a Comunidad Manager!"
-      #redirect_to @comunidad
+      if @usuario.save 
+        sign_in @usuario
+        flash[:success] = "Bienvenido a Comunidad Manager!"
+        #redirect_to @comunidad
+        redirect_to root_path
+      end      
     else
       render 'new'
     end

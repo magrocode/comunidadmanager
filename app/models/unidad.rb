@@ -3,9 +3,9 @@
 # Table name: unidads
 #
 #  id            :integer         not null, primary key
+#  comunidad_id  :integer
 #  identificador :string(255)
 #  participacion :float
-#  comunidad_id  :integer
 #  created_at    :datetime        not null
 #  updated_at    :datetime        not null
 #

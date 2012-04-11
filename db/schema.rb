@@ -15,29 +15,24 @@ ActiveRecord::Schema.define(:version => 20120410203153) do
 
   create_table "comunidads", :force => true do |t|
     t.string   "nombre"
-    t.string   "email"
     t.string   "direccion"
     t.string   "ciudad"
     t.string   "region"
     t.string   "pais"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.string   "password_digest"
-    t.string   "remember_token"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "comunidads", ["email"], :name => "index_comunidads_on_email", :unique => true
-  add_index "comunidads", ["remember_token"], :name => "index_comunidads_on_remember_token"
-
   create_table "unidads", :force => true do |t|
+    t.integer  "comunidad_id"
     t.string   "identificador"
     t.float    "participacion"
-    t.integer  "comunidad_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
 
   create_table "usuarios", :force => true do |t|
+    t.integer  "comunidad_id"
     t.string   "email"
     t.string   "nombre"
     t.boolean  "administrador"

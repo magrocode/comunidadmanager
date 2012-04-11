@@ -2,17 +2,14 @@
 #
 # Table name: comunidads
 #
-#  id               :integer         not null, primary key
-#  nombre :string(255)
-#  email            :string(255)
-#  direccion        :string(255)
-#  ciudad           :string(255)
-#  region           :string(255)
-#  pais             :string(255)
-#  created_at       :datetime        not null
-#  updated_at       :datetime        not null
-#  password_digest  :string(255)
-#  remember_token   :string(255)
+#  id         :integer         not null, primary key
+#  nombre     :string(255)
+#  direccion  :string(255)
+#  ciudad     :string(255)
+#  region     :string(255)
+#  pais       :string(255)
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
 #
 
 require 'spec_helper'

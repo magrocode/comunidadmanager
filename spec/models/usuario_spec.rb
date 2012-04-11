@@ -3,6 +3,7 @@
 # Table name: usuarios
 #
 #  id              :integer         not null, primary key
+#  comunidad_id    :integer
 #  email           :string(255)
 #  nombre          :string(255)
 #  administrador   :boolean
