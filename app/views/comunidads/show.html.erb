@@ -11,9 +11,12 @@
 		<small><%= link_to 'Unidades', comunidad_unidads_path(@comunidad) %></small></h2>
   	</div>
   	<div class="span2">
-  		<h2>30<br /><small><%= link_to 'Usuarios', new_comunidad_usuarios_path(@comunidad)%></small></h2>
+  		<h2>30<br /><small><%= link_to 'Usuarios', '#' %></small></h2>
   	</div>
   	<div class="span2">
   		<h2>8<br /><small><a href="#">Instalaciones</a></small></h2>
   	</div>
 </div>
+
+<%= link_to 'Nueva unidad', new_comunidad_unidad_path(@comunidad) %>
+<%= link_to 'Nuevo usuario', new_comunidad_usuario_path(@comunidad) %>

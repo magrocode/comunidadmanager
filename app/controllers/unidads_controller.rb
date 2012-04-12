@@ -1,7 +1,7 @@
 class UnidadsController < ApplicationController
-  before_filter :signed_in_user
-  before_filter :correct_user, :only => [:index, :new, :create]
-  before_filter :propietario, :only => [:show, :edit, :destroy, :update]
+  #before_filter :signed_in_user
+  #before_filter :correct_user, :only => [:index, :new, :create]
+  #before_filter :propietario, :only => [:show, :edit, :destroy, :update]
   
   def index
     @comunidad = Comunidad.find(params[:comunidad_id])

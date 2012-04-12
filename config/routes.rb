@@ -6,10 +6,15 @@ Comunidadmanager::Application.routes.draw do
   get "paginas/home"
   
   resources :usuarios
+  
   resources :unidads  
+  
   resources :comunidads do
       resources :unidads
-      resources :usuarios
+  end
+  
+  resources :comunidads do
+    resources :usuarios
   end
 
 

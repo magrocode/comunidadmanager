@@ -1,6 +1,7 @@
 <div class="row">
 	<div class="span6 offset3">
 		<%= form_for([@comunidad, @usuario]) do |f| %>
+
 			<%= render 'shared/error_messages', object: f.object %>
 			
 			<%= f.label :email %>
@@ -9,9 +10,9 @@
 			<%= f.label :nombre %>
 			<%= f.text_field :nombre %>
 			
-			<%= f.label "Atributos de usuario" %>
-			<%= f.check_box_field :administrador %>
-
+			<%= f.label :administrador, "Administrador?" %>
+			<%= f.check_box :administrador %>
+			
 			<%= f.label :password %>
 			<%= f.password_field :password %>
 

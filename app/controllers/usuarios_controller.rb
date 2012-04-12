@@ -1,18 +1,27 @@
 class UsuariosController < ApplicationController
   
+  def index
+    @comunidad = Comunidad.find(params[:comunidad_id])
+    @usuarios = @comunidad.usuarios.paginate(page: params[:page], per_page: 3)  
+  end
+  
   def new
-    @usuario = Usuario.new
+    @comunidad = Comunidad.find(params[:comunidad_id])
+    @usuario = @comunidad.usuarios.build
   end
   
   def show
     @usuario = Usuario.find(params[:id])
+    @comunidad = @usuario.comunidad
   end
   
   def create
-    @usuario = Usuario.new(params[:usuario])
+    @comunidad = Comunidad.find(params[:comunidad_id])
+    @usuario = @comunidad.usuarios.build(params[:usuario])
+    
     if @usuario.save
-      sign_in @usuario
-      flash[:success] = "Bienvenido a bloombee!"
+      #sign_in @usuario
+      flash[:success] = "Usuario creado"
       redirect_to @usuario
     else
       render 'new'
