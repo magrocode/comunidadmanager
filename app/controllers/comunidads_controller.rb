@@ -5,26 +5,29 @@ class ComunidadsController < ApplicationController
   
   def new
     @comunidad = Comunidad.new
-    @usuario = Usuario.new
+    @usuario = @comunidad.usuarios.build
   end
 
   def show
     @comunidad = Comunidad.find(params[:id])
+    redirect_to root_path if @comunidad.nil?
   end
   
   def create
     @comunidad = Comunidad.new(params[:comunidad])
-    @usuario = Usuario.new(:email => "mario@magrocode.com", 
-                            :nombre => "Mario Espinoza", 
-                            :administrador => true,
-                            :password => "foobar",
-                            :password_confirmation => "foobar")
-    if @comunidad.save
-      if @usuario.save 
-        sign_in @usuario
-        flash[:success] = "Bienvenido a Comunidad Manager!"
-        #redirect_to @comunidad
-        redirect_to root_path
+    @usuario = @comunidad.usuarios.build(email: params[:usuario][:email],
+                                         nombre: params[:usuario][:nombre],
+                                         administrador: true,
+                                         password: params[:usuario][:password],
+                                         password_confirmation: params[:usuario][:password_confirmation])
+    if @comunidad.valid? and @usuario.valid?                                     
+      if @comunidad.save
+        if @usuario.save 
+          sign_in @usuario
+          flash[:success] = "Bienvenido a Comunidad Manager!"
+          #redirect_to @comunidad
+          redirect_to root_path
+        end
       end      
     else
       render 'new'

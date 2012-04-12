@@ -1,23 +1,27 @@
 <% provide(:titulo, 'Sign up')%>
-<h1>Sign up</h1>
+<div class="page-header"><h1>Sign up</h1></div>
 
 <div class="row">
 	<div class="span6 offset3">
-		<%= form_for([@comunidad, @usuario]) do |f| %>
+		<%= form_for(@comunidad) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
+			
 			<%= f.label :nombre %>
 			<%= f.text_field :nombre %>
-		
-			<%= f.label :email %>
-			<%= f.text_field :email %>
+			
+			<%= label_tag(:email_administrador, "Email administrador") %>
+  			<%= text_field(:usuario, :email) %>			
+  			
+  			<%= label_tag(:nombre_administrador, "Nombre administrador") %>
+  			<%= text_field(:usuario, :nombre) %>
 
-			<%= f.label :password %>
-			<%= f.password_field :password %>
-
-			<%= f.label :password_confirmation, "Confirmacion" %>
-			<%= f.password_field :password_confirmation %>
-				
-			<%= f.submit "Crear mi cuenta", :class => "btn btn-large btn-primary" %>
+  			<%= label_tag(:password) %>
+  			<%= password_field(:usuario, :password) %>
+  			
+  			<%= label_tag(:password_confirmation, "Confirmacion") %>
+  			<%= password_field(:usuario, :password_confirmation) %>
+								
+			<%= f.submit "Registrar", :class => "btn btn-large btn-primary" %>
 		<% end %>
 	</div>
 </div>

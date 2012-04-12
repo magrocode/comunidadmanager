@@ -1,17 +1,26 @@
 <% provide(:titulo, 'Usuarios') %>
-
+<div class="page-header">
+	<h1>Usuarios <small><%= @comunidad.nombre %></small></h1>	
+</div>
+	
 <div class="container-fluid">
 	
 	<div class="row">
-		<h2>Usuarios <small><%= @comunidad.nombre %></small></h2>	
-	</div>
-	
-	<div class="row">
-		<div class="span2 offset5">
+		<div class="span6">
+			<p>ORDENAR POR</p>
+			<ul class="nav nav-pills">
+			  <li class="active">
+			    <a href="#">Email</a>
+			  </li>
+			  <li><a href="#">Nombre</a></li>
+			  <li><a href="#">Administrador</a></li>
+			</ul>
+		</div>
+		<div class="span2 offset1">
 			<h2><%= @comunidad.usuarios.count %><br /><small>Usuarios</small></h2>
 		</div>
 		<div class="span2">
-			<h2>2<br /><small>Tipos</small></h2>
+			<h2><%= @comunidad.usuarios.where(administrador: true).count %><br /><small>Administradores</small></h2>
 		</div>		
 	</div>
 	
@@ -28,7 +37,11 @@
 			<tr>
 				<td><%= link_to usuario.email, usuario %></td>
 				<td><%= usuario.nombre %></td>
-				<td>-</td>
+				<% if usuario.administrador?  %>
+					<td><i class="icon-ok"></i></td>
+				<% else %>
+					<td></td>
+				<% end %>
 				<td class="ar">
 					<small>
 					<%= link_to 'Mostrar', usuario %> |

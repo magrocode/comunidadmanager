@@ -10,8 +10,11 @@
 					<ul class="nav pull-left">
 						<li><%= link_to 'Bienvenido', "#" %></li>
 						<li><%= link_to 'Dashboard', '#' %></li>
+						<li><%= link_to 'Comunidad', comunidad_path(current_user.comunidad) %></li>
 						<li><%= link_to 'Unidades', comunidad_unidads_path(current_user.comunidad) %></li>
-						<li><%= link_to 'Usuarios', comunidad_usuarios_path(current_user.comunidad) %></li>
+						<% if current_user.administrador? %>
+							<li><%= link_to 'Usuarios', comunidad_usuarios_path(current_user.comunidad) %></li>
+						<% end %>
 						<li><%= link_to 'Instalaciones', '#' %></li>
 						<li><%= link_to 'Finanzas', '#' %></li>
 						<li><%= link_to 'Reportes', '#' %></li>
@@ -24,7 +27,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li><%= link_to "Perfil", current_user %></li>
-								<li><%= link_to "Configuracion", '#' %></li>
+								<li><%= link_to "Configuracion", edit_usuario_path(current_user) %></li>
 								<li class="divider"></li>
 								<li><%= link_to "Sign out", signout_path, method: "delete"%></li>
 							</ul>

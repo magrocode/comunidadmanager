@@ -14,7 +14,7 @@
 
 class Comunidad < ActiveRecord::Base
 
-  attr_accessible :nombre, :email, :direccion, :ciudad, :region, :pais
+  attr_accessible :nombre, :direccion, :ciudad, :region, :pais
 
   has_many :unidads, dependent: :destroy
   has_many :usuarios, dependent: :destroy

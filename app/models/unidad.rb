@@ -11,6 +11,7 @@
 #
 
 class Unidad < ActiveRecord::Base
+  
   attr_accessible :identificador, :participacion
   belongs_to :comunidad
   

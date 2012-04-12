@@ -5,6 +5,8 @@ class UsuariosController < ApplicationController
     @usuarios = @comunidad.usuarios.paginate(page: params[:page], per_page: 3)  
   end
   
+ 
+  
   def new
     @comunidad = Comunidad.find(params[:comunidad_id])
     @usuario = @comunidad.usuarios.build
@@ -26,6 +28,31 @@ class UsuariosController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def edit
+    @usuario = Usuario.find(params[:id])
+    @comunidad =  @usuario.comunidad
+  end
+  
+  def update
+    @usuario = Usuario.find(params[:id])
+    @comunidad = @usuario.comunidad
+    
+    if @usuario.update_attributes(params[:usuario])
+      flash[:success] = "Usuario actualizado exitosamente!"
+      redirect_to usuario_path
+    else
+      render action: 'edit'
+    end
+  end
+  
+  def destroy
+    @usuario = Usuario.find(params[:id])
+    @comunidad = @usuario.comunidad
+    @usuario.destroy
+    
+    redirect_to comunidad_usuarios_path(@comunidad)
   end
   
   private

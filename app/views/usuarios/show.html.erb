@@ -1,3 +1,8 @@
 <% provide(:titulo, @usuario.email) %>
-<h1><%= @usuario.nombre %></h1>
-<h3>Email: <%= @usuario.email %></h3>
+<div class="page-header">
+	<h1><%= @usuario.nombre %> <small><%= @comunidad.nombre %></small></h1>
+</div>
+<div class="row-fluid">
+	<p>Email: <%= @usuario.email %></p>	
+</div>
+

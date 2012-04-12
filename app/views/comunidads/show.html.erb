@@ -11,10 +11,10 @@
 		<small><%= link_to 'Unidades', comunidad_unidads_path(@comunidad) %></small></h2>
   	</div>
   	<div class="span2">
-  		<h2>30<br /><small><%= link_to 'Usuarios', '#' %></small></h2>
+  		<h2><%= @comunidad.usuarios.count()%><br /><small><%= link_to 'Usuarios', comunidad_usuarios_path(@comunidad) %></small></h2>
   	</div>
   	<div class="span2">
-  		<h2>8<br /><small><a href="#">Instalaciones</a></small></h2>
+  		<h2>0<br /><small><a href="#">Instalaciones</a></small></h2>
   	</div>
 </div>
 

@@ -53,7 +53,7 @@ class UnidadsController < ApplicationController
     @comunidad = @unidad.comunidad
     
     if @unidad.update_attributes(params[:unidad])
-       flash[:success] = "Unidad fue actualizada satisfactoriamente."
+       flash[:success] = "Unidad actualizada exitosamente!"
        #redirect_to comunidad_unidad_path
        redirect_to unidad_path
      else
