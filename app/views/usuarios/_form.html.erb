@@ -1,8 +1,9 @@
 <div class="row">
-	<div class="span6 offset3">
+	<div class="span6 offset5">
 		<%= form_for([@comunidad, @usuario]) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
 			
+			<fieldset>
 			<%= f.label :email %>
 			<%= f.email_field :email %>
 			
@@ -17,9 +18,8 @@
 
 			<%= f.label :password_confirmation, "Confirmacion" %>
 			<%= f.password_field :password_confirmation %>
-			
-			<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
-		
+			</fieldset>
+			<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>	
 		<% end %>
 	</div>
 </div>	

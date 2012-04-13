@@ -1,12 +1,11 @@
 <% provide(:titulo, @comunidad.nombre)%>
+<div class="page-header">
 <h1><%= @comunidad.nombre %></h1>
-
-<div class="row">
-
 </div>
 
 <div class="row">	
-	<div class="span2 offset5">
+	<div class="span7 offset5 well">
+	<div class="span2">
 		<h2><%= @comunidad.unidads.count()%><br />
 		<small><%= link_to 'Unidades', comunidad_unidads_path(@comunidad) %></small></h2>
   	</div>
@@ -16,7 +15,8 @@
   	<div class="span2">
   		<h2>0<br /><small><a href="#">Instalaciones</a></small></h2>
   	</div>
+  	</div>
 </div>
 
-<%= link_to 'Nueva unidad', new_comunidad_unidad_path(@comunidad) %>
-<%= link_to 'Nuevo usuario', new_comunidad_usuario_path(@comunidad) %>
+<%= link_to '[+ Nueva unidad]', new_comunidad_unidad_path(@comunidad) %>
+<%= link_to '[+ Nuevo usuario]', new_comunidad_usuario_path(@comunidad) %>
