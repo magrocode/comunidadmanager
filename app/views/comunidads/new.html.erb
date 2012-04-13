@@ -6,19 +6,19 @@
 		<%= form_for(@comunidad) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
 			
-			<%= f.label :nombre %>
+			<%= f.label :nombre, "Nombre del Edificio o Comunidad" %>
 			<%= f.text_field :nombre %>
 			
-			<%= label_tag(:email_administrador, "Email administrador") %>
+			<%= label_tag(:email_administrador, "Email de administrador") %>
   			<%= text_field(:usuario, :email) %>			
   			
-  			<%= label_tag(:nombre_administrador, "Nombre administrador") %>
+  			<%= label_tag(:nombre_administrador, "Nombre de administrador") %>
   			<%= text_field(:usuario, :nombre) %>
 
-  			<%= label_tag(:password) %>
+  			<%= label_tag(:password, "Password del administrador") %>
   			<%= password_field(:usuario, :password) %>
   			
-  			<%= label_tag(:password_confirmation, "Confirmacion") %>
+  			<%= label_tag(:password_confirmation, "Confirmacion del password") %>
   			<%= password_field(:usuario, :password_confirmation) %>
 								
 			<%= f.submit "Registrar", :class => "btn btn-large btn-primary" %>

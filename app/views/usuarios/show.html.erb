@@ -1,8 +1,14 @@
 <% provide(:titulo, @usuario.email) %>
 <div class="page-header">
-	<h1><%= @usuario.nombre %> <small><%= @comunidad.nombre %></small></h1>
+	<h1><%= @usuario.nombre %> <small><%= @comunidad.nombre %></small></h1>	
 </div>
+	
 <div class="row-fluid">
-	<p>Email: <%= @usuario.email %></p>	
+	<div class="span6">
+		<p><strong>Email:</strong> <%= @usuario.email %> <%= link_to 'Editar', edit_usuario_path(@usuario) %></p>
+	</div>
+	<div class="span1">
+		
+	</div>
 </div>
 
