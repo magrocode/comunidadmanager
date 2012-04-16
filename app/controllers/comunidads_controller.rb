@@ -1,6 +1,6 @@
 class ComunidadsController < ApplicationController
-  #before_filter :signed_in_user, only: [:index, :edit, :update]
-  #before_filter :correct_user, only: [:show, :unidads]
+  before_filter :signed_in_user, only: [:index, :edit, :update, :show]
+  before_filter :correct_user, only: [:show]
   #before_filter :admin_user, only: [:edit, :update]
   
   def new
@@ -24,9 +24,9 @@ class ComunidadsController < ApplicationController
       if @comunidad.save
         if @usuario.save 
           sign_in @usuario
-          flash[:success] = "Bienvenido a Comunidad Manager!"
-          #redirect_to @comunidad
-          redirect_to root_path
+          flash[:success] = "Bienvenido a Bloombee!"
+          redirect_to @comunidad
+          #redirect_to root_path
         end
       end      
     else
@@ -42,16 +42,18 @@ class ComunidadsController < ApplicationController
   
   private
   
-    #def signed_in_user
-    #  redirect_to signin_path, notice: "Por favor autentiquese." unless signed_in?      
-    #end
+    def signed_in_user
+      redirect_to signin_path, notice: "Por favor autentiquese." unless signed_in?      
+    end
     
     def correct_user
-      @comunidad = Comunidad.find(params[:id])
-      redirect_to(root_path) unless current_user?(@comunidad)
+      @comunidad_autorizada = current_user.comunidad
+      @comunidad_solicitada = Comunidad.find(params[:id])
+      
+      redirect_to root_path if @comunidad_autorizada != @comunidad_solicitada
     end
     
     def admin_user
-      redirect_to(root_path) unless current_user.admin?
+      redirect_to(root_path) unless current_user.administrador?
     end
 end

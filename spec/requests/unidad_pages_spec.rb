@@ -5,7 +5,8 @@ describe "UnidadPages" do
   subject { page }
   
   let(:comunidad) { FactoryGirl.create(:comunidad) }
-  before { sign_in comunidad }
+  let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
+  before { sign_in usuario }
   
   describe "Creacion de unidad" do 
     
@@ -22,13 +23,14 @@ describe "UnidadPages" do
         it { should have_content(error) }
       end    
     end 
+
     
     describe "con informacion valida" do
       
       # pendiente de escribir
       before do
         fill_in 'Identificador', with: "DEP101"
-        fill_in 'Participacion', with: 0.25
+        fill_in 'Participacion', with: 0.1225
       end
       
       it "debe crear una unidad" do
@@ -42,8 +44,10 @@ describe "UnidadPages" do
         it { should have_selector('title', text: unidad.identificador) }
       end
     end
+
   end
-  
+
+=begin
   describe "Viendo unidades de otras comunidades" do
     let(:comunidad1) { FactoryGirl.create(:comunidad) }
     let(:unidad1) { FactoryGirl.create(:unidad, comunidad: comunidad1) }    
@@ -51,6 +55,6 @@ describe "UnidadPages" do
     
     it { should_not have_selector('title', text: unidad1.identificador) }
   end
-  
+=end
 
 end

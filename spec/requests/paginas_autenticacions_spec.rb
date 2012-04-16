@@ -15,7 +15,8 @@ describe "Autenticacion" do
     it { should have_selector('title', text: 'Sign in') }
     
   end
-  
+
+
   describe "signin" do
      before { visit signin_path }
      
@@ -30,17 +31,21 @@ describe "Autenticacion" do
          it { should_not have_selector('div.alert.alert-error') }
        end
      end
+      
      
      describe "con informacion valida" do
+       
        let(:comunidad) { FactoryGirl.create(:comunidad) }
+       let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
+       
        before do
-         fill_in "Email", with: comunidad.email
-         fill_in "Password", with: comunidad.password
+         fill_in "Email", with: usuario.email
+         fill_in "Password", with: usuario.password
          click_button "Sign in"
        end
        
        it { should have_selector('title', text: comunidad.nombre) }
-       it { should have_link('Perfil', href: comunidad_path(comunidad)) }
+       it { should have_link('Perfil', href: usuario_path(usuario)) }
        it { should have_link('Sign out', href: signout_path) }
        it { should_not have_link('Sign in', href: signin_path) }
        
@@ -50,5 +55,7 @@ describe "Autenticacion" do
          it { should have_selector('div.alert.alert-success', text: 'Ha cerrado su sesion')}
        end
      end
+
   end
+
 end

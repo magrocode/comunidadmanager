@@ -11,12 +11,12 @@ describe "Paginas" do
   
   describe "Pagina 'Home'" do
     before { visit root_path }
-    let(:heading) { 'Comunidad Manager' }
+    let(:heading) { 'bloombee' }
     let(:page_title) { 'Home' }
     
     it_should_behave_like "all paginas"
     
-    it { should have_link('Registrate Ahora!', href: signup_path ) }
+    it { should have_link('Crear Comunidad Ahora!', href: signup_path ) }
   end   
   
 end

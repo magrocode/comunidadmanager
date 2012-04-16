@@ -15,7 +15,7 @@ require 'spec_helper'
 describe Unidad do
   
   let(:comunidad) { FactoryGirl.create(:comunidad) }
-  before { @unidad = comunidad.unidads.build(identificador: "DEP101", participacion: 0.25) }
+  before { @unidad = comunidad.unidads.build(identificador: "DEP101", participacion: 1.2556) }
   
   subject { @unidad }
   
@@ -25,6 +25,8 @@ describe Unidad do
   it { should respond_to(:comunidad) }
   its(:comunidad) { should == comunidad }
   
+  it { should be_valid }
+    
   describe "cuando comunidad_id no esta presente" do
     before { @unidad.comunidad_id = nil }
     it { should_not be_valid }
