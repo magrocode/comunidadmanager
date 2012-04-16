@@ -14,12 +14,16 @@ class ComunidadsController < ApplicationController
   end
   
   def create
-    @comunidad = Comunidad.new(params[:comunidad])
+    @comunidad = Comunidad.new(nombre: params[:comunidad][:nombre])
     @usuario = @comunidad.usuarios.build(email: params[:usuario][:email],
-                                         nombre: params[:usuario][:nombre],
+                                        nombre: params[:usuario][:nombre],
                                          administrador: true,
                                          password: params[:usuario][:password],
                                          password_confirmation: params[:usuario][:password_confirmation])
+
+
+  
+
     if @comunidad.valid? and @usuario.valid?                                     
       if @comunidad.save
         if @usuario.save 

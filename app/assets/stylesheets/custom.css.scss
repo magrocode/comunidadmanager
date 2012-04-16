@@ -139,7 +139,7 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
-#error_explanation {
+#error_explanation, #errorExplanation {
   color:#f00;
   ul {
     list-style: none;
@@ -160,7 +160,7 @@ table small {
 }
 
 
-/* Aliniacion */ 
+/* Alineacion */ 
 .ar {
   text-align: right;
 }

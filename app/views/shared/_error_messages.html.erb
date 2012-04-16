@@ -3,7 +3,7 @@
 		<div class="alert alert-error">
 			<a class="close" data-dismiss="alert">×</a>
 				<h4 class="alert-heading">Algo anda mal?</h4><br />
-			El formulario contiene <%= pluralize(object.errors.count, "error") %>.
+			El formulario contiene <%= pluralize(object.errors.count, "error", "errores") %>. Por favor revise los campos resaltados
     	</div>
     	<ul>
     		<% object.errors.full_messages.each do |msg| %>
