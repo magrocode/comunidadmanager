@@ -25,7 +25,7 @@ describe "Paginas de Comunidad" do
    
     describe "con informacion valida" do
       before do
-        fill_in "Nombre de Comunidad", with: "Comunidad de Ejemplo"
+        fill_in "comunidad_nombre", with: "Comunidad de Ejemplo"
         fill_in "usuario_nombre", with: "Mario Espinoza"
         fill_in "usuario_email", with: "mario@foobar.com"
         fill_in "usuario_password", with: "foobar"
@@ -65,14 +65,6 @@ describe "Paginas de Comunidad" do
     it { should have_selector('title', text: comunidad.nombre) }
   end
   
-  describe "Editando perfil de comunidad" do
-    
-    let(:comunidad) { FactoryGirl.create(:comunidad) }
-    let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad)}
-    
-  end
-
-
   describe "Viendo perfil de otras comunidades" do
     let(:comunidadA) { FactoryGirl.create(:comunidad) }
     let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidadA)}
@@ -84,6 +76,25 @@ describe "Paginas de Comunidad" do
     
     it { should_not have_selector('h1', text: comunidadB.nombre) }
     it { should_not have_selector('title', text: comunidadB.nombre) }
-  end  
+  end
+      
+  
+  
+  
+  describe "Editando perfil de comunidad" do
+    
+    let(:comunidad) { FactoryGirl.create(:comunidad) }
+    let(:usuario) { FactoryGirl.create(:usuario_admin, comunidad: comunidad) }
+    
+    before do
+      sign_in usuario
+      visit edit_comunidad_path(comunidad)
+    end
+    
+    it { should have_selector('h1', text: "Editando comunidad") }
+  end
+
+
+
   
 end

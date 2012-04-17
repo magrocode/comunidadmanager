@@ -16,14 +16,10 @@ class ComunidadsController < ApplicationController
   def create
     @comunidad = Comunidad.new(nombre: params[:comunidad][:nombre])
     @usuario = @comunidad.usuarios.build(email: params[:usuario][:email],
-                                        nombre: params[:usuario][:nombre],
+                                         nombre: params[:usuario][:nombre],
                                          administrador: true,
                                          password: params[:usuario][:password],
                                          password_confirmation: params[:usuario][:password_confirmation])
-
-
-  
-
     if @comunidad.valid? and @usuario.valid?                                     
       if @comunidad.save
         if @usuario.save 
@@ -36,6 +32,21 @@ class ComunidadsController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def edit
+    @comunidad = Comunidad.find(params[:id])  
+  end
+  
+  def update
+    @comunidad = Comunidad.find(params[:id])
+    
+    if @comunidad.update_attributes(params[:comunidad])
+      flash[:success] = "Comunidad actualizada exitosamente!"
+      redirect_to comunidad_path
+    else
+      render action: 'edit'
+    end  
   end
   
   #def unidads
