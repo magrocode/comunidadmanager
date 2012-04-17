@@ -20,5 +20,6 @@ class Comunidad < ActiveRecord::Base
   has_many :usuarios, dependent: :destroy
 
   validates :nombre, presence: true, length: { maximum: 50 }
+  validates :direccion, :ciudad, :region, :pais, length: { maximum: 255 }
 
 end

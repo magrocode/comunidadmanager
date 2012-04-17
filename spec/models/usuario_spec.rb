@@ -99,7 +99,7 @@ describe Usuario do
     end
     
     describe "con password invalido" do
-      let(:usuario_para_password_invalido) { usuario_encontrado.authenticate("invalido") }
+      let(:usuario_para_password_invalido) { usuario_encontrado.authenticate("pass_invalido") }
       
       it { should_not == usuario_para_password_invalido }
       specify { usuario_para_password_invalido.should be_false }

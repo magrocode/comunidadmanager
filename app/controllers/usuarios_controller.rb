@@ -1,4 +1,7 @@
 class UsuariosController < ApplicationController
+  before_filter :signed_in_user
+  before_filter :admin_user, :only => [:new, :destroy]
+  
   
   def index
     @comunidad = Comunidad.find(params[:comunidad_id])
@@ -57,12 +60,17 @@ class UsuariosController < ApplicationController
   
   private
   
+    def signed_in_user
+      redirect_to signin_path, notice: "Por favor autentiquese." unless signed_in?      
+    end
+    
+    
     def correct_user
       @usuario = Usuario.find(params[:id])
       redirect_to(root_path) unless current_user?(@usuario)
     end
     
     def admin_user
-      redirect_to(root_path) unless current_user.admin?
+      redirect_to(root_path) unless current_user.administrador?
     end
 end

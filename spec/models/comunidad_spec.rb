@@ -43,6 +43,26 @@ describe Comunidad do
     it { should_not be_valid }    
   end
   
+  describe "Cuando ciudad es demasiado largo" do
+    before { @comunidad.ciudad = "a" * 256 }
+    it { should_not be_valid }
+  end
+  
+  describe "Cuando region es demasiado largo" do
+    before { @comunidad.region = "a" * 256 }
+    it { should_not be_valid }
+  end
+  
+  describe "Cuando pais es demasiado largo" do
+    before { @comunidad.pais = "a" * 256 }
+    it { should_not be_valid }
+  end
+  
+  describe "Cuando direccion es demasiado largo" do
+    before { @comunidad.direccion = "a" * 256 }
+    it { should_not be_valid }
+  end
+  
 ###
 ##  
 #  describe "unidades de la comunidad" do

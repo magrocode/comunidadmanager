@@ -77,9 +77,6 @@ describe "Paginas de Comunidad" do
     it { should_not have_selector('h1', text: comunidadB.nombre) }
     it { should_not have_selector('title', text: comunidadB.nombre) }
   end
-      
-  
-  
   
   describe "Editando perfil de comunidad" do
     
@@ -91,10 +88,17 @@ describe "Paginas de Comunidad" do
       visit edit_comunidad_path(comunidad)
     end
     
+    it { should have_selector('title', text: "Editando comunidad") }
     it { should have_selector('h1', text: "Editando comunidad") }
+    
+    
+    describe "por usuario no administrador" do
+      
+      let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
+      
+      it { should_not have_selector('title', text: "Editando comunidad" )}  
+    end 
   end
-
-
 
   
 end

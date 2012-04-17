@@ -1,7 +1,7 @@
 class ComunidadsController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update, :show]
   before_filter :correct_user, only: [:show]
-  #before_filter :admin_user, only: [:edit, :update]
+  before_filter :admin_user, only: [:edit, :update]
   
   def new
     @comunidad = Comunidad.new

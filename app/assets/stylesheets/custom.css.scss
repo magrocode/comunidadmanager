@@ -4,6 +4,13 @@
 
 $grayMediumLight: #eaeaea;
 
+
+/* .navbar-inner {
+  //@navBarBgStart: #3D368B;
+  //@navBarBgEnd: #232051;
+  background-image: -webkit-linear-gradient(top,  black, green )
+} */
+
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
@@ -164,3 +171,4 @@ table small {
 .ar {
   text-align: right;
 }
+

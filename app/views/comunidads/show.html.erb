@@ -1,20 +1,24 @@
 <% provide(:titulo, @comunidad.nombre)%>
 <div class="page-header">
 <h1><%= @comunidad.nombre %></h1>
+<% if @current_user.administrador? %>
+	<%= link_to 'Editar', edit_comunidad_path(@comunidad) %>
+<% end %>
 </div>
 
-<div class="row">	
-	<div class="span7 offset5 well">
-	<div class="span2">
-		<h2><%= @comunidad.unidads.count()%><br />
-		<small><%= link_to 'Unidades', comunidad_unidads_path(@comunidad) %></small></h2>
-  	</div>
-  	<div class="span2">
-  		<h2><%= @comunidad.usuarios.count()%><br /><small><%= link_to 'Usuarios', comunidad_usuarios_path(@comunidad) %></small></h2>
-  	</div>
-  	<div class="span2">
-  		<h2>0<br /><small><a href="#">Instalaciones</a></small></h2>
-  	</div>
+<div class="row-fluid">
+	<div class="span2">Indicadores:</div>	
+	<div class="span6 well">
+		<div class="span2">
+			<h2><%= @comunidad.unidads.count()%><br />
+			<small><%= link_to 'Unidades', comunidad_unidads_path(@comunidad) %></small></h2>
+	  	</div>
+	  	<div class="span2">
+	  		<h2><%= @comunidad.usuarios.count()%><br /><small><%= link_to 'Usuarios', comunidad_usuarios_path(@comunidad) %></small></h2>
+	  	</div>
+	  	<div class="span2">
+	  		<h2>0<br /><small><a href="#">Instalaciones</a></small></h2>
+	  	</div>
   	</div>
 </div>
 
