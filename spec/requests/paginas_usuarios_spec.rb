@@ -69,6 +69,17 @@ describe "Paginas de Usuarios" do
         before { visit edit_usuario_path(usuario) } 
         
         it { should have_selector('title', text: 'Editando usuario') }
+        
+        describe "Cambiando el password" do
+          before do
+            fill_in 'Password', with: "foobar2"
+            fill_in 'Confirmacion', with: "foobar2"
+            click_button "Enviar"        
+          end
+          
+          it { should have_selector('title', text: usuario.email )}
+          
+        end
       end
       
       describe "editando perfil de otro usuario" do

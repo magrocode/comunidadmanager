@@ -5,25 +5,23 @@
 	
 <div class="container-fluid">
 	
-	<div class="row">
-		<div class="span6">
-			<p>ORDENAR POR</p>
+	<div class="row-fluid">
+		<div class="span3">
+			<p>Ordenar por:</p>
 			<ul class="nav nav-pills">
-			  <li class="active">
-			    <a href="#">Email</a>
-			  </li>
-			  <li><a href="#">Nombre</a></li>
-			  <li><a href="#">Administrador</a></li>
+				<li class="active"><%= sortable "email" %></li>
+				<li><%= sortable "nombre" %></li>
+				<li><%= sortable "administrador" %></li>
 			</ul>
 		</div>
-		<div class="span2 offset1">
+		<div class="span1">
 			<h2><%= @comunidad.usuarios.count %><br /><small>Usuarios</small></h2>
 		</div>
-		<div class="span2">
+		<div class="span1">
 			<h2><%= @comunidad.usuarios.where(administrador: true).count %><br /><small>Administradores</small></h2>
 		</div>		
 	</div>
-	
+
 	<div class="row">
 		<%= will_paginate %>
 		<table class="table table-bordered table-striped">
@@ -31,7 +29,7 @@
 				<th>Email</th>
 				<th>Nombre</th>
 				<th>Admin?</th>
-				<th></th>
+				<% if current_user.administrador? %><th></th><% end %>
 			</tr>
 		<% @usuarios.each do |usuario| %>
 			<tr>
@@ -42,13 +40,15 @@
 				<% else %>
 					<td></td>
 				<% end %>
+				<% if current_user.administrador? %>
 				<td class="ar">
 					<small>
 					<%= link_to 'Mostrar', usuario %> |
 					<%= link_to 'Editar', edit_usuario_path(usuario) %> |
 					<%= link_to 'Eliminar', usuario, confirm: 'Estas seguro de eliminar?', :method => :delete %>
 					</small>
-				</td>	
+				</td>
+				<% end %>	
 			</tr>
 		<% end %>
 		</table>
@@ -56,6 +56,8 @@
 	</div>
 	
 	<div class="row">
+		<% if current_user.administrador? %>
 		<%= link_to 'Nuevo usuario', new_comunidad_usuario_path(@comunidad), :class => 'btn btn-primary btn-large' %>
+		<% end %>
 	</div>	
 </div>
