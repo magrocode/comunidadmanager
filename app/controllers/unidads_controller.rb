@@ -1,6 +1,9 @@
 class UnidadsController < ApplicationController
-  #before_filter :signed_in_user
-  #before_filter :correct_user, :only => [:index, :new, :create]
+  before_filter :signed_in_user
+  before_filter :correct_comunidad, :only => [:index]
+  before_filter :correct_user, :only => [:show, :edit, :update,]
+  before_filter :admin_user, :only => [:new, :destroy]
+
   #before_filter :propietario, :only => [:show, :edit, :destroy, :update]
   
   def index
@@ -19,7 +22,6 @@ class UnidadsController < ApplicationController
     
     if @unidad.save
       flash[:success] = "Unidad creada!"
-      #redirect_to [@comunidad, @unidad]
       redirect_to @unidad
     else
        render action: 'new'  
@@ -27,28 +29,16 @@ class UnidadsController < ApplicationController
   end
   
   def show
-    #@comunidad = Comunidad.find(params[:comunidad_id])
-    #@unidad = @comunidad.unidads.find(params[:id])
-    
-    # Alternativa
     @unidad = Unidad.find(params[:id])
     @comunidad = @unidad.comunidad
   end
   
   def edit
-    #@comunidad = Comunidad.find(params[:comunidad_id])
-    #@unidad = @comunidad.unidads.find(params[:id])
-    
-    # Alternativa
     @unidad = Unidad.find(params[:id])
     @comunidad = @unidad.comunidad
   end
       
   def update
-    #@comunidad = Comunidad.find(params[:comunidad_id])
-    #@unidad = @comunidad.unidads.find(params[:id])
-    
-    # Alternativa
     @unidad = Unidad.find(params[:id])
     @comunidad = @unidad.comunidad
     
@@ -74,21 +64,19 @@ class UnidadsController < ApplicationController
     def signed_in_user
       redirect_to signin_path, notice: "Por favor autentiquese." unless signed_in?      
     end
-  
-    #def correct_user
-    #  @unidad = current_user.unidads.find_by_id(params[:id])
-    #  redirect_to root_path if @unidad.nil?
-    #end
-     
     
-    #def correct_user
-    #  @comunidad = Comunidad.find(params[:comunidad_id])
-    #  redirect_to(root_path, notice: "No esta habilitado para ver la informacion!") unless current_user?(@comunidad)
-    #end
+    def admin_user
+      redirect_to(root_path, notice: "No esta habilitado para ver la informacion!") unless current_user.administrador?
+    end
     
     def correct_user
+      @unidad = Unidad.find(params[:id])
+      redirect_to root_path if (@unidad.comunidad != current_user.comunidad or !current_user.administrador?)
+    end
+    
+    def correct_comunidad
       @comunidad = Comunidad.find(params[:comunidad_id])
-      redirect_to(root_path, notice: "No esta habilitado para ver la informacion!") unless current_user?(@comunidad)
+      redirect_to root_path, notice: "No esta habilitado para ver la informacion!" if @comunidad != current_user.comunidad
     end
     
     def propietario
@@ -96,10 +84,5 @@ class UnidadsController < ApplicationController
       @unidad = current_user.unidads.find_by_id(params[:id])
       redirect_to root_path if @unidad.nil?
     end
-    
-    #def comunidad_correcta
-    #  @comunidad = Comunidad.find(params[:comunidad_id])
-    #  redirect_to(root_path, notice: "No esta habilitado para ver la informacion!") unless current_user?(@comunidad)
-    #end
   
 end

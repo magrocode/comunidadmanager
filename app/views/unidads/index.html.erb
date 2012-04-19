@@ -4,30 +4,34 @@
 </div>
 <div class="container-fluid">
 	
-	<div class="row">
-		<div class="span2 offset5">
-			<h2><%= @comunidad.unidads.count %><br /><small>Unidades</small></h2>
+	<div class="well">
+		<div class="row-fluid">
+			<div class="span1 center">
+				<h2><%= @comunidad.unidads.count %><br /><small>Unidades</small></h2>
+			</div>
+			<div class="span1 center">
+				<h2>2<br /><small>Tipos</small></h2>
+			</div>
+			<div class="span1 center">
+				<h2><%= @comunidad.unidads.sum("participacion") %> %<br /><small>Participacion</small></h2>
+			</div>		
 		</div>
-		<div class="span2">
-			<h2>2<br /><small>Tipos</small></h2>
-		</div>
-		<div class="span2">
-			<h2><%= @comunidad.unidads.sum("participacion") %> %<br /><small>Participacion</small></h2>
-		</div>		
 	</div>
-	
-	<div class="row">
+	<div class="row-fluid">
 		<%= will_paginate %>
 		<table class="table table-bordered table-striped">
 			<tr>
 				<th>Identificador</th>
 				<th>% Participacion</th>
+				<% if current_user.administrador? %>
 				<th></th>
+				<% end %>
 			</tr>
 		<% @unidads.each do |unidad| %>
 			<tr>
 				<td><%= link_to unidad.identificador, unidad %></td>
 				<td><%= unidad.participacion %></td>
+				<% if current_user.administrador? %>
 				<td class="ar">
 					<small>
 					<%= link_to 'Mostrar', unidad %> |
@@ -35,13 +39,15 @@
 					<%= link_to 'Eliminar', unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
 					</small>
 				</td>	
+				<% end %>
 			</tr>
 		<% end %>
 		</table>
 		<%= will_paginate %>
 	</div>
-	
+	<% if current_user.administrador? %>
 	<div class="row">
 		<%= link_to 'Nueva unidad', new_comunidad_unidad_path(@comunidad), :class => 'btn btn-primary btn-large' %>
 	</div>	
+	<% end %>
 </div>

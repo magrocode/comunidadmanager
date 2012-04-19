@@ -5,8 +5,8 @@ describe "UnidadPages" do
   subject { page }
   
   let(:comunidad) { FactoryGirl.create(:comunidad) }
-  let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
-  before { sign_in usuario }
+  let(:usuario_admin) { FactoryGirl.create(:usuario_admin, comunidad: comunidad) }
+  before { sign_in usuario_admin }
   
   describe "Creacion de unidad" do 
     
@@ -47,14 +47,14 @@ describe "UnidadPages" do
 
   end
 
-=begin
+
   describe "Viendo unidades de otras comunidades" do
-    let(:comunidad1) { FactoryGirl.create(:comunidad) }
-    let(:unidad1) { FactoryGirl.create(:unidad, comunidad: comunidad1) }    
-    before { visit comunidad_unidad_path(comunidad1, unidad1) }
+    let(:comunidadB) { FactoryGirl.create(:comunidad) }
+    let(:unidadB) { FactoryGirl.create(:unidad, comunidad: comunidadB) }    
+    before { visit comunidad_unidad_path(comunidadB, unidadB) }
     
-    it { should_not have_selector('title', text: unidad1.identificador) }
+    it { should_not have_selector('title', text: unidadB.identificador) }
   end
-=end
+
 
 end
