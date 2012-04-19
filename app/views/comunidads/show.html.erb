@@ -7,20 +7,31 @@
 </div>
 
 <div class="row-fluid">
-	<div class="span2">Indicadores:</div>	
+	<div class="span2">
+		<ul class="nav nav-tabs nav-stacked">
+  			<li><%= link_to '+ Nueva unidad', new_comunidad_unidad_path(@comunidad) %></li>
+  			<li><%= link_to '+ Nuevo usuario', new_comunidad_usuario_path(@comunidad) %></li>
+  			<li><%= link_to '+ Nueva instalacion', '#' %></li>
+		</ul>
+		<ul class="nav nav-tabs nav-stacked">
+  			<li><%= link_to 'Nuevo egreso de dinero', '#' %></li>
+  			<li><%= link_to 'Nuevo ingreso de recaudacion', '#' %></li>
+		</ul>
+		<ul class="nav nav-tabs nav-stacked">
+  			<li><%= link_to 'Nueva lectura de consumos', '#' %></li>
+  			<li><%= link_to 'Nueva reserva de instalacion', '#' %></li>
+		</ul>
+	</div>	
 	<div class="span6 well">
-		<div class="span2">
+		<div class="span2 center">
 			<h2><%= @comunidad.unidads.count()%><br />
 			<small><%= link_to 'Unidades', comunidad_unidads_path(@comunidad) %></small></h2>
 	  	</div>
-	  	<div class="span2">
+	  	<div class="span2 center">
 	  		<h2><%= @comunidad.usuarios.count()%><br /><small><%= link_to 'Usuarios', comunidad_usuarios_path(@comunidad) %></small></h2>
 	  	</div>
-	  	<div class="span2">
+	  	<div class="span2 center">
 	  		<h2>0<br /><small><a href="#">Instalaciones</a></small></h2>
 	  	</div>
   	</div>
 </div>
-
-<%= link_to '[+ Nueva unidad]', new_comunidad_unidad_path(@comunidad) %>
-<%= link_to '[+ Nuevo usuario]', new_comunidad_usuario_path(@comunidad) %>

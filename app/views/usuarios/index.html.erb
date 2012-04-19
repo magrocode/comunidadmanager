@@ -15,10 +15,10 @@
 					<li <% if current_sort?('administrador') %> class="active" <% end %> ><%= sortable "administrador" %></li>
 				</ul>
 			</div>
-			<div class="span1">
+			<div class="span1 center">
 				<h2><%= @comunidad.usuarios.count %><br /><small>Usuarios</small></h2>
 			</div>
-			<div class="span1">
+			<div class="span1 center">
 				<h2><%= @comunidad.usuarios.where(administrador: true).count %><br /><small>Admins</small></h2>
 			</div>		
 		</div>
