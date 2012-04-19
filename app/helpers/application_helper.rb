@@ -16,5 +16,18 @@ module ApplicationHelper
     direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
     link_to title, {:sort => column, :direction => direction}, {:class => css_class}
   end
+  
+  
+  def current_sort=(column)
+    @current_sort = column
+  end
+  
+  def current_sort
+    @current_sort ||= params[:sort]  
+  end
+  
+  def current_sort?(column)
+    column == current_sort
+  end
     
 end
