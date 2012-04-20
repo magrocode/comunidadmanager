@@ -9,12 +9,9 @@
 					
 					<ul class="nav pull-left">
 						<li><%= link_to 'Bienvenido', "#" %></li>
-						<li><%= link_to 'Dashboard', '#' %></li>
-						<li><%= link_to 'Comunidad', comunidad_path(current_user.comunidad) %></li>
+						<li><%= link_to 'Dashboard', comunidad_path(current_user.comunidad) %></li>
 						<li><%= link_to 'Unidades', comunidad_unidads_path(current_user.comunidad) %></li>
-						<% if current_user.administrador? %>
-							<li><%= link_to 'Usuarios', comunidad_usuarios_path(current_user.comunidad) %></li>
-						<% end %>
+						<li><%= link_to 'Usuarios', comunidad_usuarios_path(current_user.comunidad) %></li>
 						<li><%= link_to 'Instalaciones', '#' %></li>
 						<li><%= link_to 'Finanzas', '#' %></li>
 						<li><%= link_to 'Reportes', '#' %></li>
