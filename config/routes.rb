@@ -4,6 +4,7 @@ Comunidadmanager::Application.routes.draw do
   #get "usuarios/new"
 
   get "paginas/home"
+  get "paginas/wellcome"
   
   resources :usuarios
   
@@ -21,6 +22,7 @@ Comunidadmanager::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   
   
+  match '/wellcome', to: 'paginas#wellcome'
   match '/signup', to: 'comunidads#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete

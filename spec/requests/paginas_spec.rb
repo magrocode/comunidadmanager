@@ -17,6 +17,21 @@ describe "Paginas" do
     it_should_behave_like "all paginas"
     
     it { should have_link('Crear Comunidad Ahora!', href: signup_path ) }
+  end
+  
+  describe "Pagina 'Bienvenido'" do
+    let(:comunidad) { FactoryGirl.create(:comunidad) }
+    let(:usuario_admin) { FactoryGirl.create(:usuario_admin, comunidad: comunidad) }
+    
+    let(:heading) { 'bloombee' }
+    let(:page_title) { 'Bienvenido' }
+    
+    before do
+      sign_in usuario_admin
+      visit wellcome_path
+    end
+    
+    it_should_behave_like "all paginas"
   end   
   
 end
