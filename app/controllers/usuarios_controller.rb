@@ -1,8 +1,11 @@
 class UsuariosController < ApplicationController
   before_filter :signed_in_user
-  before_filter :admin_user, :only => [:new, :destroy]
-  before_filter :correct_user, :only => [:edit, :update]
-  after_filter :signin_after_update, :only => :update
+  before_filter :correct_comunidad,   :only => [:index, :new]
+  before_filter :correct_user,        :only => [:show] 
+  before_filter :admin_user,          :only => [:new, :destroy]
+  before_filter :correct_editor,      :only => [:edit, :update]
+  
+  after_filter  :signin_after_update, :only => :update
 
   helper_method :sort_column, :sort_direction
   
@@ -26,7 +29,6 @@ class UsuariosController < ApplicationController
     @usuario = @comunidad.usuarios.build(params[:usuario])
     
     if @usuario.save
-      #sign_in @usuario
       flash[:success] = "Usuario creado"
       redirect_to @usuario
     else
@@ -65,7 +67,7 @@ class UsuariosController < ApplicationController
       redirect_to signin_path, notice: "Por favor autentiquese." unless signed_in?      
     end
        
-    def correct_user
+    def correct_editor
       @usuario = Usuario.find(params[:id])
       redirect_to(root_path) unless (current_user?(@usuario)  or current_user.administrador?)
     end
@@ -74,6 +76,19 @@ class UsuariosController < ApplicationController
       redirect_to(root_path) unless current_user.administrador?
     end
     
+    def correct_user
+      @comunidad_autorizada = current_user.comunidad
+      @usuario = Usuario.find(params[:id])
+      @comunidad_solicitada = @usuario.comunidad
+      redirect_to root_path if @comunidad_autorizada != @comunidad_solicitada    
+    end
+    
+    def correct_comunidad
+      @comunidad_autorizada = current_user.comunidad
+      @comunidad_solicitada = Comunidad.find(params[:comunidad_id])
+      redirect_to root_path if @comunidad_autorizada != @comunidad_solicitada  
+    end
+
     def signin_after_update
       @usuario = Usuario.find(params[:id])
       sign_in @usuario if current_user?(@usuario)
