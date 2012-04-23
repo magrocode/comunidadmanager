@@ -10,10 +10,12 @@
 				<%= f.label :nombre %>
 				<%= f.text_field :nombre %>
 				
+				<% if current_user.administrador? %>
 				<label class="checkbox">
 					<%= f.check_box :administrador %>
 					Es administrador?
 				</label><br />
+				<% end %>
 					
 				<%= f.label :password %>
 				<%= f.password_field :password %>

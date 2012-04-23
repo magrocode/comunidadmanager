@@ -9,7 +9,7 @@ describe "UnidadPages" do
   before { sign_in usuario_admin }
   
   describe "Creacion de unidad" do 
-    
+ 
     before { visit new_comunidad_unidad_path(comunidad) }
    
     describe "con informacion invalida" do
@@ -23,10 +23,8 @@ describe "UnidadPages" do
         it { should have_content(error) }
       end    
     end 
-
     
     describe "con informacion valida" do
-      
       # pendiente de escribir
       before do
         fill_in 'Identificador', with: "DEP101"
@@ -44,17 +42,18 @@ describe "UnidadPages" do
         it { should have_selector('title', text: unidad.identificador) }
       end
     end
-
   end
 
-
-  describe "Viendo unidades de otras comunidades" do
-    let(:comunidadB) { FactoryGirl.create(:comunidad) }
-    let(:unidadB) { FactoryGirl.create(:unidad, comunidad: comunidadB) }    
-    before { visit comunidad_unidad_path(comunidadB, unidadB) }
+  describe "Viendo unidades" do
+  
+    describe "de otras comunidades" do
+      let(:comunidadB) { FactoryGirl.create(:comunidad) }
+      let(:unidadB) { FactoryGirl.create(:unidad, comunidad: comunidadB) }    
+      before { visit comunidad_unidad_path(comunidadB, unidadB) }
+      
+      it { should_not have_selector('title', text: unidadB.identificador) }
+    end
     
-    it { should_not have_selector('title', text: unidadB.identificador) }
   end
-
 
 end

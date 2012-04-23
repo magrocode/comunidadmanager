@@ -20,5 +20,5 @@ class Unidad < ActiveRecord::Base
   validates :participacion, presence: true, 
                 numericality: { greater_than_or_equal_to: 0 }
                 
-  default_scope order: 'unidads.identificador ASC'
+  #default_scope order: 'unidads.identificador ASC'
 end

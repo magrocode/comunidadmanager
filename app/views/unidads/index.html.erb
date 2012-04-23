@@ -2,10 +2,17 @@
 <div class="page-header">
 	<h1>Unidades <small><%= @comunidad.nombre %></small></h1>	
 </div>
-<div class="container-fluid">
 	
 	<div class="well">
 		<div class="row-fluid">
+			<div class="span3">
+				<h6>Ordenado por:</h6><br />
+				<ul class="nav nav-pills">
+					<li <% if current_sort?('identificador') or current_sort.nil? %> class="active" <% end %> ><%= sortable "identificador" %></li>
+					<li <% if current_sort?('participacion') %> class="active" <% end %> ><%= sortable "participacion" %></li>
+				</ul>
+			</div>
+			
 			<div class="span1 center">
 				<h2><%= @comunidad.unidads.count %><br /><small>Unidades</small></h2>
 			</div>
@@ -13,7 +20,7 @@
 				<h2>2<br /><small>Tipos</small></h2>
 			</div>
 			<div class="span1 center">
-				<h2><%= @comunidad.unidads.sum("participacion") %> %<br /><small>Participacion</small></h2>
+				<h2><%= @comunidad.unidads.sum("participacion") %><br /><small>Participacion</small></h2>
 			</div>		
 		</div>
 	</div>
@@ -46,8 +53,8 @@
 		<%= will_paginate %>
 	</div>
 	<% if current_user.administrador? %>
-	<div class="row">
+	<div class="row-fluid">
 		<%= link_to 'Nueva unidad', new_comunidad_unidad_path(@comunidad), :class => 'btn btn-primary btn-large' %>
 	</div>	
 	<% end %>
-</div>
+
