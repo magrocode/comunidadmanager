@@ -1,15 +1,18 @@
-<div class="row">
-	<div class="span6 offset3">
+<div class="row-fluid">
+	<div class="span2"></div>
+	<div class="span3">
 		<%= form_for([@comunidad, @unidad]) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
-			
-			<%= f.label :identificador %>
-			<%= f.text_field :identificador %>
-			
-			<%= f.label :participacion %>
-			<%= f.number_field :participacion, :step => "0.0001", :min => 0 %>
-			
-			<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
+			<fieldset>
+				<%= f.label :identificador %>
+				<%= f.text_field :identificador %>
+				
+				<%= f.label :participacion %>
+				<%= f.number_field :participacion, :step => "0.0001", :min => 0 %>
+			</fieldset>
+			<div class="form-actions">
+				<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
+			</div>
 		<% end %>
 	</div>
 </div>

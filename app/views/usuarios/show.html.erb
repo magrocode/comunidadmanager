@@ -1,14 +1,20 @@
 <% provide(:titulo, @usuario.email) %>
 <div class="page-header">
-	<h1><%= @usuario.nombre %> <small><%= @comunidad.nombre %></small></h1>	
+	<h1>Usuarios <small><%= @comunidad.nombre %></small></h1>	
 </div>
 	
 <div class="row-fluid">
-	<div class="span6">
-		<p><strong>Email:</strong> <%= @usuario.email %> <%= link_to 'Editar', edit_usuario_path(@usuario) %></p>
+	<div class="span10">
+		<h1><%= @usuario.nombre %> <% if @usuario.administrador? %><span class="label label-info">Administrador</span><% end %></h1>
+		<h1><small><%= @usuario.email %></small></h1>		
 	</div>
-	<div class="span1">
-		
+</div>
+<br />
+<div class="row-fluid">
+	<div class="span12">
+			<%= link_to 'Editar', edit_usuario_path(@usuario) %> |
+			<%= link_to 'Eliminar', @usuario, confirm: 'Estas seguro de eliminar?', :method => :delete %> |
+			<%= link_to 'Ver usuarios', comunidad_usuarios_path(@comunidad) %>
 	</div>
 </div>
 

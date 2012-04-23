@@ -11,7 +11,7 @@ class UsuariosController < ApplicationController
   
   def index
     @comunidad = Comunidad.find(params[:comunidad_id])
-    @usuarios = @comunidad.usuarios.paginate(page: params[:page], per_page: 3).order(sort_column + " " + sort_direction)
+    @usuarios = @comunidad.usuarios.paginate(page: params[:page], per_page: 10).order(sort_column + " " + sort_direction)
   end
   
   def new
