@@ -6,13 +6,16 @@
 	<div class="span10">
 		<h1>Unidad <%= @unidad.identificador %></h1>
 		<h1><small>Participacion <%= @unidad.participacion %>%</small></h1>
+		<p>Superficie <%= @unidad.superficie %> m2</p>
 	</div>
 </div>
 <br />
 <div class="row-fluid">
 	<div class="span12">
+		<% if current_user.administrador? %>
 			<%= link_to 'Editar', edit_unidad_path(@unidad) %> |
 			<%= link_to 'Eliminar', @unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %> |
+		<% end %>
 			<%= link_to 'Ver unidades', comunidad_unidads_path(@comunidad) %>
 	</div>
 </div>

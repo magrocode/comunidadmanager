@@ -29,6 +29,7 @@ describe "UnidadPages" do
       before do
         fill_in 'Identificador', with: "DEP101"
         fill_in 'Participacion', with: 0.1225
+        fill_in 'Superficie',    with: 54.65
       end
       
       it "debe crear una unidad" do

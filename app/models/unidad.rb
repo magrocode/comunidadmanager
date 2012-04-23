@@ -6,19 +6,21 @@
 #  comunidad_id  :integer
 #  identificador :string(255)
 #  participacion :float
+#  superficie    :float
 #  created_at    :datetime        not null
 #  updated_at    :datetime        not null
 #
 
 class Unidad < ActiveRecord::Base
   
-  attr_accessible :identificador, :participacion
+  attr_accessible :identificador, :participacion, :superficie
   belongs_to :comunidad
   
   validates :comunidad_id, presence: true
   validates :identificador, presence: true, length: { maximum: 50 }
-  validates :participacion, presence: true, 
-                numericality: { greater_than_or_equal_to: 0 }
+  validates :participacion, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :superficie, numericality: true    
+            
                 
   #default_scope order: 'unidads.identificador ASC'
 end

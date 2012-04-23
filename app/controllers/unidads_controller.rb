@@ -1,9 +1,9 @@
 class UnidadsController < ApplicationController
   
   before_filter :signed_in_user
-  before_filter :correct_comunidad, :only => [:index]
-  before_filter :correct_user, :only => [:show, :edit, :update]
-  before_filter :admin_user, :only => [:new, :destroy]
+  before_filter :correct_comunidad,   :only => [:index, :new]
+  before_filter :correct_user,        :only => [:show]
+  before_filter :admin_user,          :only => [:new, :edit, :update, :destroy]
 
   #before_filter :propietario, :only => [:show, :edit, :destroy, :update]
 

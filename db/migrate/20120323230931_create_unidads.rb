@@ -4,6 +4,7 @@ class CreateUnidads < ActiveRecord::Migration
       t.integer :comunidad_id
       t.string :identificador
       t.float :participacion
+      t.float :superficie
 
       t.timestamps
     end

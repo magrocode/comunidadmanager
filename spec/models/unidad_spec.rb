@@ -3,9 +3,10 @@
 # Table name: unidads
 #
 #  id            :integer         not null, primary key
+#  comunidad_id  :integer
 #  identificador :string(255)
 #  participacion :float
-#  comunidad_id  :integer
+#  superficie    :float
 #  created_at    :datetime        not null
 #  updated_at    :datetime        not null
 #
@@ -15,12 +16,13 @@ require 'spec_helper'
 describe Unidad do
   
   let(:comunidad) { FactoryGirl.create(:comunidad) }
-  before { @unidad = comunidad.unidads.build(identificador: "DEP101", participacion: 1.2556) }
+  before { @unidad = comunidad.unidads.build(identificador: "DEP101", participacion: 1.2556, superficie: 54.76) }
   
   subject { @unidad }
   
   it { should respond_to(:identificador) }
   it { should respond_to(:participacion) }
+  it { should respond_to(:superficie) }
   it { should respond_to(:comunidad_id) }
   it { should respond_to(:comunidad) }
   its(:comunidad) { should == comunidad }
@@ -49,6 +51,11 @@ describe Unidad do
   
   describe "cuando participacion es < 0" do
     before { @unidad.participacion = -1 }
+    it { should_not be_valid }
+  end
+  
+  describe "cuando superficie es vacio" do
+    before { @unidad.superficie = " " }
     it { should_not be_valid }
   end
   

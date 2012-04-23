@@ -9,6 +9,9 @@
 				
 				<%= f.label :participacion %>
 				<%= f.number_field :participacion, :step => "0.0001", :min => 0 %>
+				
+				<%= f.label :superficie %>
+				<%= f.number_field :superficie, :step => "0.01" %>
 			</fieldset>
 			<div class="form-actions">
 				<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>

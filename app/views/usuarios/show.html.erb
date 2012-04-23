@@ -12,8 +12,10 @@
 <br />
 <div class="row-fluid">
 	<div class="span12">
+		<% if current_user.administrador? %>
 			<%= link_to 'Editar', edit_usuario_path(@usuario) %> |
 			<%= link_to 'Eliminar', @usuario, confirm: 'Estas seguro de eliminar?', :method => :delete %> |
+		<% end %>
 			<%= link_to 'Ver usuarios', comunidad_usuarios_path(@comunidad) %>
 	</div>
 </div>

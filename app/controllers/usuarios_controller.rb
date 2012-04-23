@@ -1,9 +1,10 @@
 class UsuariosController < ApplicationController
+ 
   before_filter :signed_in_user
   before_filter :correct_comunidad,   :only => [:index, :new]
   before_filter :correct_user,        :only => [:show] 
-  before_filter :admin_user,          :only => [:new, :destroy]
   before_filter :correct_editor,      :only => [:edit, :update]
+  before_filter :admin_user,          :only => [:new, :destroy] 
   
   after_filter  :signin_after_update, :only => :update
 

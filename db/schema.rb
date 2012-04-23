@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20120410203153) do
     t.integer  "comunidad_id"
     t.string   "identificador"
     t.float    "participacion"
+    t.float    "superficie"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

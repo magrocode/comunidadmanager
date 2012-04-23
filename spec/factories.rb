@@ -7,6 +7,7 @@ FactoryGirl.define do
   factory :unidad do
     sequence(:identificador) { |n| "DEP#{n}" }
     participacion 2.0001
+    superficie 75.65
     comunidad
   end
   

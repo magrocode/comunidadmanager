@@ -20,7 +20,7 @@
 				<h2>2<br /><small>Tipos</small></h2>
 			</div>
 			<div class="span1 center">
-				<h2><%= @comunidad.unidads.sum("participacion") %><br /><small>Participacion</small></h2>
+				<h2><%= @comunidad.unidads.sum("participacion") %>%<br /><small>Participacion</small></h2>
 			</div>		
 		</div>
 	</div>
@@ -30,6 +30,7 @@
 			<tr>
 				<th>Identificador</th>
 				<th>% Participacion</th>
+				<th>Superficie m2</th>
 				<% if current_user.administrador? %>
 				<th></th>
 				<% end %>
@@ -38,6 +39,7 @@
 			<tr>
 				<td><%= link_to unidad.identificador, unidad %></td>
 				<td><%= unidad.participacion %></td>
+				<td><%= unidad.superficie %></td>
 				<% if current_user.administrador? %>
 				<td class="ar">
 					<small>
