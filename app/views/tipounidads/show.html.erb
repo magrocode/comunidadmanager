@@ -1,0 +1,20 @@
+<% provide(:titulo, @tipounidad.nombre) %>
+<div class="page-header">
+	<h1>Tipos de unidad <small><%= @comunidad.nombre %></small></h1>
+</div>
+<div class="row-fluid">
+	<div class="span10">
+		<h1>Tipo de unidad <%= @tipounidad.nombre %></h1>
+	</div>
+</div>
+<br />
+<div class="row-fluid">
+	<div class="span12">
+		<% if current_user.administrador? %>
+			<%= link_to 'Editar', edit_tipounidad_path(@tipounidad) %> |
+			<%= link_to 'Eliminar', @tipounidad, confirm: 'Estas seguro de eliminar?', :method => :delete %> |
+		<% end %>
+			<%= link_to 'Ver tipos de unidad', comunidad_tipounidads_path(@comunidad) %>
+	</div>
+</div>
+		

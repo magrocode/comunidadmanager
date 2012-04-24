@@ -1,0 +1,51 @@
+<% provide(:titlulo, 'Tipos de unidad') %>
+<div class="page-header">
+	<h1>Tipos de unidad <small><%= @comunidad.nombre %></small></h1>
+</div>
+
+<div class="well">
+		<div class="row-fluid">
+			<div class="span1">
+				<h6>Ordenado por:</h6><br />
+				<ul class="nav nav-pills">
+					<li <% if current_sort?('nombre') or current_sort.nil? %> class="active" <% end %> ><%= sortable "nombre" %></li>
+				</ul>
+			</div>
+			<div class="span1 center">
+				<h2><%= @comunidad.tipounidads.count %><br /><small>Tipos</small></h2>
+			</div>	
+		</div>
+	</div>
+	<div class="row-fluid">
+		<%= will_paginate %>
+		<table class="table table-bordered table-striped">
+			<tr>
+				<th>Tipo de unidad</th>
+				<% if current_user.administrador? %>
+				<th></th>
+				<% end %>
+			</tr>
+		<% @tipounidads.each do |tipounidad| %>
+			<tr>
+				<td><%= link_to tipounidad.nombre, tipounidad %></td>
+				<% if current_user.administrador? %>
+				<td class="ar">
+					<small>
+					<%= link_to 'Mostrar', tipounidad %> |
+					<%= link_to 'Editar', edit_tipounidad_path(tipounidad) %> |
+					<%= link_to 'Eliminar', tipounidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+					</small>
+				</td>	
+				<% end %>
+			</tr>
+		<% end %>
+		</table>
+		<%= will_paginate %>
+	</div>
+	<% if current_user.administrador? %>
+	<div class="row-fluid">
+		<%= link_to 'Unidades', comunidad_unidads_path(@comunidad), :class => 'btn btn-large' %>
+		<%= link_to 'Nuevo tipo', new_comunidad_tipounidad_path(@comunidad), :class => 'btn btn-primary btn-large' %>
+	</div>	
+	<% end %>
+

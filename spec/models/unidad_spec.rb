@@ -16,7 +16,9 @@ require 'spec_helper'
 describe Unidad do
   
   let(:comunidad) { FactoryGirl.create(:comunidad) }
-  before { @unidad = comunidad.unidads.build(identificador: "DEP101", participacion: 1.2556, superficie: 54.76) }
+  before { @unidad = comunidad.unidads.build(identificador: "DEP101", 
+                                              participacion: 1.2556, 
+                                              superficie: 54.76) }
   
   subject { @unidad }
   

@@ -1,0 +1,15 @@
+<div class="row-fluid">
+	<div class="span2"></div>
+	<div class="span3">
+		<%= form_for([@comunidad, @tipounidad]) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			<fieldset>
+				<%= f.label :nombre %>
+				<%= f.text_field :nombre %>
+			</fieldset>
+			<div class="form-actions">
+				<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
+			</div>
+		<% end %>
+	</div>
+</div>
