@@ -4,6 +4,7 @@
 #
 #  id            :integer         not null, primary key
 #  comunidad_id  :integer
+#  tipounidad_id :integer
 #  identificador :string(255)
 #  participacion :float
 #  superficie    :float
@@ -13,8 +14,10 @@
 
 class Unidad < ActiveRecord::Base
   
-  attr_accessible :identificador, :participacion, :superficie
+  attr_accessible :identificador, :participacion, :superficie, :tipounidad, :tipounidad_id
+
   belongs_to :comunidad
+  belongs_to :tipounidad
   
   validates :comunidad_id, presence: true
   validates :identificador, presence: true, length: { maximum: 50 }

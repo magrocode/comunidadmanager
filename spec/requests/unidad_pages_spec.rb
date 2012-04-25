@@ -54,7 +54,5 @@ describe "UnidadPages" do
       
       it { should_not have_selector('title', text: unidadB.identificador) }
     end
-    
   end
-
 end

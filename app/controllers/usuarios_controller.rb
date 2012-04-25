@@ -30,7 +30,7 @@ class UsuariosController < ApplicationController
     @usuario = @comunidad.usuarios.build(params[:usuario])
     
     if @usuario.save
-      flash[:success] = "Usuario creado"
+      flash[:success] = "Usuario creado!"
       redirect_to @usuario
     else
       render 'new'

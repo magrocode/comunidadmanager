@@ -75,7 +75,7 @@ class UnidadsController < ApplicationController
     
     def correct_user
       @unidad = Unidad.find(params[:id])
-      redirect_to root_path if (@unidad.comunidad != current_user.comunidad or !current_user.administrador?)
+      redirect_to root_path, notice: "noticia" if (@unidad.comunidad != current_user.comunidad or !current_user.administrador?)
     end
        
     def correct_comunidad

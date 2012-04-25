@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20120423221801) do
 
   create_table "unidads", :force => true do |t|
     t.integer  "comunidad_id"
+    t.integer  "tipounidad_id"
     t.string   "identificador"
     t.float    "participacion"
     t.float    "superficie"

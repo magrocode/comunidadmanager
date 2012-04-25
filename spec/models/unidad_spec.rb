@@ -4,6 +4,7 @@
 #
 #  id            :integer         not null, primary key
 #  comunidad_id  :integer
+#  tipounidad_id :integer
 #  identificador :string(255)
 #  participacion :float
 #  superficie    :float
@@ -16,9 +17,11 @@ require 'spec_helper'
 describe Unidad do
   
   let(:comunidad) { FactoryGirl.create(:comunidad) }
+  let(:tipounidad) { FactoryGirl.create(:tipounidad)}
   before { @unidad = comunidad.unidads.build(identificador: "DEP101", 
                                               participacion: 1.2556, 
-                                              superficie: 54.76) }
+                                              superficie: 54.76,
+                                              tipounidad: tipounidad) }
   
   subject { @unidad }
   
@@ -27,7 +30,10 @@ describe Unidad do
   it { should respond_to(:superficie) }
   it { should respond_to(:comunidad_id) }
   it { should respond_to(:comunidad) }
+  it { should respond_to(:tipounidad_id) }
+  it { should respond_to(:tipounidad)}
   its(:comunidad) { should == comunidad }
+  its(:tipounidad) { should == tipounidad }
   
   it { should be_valid }
     

@@ -12,6 +12,9 @@
 				
 				<%= f.label :superficie %>
 				<%= f.number_field :superficie, :step => "0.01" %>
+
+				<%= f.label :tipounidad %>
+				<%= collection_select(:unidad, :tipounidad_id, @comunidad.tipounidads, :id, :nombre) %>
 			</fieldset>
 			<div class="form-actions">
 				<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>

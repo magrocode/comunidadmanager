@@ -15,8 +15,8 @@ class PaginasController < ApplicationController
     end
     
     def home_signed_in_user
-      # si el usuario esta logueado redirecciona a perfil de comunidad
-      redirect_to current_user.comunidad if signed_in?      
+      # si el usuario esta logueado redirecciona a pagina wellcome
+      redirect_to wellcome_path if signed_in?      
     end
 
 end

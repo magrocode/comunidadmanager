@@ -10,6 +10,7 @@
 				<ul class="nav nav-pills">
 					<li <% if current_sort?('identificador') or current_sort.nil? %> class="active" <% end %> ><%= sortable "identificador" %></li>
 					<li <% if current_sort?('participacion') %> class="active" <% end %> ><%= sortable "participacion" %></li>
+					<li <% if current_sort?('tipounidad_id') %> class="active" <% end %> ><%= sortable "tipounidad_id", "Tipo" %></li>
 				</ul>
 			</div>
 			
@@ -17,7 +18,7 @@
 				<h2><%= @comunidad.unidads.count %><br /><small>Unidades</small></h2>
 			</div>
 			<div class="span1 center">
-				<h2>2<br /><small>Tipos</small></h2>
+				<h2><%= @comunidad.tipounidads.count %><br /><small>Tipos</small></h2>
 			</div>
 			<div class="span1 center">
 				<h2><%= @comunidad.unidads.sum("participacion") %>%<br /><small>Participacion</small></h2>
@@ -37,7 +38,7 @@
 			</tr>
 		<% @unidads.each do |unidad| %>
 			<tr>
-				<td><%= link_to unidad.identificador, unidad %></td>
+				<td><%= link_to unidad.identificador, unidad %> <% if !unidad.tipounidad.nil? %><span class="label label-info"><%= unidad.tipounidad.nombre %></span><% end %></td>
 				<td><%= unidad.participacion %></td>
 				<td><%= unidad.superficie %></td>
 				<% if current_user.administrador? %>

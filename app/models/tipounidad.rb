@@ -13,6 +13,7 @@ class Tipounidad < ActiveRecord::Base
   
   attr_accessible :nombre
   belongs_to :comunidad
+  has_many :unidads
   
   validates :comunidad_id, presence: true
   validates :nombre, presence: true, length: { maximum: 50 }

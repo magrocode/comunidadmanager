@@ -15,17 +15,17 @@ FactoryGirl.define do
       administrador true
     end
   end
+
+  factory :tipounidad do
+    sequence(:nombre) { |n| "Tipo unidad #{n}" }
+    comunidad
+  end
   
   factory :unidad do
     sequence(:identificador) { |n| "DEP#{n}" }
     participacion 2.0001
     superficie 75.65
     comunidad
+    tipounidad
   end
-
-  factory :tipounidad do
-    sequence(:nombre) { |n| "Tipo #{n}" }
-    comunidad
-  end
-  
 end
