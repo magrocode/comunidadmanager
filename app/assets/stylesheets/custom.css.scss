@@ -25,6 +25,7 @@ html {
 
 body {
   padding-top: 60px;
+  background-color: lightgray;
 }
 
 section {
@@ -172,3 +173,10 @@ table small {
   text-align: right;
 }
 
+
+/* Base */
+.content-wrapper {
+  padding: 20px;
+  background-color: white;
+  @include box_sizing;
+}

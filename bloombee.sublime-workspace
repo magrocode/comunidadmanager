@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"tipo",
+				"tipounidad_id"
+			],
+			[
+				"par",
+				"parcela"
+			],
+			[
 				"otro",
 				"otro_tipounidad"
 			],
@@ -28,10 +36,6 @@
 				"Tipounidad"
 			],
 			[
-				"tipo",
-				"tipounidad"
-			],
-			[
 				"comunidad",
 				"comunidad_id"
 			],
@@ -52,42 +56,10 @@
 	"buffers":
 	[
 		{
-			"file": "app/controllers/tipounidads_controller.rb",
+			"file": "app/views/unidads/index.html.erb",
 			"settings":
 			{
-				"buffer_size": 2505,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/tipounidads/edit.html.erb",
-			"settings":
-			{
-				"buffer_size": 212,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "spec/requests/paginas_tipounidads_spec.rb",
-			"settings":
-			{
-				"buffer_size": 1564,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/unidads_controller.rb",
-			"settings":
-			{
-				"buffer_size": 2844,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "spec/requests/unidad_pages_spec.rb",
-			"settings":
-			{
-				"buffer_size": 1735,
+				"buffer_size": 2357,
 				"line_ending": "Unix"
 			}
 		},
@@ -95,15 +67,31 @@
 			"file": "app/views/unidads/edit.html.erb",
 			"settings":
 			{
-				"buffer_size": 185,
+				"buffer_size": 228,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/controllers/paginas_controller.rb",
+			"file": "app/views/unidads/new.html.erb",
 			"settings":
 			{
-				"buffer_size": 455,
+				"buffer_size": 220,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/unidads/show.html.erb",
+			"settings":
+			{
+				"buffer_size": 1043,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/custom.css.scss",
+			"settings":
+			{
+				"buffer_size": 2448,
 				"line_ending": "Unix"
 			}
 		}
@@ -136,29 +124,44 @@
 	},
 	"file_history":
 	[
+		"/home/mario/railsprojects/comunidadmanager/app/assets/stylesheets/custom.css.scss",
+		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/show.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/spec/requests/unidad_pages_spec.rb",
+		"/home/mario/railsprojects/comunidadmanager/app/models/tipounidad.rb",
+		"/home/mario/railsprojects/comunidadmanager/app/models/unidad.rb",
+		"/home/mario/railsprojects/comunidadmanager/spec/factories.rb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/_form.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/db/seeds.rb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/usuarios/show.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/shared/_error_messages.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/show.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/spec/models/unidad_spec.rb",
+		"/home/mario/railsprojects/comunidadmanager/db/migrate/20120323230931_create_unidads.rb",
+		"/home/mario/railsprojects/comunidadmanager/app/controllers/usuarios_controller.rb",
+		"/home/mario/railsprojects/comunidadmanager/app/controllers/tipounidads_controller.rb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/edit.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/spec/requests/paginas_tipounidads_spec.rb",
+		"/home/mario/railsprojects/comunidadmanager/app/controllers/unidads_controller.rb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/edit.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/app/controllers/paginas_controller.rb",
+		"/home/mario/railsprojects/comunidadmanager/Gemfile",
 		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/new.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/index.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/_form.html.erb",
-		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/show.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/index.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/new.html.erb",
-		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/show.html.erb",
-		"/home/mario/railsprojects/comunidadmanager/spec/factories.rb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/show.html.ern",
 		"/home/mario/railsprojects/comunidadmanager/config/routes.rb",
 		"/home/mario/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
 		"/home/mario/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/home/mario/railsprojects/comunidadmanager/spec/models/unidad_spec.rb",
 		"/home/mario/railsprojects/comunidadmanager/spec/models/tipounidad_spec.rb",
-		"/home/mario/railsprojects/comunidadmanager/db/seeds.rb",
 		"/home/mario/railsprojects/sla/public/index.html",
-		"/home/mario/railsprojects/comunidadmanager/app/controllers/unidads_controller.rb",
 		"/home/mario/railsprojects/usuarios/app/views/layouts/application.html.erb",
 		"/home/mario/railsprojects/usuarios/app/views/paginas/home.html.erb"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -172,6 +175,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mixi",
+			"box_si",
 			"<!"
 		],
 		"highlight": true,
@@ -190,50 +195,50 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/controllers/tipounidads_controller.rb",
+					"file": "app/views/unidads/index.html.erb",
 					"settings":
 					{
-						"buffer_size": 2505,
+						"buffer_size": 2357,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								816,
-								816
+								55,
+								55
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 720.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/views/tipounidads/edit.html.erb",
+					"file": "app/views/unidads/edit.html.erb",
 					"settings":
 					{
-						"buffer_size": 212,
+						"buffer_size": 228,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								185,
-								185
+								63,
+								63
 							]
 						],
 						"settings":
@@ -248,107 +253,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "spec/requests/paginas_tipounidads_spec.rb",
+					"file": "app/views/unidads/new.html.erb",
 					"settings":
 					{
-						"buffer_size": 1564,
+						"buffer_size": 220,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1546,
-								1546
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 181.0,
-						"translation.y": 135.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 3,
-					"file": "app/controllers/unidads_controller.rb",
-					"settings":
-					{
-						"buffer_size": 2844,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2091,
-								2091
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 585.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "spec/requests/unidad_pages_spec.rb",
-					"settings":
-					{
-						"buffer_size": 1735,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1652,
-								1652
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/views/unidads/edit.html.erb",
-					"settings":
-					{
-						"buffer_size": 185,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								185,
-								0
+								59,
+								59
 							]
 						],
 						"settings":
@@ -362,24 +278,51 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "app/controllers/paginas_controller.rb",
+					"buffer": 3,
+					"file": "app/views/unidads/show.html.erb",
 					"settings":
 					{
-						"buffer_size": 455,
+						"buffer_size": 1043,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								421,
-								421
+								283,
+								283
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/assets/stylesheets/custom.css.scss",
+					"settings":
+					{
+						"buffer_size": 2448,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								451,
+								451
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -409,18 +352,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.20750187018,
 			1.0
 		],
 		"rows":
@@ -455,6 +391,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 192.0,
+	"side_bar_width": 195.0,
 	"status_bar_visible": true
 }

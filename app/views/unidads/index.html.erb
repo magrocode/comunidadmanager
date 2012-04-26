@@ -1,8 +1,8 @@
 <% provide(:titulo, 'Unidades') %>
-<div class="page-header">
-	<h1>Unidades <small><%= @comunidad.nombre %></small></h1>	
-</div>
-	
+<div class="content-wrapper">
+	<div class="page-header">
+		<h1>Unidades <small><%= @comunidad.nombre %></small></h1>	
+	</div>
 	<div class="well">
 		<div class="row-fluid">
 			<div class="span3">
@@ -38,7 +38,11 @@
 			</tr>
 		<% @unidads.each do |unidad| %>
 			<tr>
-				<td><%= link_to unidad.identificador, unidad %> <% if !unidad.tipounidad.nil? %><span class="label label-info"><%= unidad.tipounidad.nombre %></span><% end %></td>
+				<td><%= link_to unidad.identificador, unidad %> <% if !unidad.tipounidad.nil? %>
+																	<span class="label label-info">
+																		<%= unidad.tipounidad.nombre %>
+																	</span><% end %>
+				</td>
 				<td><%= unidad.participacion %></td>
 				<td><%= unidad.superficie %></td>
 				<% if current_user.administrador? %>
@@ -61,4 +65,4 @@
 		<%= link_to 'Nueva unidad', new_comunidad_unidad_path(@comunidad), :class => 'btn btn-primary btn-large' %>
 	</div>	
 	<% end %>
-
+</div>

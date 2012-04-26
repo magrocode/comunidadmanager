@@ -1,22 +1,28 @@
 <% provide(:titulo, @unidad.identificador) %>
-<div class="page-header">
-	<h1>Unidades <small><%= @comunidad.nombre %></small></h1>
-</div>
-<div class="row-fluid">
-	<div class="span10">
-		<h1><%= @unidad.identificador %> <% if !@unidad.tipounidad.nil? %><span class="label label-info"><%= @unidad.tipounidad.nombre %></span><% end %></h1>
-		<h1><small>Participacion <%= @unidad.participacion %>%</small></h1>
-		<p>Superficie <%= @unidad.superficie %> m2</p>
+	<div class="row-fluid">
+		<div class="span2">
+			<h5>Menu</h5>
+		</div>
+		<div class="span10">
+			<div class="content-wrapper">
+				<div class="page-header">
+					<h1>Unidades <small><%= @comunidad.nombre %></small></h1>
+				</div>
+				<h1><%= @unidad.identificador %> <% if !@unidad.tipounidad.nil? %><span class="label label-info"><%= @unidad.tipounidad.nombre %></span><% end %></h1>
+				<h1><small>Participacion <%= @unidad.participacion %>%</small></h1>
+				<p>Superficie <%= @unidad.superficie %> m2</p>
+				<div class="row-fluid">
+					<div class="span10">
+						<% if current_user.administrador? %>
+							<%= link_to 'Editar', edit_unidad_path(@unidad) %> |
+							<%= link_to 'Eliminar', @unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %> |
+							<%= link_to 'Nueva unidad?', new_comunidad_unidad_path(@comunidad) %> |
+						<% end %>
+							<%= link_to 'Ver unidades', comunidad_unidads_path(@comunidad) %>
+					</div>
+				</div>
+
+			</div>
+		</div>
 	</div>
-</div>
-<br />
-<div class="row-fluid">
-	<div class="span12">
-		<% if current_user.administrador? %>
-			<%= link_to 'Editar', edit_unidad_path(@unidad) %> |
-			<%= link_to 'Eliminar', @unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %> |
-		<% end %>
-			<%= link_to 'Ver unidades', comunidad_unidads_path(@comunidad) %>
-	</div>
-</div>
-		
+	<br />

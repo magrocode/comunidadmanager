@@ -15,6 +15,7 @@
 		<% if current_user.administrador? %>
 			<%= link_to 'Editar', edit_usuario_path(@usuario) %> |
 			<%= link_to 'Eliminar', @usuario, confirm: 'Estas seguro de eliminar?', :method => :delete %> |
+			<%= link_to 'Nuevo usuario?', new_comunidad_usuario_path(@comunidad) %> |
 		<% end %>
 			<%= link_to 'Ver usuarios', comunidad_usuarios_path(@comunidad) %>
 	</div>

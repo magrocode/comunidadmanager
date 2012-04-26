@@ -13,6 +13,7 @@
 		<% if current_user.administrador? %>
 			<%= link_to 'Editar', edit_tipounidad_path(@tipounidad) %> |
 			<%= link_to 'Eliminar', @tipounidad, confirm: 'Estas seguro de eliminar?', :method => :delete %> |
+			<%= link_to 'Nuevo tipo de unidad?', new_comunidad_tipounidad_path(@comunidad) %> |
 		<% end %>
 			<%= link_to 'Ver tipos de unidad', comunidad_tipounidads_path(@comunidad) %>
 	</div>
