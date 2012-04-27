@@ -1,8 +1,8 @@
 <% provide(:titulo, 'Usuarios') %>
-<div class="page-header">
-	<h1>Usuarios <small><%= @comunidad.nombre %></small></h1>	
-</div>
-		
+<div class="content-wrapper">
+	<div class="page-header">
+		<h1>Usuarios <small><%= @comunidad.nombre %></small></h1>	
+	</div>
 	<div class="well">
 		<div class="row-fluid">
 			<div class="span3">
@@ -59,4 +59,4 @@
 		<%= link_to 'Nuevo usuario', new_comunidad_usuario_path(@comunidad), :class => 'btn btn-primary btn-large' %>
 		<% end %>
 	</div>	
-
+</div>

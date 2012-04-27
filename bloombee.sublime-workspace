@@ -4,14 +4,6 @@
 		"selected_items":
 		[
 			[
-				"tipo",
-				"tipounidad_id"
-			],
-			[
-				"par",
-				"parcela"
-			],
-			[
 				"otro",
 				"otro_tipounidad"
 			],
@@ -34,6 +26,10 @@
 			[
 				"Tipo",
 				"Tipounidad"
+			],
+			[
+				"tipo",
+				"tipounidad"
 			],
 			[
 				"comunidad",
@@ -64,34 +60,10 @@
 			}
 		},
 		{
-			"file": "app/views/unidads/edit.html.erb",
+			"file": "app/views/paginas/wellcome.html.erb",
 			"settings":
 			{
-				"buffer_size": 228,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/unidads/new.html.erb",
-			"settings":
-			{
-				"buffer_size": 220,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/unidads/show.html.erb",
-			"settings":
-			{
-				"buffer_size": 1043,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/assets/stylesheets/custom.css.scss",
-			"settings":
-			{
-				"buffer_size": 2448,
+				"buffer_size": 1303,
 				"line_ending": "Unix"
 			}
 		}
@@ -124,44 +96,39 @@
 	},
 	"file_history":
 	[
-		"/home/mario/railsprojects/comunidadmanager/app/assets/stylesheets/custom.css.scss",
-		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/show.html.erb",
-		"/home/mario/railsprojects/comunidadmanager/spec/requests/unidad_pages_spec.rb",
-		"/home/mario/railsprojects/comunidadmanager/app/models/tipounidad.rb",
-		"/home/mario/railsprojects/comunidadmanager/app/models/unidad.rb",
-		"/home/mario/railsprojects/comunidadmanager/spec/factories.rb",
-		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/_form.html.erb",
-		"/home/mario/railsprojects/comunidadmanager/db/seeds.rb",
-		"/home/mario/railsprojects/comunidadmanager/app/views/usuarios/show.html.erb",
-		"/home/mario/railsprojects/comunidadmanager/app/views/shared/_error_messages.html.erb",
-		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/show.html.erb",
-		"/home/mario/railsprojects/comunidadmanager/spec/models/unidad_spec.rb",
-		"/home/mario/railsprojects/comunidadmanager/db/migrate/20120323230931_create_unidads.rb",
-		"/home/mario/railsprojects/comunidadmanager/app/controllers/usuarios_controller.rb",
-		"/home/mario/railsprojects/comunidadmanager/app/controllers/tipounidads_controller.rb",
-		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/edit.html.erb",
-		"/home/mario/railsprojects/comunidadmanager/spec/requests/paginas_tipounidads_spec.rb",
-		"/home/mario/railsprojects/comunidadmanager/app/controllers/unidads_controller.rb",
-		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/edit.html.erb",
-		"/home/mario/railsprojects/comunidadmanager/app/controllers/paginas_controller.rb",
-		"/home/mario/railsprojects/comunidadmanager/Gemfile",
+		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/index.html.erb",
+		"/home/codelious/railsprojects/comunidadmanager/app/views/unidads/show.html.erb",
+		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/show.html.erb",
+		"/home/codelious/railsprojects/comunidadmanager/app/controllers/tipounidads_controller.rb",
+		"/home/codelious/railsprojects/comunidadmanager/app/controllers/unidads_controller.rb",
+		"/home/codelious/railsprojects/comunidadmanager/app/views/tipounidads/edit.html.erb",
+		"/home/codelious/railsprojects/comunidadmanager/spec/requests/paginas_tipounidads_spec.rb",
+		"/home/codelious/railsprojects/comunidadmanager/spec/requests/unidad_pages_spec.rb",
+		"/home/codelious/railsprojects/comunidadmanager/app/views/unidads/edit.html.erb",
+		"/home/codelious/railsprojects/comunidadmanager/app/controllers/paginas_controller.rb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/new.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/index.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/_form.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/show.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/index.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/new.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/show.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/spec/factories.rb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/tipounidads/show.html.ern",
 		"/home/mario/railsprojects/comunidadmanager/config/routes.rb",
 		"/home/mario/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
 		"/home/mario/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/mario/railsprojects/comunidadmanager/spec/models/unidad_spec.rb",
 		"/home/mario/railsprojects/comunidadmanager/spec/models/tipounidad_spec.rb",
+		"/home/mario/railsprojects/comunidadmanager/db/seeds.rb",
 		"/home/mario/railsprojects/sla/public/index.html",
+		"/home/mario/railsprojects/comunidadmanager/app/controllers/unidads_controller.rb",
 		"/home/mario/railsprojects/usuarios/app/views/layouts/application.html.erb",
 		"/home/mario/railsprojects/usuarios/app/views/paginas/home.html.erb"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 0.0
 	},
 	"find_in_files":
 	{
@@ -175,8 +142,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"mixi",
-			"box_si",
 			"<!"
 		],
 		"highlight": true,
@@ -195,7 +160,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -210,8 +175,8 @@
 						"selection":
 						[
 							[
-								55,
-								55
+								64,
+								35
 							]
 						],
 						"settings":
@@ -220,77 +185,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 855.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/views/unidads/edit.html.erb",
+					"file": "app/views/paginas/wellcome.html.erb",
 					"settings":
 					{
-						"buffer_size": 228,
+						"buffer_size": 1303,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								63,
-								63
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/views/unidads/new.html.erb",
-					"settings":
-					{
-						"buffer_size": 220,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								59,
-								59
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/views/unidads/show.html.erb",
-					"settings":
-					{
-						"buffer_size": 1043,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								283,
-								283
+								1300,
+								1300
 							]
 						],
 						"settings":
@@ -299,39 +212,16 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/assets/stylesheets/custom.css.scss",
-					"settings":
-					{
-						"buffer_size": 2448,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								451,
-								451
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 411.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				}
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
@@ -352,6 +242,12 @@
 				0,
 				1,
 				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
 			]
 		],
 		"cols":
@@ -362,6 +258,7 @@
 		"rows":
 		[
 			0.0,
+			0.5,
 			1.0
 		]
 	},
@@ -391,6 +288,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 195.0,
+	"side_bar_width": 192.0,
 	"status_bar_visible": true
 }

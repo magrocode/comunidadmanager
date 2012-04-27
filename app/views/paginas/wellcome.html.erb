@@ -1,45 +1,46 @@
 <%= provide(:titulo, 'Bienvenido') %>
 
-<div class="page-header">
-	<h1>Bienvenido a bloombee</h1>	
-</div>
+<div class="content-wrapper">
+	<div class="page-header">
+		<h1>Bienvenido a bloombee</h1>	
+	</div>
 
-<div class="row-fluid">
-		
-	<div class="span12">
-		<h3>Que vamos a hacer hoy?</h3>
-		<p>Esta secci&oacute;n contiene accesos directos a 
-			las funciones mas frecuentes para configurar y gestionar
-			tu comunidad.</p>
+	<div class="row-fluid">
+			
+		<div class="span12">
+			<h3>Que vamos a hacer hoy?</h3>
+			<p>Esta secci&oacute;n contiene accesos directos a 
+				las funciones mas frecuentes para configurar y gestionar
+				tu comunidad.</p>
+		</div>
+	</div>
+	<br />
+
+	<div class="row-fluid">
+		<div class="span4">
+			<h3>Configurar la comunidad</h3><br />
+			<ul>
+				<li><%= link_to 'Crear Unidades (viviendas)', 
+								new_comunidad_unidad_path(current_user.comunidad) %></li>
+				<li><%= link_to 'Crear Tipos de unidad (casa, depto, parc.)', '#' %></li>
+				<li><%= link_to 'Crear Usuarios', new_comunidad_usuario_path(current_user.comunidad) %></li>
+				<li><%= link_to 'Crear Cuentas (banco, caja chica, etc)', '#' %></li>
+				<li><%= link_to 'Editar perfil de comunidad', edit_comunidad_path(current_user.comunidad) %></li>
+			</ul>
+		</div>
+		<div class="span4">
+			<h3>Registrar salidas de dinero</h3><br />
+			<ul>
+				<li><%= link_to 'Nuevo egreso por gasto', '#' %></li>
+			</ul>
+		</div>
+		<div class="span4">
+			<h3>Registrar consumos de unidades</h3><br />
+			<ul>
+				<li><%= link_to 'Ingresar lecturas de consumo', '#' %></li>
+			</ul>
+		</div>
 	</div>
 </div>
-<br />
-
-<div class="row-fluid">
-	<div class="span4">
-		<h3>Configurar la comunidad</h3><br />
-		<ul>
-			<li><%= link_to 'Crear Unidades (viviendas)', 
-							new_comunidad_unidad_path(current_user.comunidad) %></li>
-			<li><%= link_to 'Crear Tipos de unidad (casa, depto, parc.)', '#' %></li>
-			<li><%= link_to 'Crear Usuarios', new_comunidad_usuario_path(current_user.comunidad) %></li>
-			<li><%= link_to 'Crear Cuentas (banco, caja chica, etc)', '#' %></li>
-			<li><%= link_to 'Editar perfil de comunidad', edit_comunidad_path(current_user.comunidad) %></li>
-		</ul>
-	</div>
-	<div class="span4">
-		<h3>Registrar salidas de dinero</h3><br />
-		<ul>
-			<li><%= link_to 'Nuevo egreso por gasto', '#' %></li>
-		</ul>
-	</div>
-	<div class="span4">
-		<h3>Registrar consumos de unidades</h3><br />
-		<ul>
-			<li><%= link_to 'Ingresar lecturas de consumo', '#' %></li>
-		</ul>
-	</div>
-</div>
-
 
 
