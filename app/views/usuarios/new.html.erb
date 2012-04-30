@@ -1,7 +1,9 @@
 <% provide(:titulo, 'Nuevo usuario') %>
-<div class="page-header">
-	<h1>Nuevo usuario</h1>	
-</div>
+	<div class="content-wrapper">
+	<div class="page-header">
+		<h1>Nuevo usuario</h1>	
+	</div>
 
-<%= render 'form' %>
-<%= link_to 'Usuarios', comunidad_usuarios_path(current_user.comunidad) %>
+	<%= render 'form' %>
+	<%= link_to 'Usuarios', comunidad_usuarios_path(current_user.comunidad) %>
+</div>
