@@ -9,14 +9,14 @@
 				<h1>Tipos de unidad <small><%= @comunidad.nombre %></small></h1>
 			</div>
 			<div class="row">
+				<div class="span1"><h4><small><br />Ordenado por:</small></h4></div>
 				<div class="span2">
-					<h6>Ordenado por:</h6><br />
 					<ul class="nav nav-pills">
 						<li <% if current_sort?('nombre') or current_sort.nil? %> class="active" <% end %> ><%= sortable "nombre" %></li>
 					</ul>
 				</div>
 				<div class="span2">
-					<h2><%= @comunidad.tipounidads.count %><br /><small>Tipos</small></h2>
+					<h3><%= @comunidad.tipounidads.count %><br /><small>Tipos</small></h3>
 				</div>
 			</div>
 			<div class="row">

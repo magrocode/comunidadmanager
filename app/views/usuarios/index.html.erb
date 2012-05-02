@@ -10,8 +10,8 @@
 				<h1>Usuarios <small><%= @comunidad.nombre %></small></h1>	
 			</div>
 			<div class="row">
+				<div class="span1"><h4><small><br />Ordenado por:</small></h4></div>
 				<div class="span4">
-					<h4><small>Ordenado por:</small></h4><br />
 					<ul class="nav nav-pills">
 						<li <% if current_sort?('email') or current_sort.nil? %> class="active" <% end %> ><%= sortable "email" %></li>
 						<li <% if current_sort?('nombre') %> class="active" <% end %> ><%= sortable "nombre" %></li>
