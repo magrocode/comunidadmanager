@@ -1,7 +1,16 @@
-<% provide(:titulo, 'Editando Tipo de unidad') %>
-<div class="page-header">
-	<h1>Editando tipo de unidad</h1>	
+<% provide(:titulo, 'Editando tipo de unidad') %>
+<div class="row-fluid">
+	<div class="span2">
+		<%= render 'menu_tipounidads' %>
+	</div>
+	<div class="span10">
+		<div class="content-wrapper">
+			<div class="page-header"><h1>Editando tipo</h1></div>
+			<div class="row">
+				<div class="span4">
+					<%= render 'form' %>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-<%= render 'form' %>
-
-<%= link_to 'Tipos de unidad', comunidad_tipounidads_path(@comunidad) %>

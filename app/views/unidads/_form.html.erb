@@ -1,24 +1,19 @@
-<div class="row-fluid">
-	<div class="span2"></div>
-	<div class="span3">
-		<%= form_for([@comunidad, @unidad]) do |f| %>
-			<%= render 'shared/error_messages', object: f.object %>
-			<fieldset>
-				<%= f.label :identificador %>
-				<%= f.text_field :identificador %>
+<%= form_for([@comunidad, @unidad]) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<fieldset>
+		<%= f.label :identificador %>
+		<%= f.text_field :identificador %>
 				
-				<%= f.label :participacion %>
-				<%= f.number_field :participacion, :step => "0.0001", :min => 0 %>
+		<%= f.label :participacion, "% Participacion" %>
+		<%= f.number_field :participacion, :step => "0.0001", :min => 0 %>
 				
-				<%= f.label :superficie %>
-				<%= f.number_field :superficie, :step => "0.01" %>
+		<%= f.label :superficie, "Superficie en m2" %>
+		<%= f.number_field :superficie, :step => "0.01" %>
 
-				<%= f.label :tipounidad %>
-				<%= collection_select(:unidad, :tipounidad_id, @comunidad.tipounidads, :id, :nombre) %>
-			</fieldset>
-			<div class="form-actions">
-				<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
-			</div>
-		<% end %>
+		<%= f.label :tipounidad, "Tipo de unidad" %>
+		<%= collection_select(:unidad, :tipounidad_id, @comunidad.tipounidads, :id, :nombre) %>
+	</fieldset>
+	<div class="form-actions">
+		<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
 	</div>
-</div>
+<% end %>

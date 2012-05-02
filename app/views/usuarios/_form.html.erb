@@ -1,6 +1,3 @@
-<div class="row-fluid">
-	<div class="span2"></div>
-	<div class="span4">
 		<%= form_for [@comunidad, @usuario]  do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>			
 			<fieldset>
@@ -27,5 +24,3 @@
 				<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
 			</div>	
 		<% end %>
-	</div>
-</div>	

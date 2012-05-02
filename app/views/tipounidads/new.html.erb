@@ -1,7 +1,16 @@
 <% provide(:titulo, 'Nuevo tipo de unidad') %>
-<div class="page-header">
-	<h1>Nuevo Tipo de unidad</h1>
+<div class="row-fluid">
+	<div class="span2">
+		<%= render 'menu_tipounidads' %>
+	</div>
+	<div class="span10">
+		<div class="content-wrapper">
+			<div class="page-header"><h1>Nuevo tipo</h1></div>
+			<div class="row">
+				<div class="span4">
+					<%= render 'form' %>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
-<%= render 'form' %>
-<%= link_to 'Tipos de unidad', comunidad_tipounidads_path(@comunidad) %>

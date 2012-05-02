@@ -1,62 +1,69 @@
 <% provide(:titulo, 'Usuarios') %>
-<div class="content-wrapper">
-	<div class="page-header">
-		<h1>Usuarios <small><%= @comunidad.nombre %></small></h1>	
+<div class="row-fluid">
+	<div class="span2">
+		<%= render 'menu_usuarios' %><br />
+		<%= render 'comunidads/menu_comunidad' %>
 	</div>
-	<div class="well">
-		<div class="row-fluid">
-			<div class="span3">
-				<h6>Ordenado por:</h6><br />
-				<ul class="nav nav-pills">
-					<li <% if current_sort?('email') or current_sort.nil? %> class="active" <% end %> ><%= sortable "email" %></li>
-					<li <% if current_sort?('nombre') %> class="active" <% end %> ><%= sortable "nombre" %></li>
-					<li <% if current_sort?('administrador') %> class="active" <% end %> ><%= sortable "administrador" %></li>
-				</ul>
+	<div class="span10">
+		<div class="content-wrapper">
+			<div class="page-header">
+				<h1>Usuarios <small><%= @comunidad.nombre %></small></h1>	
 			</div>
-			<div class="span1 center">
-				<h2><%= @comunidad.usuarios.count %><br /><small>Usuarios</small></h2>
+			<div class="row">
+				<div class="span4">
+					<h4><small>Ordenado por:</small></h4><br />
+					<ul class="nav nav-pills">
+						<li <% if current_sort?('email') or current_sort.nil? %> class="active" <% end %> ><%= sortable "email" %></li>
+						<li <% if current_sort?('nombre') %> class="active" <% end %> ><%= sortable "nombre" %></li>
+						<li <% if current_sort?('administrador') %> class="active" <% end %> ><%= sortable "administrador" %></li>
+					</ul>
+				</div>
+				<div class="span1">
+					<h3><%= @comunidad.usuarios.count %><br /><small>Usuarios</small></h3>
+				</div>
+				<div class="span1">
+					<h3><%= @comunidad.usuarios.where(administrador: true).count %><br /><small>Admins</small></h3>
+				</div>	
 			</div>
-			<div class="span1 center">
-				<h2><%= @comunidad.usuarios.where(administrador: true).count %><br /><small>Admins</small></h2>
-			</div>		
+			<div class="row">
+				<div class="span10">
+					<%= will_paginate %>
+					<table class="table table-bordered table-striped">
+						<tr>
+							<th>Email</th>
+							<th>Nombre</th>
+							<th>Admin?</th>
+							<% if current_user.administrador? %><th></th><% end %>
+						</tr>
+					<% @usuarios.each do |usuario| %>
+						<tr>
+							<td><%= link_to usuario.email, usuario %></td>
+							<td><%= usuario.nombre %></td>
+							<% if usuario.administrador?  %>
+								<td><i class="icon-ok"></i></td>
+							<% else %>
+								<td></td>
+							<% end %>
+							<% if current_user.administrador? %>
+							<td class="ar">
+								<small>
+								<%= link_to 'Mostrar', usuario %> |
+								<%= link_to 'Editar', edit_usuario_path(usuario) %> |
+								<%= link_to 'Eliminar', usuario, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+								</small>
+							</td>
+							<% end %>	
+						</tr>
+					<% end %>
+					</table>
+					<%= will_paginate %>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<% if current_user.administrador? %>
+				<%= link_to 'Nuevo usuario', new_comunidad_usuario_path(@comunidad), :class => 'btn btn-primary btn-large' %>
+				<% end %>
+			</div>	
 		</div>
 	</div>
-	<div class="row-fluid">
-		<%= will_paginate %>
-		<table class="table table-bordered table-striped">
-			<tr>
-				<th>Email</th>
-				<th>Nombre</th>
-				<th>Admin?</th>
-				<% if current_user.administrador? %><th></th><% end %>
-			</tr>
-		<% @usuarios.each do |usuario| %>
-			<tr>
-				<td><%= link_to usuario.email, usuario %></td>
-				<td><%= usuario.nombre %></td>
-				<% if usuario.administrador?  %>
-					<td><i class="icon-ok"></i></td>
-				<% else %>
-					<td></td>
-				<% end %>
-				<% if current_user.administrador? %>
-				<td class="ar">
-					<small>
-					<%= link_to 'Mostrar', usuario %> |
-					<%= link_to 'Editar', edit_usuario_path(usuario) %> |
-					<%= link_to 'Eliminar', usuario, confirm: 'Estas seguro de eliminar?', :method => :delete %>
-					</small>
-				</td>
-				<% end %>	
-			</tr>
-		<% end %>
-		</table>
-		<%= will_paginate %>
-	</div>
-	
-	<div class="row-fluid">
-		<% if current_user.administrador? %>
-		<%= link_to 'Nuevo usuario', new_comunidad_usuario_path(@comunidad), :class => 'btn btn-primary btn-large' %>
-		<% end %>
-	</div>	
 </div>

@@ -7,7 +7,11 @@
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
+<% if signed_in? %>
+<body class="body-app">
+<% else %>
 <body>
+<% end %>
 	<%= render 'layouts/header' %>
 	
 <% if signed_in? %>

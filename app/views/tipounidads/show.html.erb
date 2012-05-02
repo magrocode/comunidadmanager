@@ -1,21 +1,26 @@
 <% provide(:titulo, @tipounidad.nombre) %>
-<div class="page-header">
-	<h1>Tipos de unidad <small><%= @comunidad.nombre %></small></h1>
-</div>
 <div class="row-fluid">
+	<div class="span2">
+		<%= render 'menu_tipounidads' %>
+	</div>
 	<div class="span10">
-		<h1>Tipo de unidad <%= @tipounidad.nombre %></h1>
+		<div class="content-wrapper">
+			<div class="page-header"><h1><%= @tipounidad.nombre %></h1></div>
+			<div class="row">
+				<div class="span2">
+					<p>Tipo de unidad<br />
+						<strong><%= @tipounidad.nombre %></strong>
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span10">
+					<% if current_user.administrador? %>
+						<%= link_to 'Editar', edit_tipounidad_path(@tipounidad) %> |
+						<%= link_to 'Eliminar', @tipounidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+					<% end %>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
-<br />
-<div class="row-fluid">
-	<div class="span12">
-		<% if current_user.administrador? %>
-			<%= link_to 'Editar', edit_tipounidad_path(@tipounidad) %> |
-			<%= link_to 'Eliminar', @tipounidad, confirm: 'Estas seguro de eliminar?', :method => :delete %> |
-			<%= link_to 'Nuevo tipo de unidad?', new_comunidad_tipounidad_path(@comunidad) %> |
-		<% end %>
-			<%= link_to 'Ver tipos de unidad', comunidad_tipounidads_path(@comunidad) %>
-	</div>
-</div>
-		
+</div>		

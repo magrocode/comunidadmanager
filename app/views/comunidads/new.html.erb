@@ -1,38 +1,43 @@
 <% provide(:titulo, 'Sign up')%>
-<div class="page-header center"><h1>Sign up</h1></div>
-
 <div class="row">
 	<div class="span6 offset3">
-		<%= form_for(@comunidad) do |f| %>
-			<div class="alert alert-info">
-				<a class="close" data-dismiss="alert">×</a>
-				<h4 class="alert-heading">Lo primero!</h4><br />
-				Crear tu comunidad en bloombee.com es muy facil, primero debes ingresar
-				el nombre de la comunidad, edificio o condominio 
-				y la informacion del administrador responsable de la cuenta...<br /><br />
-				Los campos marcados (*) son obligatorios
+		<div class="content-wrapper">
+			<div class="page-header center"><h1>Sign up</h1></div>
+			<div class="row">
+				<div class="span5">
+					<%= form_for(@comunidad) do |f| %>
+						<div class="alert alert-info">
+							<a class="close" data-dismiss="alert">×</a>
+							<h4 class="alert-heading">Lo primero!</h4><br />
+							Crear tu comunidad en bloombee.com es muy facil, primero debes ingresar
+							el nombre de la comunidad, edificio o condominio 
+							y la informacion del administrador responsable de la cuenta...<br /><br />
+							Los campos marcados (*) son obligatorios
+						</div>
+						
+						<%= render 'shared/error_messages', object: f.object %>
+						<%= render 'shared/error_messages_noframe', object: @usuario %>
+						
+						<%= f.label :nombre_comunidad, "Nombre de Comunidad *" %><span class="muted">ej: Condominio Nuevo Universo</span>
+						<%= f.text_field :nombre %>
+						
+
+			  				<%= label_tag("Email de administrador *") %><span class="muted">ej: admin@nuevouniverso.com</span>
+				  			<%= text_field(:usuario, :email) %>			
+				
+				  			<%= label_tag("Nombre de administrador *") %><span class="muted">ej: Pedro Martinez</span>
+				  			<%= text_field(:usuario, :nombre) %>
+						
+				  			<%= label_tag("Password del administrador *") %><span class="muted">Minimo 6 caracteres</span>
+				  			<%= password_field(:usuario, :password) %>
+				  			
+				  			<%= label_tag("Confirmacion del password *") %>
+				  			<%= password_field(:usuario, :password_confirmation) %>
+
+						<%= f.submit "Crear Comunidad", :class => "btn btn-large btn-primary" %>
+					<% end %>
+				</div>
 			</div>
-			
-			<%= render 'shared/error_messages', object: f.object %>
-			<%= render 'shared/error_messages_noframe', object: @usuario %>
-			
-			<%= f.label :nombre_comunidad, "Nombre de Comunidad *" %><span class="muted">ej: Condominio Nuevo Universo</span>
-			<%= f.text_field :nombre %>
-			
-
-  				<%= label_tag("Email de administrador *") %><span class="muted">ej: admin@nuevouniverso.com</span>
-	  			<%= text_field(:usuario, :email) %>			
-	
-	  			<%= label_tag("Nombre de administrador *") %><span class="muted">ej: Pedro Martinez</span>
-	  			<%= text_field(:usuario, :nombre) %>
-			
-	  			<%= label_tag("Password del administrador *") %><span class="muted">Minimo 6 caracteres</span>
-	  			<%= password_field(:usuario, :password) %>
-	  			
-	  			<%= label_tag("Confirmacion del password *") %>
-	  			<%= password_field(:usuario, :password_confirmation) %>
-
-			<%= f.submit "Crear Comunidad", :class => "btn btn-large btn-primary" %>
-		<% end %>
+		</div>
 	</div>
 </div>

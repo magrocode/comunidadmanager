@@ -1,29 +1,24 @@
 <% provide(:titulo, @comunidad.nombre)%>
 <div class="row-fluid">
 	<div class="span2">
-		<%= render 'menu_lateral' %>
+		<%= render 'menu_comunidad' %>
 	</div>	
 	<div class="span10">
 		<div class="content-wrapper">
 				<div class="page-header">				
 					<h1><%= @comunidad.nombre %></h1>
-					<% if @current_user.administrador? %>
-						<%= link_to 'Editar', edit_comunidad_path(@comunidad) %>
-					<% end %>
 				</div>
 				<div class="row">
 					<div class="span2">
-						<p><strong><%= link_to 'Usuarios', comunidad_usuarios_path(@comunidad) %></strong><br />
-							<%= @comunidad.usuarios.size %></p>
+						<h3><%= @comunidad.usuarios.size %><br /><small><%= link_to 'Usuarios', comunidad_usuarios_path(@comunidad) %></small></h3>
 					</div>
 					<div class="span2">
-						<p><strong><%= link_to 'Unidades', comunidad_unidads_path(@comunidad) %></strong><br />
-							<%= @comunidad.unidads.size %></p>
+						<h3><%= @comunidad.unidads.size %><br /><small><%= link_to 'Unidades', comunidad_unidads_path(@comunidad) %></small></h3>
 					</div>
 					<div class="span2">
-						<p><strong><%= link_to 'Instalaciones', '#' %></strong><br />0</p>
+						<h3>0<small><br /><%= link_to 'Instalaciones', '#' %></small></h3>
 					</div>
-				</div><br />
+				</div><br /><br />
 				<div class="row">
 					<div class="span10">
 						<p>Administrador autorizado</p>
@@ -36,7 +31,14 @@
 							<% end %>
 						</ul>
 					</div>
+				</div><br />
+				<% if @current_user.administrador? %>
+				<div class="row">
+					<div class="span10">
+						<%= link_to 'Editar comunidad', edit_comunidad_path(@comunidad) %>
+					</div>
 				</div>
+				<% end %>
 		</div>
   	</div>
 </div>

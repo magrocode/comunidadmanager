@@ -4,12 +4,17 @@
 
 $grayMediumLight: #eaeaea;
 
-
-/* .navbar-inner {
+/*
+ .navbar-inner {
   //@navBarBgStart: #3D368B;
-  //@navBarBgEnd: #232051;
-  background-image: -webkit-linear-gradient(top,  black, green )
+  //@navBarBgEnd: #232051; 
+  background-image: -webkit-linear-gradient(top,  darkgreen, darkgreen );
 } */
+/*
+.navbar .nav li a  {
+  color: lightgray;
+}*/
+
 
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
@@ -25,9 +30,13 @@ html {
 
 body {
   padding-top: 60px;
+}
+
+.body-app {
   background-color: #EBEBEB;  
   /* background: url(ciudad-en-verde-alfa.png) bottom center no-repeat #DDDDDD;   */
 }
+
 
 section {
   overflow: auto;

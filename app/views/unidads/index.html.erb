@@ -1,68 +1,76 @@
 <% provide(:titulo, 'Unidades') %>
-<div class="content-wrapper">
-	<div class="page-header">
-		<h1>Unidades <small><%= @comunidad.nombre %></small></h1>	
+<div class="row-fluid">
+	<div class="span2">
+		<%= render 'menu_unidads' %><br />
+		<%= render 'comunidads/menu_comunidad' %>
 	</div>
-	<div class="well">
-		<div class="row-fluid">
-			<div class="span3">
-				<h6>Ordenado por:</h6><br />
-				<ul class="nav nav-pills">
-					<li <% if current_sort?('identificador') or current_sort.nil? %> class="active" <% end %> ><%= sortable "identificador" %></li>
-					<li <% if current_sort?('participacion') %> class="active" <% end %> ><%= sortable "participacion" %></li>
-					<li <% if current_sort?('tipounidad_id') %> class="active" <% end %> ><%= sortable "tipounidad_id", "Tipo" %></li>
-				</ul>
+	<div class="span10">
+		<div class="content-wrapper">
+			<div class="page-header">
+				<h1>Unidades <small><%= @comunidad.nombre %></small></h1>
 			</div>
-			
-			<div class="span1 center">
-				<h2><%= @comunidad.unidads.count %><br /><small>Unidades</small></h2>
+			<div class="row">
+				<div class="span4">
+					<h4><small>Ordenado por:</small></h4><br />
+					<ul class="nav nav-pills">
+						<li <% if current_sort?('identificador') or current_sort.nil? %> class="active" <% end %> ><%= sortable "identificador" %></li>
+						<li <% if current_sort?('participacion') %> class="active" <% end %> ><%= sortable "participacion" %></li>
+						<li <% if current_sort?('tipounidad_id') %> class="active" <% end %> ><%= sortable "tipounidad_id", "Tipo" %></li>
+					</ul>
+				</div>
+				<div class="span1">
+					<h3><%= @comunidad.unidads.count %><br /><small>Unidades</small></h3>
+				</div>
+				<div class="span1">
+					<h3><%= @comunidad.tipounidads.count %><br /><small>Tipos</small></h3>
+				</div>
+				<div class="span1">
+					<h3><%= @comunidad.unidads.sum("participacion") %>%<br /><small>Participacion</small></h3>
+				</div>		
 			</div>
-			<div class="span1 center">
-				<h2><%= @comunidad.tipounidads.count %><br /><small>Tipos</small></h2>
+			<div class="row">
+				<div class="span10">
+					<%= will_paginate %>
+					<table class="table table-bordered table-striped">
+						<tr>
+							<th>Identificador</th>
+							<th>% Participacion</th>
+							<th>Superficie m2</th>
+							<% if current_user.administrador? %>
+							<th></th>
+							<% end %>
+						</tr>
+					<% @unidads.each do |unidad| %>
+						<tr>
+							<td><%= link_to unidad.identificador, unidad %> <% if !unidad.tipounidad.nil? %>
+																				<span class="label label-info">
+																					<%= unidad.tipounidad.nombre %>
+																				</span><% end %>
+							</td>
+							<td><%= unidad.participacion %></td>
+							<td><%= unidad.superficie %></td>
+							<% if current_user.administrador? %>
+							<td class="ar">
+								<small>
+								<%= link_to 'Mostrar', unidad %> |
+								<%= link_to 'Editar', edit_unidad_path(unidad) %> |
+								<%= link_to 'Eliminar', unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+								</small>
+							</td>	
+							<% end %>
+						</tr>
+					<% end %>
+					</table>
+					<%= will_paginate %>
+				</div>
 			</div>
-			<div class="span1 center">
-				<h2><%= @comunidad.unidads.sum("participacion") %>%<br /><small>Participacion</small></h2>
-			</div>		
-		</div>
+			<% if current_user.administrador? %>
+			<div class="row-fluid">
+				<div class="span10">
+					<%= link_to 'Nueva unidad', new_comunidad_unidad_path(@comunidad), :class => 'btn btn-primary btn-large' %>
+				</div>
+			</div>	
+			<% end %>
+		</div>		
 	</div>
-	<div class="row-fluid">
-		<%= will_paginate %>
-		<table class="table table-bordered table-striped">
-			<tr>
-				<th>Identificador</th>
-				<th>% Participacion</th>
-				<th>Superficie m2</th>
-				<% if current_user.administrador? %>
-				<th></th>
-				<% end %>
-			</tr>
-		<% @unidads.each do |unidad| %>
-			<tr>
-				<td><%= link_to unidad.identificador, unidad %> <% if !unidad.tipounidad.nil? %>
-																	<span class="label label-info">
-																		<%= unidad.tipounidad.nombre %>
-																	</span><% end %>
-				</td>
-				<td><%= unidad.participacion %></td>
-				<td><%= unidad.superficie %></td>
-				<% if current_user.administrador? %>
-				<td class="ar">
-					<small>
-					<%= link_to 'Mostrar', unidad %> |
-					<%= link_to 'Editar', edit_unidad_path(unidad) %> |
-					<%= link_to 'Eliminar', unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
-					</small>
-				</td>	
-				<% end %>
-			</tr>
-		<% end %>
-		</table>
-		<%= will_paginate %>
-	</div>
-	<% if current_user.administrador? %>
-	<div class="row-fluid">
-		<%= link_to 'Tipos de unidad', comunidad_tipounidads_path(@comunidad), :class => 'btn btn-large' %>
-		<%= link_to 'Nueva unidad', new_comunidad_unidad_path(@comunidad), :class => 'btn btn-primary btn-large' %>
-	</div>	
-	<% end %>
 </div>
