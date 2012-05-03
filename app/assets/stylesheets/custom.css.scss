@@ -33,8 +33,7 @@ body {
 }
 
 .body-app {
-  background-color: #EBEBEB;  
-  /* background: url(ciudad-en-verde-alfa.png) bottom center no-repeat #DDDDDD;   */
+  background-color: #EBEBEB;
 }
 
 
@@ -111,7 +110,15 @@ p {
 
 /* footer */
 
+#footer {
+  background: url(ciudad-en-verde-alfa.png) bottom center repeat-x ;
+  /* background-position: 50% 100%;   */
+  height: 100px;
+  margin: -1px auto 0;
+}
+
 footer {
+
   margin-top: 45px;
   padding-top: 35px;
   padding-bottom: 35;
