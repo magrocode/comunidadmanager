@@ -10,7 +10,7 @@
 				<h1>Unidades <small><%= @comunidad.nombre %></small></h1>
 			</div>
 			<div class="row">
-				<div class="span1"><h4><small><br />Ordenado por:</small></h4></div>
+				<div class="span1"><h4><small><br />Orden:</small></h4></div>
 				<div class="span4">					
 					<ul class="nav nav-pills">
 						<li <% if current_sort?('identificador') or current_sort.nil? %> class="active" <% end %> ><%= sortable "identificador" %></li>

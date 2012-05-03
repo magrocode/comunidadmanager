@@ -12,21 +12,27 @@
 <% else %>
 <body>
 <% end %>
-	<%= render 'layouts/header' %>
-	
-<% if signed_in? %>
-	<div class="container-fluid">
-<% else %>
-	<div class="container">
-<% end %>
-		<% flash.each do |key, value| %>
-			<div class="alert alert-<%= key %>"><%= value %></div>
-		<% end %>
-		<%= yield %>	
-		<%= render 'layouts/footer' %>
-		<%= #debug(params) if Rails.env.development? 
-		%>
+	<div id="wrap">
+		<%= render 'layouts/header' %>
+		<div id="main">
+
+			<% if signed_in? %>
+			<div class="container-fluid">
+			<% else %>
+			<div class="container">
+			<% end %>
+			
+				<% flash.each do |key, value| %>
+				<div class="alert alert-<%= key %>"><%= value %></div>
+				<% end %>
+			
+				<%= yield %>	
+				<%= render 'layouts/footer' %>
+				<%= debug(params) if Rails.env.development? 
+				%>
+			</div>
+		</div>
 	</div>
-	<div id="footer"></div>
+	<div id="footer-bottom"></div>
 </body>
 </html>
