@@ -18,6 +18,13 @@ class Unidad < ActiveRecord::Base
 
   belongs_to :comunidad
   belongs_to :tipounidad
+
+  has_many :relacionunidads, foreign_key: "principal_id"
+  has_many :unidadrelacionadas, through: :relacionunidads,
+  								source: :relacionada
+
+  #has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  #has_many :followed_users, through: :relationships, source: :followed
   
   validates :comunidad_id, presence: true
   validates :identificador, presence: true, length: { maximum: 50 }
