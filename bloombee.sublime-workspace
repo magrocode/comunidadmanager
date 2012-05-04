@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"unidad",
+				"unidadrelacionada_id"
+			],
+			[
+				"un",
+				"unidadprincipal_id"
+			],
+			[
 				"back",
 				"background	background-color: transparent"
 			],
@@ -80,6 +88,30 @@
 			"settings":
 			{
 				"buffer_size": 492,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "db/migrate/20120503230904_create_relacionunidads.rb",
+			"settings":
+			{
+				"buffer_size": 382,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/unidad.rb",
+			"settings":
+			{
+				"buffer_size": 1137,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/relacionunidad.rb",
+			"settings":
+			{
+				"buffer_size": 267,
 				"line_ending": "Unix"
 			}
 		}
@@ -202,7 +234,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -217,8 +249,8 @@
 						"selection":
 						[
 							[
-								630,
-								644
+								688,
+								688
 							]
 						],
 						"settings":
@@ -245,8 +277,86 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								487,
+								283
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "db/migrate/20120503230904_create_relacionunidads.rb",
+					"settings":
+					{
+						"buffer_size": 382,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								342,
+								342
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 51.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/models/unidad.rb",
+					"settings":
+					{
+						"buffer_size": 1137,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								650,
+								650
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/models/relacionunidad.rb",
+					"settings":
+					{
+						"buffer_size": 267,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								245,
+								245
 							]
 						],
 						"settings":
@@ -318,6 +428,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 206.0,
+	"side_bar_width": 328.0,
 	"status_bar_visible": true
 }

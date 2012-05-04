@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20120503230904) do
 
   add_index "relacionunidads", ["principal_id", "relacionada_id"], :name => "index_relacionunidads_on_principal_id_and_relacionada_id", :unique => true
   add_index "relacionunidads", ["principal_id"], :name => "index_relacionunidads_on_principal_id"
-  add_index "relacionunidads", ["relacionada_id"], :name => "index_relacionunidads_on_relacionada_id"
+  add_index "relacionunidads", ["relacionada_id"], :name => "index_relacionunidads_on_relacionada_id", :unique => true
 
   create_table "tipounidads", :force => true do |t|
     t.string   "nombre"

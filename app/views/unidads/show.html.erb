@@ -29,8 +29,19 @@
 							<% if !@unidad.tipounidad.nil? %><span class="label label-info"><%= @unidad.tipounidad.nombre %></span><% end %>
 						</p>
 					</div>
+					<div class="span2">
+						<p>Unidades relacionadas:</p>
+						<ul class="unstyled">
+							<% @unidad.unidadrelacionadas.each do |unidadrelacionada| %>
+								<li>
+									<%= link_to unidadrelacionada.identificador, unidadrelacionada %>
+									<% if !unidadrelacionada.tipounidad.nil? %><span class="label"><%= unidadrelacionada.tipounidad.nombre %></span><% end %>
+								</li>
+							<% end %>
+						</ul>
+					</div>
 				</div><br />
-
+				
 				<div class="row">
 					<div class="span10">
 						<% if current_user.administrador? %>

@@ -31,7 +31,12 @@ describe Unidad do
   it { should respond_to(:comunidad_id) }
   it { should respond_to(:comunidad) }
   it { should respond_to(:tipounidad_id) }
-  it { should respond_to(:tipounidad)}
+  it { should respond_to(:tipounidad) }
+  it { should respond_to(:relacionunidads) }
+  it { should respond_to(:unidadrelacionadas) }
+  it { should respond_to(:vinculada?) }
+  it { should respond_to(:vincular!) }
+  it { should respond_to(:desvincular!) }
   its(:comunidad) { should == comunidad }
   its(:tipounidad) { should == tipounidad }
   
@@ -66,5 +71,22 @@ describe Unidad do
     before { @unidad.superficie = " " }
     it { should_not be_valid }
   end
-  
+
+  describe "vinculando" do
+    let(:otra_unidad) { FactoryGirl.create(:unidad, comunidad: comunidad) }
+    before do
+      @unidad.save
+      @unidad.vincular!(otra_unidad)
+    end
+
+    it { should be_vinculada(otra_unidad) }
+    its(:unidadrelacionadas) { should include(otra_unidad) }
+
+    describe "y desvinculando" do
+      before { @unidad.desvincular!(otra_unidad) }
+
+      it { should_not be_vinculada(otra_unidad) }
+      its(:unidadrelacionadas) { should_not include(otra_unidad) }
+    end
+  end
 end

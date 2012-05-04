@@ -8,7 +8,7 @@ class CreateRelacionunidads < ActiveRecord::Migration
     end
 
     add_index :relacionunidads, :principal_id
-    add_index :relacionunidads, :relacionada_id
+    add_index :relacionunidads, :relacionada_id, unique: true
     add_index :relacionunidads, [:principal_id, :relacionada_id], unique: true
   end
 end
