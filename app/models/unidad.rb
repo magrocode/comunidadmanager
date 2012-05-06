@@ -21,7 +21,7 @@ class Unidad < ActiveRecord::Base
 
   has_many :relacionunidads, foreign_key: "principal_id", dependent: :destroy
   has_many :unidadrelacionadas, through: :relacionunidads,
-  								source: :relacionada
+  								source: :vinculada
 
   #has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   #has_many :followed_users, through: :relationships, source: :followed
@@ -33,15 +33,15 @@ class Unidad < ActiveRecord::Base
             
   
   def vinculada?(otra_unidad)
-    relacionunidads.find_by_relacionada_id(otra_unidad.id)
+    relacionunidads.find_by_vinculada_id(otra_unidad.id)
   end
 
   def vincular!(otra_unidad)
-    relacionunidads.create!(relacionada_id: otra_unidad.id)
+    relacionunidads.create!(vinculada_id: otra_unidad.id)
   end
 
   def desvincular!(otra_unidad)
-    relacionunidads.find_by_relacionada_id(otra_unidad.id).destroy
+    relacionunidads.find_by_vinculada_id(otra_unidad.id).destroy
   end
 
 end

@@ -26,20 +26,15 @@
 					</div>
 					<div class="span2">
 						<p>Tipo<br />
-							<% if !@unidad.tipounidad.nil? %><span class="label label-info"><%= @unidad.tipounidad.nombre %></span><% end %>
+							<% if !@unidad.tipounidad.nil? %>
+								<span class="label label-info"><%= @unidad.tipounidad.nombre %></span>
+							<% end %>
 						</p>
 					</div>
-					<div class="span2">
-						<p>Unidades relacionadas:</p>
-						<ul class="unstyled">
-							<% @unidad.unidadrelacionadas.each do |unidadrelacionada| %>
-								<li>
-									<%= link_to unidadrelacionada.identificador, unidadrelacionada %>
-									<% if !unidadrelacionada.tipounidad.nil? %><span class="label"><%= unidadrelacionada.tipounidad.nombre %></span><% end %>
-								</li>
-							<% end %>
-						</ul>
-						<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Launch demo modal</a>
+				</div><br />
+				<div class="row">
+					<div class="span10">
+						<%= render 'vinculadas' %>				
 					</div>
 				</div><br />
 				

@@ -35,6 +35,7 @@ class UnidadsController < ApplicationController
   def show
     @unidad = Unidad.find(params[:id])
     @comunidad = @unidad.comunidad
+    @unidads = @comunidad.unidads.paginate(page: params[:page], per_page: 10)
   end
   
   def edit

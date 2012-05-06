@@ -1,0 +1,15 @@
+<%= render 'modal_vincular' %>
+<p>Unidades vinculadas:</p>
+
+<ul class="unstyled">
+	<% @unidad.unidadrelacionadas.each do |vinculada| %>
+	<li>
+		<%= link_to vinculada.identificador, vinculada %>
+		<% if !vinculada.tipounidad.nil? %>
+			<span class="label"><%= vinculada.tipounidad.nombre %></span>
+		<% end %>
+	</li>
+	<% end %>
+</ul>
+
+<a data-toggle="modal" href="#modalVincularUnidades" class="btn btn-small">Nuevo vinculo</a>

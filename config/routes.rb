@@ -1,4 +1,6 @@
 Comunidadmanager::Application.routes.draw do
+
+
   #get "unidads/new"
 
   #get "usuarios/new"
@@ -7,7 +9,11 @@ Comunidadmanager::Application.routes.draw do
   get "paginas/wellcome"
   
   resources :usuarios
-  resources :unidads 
+  resources :unidads do
+    member do
+      get :vinculadas
+    end
+  end
   resources :tipounidads 
   
   resources :comunidads do
@@ -23,8 +29,8 @@ Comunidadmanager::Application.routes.draw do
   end
 
 
-  resources :sessions, only: [:new, :create, :destroy]
-  
+  resources :sessions,        only: [:new, :create, :destroy]
+  resources :relacionunidads, only: [:create, :destroy]
   
   match '/wellcome', to: 'paginas#wellcome'
   match '/signup', to: 'comunidads#new'

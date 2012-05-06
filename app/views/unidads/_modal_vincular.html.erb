@@ -1,0 +1,39 @@
+<div class="modal hide fade" id="modalVincularUnidades" style="display: none;">
+	<div class="modal-header">
+		<button class="close" data-dismiss="modal">×</button>
+    	<h3>Vincular Unidades</h3>
+ 	</div>
+  	<div class="modal-body">
+    	<p>Que unidades deseas vincular?</p>
+    	<%= will_paginate %>
+					<table class="table table-bordered table-striped">
+						<tr>
+							<th>Identificador</th>
+							<th>% Participacion</th>
+							<th>Superficie m2</th>
+							<th></th>
+						</tr>
+					<% @unidads.each do |unidad| %>
+						<% unless unidad == @unidad %>
+						<tr>
+							<td><%= unidad.identificador %> <% if !unidad.tipounidad.nil? %>
+																				<span class="label label-info">
+																					<%= unidad.tipounidad.nombre %>
+																				</span><% end %>
+							</td>
+							<td><%= unidad.participacion %></td>
+							<td><%= unidad.superficie %></td>
+							<td>
+								<%= render 'vincular_form', unidad: unidad %>
+							</td>
+						</tr>
+						<% end %>
+					<% end %>
+					</table>
+		<%= will_paginate %>
+  	</div>
+  	<div class="modal-footer">
+    	<a href="#" class="btn" data-dismiss="modal">Cerrar</a>
+    	<a href="#" class="btn btn-primary">Guardar cambios</a>
+  	</div>
+</div>

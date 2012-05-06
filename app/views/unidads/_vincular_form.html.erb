@@ -1,0 +1,7 @@
+<div id="vincular_form">
+	<% if @unidad.vinculada?(unidad) %>
+		<%= render 'desvincular', unidad: unidad %>
+	<% else %>
+	    <%= render 'vincular', unidad: unidad %>
+	<% end %>
+</div>

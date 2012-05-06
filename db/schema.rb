@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(:version => 20120503230904) do
 
   create_table "relacionunidads", :force => true do |t|
     t.integer  "principal_id"
-    t.integer  "relacionada_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "vinculada_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
-  add_index "relacionunidads", ["principal_id", "relacionada_id"], :name => "index_relacionunidads_on_principal_id_and_relacionada_id", :unique => true
+  add_index "relacionunidads", ["principal_id", "vinculada_id"], :name => "index_relacionunidads_on_principal_id_and_vinculada_id", :unique => true
   add_index "relacionunidads", ["principal_id"], :name => "index_relacionunidads_on_principal_id"
-  add_index "relacionunidads", ["relacionada_id"], :name => "index_relacionunidads_on_relacionada_id", :unique => true
+  add_index "relacionunidads", ["vinculada_id"], :name => "index_relacionunidads_on_vinculada_id", :unique => true
 
   create_table "tipounidads", :force => true do |t|
     t.string   "nombre"

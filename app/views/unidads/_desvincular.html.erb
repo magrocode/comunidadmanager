@@ -1,0 +1,4 @@
+<%= form_for(@unidad.relacionunidads.find_by_vinculada_id(unidad),
+            html: { method: :delete }) do |f| %>
+  <%= f.submit "Desvincular", class: "btn btn-mini" %>
+<% end %>

@@ -1,0 +1,7 @@
+<%= form_for(@unidad.relacionunidads.build(vinculada_id: unidad.id)) do |f| %>
+  <div>
+  	<%= f.hidden_field :principal_id %>
+  	<%= f.hidden_field :vinculada_id %>
+  </div>
+  <%= f.submit "Vincular", class: "btn btn-mini btn-primary" %>
+<% end %>
