@@ -20,11 +20,7 @@ class Unidad < ActiveRecord::Base
   belongs_to :tipounidad
 
   has_many :relacionunidads, foreign_key: "principal_id", dependent: :destroy
-  has_many :unidadrelacionadas, through: :relacionunidads,
-  								source: :vinculada
-
-  #has_many :relationships, foreign_key: "follower_id", dependent: :destroy
-  #has_many :followed_users, through: :relationships, source: :followed
+  has_many :vinculadas, through: :relacionunidads, source: :vinculada
   
   validates :comunidad_id, presence: true
   validates :identificador, presence: true, length: { maximum: 50 }
@@ -44,4 +40,7 @@ class Unidad < ActiveRecord::Base
     relacionunidads.find_by_vinculada_id(otra_unidad.id).destroy
   end
 
+  def principal?
+    vinculadas.count > 0
+  end
 end

@@ -14,12 +14,15 @@
 							<th></th>
 						</tr>
 					<% @unidads.each do |unidad| %>
-						<% unless unidad == @unidad %>
+						<% unless unidad == @unidad or unidad.principal? %>
 						<tr>
-							<td><%= unidad.identificador %> <% if !unidad.tipounidad.nil? %>
-																				<span class="label label-info">
-																					<%= unidad.tipounidad.nombre %>
-																				</span><% end %>
+							<td>
+								<%= unidad.identificador %> 
+								<% if !unidad.tipounidad.nil? %>
+									<span class="label label-info">
+										<%= unidad.tipounidad.nombre %>
+									</span>
+								<% end %>
 							</td>
 							<td><%= unidad.participacion %></td>
 							<td><%= unidad.superficie %></td>

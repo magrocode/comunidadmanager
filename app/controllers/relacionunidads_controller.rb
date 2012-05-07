@@ -8,5 +8,9 @@ class RelacionunidadsController < ApplicationController
   end
 
   def destroy
+    @unidad_vinculada = Relacionunidad.find(params[:id]).vinculada
+    @unidad_principal = Relacionunidad.find(params[:id]).principal
+    @unidad_principal.desvincular!(@unidad_vinculada)
+    redirect_to @unidad_principal
   end
 end

@@ -2,7 +2,7 @@
 <p>Unidades vinculadas:</p>
 
 <ul class="unstyled">
-	<% @unidad.unidadrelacionadas.each do |vinculada| %>
+	<% @unidad.vinculadas.each do |vinculada| %>
 	<li>
 		<%= link_to vinculada.identificador, vinculada %>
 		<% if !vinculada.tipounidad.nil? %>
