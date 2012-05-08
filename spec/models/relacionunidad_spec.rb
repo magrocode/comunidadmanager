@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: relacionunidads
+#
+#  id           :integer         not null, primary key
+#  principal_id :integer
+#  vinculada_id :integer
+#  created_at   :datetime        not null
+#  updated_at   :datetime        not null
+#
+
 require 'spec_helper'
 
 describe Relacionunidad do
@@ -6,7 +17,7 @@ describe Relacionunidad do
 	let(:unidad_principal) { FactoryGirl.create(:unidad, comunidad: comunidad) }  
 	let(:unidad_relacionada) { FactoryGirl.create(:unidad, comunidad: comunidad) } 
 	let(:relacionunidad) do
-		unidad_principal.relacionunidads.build(relacionada_id: unidad_relacionada.id)
+		unidad_principal.relacionunidads.build(vinculada_id: unidad_relacionada.id)
 	end 
 
 	subject { relacionunidad }
@@ -25,13 +36,13 @@ describe Relacionunidad do
 		before { relacionunidad.save }
 
 		it { should respond_to(:principal) }
-		it { should respond_to(:relacionada) }
+		it { should respond_to(:vinculada) }
 		its(:principal) { should == unidad_principal }
-		its(:relacionada) { should == unidad_relacionada }
+		its(:vinculada) { should == unidad_relacionada }
 	end
 
 	describe "cuando relacionada_id no esta presente" do
-		before { relacionunidad.relacionada_id = nil }
+		before { relacionunidad.vinculada_id = nil }
 		it { should_not be_valid }
 	end
 

@@ -33,7 +33,7 @@ describe Unidad do
   it { should respond_to(:tipounidad_id) }
   it { should respond_to(:tipounidad) }
   it { should respond_to(:relacionunidads) }
-  it { should respond_to(:unidadrelacionadas) }
+  it { should respond_to(:vinculadas) }
   it { should respond_to(:vinculada?) }
   it { should respond_to(:vincular!) }
   it { should respond_to(:desvincular!) }
@@ -80,13 +80,13 @@ describe Unidad do
     end
 
     it { should be_vinculada(otra_unidad) }
-    its(:unidadrelacionadas) { should include(otra_unidad) }
+    its(:vinculadas) { should include(otra_unidad) }
 
     describe "y desvinculando" do
       before { @unidad.desvincular!(otra_unidad) }
 
       it { should_not be_vinculada(otra_unidad) }
-      its(:unidadrelacionadas) { should_not include(otra_unidad) }
+      its(:vinculadas) { should_not include(otra_unidad) }
     end
   end
 end

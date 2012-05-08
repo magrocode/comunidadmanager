@@ -6,5 +6,7 @@ class CreateTipounidads < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :tipounidads, :comunidad_id
   end
 end

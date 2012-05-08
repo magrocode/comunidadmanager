@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: relacionunidads
+#
+#  id           :integer         not null, primary key
+#  principal_id :integer
+#  vinculada_id :integer
+#  created_at   :datetime        not null
+#  updated_at   :datetime        not null
+#
+
 class Relacionunidad < ActiveRecord::Base
 
   attr_accessible :vinculada_id

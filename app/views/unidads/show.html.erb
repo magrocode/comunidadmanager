@@ -34,7 +34,7 @@
 				</div><br />
 				<div class="row">
 					<div class="span10">
-						<% if @unidad.principal? %>
+						<% if @unidad.principal? or !@unidad.has_principal? %>
 							<%= render 'vinculadas' %>
 						<% elsif @unidad.has_principal? %>
 							<%= render 'principal' %>

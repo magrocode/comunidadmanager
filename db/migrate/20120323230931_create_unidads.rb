@@ -9,5 +9,8 @@ class CreateUnidads < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :unidads, :comunidad_id
+    add_index :unidads, :identificador
   end
 end
