@@ -1,0 +1,10 @@
+<p>Unidad principal:</p>
+
+<ul class="unstyled">
+	<li>
+		<%= link_to @unidad.principal.identificador, @unidad.principal %>
+		<% if !@unidad.principal.tipounidad.nil? %>
+			<span class="label"><%= @unidad.principal.tipounidad.nombre %></span>
+		<% end %>
+	</li>
+</ul>

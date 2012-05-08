@@ -21,6 +21,10 @@ class Unidad < ActiveRecord::Base
 
   has_many :relacionunidads, foreign_key: "principal_id", dependent: :destroy
   has_many :vinculadas, through: :relacionunidads, source: :vinculada
+  has_one :reverse_relacionunidads, foreign_key: "vinculada_id",
+                                      class_name: "Relacionunidad",
+                                      dependent: :destroy
+  has_one :principal, through: :reverse_relacionunidads, source: :principal
   
   validates :comunidad_id, presence: true
   validates :identificador, presence: true, length: { maximum: 50 }
@@ -42,5 +46,15 @@ class Unidad < ActiveRecord::Base
 
   def principal?
     vinculadas.count > 0
+  end
+
+  def has_principal?
+    !principal.nil?
+  end
+
+  def vinculo_of?(otra_unidad)
+    if !principal.nil?
+      principal == otra_unidad
+    end
   end
 end

@@ -34,7 +34,11 @@
 				</div><br />
 				<div class="row">
 					<div class="span10">
-						<%= render 'vinculadas' %>				
+						<% if @unidad.principal? %>
+							<%= render 'vinculadas' %>
+						<% elsif @unidad.has_principal? %>
+							<%= render 'principal' %>
+						<% end %>
 					</div>
 				</div><br />
 				

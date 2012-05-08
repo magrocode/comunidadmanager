@@ -14,7 +14,8 @@
 							<th></th>
 						</tr>
 					<% @unidads.each do |unidad| %>
-						<% unless unidad == @unidad or unidad.principal? %>
+						<% unless unidad == @unidad or unidad.principal? or
+							(unidad.has_principal? and !unidad.vinculo_of?(@unidad) ) %>
 						<tr>
 							<td>
 								<%= unidad.identificador %> 
