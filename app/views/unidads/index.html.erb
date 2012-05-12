@@ -36,6 +36,7 @@
 							<th>Identificador</th>
 							<th>% Participacion</th>
 							<th>Superficie m2</th>
+							<th>Vinculos</th>
 							<% if current_user.administrador? %>
 							<th></th>
 							<% end %>
@@ -49,6 +50,7 @@
 							</td>
 							<td><%= unidad.participacion %></td>
 							<td><%= unidad.superficie %></td>
+							<td><%= unidad.vinculadas.count %></td>
 							<% if current_user.administrador? %>
 							<td class="ar">
 								<small>
