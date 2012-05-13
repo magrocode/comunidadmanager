@@ -19,4 +19,23 @@ describe RelacionUsuarioUnidad do
 			end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
 		end
 	end
+
+	describe "Metodos de usuario" do
+		before { relacion_usuario_unidad.save }
+
+		it { should respond_to(:usuario) }
+		it { should respond_to(:unidad) }
+		its(:usuario) { should == usuario }
+		its(:unidad) { should == unidad }
+	end
+
+	describe "Cuando usuario_id no esta presente" do
+		before { relacion_usuario_unidad.usuario_id = nil }
+		it { should_not be_valid }
+	end	
+
+	describe "Cuando unidad_id no esta presente" do
+		before { relacion_usuario_unidad.unidad_id = nil }
+		it { should_not be_valid }
+	end
 end

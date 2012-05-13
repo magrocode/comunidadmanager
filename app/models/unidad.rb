@@ -26,6 +26,9 @@ class Unidad < ActiveRecord::Base
                                       dependent: :destroy
   has_one :principal, through: :reverse_relacion_unidads, source: :principal
   
+  has_many :relacion_usuario_unidads, dependent: :destroy
+  has_many :usuarios, through: :relacion_usuario_unidads
+  
   validates :comunidad_id, presence: true
   validates :identificador, presence: true, length: { maximum: 50 }
   validates :participacion, presence: true, numericality: { greater_than_or_equal_to: 0 }
