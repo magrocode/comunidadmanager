@@ -20,6 +20,8 @@ class Usuario < ActiveRecord::Base
   before_save :create_remember_token
   
   belongs_to :comunidad
+  has_many :relacion_usuario_unidads, dependent: :destroy
+  has_many :unidads, through: :relacion_usuario_unidads
   
   validates :nombre, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

@@ -30,6 +30,7 @@ describe Usuario do
   it { should respond_to(:administrador) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:relacion_usuario_unidads) }
   its(:comunidad) { should == comunidad }
 
   it { should be_valid }

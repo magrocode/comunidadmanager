@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503230904) do
+ActiveRecord::Schema.define(:version => 20120512232418) do
 
   create_table "comunidads", :force => true do |t|
     t.string   "nombre"
@@ -23,16 +23,26 @@ ActiveRecord::Schema.define(:version => 20120503230904) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "relacionunidads", :force => true do |t|
+  create_table "relacion_unidads", :force => true do |t|
     t.integer  "principal_id"
     t.integer  "vinculada_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
-  add_index "relacionunidads", ["principal_id", "vinculada_id"], :name => "index_relacionunidads_on_principal_id_and_vinculada_id", :unique => true
-  add_index "relacionunidads", ["principal_id"], :name => "index_relacionunidads_on_principal_id"
-  add_index "relacionunidads", ["vinculada_id"], :name => "index_relacionunidads_on_vinculada_id", :unique => true
+  add_index "relacion_unidads", ["principal_id", "vinculada_id"], :name => "index_relacion_unidads_on_principal_id_and_vinculada_id", :unique => true
+  add_index "relacion_unidads", ["principal_id"], :name => "index_relacion_unidads_on_principal_id"
+  add_index "relacion_unidads", ["vinculada_id"], :name => "index_relacion_unidads_on_vinculada_id", :unique => true
+
+  create_table "relacion_usuario_unidads", :force => true do |t|
+    t.integer  "usuario_id"
+    t.integer  "unidad_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "relacion_usuario_unidads", ["unidad_id"], :name => "index_relacion_usuario_unidads_on_unidad_id"
+  add_index "relacion_usuario_unidads", ["usuario_id"], :name => "index_relacion_usuario_unidads_on_usuario_id"
 
   create_table "tipounidads", :force => true do |t|
     t.string   "nombre"
@@ -40,6 +50,8 @@ ActiveRecord::Schema.define(:version => 20120503230904) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  add_index "tipounidads", ["comunidad_id"], :name => "index_tipounidads_on_comunidad_id"
 
   create_table "unidads", :force => true do |t|
     t.integer  "comunidad_id"
@@ -51,6 +63,9 @@ ActiveRecord::Schema.define(:version => 20120503230904) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "unidads", ["comunidad_id"], :name => "index_unidads_on_comunidad_id"
+  add_index "unidads", ["identificador"], :name => "index_unidads_on_identificador"
+
   create_table "usuarios", :force => true do |t|
     t.integer  "comunidad_id"
     t.string   "email"
@@ -61,5 +76,9 @@ ActiveRecord::Schema.define(:version => 20120503230904) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  add_index "usuarios", ["comunidad_id"], :name => "index_usuarios_on_comunidad_id"
+  add_index "usuarios", ["email"], :name => "index_usuarios_on_email"
+  add_index "usuarios", ["remember_token"], :name => "index_usuarios_on_remember_token"
 
 end

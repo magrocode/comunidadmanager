@@ -19,12 +19,12 @@ class Unidad < ActiveRecord::Base
   belongs_to :comunidad
   belongs_to :tipounidad
 
-  has_many :relacionunidads, foreign_key: "principal_id", dependent: :destroy
-  has_many :vinculadas, through: :relacionunidads, source: :vinculada
-  has_one :reverse_relacionunidads, foreign_key: "vinculada_id",
-                                      class_name: "Relacionunidad",
+  has_many :relacion_unidads, foreign_key: "principal_id", dependent: :destroy
+  has_many :vinculadas, through: :relacion_unidads, source: :vinculada
+  has_one :reverse_relacion_unidads, foreign_key: "vinculada_id",
+                                      class_name: "RelacionUnidad",
                                       dependent: :destroy
-  has_one :principal, through: :reverse_relacionunidads, source: :principal
+  has_one :principal, through: :reverse_relacion_unidads, source: :principal
   
   validates :comunidad_id, presence: true
   validates :identificador, presence: true, length: { maximum: 50 }
@@ -33,15 +33,15 @@ class Unidad < ActiveRecord::Base
             
   
   def vinculada?(otra_unidad)
-    relacionunidads.find_by_vinculada_id(otra_unidad.id)
+    relacion_unidads.find_by_vinculada_id(otra_unidad.id)
   end
 
   def vincular!(otra_unidad)
-    relacionunidads.create!(vinculada_id: otra_unidad.id)
+    relacion_unidads.create!(vinculada_id: otra_unidad.id)
   end
 
   def desvincular!(otra_unidad)
-    relacionunidads.find_by_vinculada_id(otra_unidad.id).destroy
+    relacion_unidads.find_by_vinculada_id(otra_unidad.id).destroy
   end
 
   def principal?

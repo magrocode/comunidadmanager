@@ -30,7 +30,7 @@ Comunidadmanager::Application.routes.draw do
 
 
   resources :sessions,        only: [:new, :create, :destroy]
-  resources :relacionunidads, only: [:create, :destroy]
+  resources :relacion_unidads, only: [:create, :destroy]
   
   match '/wellcome', to: 'paginas#wellcome'
   match '/signup', to: 'comunidads#new'

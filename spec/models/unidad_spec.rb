@@ -32,7 +32,7 @@ describe Unidad do
   it { should respond_to(:comunidad) }
   it { should respond_to(:tipounidad_id) }
   it { should respond_to(:tipounidad) }
-  it { should respond_to(:relacionunidads) }
+  it { should respond_to(:relacion_unidads) }
   it { should respond_to(:vinculadas) }
   it { should respond_to(:vinculada?) }
   it { should respond_to(:vincular!) }
