@@ -11,7 +11,7 @@ describe "Paginas" do
   
   describe "Pagina 'Home'" do
     before { visit root_path }
-    let(:heading) { 'Bloombee' }
+    let(:heading) { 'Cloudapolis' }
     let(:page_title) { 'Home' }
     
     it_should_behave_like "all paginas"
@@ -23,7 +23,7 @@ describe "Paginas" do
     let(:comunidad) { FactoryGirl.create(:comunidad) }
     let(:usuario_admin) { FactoryGirl.create(:usuario_admin, comunidad: comunidad) }
     
-    let(:heading) { 'bloombee' }
+    let(:heading) { 'Cloudapolis' }
     let(:page_title) { 'Bienvenido' }
     
     before do

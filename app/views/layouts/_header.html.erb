@@ -4,14 +4,12 @@
 		<% if signed_in? %>
 			
 			<div class="container-fluid">
-				<%= link_to "bloombee", root_path, id: "logo" %>
+				<%= link_to "Cloudapolis", root_path, id: "logo" %>
 				<nav>
 					
 					<ul class="nav pull-left">
 						<li><%= link_to 'Bienvenido', wellcome_path %></li>
 						<li><%= link_to 'Comunidad', comunidad_path(current_user.comunidad) %></li>
-						<li><%= link_to 'Finanzas', comunidad_usuarios_path(current_user.comunidad) %></li>
-						<li><%= link_to 'Comunicacion', '#' %></li>
 					</ul>
 					
 					<ul class="nav pull-right">
@@ -34,7 +32,7 @@
 		<% else %>
 		
 			<div class="container">
-				<%= link_to "bloombee", root_path, id: "logo" %>
+				<%= link_to "Cloudapolis", root_path, id: "logo" %>
 				<nav>
 					<ul class="nav pull-right">
 						<li><%= link_to "Home", root_path %></li>

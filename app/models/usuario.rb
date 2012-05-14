@@ -21,7 +21,7 @@ class Usuario < ActiveRecord::Base
   
   belongs_to :comunidad
   has_many :relacion_usuario_unidads, dependent: :destroy
-  has_many :unidads, through: :relacion_usuario_unidads
+  has_many :unidades_autorizadas, through: :relacion_usuario_unidads, source: :unidad
   
   validates :nombre, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -30,6 +30,18 @@ class Usuario < ActiveRecord::Base
   validates :password_confirmation, presence: true, length: { minimum: 6 }
   
   
+  def unidad_autorizada?(unidad)
+    relacion_usuario_unidads.find_by_unidad_id(unidad.id)
+  end
+
+  def autorizar_unidad!(unidad)
+    relacion_usuario_unidads.create!(unidad_id: unidad.id)
+  end
+
+  def desautorizar_unidad!(unidad)
+    relacion_usuario_unidads.find_by_unidad_id(unidad.id).destroy
+  end
+
   private
   
     def create_remember_token

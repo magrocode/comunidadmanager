@@ -31,6 +31,10 @@ describe Usuario do
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:relacion_usuario_unidads) }
+  it { should respond_to(:unidades_autorizadas) }
+  it { should respond_to(:unidad_autorizada?) }
+  it { should respond_to(:autorizar_unidad!) }
+  it { should respond_to(:desautorizar_unidad!) }
   its(:comunidad) { should == comunidad }
 
   it { should be_valid }
@@ -111,5 +115,22 @@ describe Usuario do
     before { @usuario.save }
     its(:remember_token) { should_not be_blank }
   end
-  
+
+  describe "Autorizando unidad" do
+    let(:unidad_autorizada) { FactoryGirl.create(:unidad) }
+    before do
+      @usuario.save
+      @usuario.autorizar_unidad!(unidad_autorizada)
+    end
+
+    it { should be_unidad_autorizada(unidad_autorizada) }
+    its(:unidades_autorizadas) { should include(unidad_autorizada) }
+
+    describe "y desautorizando unidad" do
+      before { @usuario.desautorizar_unidad!(unidad_autorizada) }
+
+      it { should_not be_unidad_autorizada(unidad_autorizada) }
+      its(:unidades_autorizadas) { should_not include(unidad_autorizada)}
+    end
+  end
 end
