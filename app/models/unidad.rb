@@ -27,7 +27,7 @@ class Unidad < ActiveRecord::Base
   has_one :principal, through: :reverse_relacion_unidads, source: :principal
   
   has_many :relacion_usuario_unidads, dependent: :destroy
-  has_many :usuarios, through: :relacion_usuario_unidads
+  has_many :usuarios_autorizados, through: :relacion_usuario_unidads, source: :usuario 
   
   validates :comunidad_id, presence: true
   validates :identificador, presence: true, length: { maximum: 50 }
@@ -59,5 +59,9 @@ class Unidad < ActiveRecord::Base
     if !principal.nil?
       principal == otra_unidad
     end
+  end
+
+  def usuario_autorizado?(usuario)
+    relacion_usuario_unidads.find_by_usuario_id(usuario.id)
   end
 end

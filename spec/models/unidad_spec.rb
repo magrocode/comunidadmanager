@@ -37,6 +37,8 @@ describe Unidad do
   it { should respond_to(:vinculada?) }
   it { should respond_to(:vincular!) }
   it { should respond_to(:desvincular!) }
+  it { should respond_to(:usuarios_autorizados) }
+  it { should respond_to(:usuario_autorizado?) }
   its(:comunidad) { should == comunidad }
   its(:tipounidad) { should == tipounidad }
   
