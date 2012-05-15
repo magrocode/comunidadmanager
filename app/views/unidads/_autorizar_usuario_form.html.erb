@@ -1,0 +1,7 @@
+<div id="autorizar_usuario_form">
+	<% if @unidad.usuario_autorizado?(usuario) %>
+		<%= render 'desautorizar_usuario', usuario: usuario %>
+	<% else %>
+	    <%= render 'autorizar_usuario', usuario: usuario %>
+	<% end %>
+</div>

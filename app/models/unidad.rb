@@ -64,4 +64,12 @@ class Unidad < ActiveRecord::Base
   def usuario_autorizado?(usuario)
     relacion_usuario_unidads.find_by_usuario_id(usuario.id)
   end
+
+  def autorizar_usuario!(usuario)
+    relacion_usuario_unidads.create!(usuario_id: usuario.id)
+  end
+
+  def desautorizar_usuario!(usuario)
+    relacion_usuario_unidads.find_by_usuario_id(usuario.id).destroy
+  end
 end

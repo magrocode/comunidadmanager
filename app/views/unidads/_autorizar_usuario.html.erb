@@ -1,0 +1,7 @@
+<%= form_for(@unidad.relacion_usuario_unidads.build(usuario_id: usuario.id)) do |f| %>
+  <div>
+  	<%= f.hidden_field :usuario_id %>
+  	<%= f.hidden_field :unidad_id %>
+  </div>
+  <%= f.submit "Autorizar", class: "btn btn-small btn-primary" %>
+<% end %>

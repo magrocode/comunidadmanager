@@ -33,12 +33,15 @@
 					</div>
 				</div><br />
 				<div class="row">
-					<div class="span10">
+					<div class="span5">
 						<% if @unidad.principal? or !@unidad.has_principal? %>
 							<%= render 'vinculadas' %>
 						<% elsif @unidad.has_principal? %>
 							<%= render 'principal' %>
 						<% end %>
+					</div>
+					<div class="span5">
+							<%= render 'usuarios_autorizados' %>
 					</div>
 				</div><br />
 				

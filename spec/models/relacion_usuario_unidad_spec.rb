@@ -13,10 +13,10 @@ describe RelacionUsuarioUnidad do
 	it { should be_valid }
 
 	describe "Atributos accesibles" do
-		it "no debe permitir acceso a usuario_id" do
+		it "Debe permitir acceso a usuario_id y unidad_id" do
 			expect do
 				RelacionUsuarioUnidad.new(usuario_id: usuario.id)
-			end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+			end.should_not raise_error(ActiveModel::MassAssignmentSecurity::Error)
 		end
 	end
 

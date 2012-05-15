@@ -16,6 +16,11 @@
 				</div>
 			</div><br />
 			<div class="row">
+					<div class="span10">
+						<%= render 'unidades_autorizadas' %>
+					</div>
+				</div><br />
+			<div class="row">
 				<div class="span10">
 					<% if current_user.administrador? %>
 						<%= link_to 'Editar', edit_usuario_path(@usuario) %> |

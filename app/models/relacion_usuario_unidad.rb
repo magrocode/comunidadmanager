@@ -1,5 +1,5 @@
 class RelacionUsuarioUnidad < ActiveRecord::Base
-	attr_accessible :unidad_id
+	attr_accessible :usuario_id, :unidad_id
 	
 	belongs_to :usuario
 	belongs_to :unidad

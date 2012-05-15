@@ -1,0 +1,13 @@
+<%= render 'modal_autorizar_unidades' %>
+<p>Unidades autorizadas:</p>
+
+<ul class="unstyled">
+	<% @usuario.unidades_autorizadas.each do |unidad_autorizada| %>
+		<li>
+			<%= link_to unidad_autorizada.identificador, unidad_autorizada %>
+			<% if !unidad_autorizada.tipounidad.nil? %>
+				<span class="label"><%= unidad_autorizada.tipounidad.nombre %></span>
+			<% end %>
+		</li>
+	<% end %>
+</ul>

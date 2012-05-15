@@ -1,0 +1,14 @@
+<%= render 'modal_autorizar_usuarios' %>
+<p>Usuarios autorizados:</p>
+
+<ul class="unstyled">
+	<% @unidad.usuarios_autorizados.each do |usuario_autorizado| %>
+	<li>
+		<%= link_to usuario_autorizado.email, usuario_autorizado %>
+		<% if !usuario_autorizado.administrador? %>
+			<span class="label">Administrador</span>
+		<% end %>
+	</li>
+	<% end %>
+</ul>
+<a data-toggle="modal" href="#modalAutorizarUsuarios" class="btn btn-small">Autorizar</a>
