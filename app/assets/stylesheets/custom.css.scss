@@ -43,8 +43,8 @@ body {
 }
 
 #main {
-  overflow: visible; 
-  padding-bottom: 120px;
+  overflow: visible;
+  padding-bottom: 180px;
 }
 
 section {
@@ -122,11 +122,11 @@ p {
 
 #footer-bottom {
   position: relative;
-  margin-top: -120px; /* negative value of footer height */
-  height: 120px;
+  margin-top: -180px; /* negative value of footer height */
+  height: 180px;
   clear: both;
   padding: 0;
-  background: url(ciudad-en-verde-alfa.png) bottom center repeat-x;
+  background: url(cloudapolis-600x403.png) top repeat-x;
 }
 
 footer {
@@ -209,4 +209,9 @@ table small {
   padding: 20px;
   background-color: white;
   @include box_sizing;
+}
+
+
+.clear {
+  clear: both;
 }
