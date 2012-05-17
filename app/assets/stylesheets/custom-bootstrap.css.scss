@@ -1,0 +1,42 @@
+/* bootstrap no incluidos */
+.label, .badge {
+  background-color:#999999;
+  color:#FFFFFF;
+  font-size:10.998px;
+  font-weight:bold;
+  line-height:14px;
+  text-shadow:rgba(0, 0, 0, 0.246094) 0 -1px 0;
+  vertical-align:baseline;
+  white-space:nowrap;
+}
+
+.badge {
+  border-bottom-left-radius:9px;
+  border-bottom-right-radius:9px;
+  border-top-left-radius:9px;
+  border-top-right-radius:9px;
+  padding-bottom:2px;
+  padding-left:9px;
+  padding-right:9px;
+  padding-top:1px;
+}
+
+.label-info, .badge-info {
+  background-color:#3A87AD;
+}
+
+.label-success, .badge-success {
+  background-color:#468847;
+}
+
+.label-warning, .badge-warning {
+  background-color:#F89406;
+}
+
+.label-important, .badge-important {
+  background-color:#B94A48;
+}
+
+.label-inverse, .badge-inverse {
+  background-color:#333333;
+}

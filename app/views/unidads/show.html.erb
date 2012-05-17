@@ -1,60 +1,70 @@
 <% provide(:titulo, @unidad.identificador) %>
-	<div class="row-fluid">
-		<div class="span2">
-			<%= render 'menu_unidad' %><br />
-			<%= render 'menu_unidads' %>
-		</div>
-		<div class="span10">
-			<div class="content-wrapper">
-				<div class="page-header">
-					<h1><%= @unidad.identificador %></h1>	
+<div class="row-fluid">
+	<div class="span2">
+		<%= render 'menu_unidad' %><br />
+		<%= render 'menu_unidads' %>
+	</div>
+	<div class="span10">
+		<div class="content-wrapper">
+			<div class="page-header">
+				<h1><%= @unidad.identificador %></h1>	
+			</div>
+			<div class="row">
+				<div class="span2">
+					<p>Participacion<br />
+						<strong>
+						<%= @unidad.participacion %>%
+						</strong>
+					</p>
 				</div>
-				<div class="row">
-					<div class="span2">
-						<p>Participacion<br />
-							<strong>
-							<%= @unidad.participacion %>%
-							</strong>
-						</p>
-					</div>
-					<div class="span2">
-						<p>Superficie<br />
-							<strong>
-								<%= @unidad.superficie %> m2
-							</strong>
-						</p>
-					</div>
-					<div class="span2">
-						<p>Tipo<br />
-							<% if !@unidad.tipounidad.nil? %>
-								<span class="label label-info"><%= @unidad.tipounidad.nombre %></span>
-							<% end %>
-						</p>
-					</div>
-				</div><br />
-				<div class="row">
-					<div class="span5">
-						<% if @unidad.principal? or !@unidad.has_principal? %>
-							<%= render 'vinculadas' %>
-						<% elsif @unidad.has_principal? %>
-							<%= render 'principal' %>
+				<div class="span2">
+					<p>Superficie<br />
+						<strong>
+							<%= @unidad.superficie %> m2
+						</strong>
+					</p>
+				</div>
+				<div class="span2">
+					<p>Tipo<br />
+						<% if !@unidad.tipounidad.nil? %>
+							<span class="label label-info"><%= @unidad.tipounidad.nombre %></span>
 						<% end %>
+					</p>
+				</div>
+			</div><br />
+			<div class="row">
+				<div class="span10">
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#tab1" data-toggle="tab">Unidades vinculadas</a></li>
+							<li><a href="#tab2" data-toggle="tab">Usuarios autorizados</a></li>
+					  	</ul>
+					  	<div class="tab-content">
+						    <div class="tab-pane active" id="tab1">
+						    	<% if @unidad.principal? or !@unidad.has_principal? %>
+									<%= render 'vinculadas' %>
+								<% elsif @unidad.has_principal? %>
+									<%= render 'principal' %>
+								<% end %>
+						    </div>
+						    <div class="tab-pane" id="tab2">
+						    	<%= render 'usuarios_autorizados' %>
+						    </div>
+					  	</div>
 					</div>
-					<div class="span5">
-							<%= render 'usuarios_autorizados' %>
-					</div>
-				</div><br />
-				
-				<div class="row">		
-					<hr />			
-					<div class="span10">
-						<% if current_user.administrador? %>
-							<%= link_to 'Editar', edit_unidad_path(@unidad) %> |
-							<%= link_to 'Eliminar', @unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
-						<% end %>
-					</div>
+				</div>
+			</div><br />
+			
+			<div class="row">		
+				<div class="span11">
+					<hr />
+					<% if current_user.administrador? %>
+						<%= link_to 'Editar', edit_unidad_path(@unidad) %> |
+						<%= link_to 'Eliminar', @unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+					<% end %>
 				</div>
 			</div>
 		</div>
 	</div>
-	<br />
+</div>
+<br />

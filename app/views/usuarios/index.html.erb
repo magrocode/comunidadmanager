@@ -32,18 +32,17 @@
 						<tr>
 							<th>Email</th>
 							<th>Nombre</th>
-							<th>Admin?</th>
 							<% if current_user.administrador? %><th></th><% end %>
 						</tr>
 					<% @usuarios.each do |usuario| %>
 						<tr>
 							<td><%= link_to usuario.email, usuario %></td>
-							<td><%= usuario.nombre %></td>
-							<% if usuario.administrador?  %>
-								<td><i class="icon-ok"></i></td>
-							<% else %>
-								<td></td>
-							<% end %>
+							<td>
+								<%= usuario.nombre %>
+								<% if usuario.administrador? %>
+									<span class="label label-info">Administrador</span>
+								<% end %>
+							</td>
 							<% if current_user.administrador? %>
 							<td class="ar">
 								<small>

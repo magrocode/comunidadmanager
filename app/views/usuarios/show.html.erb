@@ -14,14 +14,24 @@
 				<div class="span10">
 					<h1><small><%= @usuario.email %></small></h1>	
 				</div>
-			</div><br />
+			</div><br /><br />
 			<div class="row">
 					<div class="span10">
-						<%= render 'unidades_autorizadas' %>
+						<div class="tabbable">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#tab1" data-toggle="tab">Unidades autorizadas</a></li>
+						  	</ul>
+						  	<div class="tab-content">
+							    <div class="tab-pane active" id="tab1">
+							    	<%= render 'unidades_autorizadas' %>
+							    </div>
+						  	</div>
+						</div>
 					</div>
 				</div><br />
 			<div class="row">
-				<div class="span10">
+				<div class="span11">
+					<hr />
 					<% if current_user.administrador? %>
 						<%= link_to 'Editar', edit_usuario_path(@usuario) %> |
 						<%= link_to 'Eliminar', @usuario, confirm: 'Estas seguro de eliminar?', :method => :delete %>

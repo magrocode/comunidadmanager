@@ -44,15 +44,21 @@
 						</tr>
 					<% @unidads.each do |unidad| %>
 						<tr>
-							<td><%= link_to unidad.identificador, unidad %> <% if !unidad.tipounidad.nil? %>
-																				<span class="label label-info">
-																					<%= unidad.tipounidad.nombre %>
-																				</span><% end %>
+							<td><%= link_to unidad.identificador, unidad %> 
+								<% if !unidad.tipounidad.nil? %>
+									<span class="label label-info">
+										<%= unidad.tipounidad.nombre %>
+									</span>
+								<% end %>
 							</td>
 							<td><%= unidad.participacion %></td>
 							<td><%= unidad.superficie %></td>
-							<td><%= unidad.vinculadas.count %></td>
-							<td><%= unidad.usuarios_autorizados.count %></td>
+							<td>
+								<span class="badge"><%= unidad.vinculadas.count %></span>
+							</td>
+							<td>
+								<span class="badge badge-info"><%= unidad.usuarios_autorizados.count %></span>
+							</td>
 							<% if current_user.administrador? %>
 							<td class="ar">
 								<small>
