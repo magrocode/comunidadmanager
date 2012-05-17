@@ -4,7 +4,9 @@
 		<% if signed_in? %>
 			
 			<div class="container-fluid">
-				<%= image_tag("cloudapolis-logo-150x101.png") %>
+				<a class="brand" href="#">
+  					<%= link_to "Cloudapolis", root_path, id: "logo" %>	
+				</a>
 				<nav>
 					
 					<ul class="nav pull-left">
@@ -32,7 +34,9 @@
 		<% else %>
 		
 			<div class="container">
-				<%= link_to "Cloudapolis", root_path, id: "logo" %>
+				<a class="brand" href="#">
+  					<%= link_to "Cloudapolis", root_path, id: "logo" %>	
+				</a>
 				<nav>
 					<ul class="nav pull-right">
 						<li><%= link_to "Home", root_path %></li>
