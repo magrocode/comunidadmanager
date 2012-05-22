@@ -3,7 +3,7 @@
   background-color:#999999;
   color:#FFFFFF;
   font-size:10.998px;
-  font-weight:bold;
+/*   font-weight:bold; */
   line-height:14px;
   text-shadow:rgba(0, 0, 0, 0.246094) 0 -1px 0;
   vertical-align:baseline;
@@ -18,7 +18,9 @@
   padding-bottom:2px;
   padding-left:9px;
   padding-right:9px;
-  padding-top:1px;
+  padding-top:1px;  
+
+  font-weight:bold;
 }
 
 .label-info, .badge-info {
@@ -39,4 +41,39 @@
 
 .label-inverse, .badge-inverse {
   background-color:#333333;
+}
+
+
+
+/* navbar inner */
+.navbar-inner-white {
+  /* -webkit-box-shadow:rgba(0, 0, 0, 0.246094) 0 1px 3px, rgba(0, 0, 0, 0.0976563) 0 -1px 0 inset; */
+  /* background-color:#2C2C2C; */
+  /* background-color: #049cdb; */
+  background-image:-webkit-linear-gradient(top, #FFF, #FFF);
+  background-repeat:repeat no-repeat;
+  border-bottom-left-radius:4px;
+  border-bottom-right-radius:4px;
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+  /* box-shadow:rgba(0, 0, 0, 0.246094) 0 1px 3px, rgba(0, 0, 0, 0.0976563) 0 -1px 0 inset; */
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.navbar-inner-white .nav > li > a{
+  color: gray;
+  float:none;
+  line-height:19px;
+  padding-bottom:11px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:10px;
+  text-decoration:none;
+  /* text-shadow:rgba(0, 0, 0, 0.246094) 0 -1px 0; */
+}
+
+.navbar-inner-white .nav > li > a:hover {
+  color: gray; 
+  text-decoration: underline;
 }

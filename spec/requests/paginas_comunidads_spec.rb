@@ -89,7 +89,7 @@ describe "Paginas de Comunidad" do
     end
     
     it { should have_selector('title', text: "Editando comunidad") }
-    it { should have_selector('h1', text: "Editando comunidad") }
+    it { should have_selector('h2', text: "Editando comunidad") }
     
     
     describe "por usuario no administrador" do

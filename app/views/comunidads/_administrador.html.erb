@@ -1,0 +1,24 @@
+<div class="span12">
+	<div class="module-header">
+		<h3>Informacion del administrador</h3>
+	</div>
+	<table class="unstyled" id="tabla-usuarios-admin">
+		<% @comunidad.usuarios.where(:administrador => true).limit(2).each do |administrador| %>
+		<tr>
+			<td>
+				<%= gravatar_for administrador, size: 35 %>
+			</td>
+			<td>
+				<strong>
+					<%= link_to administrador.nombre, administrador %>
+				</strong><br />
+				<%= administrador.email %><br/>
+				<small class="small-indicator">
+					56-2-688-3010 trabajo<br />
+					56-9-8806-0177 movil
+				</small><br />
+			</td>
+		</tr>
+		<% end %>
+	</table>
+</div>

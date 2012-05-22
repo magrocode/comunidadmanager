@@ -7,41 +7,41 @@
 	<div class="span10">
 		<div class="content-wrapper">
 			<div class="page-header">
-				<h1>Usuarios <small><%= @comunidad.nombre %></small></h1>	
+				<h2>Todos los usuarios</h2>
 			</div>
 			<div class="row">
-				<div class="span1"><h4><small><br />Orden:</small></h4></div>
-				<div class="span4">
-					<ul class="nav nav-pills">
-						<li <% if current_sort?('email') or current_sort.nil? %> class="active" <% end %> ><%= sortable "email" %></li>
-						<li <% if current_sort?('nombre') %> class="active" <% end %> ><%= sortable "nombre" %></li>
-						<li <% if current_sort?('administrador') %> class="active" <% end %> ><%= sortable "administrador" %></li>
-					</ul>
+				<div class="span12">
+					<strong>
+						Ordenar los usuarios por
+						<%= sortable "email" %>,
+						<%= sortable "nombre" %>,
+						<%= sortable "administrador" %>
+					</strong>
+				</div>
+			</div><br />
+			<div class="row">
+				<div class="span1">
+					<h3><%= @comunidad.usuarios.count %> <small>Usuarios</small></h3>
 				</div>
 				<div class="span1">
-					<h3><%= @comunidad.usuarios.count %><br /><small>Usuarios</small></h3>
-				</div>
-				<div class="span1">
-					<h3><%= @comunidad.usuarios.where(administrador: true).count %><br /><small>Admins</small></h3>
+					<h3><%= @comunidad.usuarios.where(administrador: true).count %> <small>Admins</small></h3>
 				</div>	
-			</div>
+			</div><br />
 			<div class="row">
-				<div class="span10">
-					<%= will_paginate %>
-					<table class="table table-bordered table-striped">
-						<tr>
-							<th>Email</th>
-							<th>Nombre</th>
-							<% if current_user.administrador? %><th></th><% end %>
-						</tr>
+				<div class="span6">
+					<%= will_paginate 	%>
+					<table class="table">
+						
 					<% @usuarios.each do |usuario| %>
 						<tr>
-							<td><%= link_to usuario.email, usuario %></td>
 							<td>
-								<%= usuario.nombre %>
+								<%= gravatar_for usuario, size: 55 %>
+								<strong><%= link_to usuario.nombre, usuario %><br/></strong>
+								<%= usuario.email %>
 								<% if usuario.administrador? %>
+									<br />
 									<span class="label label-info">Administrador</span>
-								<% end %>
+								<% end %><br/>
 							</td>
 							<% if current_user.administrador? %>
 							<td class="ar">

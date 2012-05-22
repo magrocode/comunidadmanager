@@ -1,11 +1,11 @@
 <% provide(:titulo, 'Sign up')%>
 <div class="row">
-	<div class="span6 offset3">
+	<div class="span7 offset3">
 		<div class="content-wrapper">
 			<div class="page-header center"><h1>Sign up</h1></div>
 			<div class="row">
-				<div class="span5">
-					<%= form_for(@comunidad) do |f| %>
+				<div class="span6">
+					<%= form_for @comunidad, html: { class: "form-horizontal" } do |f| %>
 						<div class="alert alert-info">
 							<a class="close" data-dismiss="alert">×</a>
 							<h4 class="alert-heading">Lo primero!</h4><br />
@@ -18,23 +18,44 @@
 						<%= render 'shared/error_messages', object: f.object %>
 						<%= render 'shared/error_messages_noframe', object: @usuario %>
 						
-						<%= f.label :nombre_comunidad, "Nombre de Comunidad *" %><span class="muted">ej: Condominio Nuevo Universo</span>
-						<%= f.text_field :nombre %>
-						
+						<div class="control-group">
+							<%= f.label :nombre_comunidad, "Nombre de Comunidad", class: "control-label" %>
+							<div class="controls">
+								<%= f.text_field :nombre, placeholder: "Mi comunidad" %>
+							</div>
+						</div>
 
-			  				<%= label_tag("Email de administrador *") %><span class="muted">ej: admin@nuevouniverso.com</span>
-				  			<%= text_field(:usuario, :email) %>			
-				
-				  			<%= label_tag("Nombre de administrador *") %><span class="muted">ej: Pedro Martinez</span>
-				  			<%= text_field(:usuario, :nombre) %>
-						
-				  			<%= label_tag("Password del administrador *") %><span class="muted">Minimo 6 caracteres</span>
-				  			<%= password_field(:usuario, :password) %>
-				  			
-				  			<%= label_tag("Confirmacion del password *") %>
-				  			<%= password_field(:usuario, :password_confirmation) %>
+						<div class="control-group">
+			  				<%= label_tag "Email administrador" %>
+			  				<div class="controls">
+				  				<%= text_field(:usuario, :email, placeholder: "mi@comunidad.com" ) %>			
+				  			</div>
+				  		</div>
 
-						<%= f.submit "Crear Comunidad", :class => "btn btn-large btn-primary" %>
+				  		<div class="control-group">				
+				  			<%= label_tag("Nombre Administrador") %>
+				  			<div class="controls">
+				  				<%= text_field(:usuario, :nombre, placeholder: "Nombre de administrador" ) %>
+				  			</div>
+				  		</div>
+
+				  		<div class="control-group">
+				  			<%= label_tag "Password administrador" %>
+				  			<div class="controls">
+				  				<%= password_field(:usuario, :password) %>
+				  			</div>
+				  		</div>
+
+				  		<div class="control-group">				  			
+				  			<%= label_tag "Confirmacion password" %>
+				  			<div class="controls">
+				  				<%= password_field(:usuario, :password_confirmation) %>
+				  			</div>
+				  		</div>
+
+				  		<div class="form-actions">
+							<%= f.submit "Crear Comunidad", :class => "btn btn-large btn-primary" %>
+						</div>
 					<% end %>
 				</div>
 			</div>

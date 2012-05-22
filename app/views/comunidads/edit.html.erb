@@ -3,32 +3,67 @@
 	<div class="span2">
 		<%= render 'menu_comunidad' %>
 	</div>
-	<div class="span10">
+	<div class="span8">
 		<div class="content-wrapper">
-			<div class="page-header"><h1>Editando comunidad</h1></div>
-			<div class="row">
-				<div class="span4">
-					<%= form_for(@comunidad) do |f| %>
+			<div class="row-fluid profile-header"><h2>Editando comunidad</h2></div>
+			<div class="row-fluid">
+				<div class="span7">
+					<%= form_for @comunidad, :html => { :class => "form-horizontal" } do |f| %>
 
 						<%= render 'shared/error_messages', object: f.object %>
-						
-						<%= f.label :nombre, "Nombre de Comunidad *" %><span class="muted">ej: Condominio Nuevo Universo</span>
-						<%= f.text_field :nombre %>
-						
-						<%= f.label :direccion, "Direccion" %>
-						<%= f.text_field :direccion %>
+						<fieldset>
+							<div class="control-group">
+								<%= f.label :nombre, "Nombre comunidad", class: "control-label" %>
+								<div class="controls">
+									<%= f.text_field :nombre, placeholder: "Mi condominio" %>
+								</div>
+							</div>
 
-						<%= f.label :ciudad, "Ciudad" %>
-						<%= f.text_field :ciudad %>
-						
-						<%= f.label :region, "Region" %>
-						<%= f.text_field :region %>
+							<div class="control-group">
+								<%= f.label :street, "Calle", class: "control-label" %>
+								<div class="controls">
+									<%= f.text_field :street, placeholder: "Av. General George Hucky 3556" %>
+								</div>
+							</div>
 
-						<%= f.label :pais, "Pais" %>
-						<%= f.text_field :pais %>
-						<div class="form-actions">
-							<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
-						</div>
+							<div class="control-group">
+								<%= f.label :city, "Ciudad", class: "control-label" %>
+								<div class="controls">
+									<%= f.text_field :city, placeholder: "Cloudappolis" %>
+								</div>
+							</div>
+							
+							<div class="control-group">
+								<%= f.label :country, "Pais", class: "control-label" %>
+								<div class="controls">
+									<%= f.text_field :country, placeholder: "Mi pais" %>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<%= f.label :email, "Email", class: "control-label" %>
+								<div class="controls">
+									<%= f.text_field :email, placeholder: "mi@comunidad.com" %>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<%= f.label :twitter, "Twitter", class: "control-label" %>
+								<div class="controls">
+									<%= f.text_field :twitter , placeholder: "@micomunidad" %>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<%= f.label :telefono, "Telefono", class: "control-label" %>
+								<div class="controls">
+									<%= f.text_field :telefono, placeholder: "56-2-155-5555" %>
+								</div>
+							</div>
+						</fieldset>
+							<div class="form-actions">
+								<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
+							</div>
 					<% end %>
 				</div>
 			</div>

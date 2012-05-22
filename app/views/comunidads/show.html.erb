@@ -5,40 +5,60 @@
 	</div>	
 	<div class="span10">
 		<div class="content-wrapper">
-				<div class="page-header">				
-					<h1><%= @comunidad.nombre %></h1>
-				</div>
-				<div class="row">
-					<div class="span2">
-						<h3><%= @comunidad.usuarios.size %><br /><small><%= link_to 'Usuarios', comunidad_usuarios_path(@comunidad) %></small></h3>
-					</div>
-					<div class="span2">
-						<h3><%= @comunidad.unidads.size %><br /><small><%= link_to 'Unidades', comunidad_unidads_path(@comunidad) %></small></h3>
-					</div>
-					<div class="span2">
-						<h3>0<small><br /><%= link_to 'Instalaciones', '#' %></small></h3>
-					</div>
-				</div><br /><br />
-				<div class="row">
-					<div class="span10">
-						<p>Administrador autorizado</p>
+			<div class="row-fluid profile-header">	
+					<div class="span5 border-right">
+						<h1>
+							<%= @comunidad.nombre %><br/>
+							<small>
+								<%= @comunidad.city %>, 
+								<%= @comunidad.country %>								
+							</small>
+						</h1>
+						<% if @current_user.administrador? %>
+							<small class="small-indicator">
+							<%= link_to 'Editar', edit_comunidad_path(@comunidad) %></small>
+						<% end %>
+					</div>	
+					<div class="span4">
 						<ul class="unstyled">
-							<% @comunidad.usuarios.where(:administrador => true).each do |administrador| %>
-							<li>
-								<%= link_to administrador.email, administrador %>,
-								<%= administrador.nombre %>
+							<li>								
+								<strong>
+									<i class="icono-email"></i>&nbsp;
+									<%= @comunidad.email %>
+								</strong>
 							</li>
-							<% end %>
+							<li>
+								<strong>
+								<i class="icono-twitter"></i>&nbsp;
+								<%= @comunidad.twitter %></strong>
+							</li>	
+							<li>
+								<strong>
+								<i class="icono-telefono"></i>&nbsp;
+								<%= @comunidad.telefono %></strong>
+							</li>
 						</ul>
 					</div>
-				</div><br />
-				<% if @current_user.administrador? %>
-				<div class="row">
-					<div class="span10">
-						<%= link_to 'Editar comunidad', edit_comunidad_path(@comunidad) %>
+					<div class="span3">
+						<%= #render 'mapa' 
+						%>		  
+					</div>	
+			</div>
+			<div class="row-fluid">
+				<div class="span9">
+					<div class="row-fluid">
+						<div class="span9">
+							<strong>Notas o Emails de la comunidad</strong>
+						</div>
 					</div>
 				</div>
-				<% end %>
+				<div class="span3">
+					<div class="row-fluid">
+						<%= render 'administrador' %>
+					</div>
+				</div>
+			</div>	
+			<div class="clear"></div>
 		</div>
   	</div>
 </div>

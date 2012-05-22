@@ -2,24 +2,14 @@
 
 <div class="content-wrapper">
 	<div class="page-header">
-		<h1>Bienvenido a Cloudapolis</h1>	
+		<h2>Bienvenido <%= current_user.nombre %>!! ¿Que vamos a hacer hoy?</h2>	
 	</div>
 
-	<div class="row-fluid">
-			
-		<div class="span12">
-			<h3>Que vamos a hacer hoy?</h3>
-			<p>Esta secci&oacute;n contiene accesos directos a 
-				las funciones mas frecuentes para configurar y gestionar
-				tu comunidad.</p>
-		</div>
-	</div>
 	<br />
-
 	<div class="row-fluid">
 		<div class="span4">
-			<h3>Configurar la comunidad</h3><br />
-			<ul>
+			<h3>Configurar la comunidad</h3><br /><br />
+			<ul class="unstyled">
 				<li><%= link_to 'Crear Unidades (viviendas)', 
 								new_comunidad_unidad_path(current_user.comunidad) %></li>
 				<li><%= link_to 'Manejar Tipos de unidad (casa, depto, parc.)', comunidad_tipounidads_path(current_user.comunidad) %></li>
@@ -29,14 +19,14 @@
 			</ul>
 		</div>
 		<div class="span4">
-			<h3>Registrar salidas de dinero</h3><br />
-			<ul>
+			<h3>Registrar salidas de dinero</h3><br /><br />
+			<ul class="unstyled">
 				<li><%= link_to 'Nuevo egreso por gasto', '#' %></li>
 			</ul>
 		</div>
 		<div class="span4">
-			<h3>Registrar consumos de unidades</h3><br />
-			<ul>
+			<h3>Registrar consumos de unidades</h3><br /><br />
+			<ul class="unstyled">
 				<li><%= link_to 'Ingresar lecturas de consumo', '#' %></li>
 			</ul>
 		</div>

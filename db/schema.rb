@@ -11,16 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120512232418) do
+ActiveRecord::Schema.define(:version => 20120519182052) do
 
   create_table "comunidads", :force => true do |t|
     t.string   "nombre"
-    t.string   "direccion"
-    t.string   "ciudad"
-    t.string   "region"
-    t.string   "pais"
+    t.string   "street"
+    t.string   "city"
+    t.string   "country"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "email"
+    t.string   "twitter"
+    t.string   "telefono"
   end
 
   create_table "relacion_unidads", :force => true do |t|

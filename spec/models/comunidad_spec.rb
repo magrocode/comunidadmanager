@@ -17,19 +17,19 @@ require 'spec_helper'
 describe Comunidad do
   
   before { @comunidad = Comunidad.new(nombre: "Comunidad de Ejemplo", 
-                                      direccion: "Huerfanos 1055", 
-                                      ciudad: "Santiago", 
-                                      region: "Region metropolitana",
-                                      pais: "Chile") }
+                                      street: "Huerfanos 1055", 
+                                      city: "Santiago", 
+                                      country: "Chile") }
                                   
   subject { @comunidad }
   
   it { should respond_to(:nombre) }
-  it { should respond_to(:direccion) }  
-  it { should respond_to(:ciudad) }
-  it { should respond_to(:region) }
-  it { should respond_to(:pais) }
-#  it { should respond_to(:authenticate) }
+  it { should respond_to(:street) }  
+  it { should respond_to(:city) }
+  it { should respond_to(:country) }
+  it { should respond_to(:email) }
+  it { should respond_to(:twitter) }
+  it { should respond_to(:telefono) }
   
   it { should be_valid }
   
@@ -43,26 +43,36 @@ describe Comunidad do
     it { should_not be_valid }    
   end
   
-  describe "Cuando ciudad es demasiado largo" do
-    before { @comunidad.ciudad = "a" * 256 }
+  describe "Cuando city es demasiado largo" do
+    before { @comunidad.city = "a" * 256 }
     it { should_not be_valid }
   end
   
-  describe "Cuando region es demasiado largo" do
-    before { @comunidad.region = "a" * 256 }
+  describe "Cuando country es demasiado largo" do
+    before { @comunidad.country = "a" * 256 }
     it { should_not be_valid }
   end
   
-  describe "Cuando pais es demasiado largo" do
-    before { @comunidad.pais = "a" * 256 }
+  describe "Cuando street es demasiado largo" do
+    before { @comunidad.street = "a" * 256 }
     it { should_not be_valid }
   end
-  
-  describe "Cuando direccion es demasiado largo" do
-    before { @comunidad.direccion = "a" * 256 }
+
+  describe "Cuando email es demasiado largo" do
+    before { @comunidad.email = "a" * 256 }
     it { should_not be_valid }
   end
-  
+
+  describe "Cuando twitter es demasiado largo" do
+    before { @comunidad.twitter = "a" * 256 }
+    it { should_not be_valid }
+  end
+
+  describe "Cuando telefono es demasiado largo" do
+    before { @comunidad.telefono = "a" * 256 }
+    it { should_not be_valid }
+  end
+
 ###
 ##  
 #  describe "unidades de la comunidad" do

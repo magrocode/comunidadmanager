@@ -14,13 +14,16 @@
 
 class Comunidad < ActiveRecord::Base
 
-  attr_accessible :nombre, :direccion, :ciudad, :region, :pais
+  attr_accessible :nombre, :street, :city, :country
+  attr_accessible :email, :twitter, :telefono
 
   has_many :unidads, dependent: :destroy
   has_many :usuarios, dependent: :destroy
   has_many :tipounidads, dependent: :destroy
 
   validates :nombre, presence: true, length: { maximum: 50 }
-  validates :direccion, :ciudad, :region, :pais, length: { maximum: 255 }
+  validates :street, :city, :country, length: { maximum: 255 }
+  validates :email, :twitter, length: { maximum: 255 }
+  validates :telefono, length: { maximum: 50 }
 
 end

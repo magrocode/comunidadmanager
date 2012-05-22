@@ -1,0 +1,22 @@
+
+.icono-email {
+	background-image:url(icons/email.png);
+}
+
+.icono-twitter {
+	background-image:url(icons/twitter.png);
+}
+
+.icono-telefono {
+	background-image:url(icons/phone.png);	
+}
+
+[class^="icono-"] {
+	background-size: 14px;
+  	background-position: 0px 0px;
+  	background-repeat: no-repeat no-repeat;
+  	display: inline-block;
+  	height: 14px;
+  	vertical-align: text-top;
+  	width: 14px;
+}
