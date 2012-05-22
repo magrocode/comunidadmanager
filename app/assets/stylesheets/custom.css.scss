@@ -326,6 +326,15 @@ table .align-top {
   border-right: 1px solid $grayMediumLight;
 }
 
+/* columnas de modulos */
+.row-fluid .right-module-col {
+  margin-left: 0px;
+  padding-left: 25px;
+  border-left: 1px solid $grayMediumLight;
+}
+
+
+
 /* encabezado de perfiles */
 .profile-header {
   padding-bottom: 15px;
@@ -358,13 +367,12 @@ table .align-top {
 /* sortable  */
 .current {
   font-weight: bold;
-  text-decoration: underline;
-  
+  padding-left: 16px;
   &.desc {
-    text-decoration: underline;
+    background: url(icons/sort-desc-gray.png) no-repeat;
   }
 
   &.asc {
-    text-decoration: overline
+    background: url(icons/sort-asc-gray.png) no-repeat;
   }
 }

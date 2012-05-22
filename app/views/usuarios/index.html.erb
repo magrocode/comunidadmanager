@@ -1,68 +1,24 @@
 <% provide(:titulo, 'Usuarios') %>
 <div class="row-fluid">
 	<div class="span2">
-		<%= render 'menu_usuarios' %><br />
+		<%= #render 'menu_usuarios' 
+		%>
 		<%= render 'comunidads/menu_comunidad' %>
 	</div>
 	<div class="span10">
 		<div class="content-wrapper">
-			<div class="page-header">
-				<h2>Todos los usuarios</h2>
-			</div>
-			<div class="row">
-				<div class="span12">
-					<strong>
-						Ordenar los usuarios por
-						<%= sortable "email" %>,
-						<%= sortable "nombre" %>,
-						<%= sortable "administrador" %>
-					</strong>
-				</div>
-			</div><br />
-			<div class="row">
-				<div class="span1">
-					<h3><%= @comunidad.usuarios.count %> <small>Usuarios</small></h3>
-				</div>
-				<div class="span1">
-					<h3><%= @comunidad.usuarios.where(administrador: true).count %> <small>Admins</small></h3>
-				</div>	
-			</div><br />
-			<div class="row">
-				<div class="span6">
-					<%= will_paginate 	%>
-					<table class="table">
-						
-					<% @usuarios.each do |usuario| %>
-						<tr>
-							<td>
-								<%= gravatar_for usuario, size: 55 %>
-								<strong><%= link_to usuario.nombre, usuario %><br/></strong>
-								<%= usuario.email %>
-								<% if usuario.administrador? %>
-									<br />
-									<span class="label label-info">Administrador</span>
-								<% end %><br/>
-							</td>
-							<% if current_user.administrador? %>
-							<td class="ar">
-								<small>
-								<%= link_to 'Mostrar', usuario %> |
-								<%= link_to 'Editar', edit_usuario_path(usuario) %> |
-								<%= link_to 'Eliminar', usuario, confirm: 'Estas seguro de eliminar?', :method => :delete %>
-								</small>
-							</td>
-							<% end %>	
-						</tr>
-					<% end %>
-					</table>
-					<%= will_paginate %>
-				</div>
-			</div>
+			<!-- informacion del perfil -->
+			<%= render 'usuarios_header' %>
 			<div class="row-fluid">
-				<% if current_user.administrador? %>
-				<%= link_to 'Nuevo usuario', new_comunidad_usuario_path(@comunidad), :class => 'btn btn-primary btn-large' %>
-				<% end %>
-			</div>	
+				<!-- columna de contenidos -->
+				<div class="span9">
+					<%= render 'usuarios' %>
+				</div>
+				<!-- columna de modulos right -->
+				<div class="span3 right-module-col">
+					<%= render 'module_col' %>
+				</div>
+			</div>		
 		</div>
 	</div>
 </div>

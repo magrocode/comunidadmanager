@@ -8,9 +8,9 @@
 
 
 # COMUNIDAD A
-comunidadA = Comunidad.create(nombre: 'Condiminio Alcazar')
+comunidadA = Comunidad.create(nombre: 'Condiminio Alcazar', street: 'Rafael Sotomayor 55', city: 'Santiago', country: 'Chile', telefono: '5626990177', email: 'alcazar@gmail.com', twitter: '@alcazarcondominio')
 
-  comunidadA.usuarios.create(email: 'mario@foobar.com', nombre: 'Mario Espinoza', administrador: true, password: 'foobar', password_confirmation: 'foobar')
+  comunidadA.usuarios.create(email: 'mario@magrocode.com', nombre: 'Mario Espinoza', administrador: true, password: 'foobar', password_confirmation: 'foobar')
   comunidadA.usuarios.create(email: 'claudia@foobar.com', nombre: 'Claudia Valenzuela', administrador: false, password: 'foobar', password_confirmation: 'foobar')
   comunidadA.usuarios.create(email: 'pablo@foobar.com', nombre: 'Pablo Vicuna', administrador: true, password: 'foobar', password_confirmation: 'foobar')
   comunidadA.usuarios.create(email: 'esteban@foobar.com', nombre: 'Esteban', administrador: false, password: 'foobar', password_confirmation: 'foobar')
@@ -26,7 +26,7 @@ comunidadA = Comunidad.create(nombre: 'Condiminio Alcazar')
 
 
 # COMUNIDAD B
-comunidadB = Comunidad.create(nombre: 'Edificio Nuevo Mundo')
+comunidadB = Comunidad.create(nombre: 'Parcelacion Dona Ines del Oliveto', street: 'Camino Lonquen p. 29', city: 'Calera de Tango', country: 'Chile', telefono: '5695553265', email: 'donainesdeloliveto@yahoo.es', twitter: '@donainesdeloliveto')
 
   comunidadB.usuarios.create(email: 'mario@nuevomundo.com', nombre: 'Mario Espinoza', administrador: true, password: 'foobar', password_confirmation: 'foobar')
   comunidadB.usuarios.create(email: 'claudia@nuevomundo.com', nombre: 'Claudia Valenzuela', administrador: false, password: 'foobar', password_confirmation: 'foobar')
