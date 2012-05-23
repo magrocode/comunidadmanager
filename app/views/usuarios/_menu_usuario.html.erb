@@ -1,4 +1,19 @@
-<ul class="nav-list unstyled">
-	<li class="nav-header">Perfil Usuario</li>
-	<li><%= link_to @usuario.nombre, usuario_path(@usuario) %></li>
-</ul>
+<div>
+  <ul class="nav-list-m unstyled">
+  	<li class="menu-spacer">
+      <span>
+        <%= gravatar_for @usuario, size: 14, addclass: 'mini'  %>
+        <%= link_to @usuario.nombre, @usuario %>
+      </span>
+    </li>
+    <li class="menu-spacer">
+      <span>
+        <i class="icon-ok-sign"></i>&nbsp;
+        <%= link_to 'Viviendas autorizadas', '#' %>
+        <small class="small-indicator">
+    			<%= pluralize(@usuario.unidades_autorizadas.size, "unidad", "unidades") %>
+    	</small>
+      </span>
+    </li>
+  </ul>
+</div>

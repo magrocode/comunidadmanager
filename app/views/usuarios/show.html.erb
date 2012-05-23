@@ -1,11 +1,15 @@
 <% provide(:titulo, @usuario.email) %>
 <div class="row-fluid">
 	<div class="span2">
-		<%= render 'menu_usuario' %><br />
-		<%= render 'menu_usuarios' %>
+		<%= render 'comunidads/menu_comunidad' %><br />
+		<%= render 'menu_usuario' %>
 	</div>	
 	<div class="span10">
 		<div class="content-wrapper">
+			<!-- informacion del perfil  -->
+			<%= render 'profile_header' %>
+
+			
 			<div class="page-header">
 				<h1><%= @usuario.nombre %> <% if @usuario.administrador? %>
 						<span class="label label-info">Administrador</span><% end %></h1>

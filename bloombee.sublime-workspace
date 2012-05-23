@@ -176,58 +176,18 @@
 			}
 		},
 		{
-			"file": "app/assets/stylesheets/custom.css.scss",
+			"file": "app/views/usuarios/show.html.erb",
 			"settings":
 			{
-				"buffer_size": 5967,
+				"buffer_size": 1403,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/comunidads/_administrador.html.erb",
+			"file": "app/views/usuarios/_profile_header.html.erb",
 			"settings":
 			{
-				"buffer_size": 606,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/assets/stylesheets/usuarios.css.scss",
-			"settings":
-			{
-				"buffer_size": 799,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/usuarios/index.html.erb",
-			"settings":
-			{
-				"buffer_size": 576,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/usuarios/_module_col.html.erb",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/usuarios/_usuarios.html.erb",
-			"settings":
-			{
-				"buffer_size": 1500,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/usuarios/_usuarios_header.html.erb",
-			"settings":
-			{
-				"buffer_size": 366,
+				"buffer_size": 849,
 				"line_ending": "Unix"
 			}
 		}
@@ -260,12 +220,22 @@
 	},
 	"file_history":
 	[
+		"/home/mario/railsprojects/comunidadmanager/app/views/comunidads/_menu_comunidad.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/app/assets/stylesheets/usuarios.css.scss",
+		"/home/mario/railsprojects/comunidadmanager/app/helpers/usuarios_helper.rb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/usuarios/_menu_usuario.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/usuarios/index.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/comunidads/_profile_header.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/assets/stylesheets/custom.css.scss",
+		"/home/mario/railsprojects/comunidadmanager/app/views/comunidads/_administrador.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/layouts/application.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/usuarios/_usuarios.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/usuarios/_usuarios_header.html.erb",
+		"/home/mario/railsprojects/comunidadmanager/app/views/usuarios/_module_col.html.erb",
 		"/home/mario/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/mario/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/mario/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
 		"/home/mario/.config/sublime-text-2/Packages/User/HTML (Rails).sublime-settings",
-		"/home/mario/railsprojects/comunidadmanager/app/views/comunidads/_profile_header.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/comunidads/_module_col.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/comunidads/_notas.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/db/seeds.rb",
@@ -277,13 +247,11 @@
 		"/home/mario/railsprojects/comunidadmanager/app/assets/stylesheets/custom-bootstrap.css.scss",
 		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/show.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/_vinculadas.html.erb",
-		"/home/mario/railsprojects/comunidadmanager/app/views/usuarios/index.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/assets/javascripts/application.js",
 		"/home/mario/railsprojects/comunidadmanager/Gemfile",
 		"/home/mario/railsprojects/comunidadmanager/app/assets/stylesheets/application.css",
 		"/home/mario/railsprojects/comunidadmanager/app/assets/stylesheets/bootstrap_and_overrides.css.less",
 		"/home/mario/railsprojects/comunidadmanager/app/views/layouts/_header.html.erb",
-		"/home/mario/railsprojects/comunidadmanager/app/views/layouts/application.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/paginas/home.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/layouts/_footer.html.erb",
 		"/home/mario/railsprojects/comunidadmanager/app/views/unidads/_modal_autorizar_usuarios.html.erb",
@@ -414,7 +382,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -429,8 +397,8 @@
 						"selection":
 						[
 							[
-								254,
-								507
+								220,
+								250
 							]
 						],
 						"settings":
@@ -456,8 +424,8 @@
 						"selection":
 						[
 							[
-								839,
-								839
+								0,
+								864
 							]
 						],
 						"settings":
@@ -466,90 +434,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/assets/stylesheets/custom.css.scss",
-					"settings":
-					{
-						"buffer_size": 5967,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5243,
-								5243
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2521.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/views/comunidads/_administrador.html.erb",
-					"settings":
-					{
-						"buffer_size": 606,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								18,
-								18
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/assets/stylesheets/usuarios.css.scss",
-					"settings":
-					{
-						"buffer_size": 799,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								782,
-								782
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 529.0,
+						"translation.y": 304.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -557,23 +442,23 @@
 			]
 		},
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 5,
-					"file": "app/views/usuarios/index.html.erb",
+					"buffer": 2,
+					"file": "app/views/usuarios/show.html.erb",
 					"settings":
 					{
-						"buffer_size": 576,
+						"buffer_size": 1403,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								115,
-								115
+								363,
+								462
 							]
 						],
 						"settings":
@@ -588,72 +473,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "app/views/usuarios/_module_col.html.erb",
+					"buffer": 3,
+					"file": "app/views/usuarios/_profile_header.html.erb",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 849,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/views/usuarios/_usuarios.html.erb",
-					"settings":
-					{
-						"buffer_size": 1500,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1015,
-								1015
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 90.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "app/views/usuarios/_usuarios_header.html.erb",
-					"settings":
-					{
-						"buffer_size": 366,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								326,
-								326
+								240,
+								240
 							]
 						],
 						"settings":

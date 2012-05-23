@@ -8,6 +8,10 @@
 .gravatar {
   float: left;
   margin-right: 10px;
+  
+  &.mini {
+    margin-right: 5px;
+  }
 }
 
 /* usuarios index */

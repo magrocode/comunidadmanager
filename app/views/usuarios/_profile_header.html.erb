@@ -1,0 +1,41 @@
+<div class="row-fluid profile-header">	
+	<div class="span5 border-right">
+		<%= gravatar_for @usuario %>
+		<h1><%= @usuario.nombre %></h1>
+		<% if @usuario.administrador? %>
+			<span class="label label-info">Administrador</span><br /><br />
+		<% end %>
+
+		<% if @current_user.administrador? %>
+			<small class="small-indicator">
+				<%= link_to 'Editar', edit_usuario_path(@usuario) %>
+			</small>
+		<% end %>
+	</div>	
+	<div class="span4">
+		<ul class="unstyled">
+			<li>								
+				<strong>
+					<i class="icono-email"></i>&nbsp;
+					<%= @usuario.email %>
+				</strong>
+			</li>
+			<li>
+				<strong>
+					<i class="icono-twitter"></i>&nbsp;
+					
+				</strong>
+			</li>	
+			<li>
+				<strong>
+					<i class="icono-telefono"></i>&nbsp;
+					
+				</strong>
+			</li>
+		</ul>
+	</div>
+	<div class="span3">
+		<%= #render 'mapa' 
+		%>		  
+	</div>	
+</div>
