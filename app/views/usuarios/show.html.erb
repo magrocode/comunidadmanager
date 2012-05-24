@@ -9,19 +9,6 @@
 			<!-- informacion del perfil  -->
 			<%= render 'profile_header' %>
 
-			
-			<div class="page-header">
-				<h1><%= @usuario.nombre %> <% if @usuario.administrador? %>
-						<span class="label label-info">Administrador</span><% end %></h1>
-			</div>
-			<div class="row">
-				<div class="span10">
-					<h1>
-						<%= gravatar_for @usuario %>
-						<small><%= @usuario.email %></small>
-					</h1>	
-				</div>
-			</div><br /><br />
 			<div class="row">
 					<div class="span10">
 						<div class="tabbable">
@@ -36,15 +23,6 @@
 						</div>
 					</div>
 				</div><br />
-			<div class="row">
-				<div class="span11">
-					<hr />
-					<% if current_user.administrador? %>
-						<%= link_to 'Editar', edit_usuario_path(@usuario) %> |
-						<%= link_to 'Eliminar', @usuario, confirm: 'Estas seguro de eliminar?', :method => :delete %>
-					<% end %>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>

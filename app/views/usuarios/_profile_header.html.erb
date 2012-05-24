@@ -1,16 +1,25 @@
 <div class="row-fluid profile-header">	
 	<div class="span5 border-right">
-		<%= gravatar_for @usuario %>
-		<h1><%= @usuario.nombre %></h1>
-		<% if @usuario.administrador? %>
-			<span class="label label-info">Administrador</span><br /><br />
-		<% end %>
+		<table class="unstyled">
+			<tr>
+				<td class="align-top">
+					<%= gravatar_for @usuario %>
+				</td>
+				<td class="align-top">
+					<h1><%= @usuario.nombre %></h1>
+					<% if @usuario.administrador? %>
+						<span class="label label-info">Administrador</span><br /><br />
+					<% end %>
 
-		<% if @current_user.administrador? %>
-			<small class="small-indicator">
-				<%= link_to 'Editar', edit_usuario_path(@usuario) %>
-			</small>
-		<% end %>
+					<% if @current_user.administrador? %>
+						<small class="small-indicator">
+							<i class="icon-edit"></i> <%= link_to 'Editar', edit_usuario_path(@usuario) %>
+							<i class="icon-trash"></i> <%= link_to 'Eliminar', @usuario, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+						</small>
+					<% end %>
+				</td>
+			</tr>
+		</table>
 	</div>	
 	<div class="span4">
 		<ul class="unstyled">
