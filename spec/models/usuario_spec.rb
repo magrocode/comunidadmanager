@@ -21,6 +21,8 @@ describe Usuario do
   before { @usuario = comunidad.usuarios.build(email: "mario@foobar.com",
                                                nombre: "Mario Espinoza",
                                                administrador: true,
+                                               twitter: "@codelious",
+                                               telefono: "56-9-8806-0177",
                                                password: "foobar",
                                                password_confirmation: "foobar") }
   subject { @usuario }
@@ -30,6 +32,8 @@ describe Usuario do
   it { should respond_to(:administrador) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:twitter) }
+  it { should respond_to(:telefono) }
   it { should respond_to(:relacion_usuario_unidads) }
   it { should respond_to(:unidades_autorizadas) }
   it { should respond_to(:unidad_autorizada?) }
@@ -75,6 +79,16 @@ describe Usuario do
     it { should_not be_valid }
   end
   
+  describe "Cuando twitter es muy largo" do
+    before { @usuario.twitter = "a" * 51 }
+    it { should be_invalid }
+  end
+
+  describe "Cuando telefono es muy largo" do
+    before { @usuario.telefono = "a" * 51 }
+    it { should be_invalid }
+  end
+
   describe "Cuando el password no esta presente" do
     before { @usuario.password = @usuario.password_confirmation = " " }
     it { should_not be_valid }

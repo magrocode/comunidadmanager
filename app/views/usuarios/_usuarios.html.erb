@@ -1,50 +1,52 @@
-<div class="row">
-				<div class="span12">
-					<strong>
-						Ordenar los usuarios por
-						<%= sortable "email" %>,
-						<%= sortable "nombre" %>,
-						<%= sortable "administrador" %>
-					</strong>
-				</div>
-			</div><br />
-			<div class="row-fluid">
-				<div class="span6">
-					<span><h3><%= @comunidad.usuarios.count %> <small>Usuarios</small> &nbsp;</h3></span>
-					<span><h3><%= @comunidad.usuarios.where(administrador: true).count %> <small>Admins</small></h3></span>
-				</div>	
-			</div><br />
-			<div class="row">
-				<div class="span6">
-					<%= will_paginate 	%>
-					<table class="table">
-						
-					<% @usuarios.each do |usuario| %>
-						<tr>
-							<td style="width: 55px;">
-								<%= gravatar_for usuario, size: 55 %>
-							</td>
-							<td>								
-								<strong><%= link_to usuario.nombre, usuario %><br/></strong>
-								<%= usuario.email %>
-								<% if usuario.administrador? %>
-									<br />
-									<span class="label label-info">Administrador</span>
-								<% end %><br/>
-							</td>
-							<% if current_user.administrador? %>
-							<td class="ar">
-								<small>
-								<i class="icon-edit"></i> <%= link_to 'Editar', edit_usuario_path(usuario) %> 
-								<i class="icon-trash"></i> <%= link_to 'Eliminar', usuario, 
-																		confirm: 'Estas seguro de eliminar?', 
-																		:method => :delete %>
-								</small>
-							</td>
-							<% end %>	
-						</tr>
-					<% end %>
-					</table>
-					<%= will_paginate %>
-				</div>
-			</div>
+<div class="row-fluid">
+	<div class="span12">
+		<strong>
+			Ordenar los usuarios por
+			<%= sortable "email" %>,
+			<%= sortable "nombre" %>,
+			<%= sortable "administrador" %>
+		</strong>
+	</div>
+</div><br />
+<div class="row-fluid">
+	<div class="span6">
+		<span><h3><%= @comunidad.usuarios.count %> <small>Usuarios</small> &nbsp;</h3></span>
+		<span><h3><%= @comunidad.usuarios.where(administrador: true).count %> <small>Admins</small></h3></span>
+	</div>	
+</div><br />
+<div class="row-fluid">
+	<div class="span6">
+		
+		<%= will_paginate 	%>
+		<table class="table">
+					
+		<% @usuarios.each do |usuario| %>
+			<tr>
+				<td  style="width: 50px;">
+					<%= gravatar_for usuario, size: 50 %>
+				</td>
+				<td>								
+					<strong><%= link_to usuario.nombre, usuario %><br/></strong>
+					<%= usuario.email %>
+					<% if usuario.administrador? %>
+						<br />
+						<span class="label label-info">Administrador</span>
+					<% end %><br/>
+				</td>
+				<% if current_user.administrador? %>
+					<td class="ar">
+						<small>
+							<i class="icon-edit"></i> <%= link_to 'Editar', edit_usuario_path(usuario) %> 
+							<i class="icon-trash"></i> <%= link_to 'Eliminar', usuario, 
+																	confirm: 'Estas seguro de eliminar?', 
+																	method: :delete %>
+						</small>
+					</td>
+				<% end %>	
+			</tr>
+		<% end %>
+		
+		</table>
+		<%= will_paginate %>
+	</div>
+</div>

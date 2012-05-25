@@ -1,15 +1,17 @@
 <% provide(:titulo, 'Nuevo usuario') %>
 <div class="row-fluid">
 	<div class="span2">
-		<%= render 'menu_usuarios' %>
+		<%= render 'comunidads/menu_comunidad' %>
 	</div>
 	<div class="span10">
 		<div class="content-wrapper">
-			<div class="page-header">
-				<h1>Nuevo usuario</h1>
+			<div class="row-fluid profile-header">	
+				<div class="span10">
+					<h2>Agrega un nuevo usuario</h2>
+				</div>
 			</div>
 			<div class="row">
-				<div class="span4">
+				<div class="span8">
 					<%= render 'form' %>
 				</div>
 			</div>

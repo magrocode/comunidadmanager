@@ -15,7 +15,7 @@
 
 class Usuario < ActiveRecord::Base
   
-  attr_accessible :email, :nombre, :administrador, :password, :password_confirmation
+  attr_accessible :email, :nombre, :twitter, :telefono, :administrador, :password, :password_confirmation
   has_secure_password
   before_save :create_remember_token
   
@@ -26,6 +26,7 @@ class Usuario < ActiveRecord::Base
   validates :nombre, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  validates :twitter, :telefono, length: { maximum: 50 }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true, length: { minimum: 6 }
   

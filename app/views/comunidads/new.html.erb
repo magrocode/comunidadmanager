@@ -6,56 +6,49 @@
 			<div class="row">
 				<div class="span6">
 					<%= form_for @comunidad, html: { class: "form-horizontal" } do |f| %>
-						<div class="alert alert-info">
-							<a class="close" data-dismiss="alert">×</a>
-							<h4 class="alert-heading">Lo primero!</h4><br />
-							Crear tu comunidad en bloombee.com es muy facil, primero debes ingresar
-							el nombre de la comunidad, edificio o condominio 
-							y la informacion del administrador responsable de la cuenta...<br /><br />
-							Los campos marcados (*) son obligatorios
-						</div>
 						
 						<%= render 'shared/error_messages', object: f.object %>
-						<%= render 'shared/error_messages_noframe', object: @usuario %>
-						
-						<div class="control-group">
-							<%= f.label :nombre_comunidad, "Nombre de Comunidad", class: "control-label" %>
-							<div class="controls">
-								<%= f.text_field :nombre, placeholder: "Mi comunidad" %>
+
+						<fieldset>
+							<div class="control-group">
+								<%= f.label :nombre_comunidad, "Nombre de Comunidad", class: "control-label" %>
+								<div class="controls">
+									<%= f.text_field :nombre, placeholder: "Mi comunidad" %>
+								</div>
 							</div>
-						</div>
 
-						<div class="control-group">
-			  				<%= label_tag "Email administrador" %>
-			  				<div class="controls">
-				  				<%= text_field(:usuario, :email, placeholder: "mi@comunidad.com" ) %>			
-				  			</div>
-				  		</div>
+							<div class="control-group">
+				  				<%= label_tag 'email_administrador', "Email administrador", class: "control-label" %>
+				  				<div class="controls">
+					  				<%= text_field(:usuario, :email, placeholder: "mi@comunidad.com" ) %>			
+					  			</div>
+					  		</div>
 
-				  		<div class="control-group">				
-				  			<%= label_tag("Nombre Administrador") %>
-				  			<div class="controls">
-				  				<%= text_field(:usuario, :nombre, placeholder: "Nombre de administrador" ) %>
-				  			</div>
-				  		</div>
+					  		<div class="control-group">				
+					  			<%= label_tag 'nombre_administrador', "Nombre administrador", class: "control-label" %>
+					  			<div class="controls">
+					  				<%= text_field(:usuario, :nombre, placeholder: "Nombre de administrador" ) %>
+					  			</div>
+					  		</div>
 
-				  		<div class="control-group">
-				  			<%= label_tag "Password administrador" %>
-				  			<div class="controls">
-				  				<%= password_field(:usuario, :password) %>
-				  			</div>
-				  		</div>
+					  		<div class="control-group">
+					  			<%= label_tag 'password', "Password administrador", class: "control-label" %>
+					  			<div class="controls">
+					  				<%= password_field(:usuario, :password) %>
+					  			</div>
+					  		</div>
 
-				  		<div class="control-group">				  			
-				  			<%= label_tag "Confirmacion password" %>
-				  			<div class="controls">
-				  				<%= password_field(:usuario, :password_confirmation) %>
-				  			</div>
-				  		</div>
+					  		<div class="control-group">				  			
+					  			<%= label_tag 'password_confirmation', "Confirmacion password", class: "control-label" %>
+					  			<div class="controls">
+					  				<%= password_field(:usuario, :password_confirmation) %>
+					  			</div>
+					  		</div>
 
-				  		<div class="form-actions">
-							<%= f.submit "Crear Comunidad", :class => "btn btn-large btn-primary" %>
-						</div>
+					  		<div class="form-actions">
+								<%= f.submit "Crear Comunidad", :class => "btn btn-large btn-primary" %>
+							</div>
+						</fieldset>
 					<% end %>
 				</div>
 			</div>

@@ -1,0 +1,67 @@
+<div class="row-fluid">
+	<div class="span12">
+		<strong>
+			Ordenar las unidades por
+			<%= sortable "identificador" %>,
+			<%= sortable "participacion" %>,
+			<%= sortable "tipounidad_id", "Tipo" %>
+		</strong>
+	</div>
+</div><br />
+
+<div class="row-fluid">
+	<div class="span6">
+		<span><h3><%= @comunidad.unidads.count %> <small>Unidades</small> &nbsp;</h3></span>
+		<span><h3><%= @comunidad.tipounidads.count %> <small>Tipos</small> &nbsp;</h3></span>
+		<span><h3><%= @comunidad.unidads.sum("participacion") %>% <small>Participacion</small> &nbsp;</h3></span>
+	</div>	
+</div><br />
+<div class="row-fluid">
+	<div class="span11">
+
+		<%= will_paginate %>
+		<table class="table  table-striped">
+
+			<tr>
+				<th>Identificador</th>
+				<th>%<br />Participacion</th>
+				<th>m2<br />Superficie</th>
+				<th>Unidades<br />vinculadas</th>
+				<th>Usuarios<br />autorizados</th>
+				<% if current_user.administrador? %>
+					<th></th>
+				<% end %>
+			</tr>
+	
+			<% @unidads.each do |unidad| %>
+			<tr>
+				<td><%= link_to unidad.identificador, unidad %> 
+					<% if !unidad.tipounidad.nil? %>
+						<span class="label label-info">
+							<%= unidad.tipounidad.nombre %>
+						</span>
+					<% end %>
+				</td>
+				<td><%= unidad.participacion %></td>
+				<td><%= unidad.superficie %></td>
+				<td>
+					<span class="badge"><%= unidad.vinculadas.count %></span>
+				</td>
+				<td>
+					<span class="badge badge-info"><%= unidad.usuarios_autorizados.count %></span>
+				</td>
+				<% if current_user.administrador? %>
+					<td class="ar">
+						<small>
+							<%= link_to 'Mostrar', unidad %> |
+							<%= link_to 'Editar', edit_unidad_path(unidad) %> |
+							<%= link_to 'Eliminar', unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+						</small>
+					</td>	
+				<% end %>
+			</tr>
+			<% end %>
+		</table>
+		<%= will_paginate %>
+	</div>
+</div>

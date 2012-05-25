@@ -29,7 +29,7 @@ describe "Paginas de Usuarios" do
       before do
         fill_in 'Email', with: "miguel@foobar.com"
         fill_in 'Nombre', with: "Miguel Hernandez"
-        check   'administrador'
+        check   'usuario_administrador'
         fill_in 'Password', with: "foobar"
         fill_in 'Confirmacion', with: "foobar"        
       end

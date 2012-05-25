@@ -165,6 +165,7 @@ DEPENDENCIES
   factory_girl_rails (= 1.4.0)
   jquery-rails
   newrelic_rpm
+  nokogiri
   pg
   rails (= 3.2.1)
   rspec-rails (= 2.8.1)

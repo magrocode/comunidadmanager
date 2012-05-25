@@ -251,11 +251,29 @@ label, input, button, select, textarea {
   }
 }
 
-.field_with_errors {
+.field_with_errors,
+.form-horizontal .field_with_errors {
   @extend .control-group;
   @extend .error;
  }
- 
+
+.form-horizontal .controls {
+  margin-left:200px;
+}
+
+.form-horizontal .form-actions {
+  padding-left:200px;
+}
+
+.form-horizontal .control-group > label, 
+.form-horizontal .field_with_errors > label, 
+.form-horizontal .field_with_errors > label {
+  float:left;
+  padding-top:5px;
+  text-align:right;
+  width:180px;
+  font-weight: bold;
+}
 
 /* tablas */
 table small {
@@ -300,6 +318,7 @@ table .align-top {
   /* font-size: 12px;*/
   /* font-weight: bolder;*/
   text-shadow:#FFFFFF 1px 1px 0; 
+  clear: both;
 }
 
 .nav-list-m {
@@ -339,7 +358,7 @@ table .align-top {
 .profile-header {
   padding-bottom: 15px;
   border-bottom: 1px solid $grayMediumLight;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .module-header {

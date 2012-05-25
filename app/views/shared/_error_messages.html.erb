@@ -5,10 +5,13 @@
 				<h4 class="alert-heading">Algo anda mal?</h4><br />
 			El formulario contiene <%= pluralize(object.errors.count, "error", "errores") %>. Por favor revise los campos resaltados
     	</div>
-    	<ul>
-    		<% object.errors.full_messages.each do |msg| %>
-      			<li>* <%= msg %></li>
-    		<% end %>
-    	</ul>
-  	</div>
+    	<!-- <ul>
+    		<% #object.errors.full_messages.each do |msg| 
+        %>
+      			<li>* <%= #msg 
+            %></li>
+    		<% #end 
+        %>
+    	</ul> -->
+  	</div> 
 <% end %>
