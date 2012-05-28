@@ -1,0 +1,2 @@
+$("#autorizar_usuario_form_<%= @usuario.id %>").html("<%= escape_javascript(render 'unidads/desautorizar_usuario', usuario: @usuario) %>")
+$("#usuarios_autorizados_stats").html("<%= pluralize(@unidad.usuarios_autorizados.size, 'persona', 'personas') %>")

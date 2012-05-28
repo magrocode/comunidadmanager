@@ -11,6 +11,8 @@ class UnidadsController < ApplicationController
   
   def index
     @comunidad = Comunidad.find(params[:comunidad_id])
+    @sort_model = Unidad
+    @sort_column = 'identificador'
     @unidads = @comunidad.unidads.paginate(page: params[:page],
              per_page: 10).order(sort_column + " " + sort_direction)
   end
@@ -35,7 +37,6 @@ class UnidadsController < ApplicationController
   def show
     @unidad = Unidad.find(params[:id])
     @comunidad = @unidad.comunidad
-    @unidads = @comunidad.unidads.paginate(page: params[:page], per_page: 10)
   end
   
   def edit
@@ -64,6 +65,25 @@ class UnidadsController < ApplicationController
     redirect_to comunidad_unidads_path(@comunidad)
   end
   
+  def vinculadas
+    @unidad = Unidad.find(params[:id])
+    @comunidad = @unidad.comunidad
+    @sort_model = Unidad
+    @sort_column = 'identificador'
+    @unidads = @comunidad.unidads.paginate(page: params[:page], per_page: 10).order(sort_column + " " + sort_direction)
+    render 'show_vinculadas'
+  end
+
+  def usuarios_autorizados
+    @unidad = Unidad.find(params[:id])
+    @comunidad = @unidad.comunidad
+    @sort_model = Usuario
+    @sort_column = 'nombre'
+    @usuarios = @comunidad.usuarios.paginate(page: params[:page], per_page: 10).order(sort_column + " " + sort_direction)
+    render 'show_usuarios_autorizados'
+  end
+
+
   private
   
     def signed_in_user
@@ -92,7 +112,7 @@ class UnidadsController < ApplicationController
     end
     
     def sort_column
-      Unidad.column_names.include?(params[:sort]) ? params[:sort] : "identificador"
+      @sort_model.column_names.include?(params[:sort]) ? params[:sort] : @sort_column
     end
     
     def sort_direction

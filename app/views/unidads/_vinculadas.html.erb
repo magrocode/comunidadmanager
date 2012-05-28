@@ -1,12 +1,42 @@
-<%= render 'modal_vincular' %>
-<ul class="unstyled">
-	<% @unidad.vinculadas.each do |vinculada| %>
-	<li>
-		<%= link_to vinculada.identificador, vinculada %>
-		<% if !vinculada.tipounidad.nil? %>
-			<span class="label"><%= vinculada.tipounidad.nombre %></span>
-		<% end %>
-	</li>
-	<% end %>
-</ul>
-<a data-toggle="modal" href="#modalVincularUnidades" class="btn btn-small">Vincular</a>
+<div class="row-fluid">
+	<div class="span12">
+		<strong>
+			Ordenar las unidades por
+			<%= sortable "identificador" %>, 
+			<%= sortable "tipounidad_id", "Tipo" %>, 
+			<%= sortable "participacion" %>, 
+			<%= sortable "superficie" %>
+		</strong>
+	</div>
+</div><br /><br />
+<div class="row-fluid">
+   		<%= will_paginate %>
+		<table class="table">
+
+			<% @unidads.each do |unidad| %>
+				<% unless unidad == @unidad or unidad.principal? or
+					(unidad.has_principal? and !unidad.vinculo_of?(@unidad) ) %>
+		
+					<tr>
+						<td>
+							<strong><%= link_to unidad.identificador, unidad %></strong>
+							<% if !unidad.tipounidad.nil? %>
+								<span class="label label-info">
+									<%= unidad.tipounidad.nombre %>
+								</span>
+							<% end %>
+							<br/>
+							<small class="small-indicator">
+							<%= unidad.participacion %>% Participacion, 
+							<%= unidad.superficie %>m2 Superficie
+							</small>
+						</td>
+						<td>
+							<%= render 'vincular_form', unidad: unidad %>
+						</td>
+					</tr>
+				<% end %>
+			<% end %>
+		</table>
+		<%= will_paginate %>
+</div>

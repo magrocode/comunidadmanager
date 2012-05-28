@@ -8,7 +8,7 @@ class RelacionUsuarioUnidadsController < ApplicationController
     @unidad.autorizar_usuario!(@usuario)
     
     respond_to do |format|
-      format.html { redirect_to @unidad }
+      format.html { redirect_to usuarios_autorizados_unidad_path(@unidad) }
       format.js
     end
   end
@@ -19,7 +19,7 @@ class RelacionUsuarioUnidadsController < ApplicationController
     @unidad.desautorizar_usuario!(@usuario)
     
     respond_to do |format|
-      format.html { redirect_to @unidad }
+      format.html { redirect_to usuarios_autorizados_unidad_path(@unidad) }
       format.js
     end
   end

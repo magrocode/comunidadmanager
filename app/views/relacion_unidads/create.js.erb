@@ -1,2 +1,2 @@
-$("#vincular_form").html("<%= escape_javascript(render('unidads/desvincular')) %>")
-$("#vinculadas").html('<%= @unidad.vinculadas.count %>')
+$("#vincular_form<%= @unidad_vinculada.id %>").html("<%= escape_javascript(render 'unidads/desvincular', unidad: @unidad_vinculada) %>")
+$("#vinculos_stats").html("<%= pluralize(@unidad.vinculadas.size, 'unidad', 'unidades') %>")

@@ -8,12 +8,20 @@
     </li>
     <li class="menu-spacer">
       <span>
-        <i class="icon-ok-sign"></i>&nbsp;
+        <i class="icon-th"></i>&nbsp;
         <%= link_to 'Viviendas', '#' %>
         <small class="small-indicator">
     			<%= pluralize(@usuario.unidades_autorizadas.size, "unidad", "unidades") %>
     	</small>
       </span>
-    </li>
+    </li><br />
+    <li class="menu-spacer">
+      <span>        
+        <%= link_to 'Todos los usuarios', comunidad_usuarios_path(@comunidad) %>
+        <small class="small-indicator">
+          <%= pluralize(@comunidad.usuarios.size, "persona", "personas") %>
+      </small>
+      </span>
+    </li>      
   </ul>
 </div>

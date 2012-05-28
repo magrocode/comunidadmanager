@@ -39,8 +39,8 @@ describe "Autenticacion" do
        let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
        
        before do
-         fill_in "Email", with: usuario.email
-         fill_in "Password", with: usuario.password
+         fill_in "session_email", with: usuario.email
+         fill_in "session_password", with: usuario.password
          click_button "Sign in"
        end
        

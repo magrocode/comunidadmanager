@@ -1,10 +1,36 @@
-<ul class="nav-list unstyled">
-	<li class="nav-header">Perfil Unidad</li>
-	<li><%= link_to @unidad.identificador, @unidad %></li>
-	<li><%= link_to 'Usuarios autorizados', '#' %></li>
-	<li><%= link_to 'Unidades relacionadas', '#' %> </li>
-	<li><%= link_to 'Reclamos', '#' %> </li>
-	<li><%= link_to 'Reservas', '#' %> </li>
-	<li><%= link_to 'Foros y Debates', '#' %> </li>
-	<li><%= link_to 'Avisos', '#' %> </li>
-</ul>
+<div>
+  <ul class="nav-list-m unstyled">
+  	<li class="menu-spacer">
+      <span>
+        <i class="icon-th-large"></i>&nbsp;
+        <%= link_to @unidad.identificador, @unidad %>
+      </span>
+    </li>
+    <li class="menu-spacer">
+      <span>
+        <i class="icon-magnet"></i>&nbsp;
+        <%= link_to 'Vinculos', vinculadas_unidad_path(@unidad) %>
+        <small id="vinculos_stats" class="small-indicator">
+    			<%= pluralize(@unidad.vinculadas.size, "unidad", "unidades") %>
+    	</small>
+      </span>
+    </li>    
+    <li class="menu-spacer">
+      <span>
+        <i class="icon-user"></i>&nbsp;
+        <%= link_to 'Usuarios', usuarios_autorizados_unidad_path(@unidad) %>
+        <small id="usuarios_autorizados_stats" class="small-indicator">
+    			<%= pluralize(@unidad.usuarios_autorizados.count, "autorizado", "autorizados") %>
+    	</small>
+      </span>
+    </li><br />
+    <li class="menu-spacer">
+      <span>        
+        <%= link_to 'Todas las viviendas', comunidad_unidads_path(@comunidad) %>
+        <small class="small-indicator">
+          <%= pluralize(@comunidad.unidads.size, "unidad", "unidades") %>
+      </small>
+      </span>
+    </li>    
+  </ul>
+</div>

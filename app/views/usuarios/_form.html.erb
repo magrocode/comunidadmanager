@@ -1,67 +1,69 @@
-		<%= form_for [@comunidad, @usuario], :html => { :class => "form-horizontal" }  do |f| %>
-			<%= render 'shared/error_messages', object: f.object %>			
-			<fieldset>
-
-				<div class="control-group">
-					<%= f.label :email, class: "control-label" %>
-					<div class="controls">
-						<%= f.email_field :email, class: "span6" %>
-					</div>
-				</div>
-
-				
-				<div class="control-group">
-					<%= f.label :nombre, class: "control-label" %>
-					<div class="controls">
-						<%= f.text_field :nombre, class: "span6" %>
-					</div>
-				</div>
-
-				<div class="control-group">
-					<%= f.label :twitter, class: "control-label" %>
-					<div class="controls">
-						<%= f.text_field :twitter, class: "span6" %>
-					</div>
-				</div>
-
-				<div class="control-group">
-					<%= f.label :telefono, class: "control-label" %>
-					<div class="controls">
-						<%= f.text_field :telefono, class: "span6" %>
-					</div>
-				</div>
+<%= form_for [@comunidad, @usuario], :html => { :class => "form-horizontal" }  do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>			
+	<fieldset>
+		
+		<div class="control-group">
+			<%= f.label :email, class: "control-label" %>
+			<div class="controls">
+				<%= f.email_field :email, class: "span6" %>
+			</div>
+		</div>
 
 				
-				<% if current_user.administrador? %>
-				<hr />
-				<div class="control-group">
-					<%= label_tag 'permisos', 'Permisos' %>
-					<div class="controls">				
-						<label class="checkbox">
-							<%= f.check_box :administrador %> Administrador
-						</label>
-					</div>
-				</div>
-				<hr />
-				<% end %>
+		<div class="control-group">
+			<%= f.label :nombre, class: "control-label" %>
+			<div class="controls">
+				<%= f.text_field :nombre, class: "span6" %>
+			</div>
+		</div>
 
-								
-				<div class="control-group">
-					<%= f.label :password, class: 'control-label' %>
-					<div class="controls">
-						<%= f.password_field :password, class: "span4" %>
-					</div>
-				</div>
-	
-				<div class="control-group">
-					<%= f.label :password_confirmation, 'Confirmacion', class: 'control-label' %>
-					<div class="controls">
-						<%= f.password_field :password_confirmation, class: "span4" %>
-					</div>
-				</div>
+		<div class="control-group">
+			<%= f.label :twitter, class: "control-label" %>
+			<div class="controls">
+				<%= f.text_field :twitter, class: "span6" %>
+			</div>
+		</div>
 
-			</fieldset>
-			<div class="form-actions">
-				<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
-			</div>	
+		<div class="control-group">
+			<%= f.label :telefono, class: "control-label" %>
+			<div class="controls">
+				<%= f.text_field :telefono, class: "span6" %>
+			</div>
+		</div>
+
+				
+		<% if current_user.administrador? %>
+		<hr />
+		<div class="control-group">
+			<%= label_tag 'permisos', 'Permisos' %>
+			<div class="controls">				
+				<label class="checkbox">
+					<%= f.check_box :administrador %> Administrador
+				</label>
+			</div>
+		</div>
+		<hr />
 		<% end %>
+
+						
+		<div class="control-group">
+			<%= f.label :password, class: 'control-label' %>
+			<div class="controls">
+				<%= f.password_field :password, class: "span4" %>
+			</div>
+		</div>
+	
+		<div class="control-group">
+			<%= f.label :password_confirmation, 'Confirmacion', class: 'control-label' %>
+			<div class="controls">
+				<%= f.password_field :password_confirmation, class: "span4" %>
+			</div>
+		</div>
+
+	</fieldset>
+	
+	<div class="form-actions">
+		<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
+	</div>	
+	
+<% end %>

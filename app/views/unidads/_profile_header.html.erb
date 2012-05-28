@@ -1,0 +1,37 @@
+<div class="row-fluid profile-header">	
+	<div class="span5 border-right">
+		<table class="unstyled">
+			<tr>
+				<td class="align-top">
+					<h1><%= @unidad.identificador %></h1>
+					<% if !@unidad.tipounidad.nil? %>
+						<span class="label label-info"><%= @unidad.tipounidad.nombre %></span><br /><br />
+					<% end %>
+
+					<% if @current_user.administrador? %>
+						<small class="small-indicator">
+							<i class="icon-edit"></i> <%= link_to 'Editar', edit_unidad_path(@unidad) %>
+							<i class="icon-trash"></i> <%= link_to 'Eliminar', @unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+						</small>
+					<% end %>
+				</td>
+			</tr>
+		</table>
+	</div>	
+	<div class="span4">
+		<ul class="unstyled">
+			<li><p>								
+				<strong>
+					<%= @unidad.participacion %>%
+					<small class="small-indicator">Participacion</small>
+				</strong></p>
+			</li>
+			<li><p>
+				<strong>
+					<%= @unidad.superficie %>m2
+					<small class="small-indicator">Superficie</small>
+				</strong></p>
+			</li>	
+		</ul>
+	</div>
+</div>

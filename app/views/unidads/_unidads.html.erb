@@ -35,7 +35,7 @@
 	
 			<% @unidads.each do |unidad| %>
 			<tr>
-				<td><%= link_to unidad.identificador, unidad %> 
+				<td><strong><%= link_to unidad.identificador, unidad %></strong> 
 					<% if !unidad.tipounidad.nil? %>
 						<span class="label label-info">
 							<%= unidad.tipounidad.nombre %>

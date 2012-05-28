@@ -1,17 +1,36 @@
-<%= form_for([@comunidad, @unidad]) do |f| %>
+<%= form_for [@comunidad, @unidad], :html => { :class => "form-horizontal" } do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<fieldset>
-		<%= f.label :identificador %>
-		<%= f.text_field :identificador %>
-				
-		<%= f.label :participacion, "% Participacion" %>
-		<%= f.number_field :participacion, :step => "0.0001", :min => 0 %>
-				
-		<%= f.label :superficie, "Superficie en m2" %>
-		<%= f.number_field :superficie, :step => "0.01" %>
 
-		<%= f.label :tipounidad, "Tipo de unidad" %>
-		<%= collection_select(:unidad, :tipounidad_id, @comunidad.tipounidads, :id, :nombre) %>
+		<div class="control-group">
+			<%= f.label :identificador, class: "control-label" %>
+			<div class="controls">
+				<%= f.text_field :identificador, class: "span4" %>
+			</div>
+		</div>
+				
+		<div class="control-group">
+			<%= f.label :participacion, "% Participacion", class: "control-label" %>
+			<div class="controls">
+				<%= f.number_field :participacion, :step => "0.0001", :min => 0 , class: "span4" %>
+			</div>
+		</div>
+
+		<div class="control-group">				
+			<%= f.label :superficie, "Superficie en m2", class: "control-label" %>
+			<div class="controls">
+				<%= f.number_field :superficie, :step => "0.01", class: "span4" %>
+			</div>
+		</div>
+
+
+		<div class="control-group">
+			<%= f.label :tipounidad, "Tipo de unidad", class: "control-label" %>
+			<div class="controls">
+					<%= collection_select :unidad, :tipounidad_id, @comunidad.tipounidads, :id, :nombre, {} , {class: "span7"} %>
+			</div>
+		</div>
+
 	</fieldset>
 	<div class="form-actions">
 		<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
