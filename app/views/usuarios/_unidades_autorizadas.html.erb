@@ -1,11 +1,36 @@
-<%= render 'modal_autorizar_unidades' %>
-<ul class="unstyled">
-	<% @usuario.unidades_autorizadas.each do |unidad_autorizada| %>
-		<li>
-			<%= link_to unidad_autorizada.identificador, unidad_autorizada %>
-			<% if !unidad_autorizada.tipounidad.nil? %>
-				<span class="label"><%= unidad_autorizada.tipounidad.nombre %></span>
+<div class="row-fluid">
+	<div class="span12">
+		<strong>
+			Ordenar las unidades por
+			<%= sortable "identificador" %>, 
+			<%= sortable "tipounidad_id", "Tipo" %>, 
+			<%= sortable "participacion" %>, 
+			<%= sortable "superficie" %>
+		</strong>
+	</div>
+</div><br /><br />
+<div class="row-fluid">
+   		<%= #will_paginate 
+   		%>
+		<table class="table">
+			<% @unidads.each do |unidad| %>
+					<tr>
+						<td>
+							<strong><%= link_to unidad.identificador, unidad %></strong>
+							<% if !unidad.tipounidad.nil? %>
+								<span class="label label-info">
+									<%= unidad.tipounidad.nombre %>
+								</span>
+							<% end %>
+							<br/>
+							<small class="small-indicator">
+							<%= unidad.participacion %>% Participacion, 
+							<%= unidad.superficie %>m2 Superficie
+							</small>
+						</td>
+					</tr>
 			<% end %>
-		</li>
-	<% end %>
-</ul>
+		</table>
+		<%= #will_paginate 
+		%>
+</div>

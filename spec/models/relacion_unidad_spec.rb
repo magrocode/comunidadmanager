@@ -50,4 +50,41 @@ describe RelacionUnidad do
 		before { relacion_unidad.principal_id = nil }
 		it { should_not be_valid }
 	end
+
+	
+    describe "Cuando Vinculada ya es Principal" do
+      
+    	before { relacion_unidad.save }
+
+    	let(:principal_b) { FactoryGirl.create(:unidad, comunidad: comunidad) }
+      	let(:relacion_unidad_b) do
+    		principal_b.relacion_unidads.build(vinculada_id: unidad_principal.id)
+      	end
+
+      	it { relacion_unidad_b.should_not be_valid }
+    end
+
+    describe "Cuando Principal ya es Vinculada" do
+
+    	before { relacion_unidad.save }
+
+    	let(:vinculada_b) { FactoryGirl.create(:unidad, comunidad: comunidad) }
+    	let(:relacion_unidad_b) do
+    		unidad_relacionada.relacion_unidads.build(vinculada_id: vinculada_b.id)
+      	end
+
+      	it { relacion_unidad_b.should_not be_valid }
+    end
+
+    describe "Cuando Vinculada ya es Vinculada" do
+
+    	before { relacion_unidad.save }
+    	
+    	let(:principal_b) { FactoryGirl.create(:unidad, comunidad: comunidad) }
+    	let(:relacion_unidad_b) do
+    		principal_b.relacion_unidads.build(vinculada_id: unidad_relacionada.id)
+      	end
+
+      	it { relacion_unidad_b.should_not be_valid }
+    end
 end

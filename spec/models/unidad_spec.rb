@@ -76,7 +76,7 @@ describe Unidad do
     it { should_not be_valid }
   end
 
-  describe "vinculando" do
+  describe "vinculando unidad" do
     let(:otra_unidad) { FactoryGirl.create(:unidad, comunidad: comunidad) }
     before do
       @unidad.save
@@ -86,7 +86,7 @@ describe Unidad do
     it { should be_vinculada(otra_unidad) }
     its(:vinculadas) { should include(otra_unidad) }
 
-    describe "y desvinculando" do
+    describe "y desvinculando unidad" do
       before { @unidad.desvincular!(otra_unidad) }
 
       it { should_not be_vinculada(otra_unidad) }

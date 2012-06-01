@@ -16,7 +16,8 @@ class PaginasController < ApplicationController
     
     def home_signed_in_user
       # si el usuario esta logueado redirecciona a pagina wellcome
-      redirect_to wellcome_path if signed_in?      
+      # redirect_to wellcome_path if signed_in?      
+      redirect_to comunidad_path(current_user.comunidad) if signed_in?
     end
 
 end

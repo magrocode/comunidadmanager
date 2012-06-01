@@ -14,9 +14,8 @@
 		<table class="table">
 
 			<% @unidads.each do |unidad| %>
-				<% unless unidad == @unidad or unidad.principal? or
-					(unidad.has_principal? and !unidad.vinculo_of?(@unidad) ) %>
-		
+
+				<% unless unidad == @unidad %>
 					<tr>
 						<td>
 							<strong><%= link_to unidad.identificador, unidad %></strong>
@@ -32,7 +31,15 @@
 							</small>
 						</td>
 						<td>
-							<%= render 'vincular_form', unidad: unidad %>
+							<% if current_user.administrador? %>
+								<% if unidad.principal? %>
+									<span class="label">Tiene vinculos</span>
+								<% elsif unidad.has_principal? and !@unidad.vinculada?(unidad) %>
+									<span class="label">Vinculada a otra</span>
+								<% else  %>
+									<%= render 'vincular_form', unidad: unidad %>
+								<% end %>
+							<% end %>
 						</td>
 					</tr>
 				<% end %>

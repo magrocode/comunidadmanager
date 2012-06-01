@@ -16,6 +16,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'  , '2.8.1'
   gem 'annotate', '~> 2.4.1.beta'
+  gem 'launchy'
 end
 
 group :test do

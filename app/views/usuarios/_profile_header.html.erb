@@ -8,7 +8,7 @@
 				<td class="align-top">
 					<h1><%= @usuario.nombre %></h1>
 					<% if @usuario.administrador? %>
-						<span class="label label-info">Administrador</span><br /><br />
+						<span class="label">Administrador</span><br /><br />
 					<% end %>
 
 					<% if @current_user.administrador? %>

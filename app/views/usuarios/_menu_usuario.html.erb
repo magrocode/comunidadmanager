@@ -9,19 +9,16 @@
     <li class="menu-spacer">
       <span>
         <i class="icon-th"></i>&nbsp;
-        <%= link_to 'Viviendas', '#' %>
+        <%= link_to 'Viviendas', unidades_autorizadas_usuario_path(@usuario) %>
         <small class="small-indicator">
     			<%= pluralize(@usuario.unidades_autorizadas.size, "unidad", "unidades") %>
     	</small>
       </span>
-    </li><br />
-    <li class="menu-spacer">
-      <span>        
-        <%= link_to 'Todos los usuarios', comunidad_usuarios_path(@comunidad) %>
-        <small class="small-indicator">
-          <%= pluralize(@comunidad.usuarios.size, "persona", "personas") %>
-      </small>
-      </span>
-    </li>      
+    </li>  
   </ul>
 </div>
+
+<% if current_user.administrador? %>
+<hr />
+<%= render 'comunidads/menu_comunidad' %>
+<% end %>

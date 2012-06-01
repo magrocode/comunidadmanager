@@ -1,0 +1,23 @@
+<% provide(:titulo, @usuario.nombre) %>
+<div class="row-fluid">
+	<div class="span2">
+		<%= render 'menu_usuario' %>
+	</div>
+	<div class="span10">
+		<div class="content-wrapper">
+			<!-- informacion del perfil -->
+			<%= render 'unidades_autorizadas_header' %>
+
+			<div class="row-fluid">
+				<!-- columna de contenidos -->
+				<div class="span9">
+					<%= render 'unidades_autorizadas' %>
+				</div>
+				<!-- columna de modulos right -->
+				<div class="span3 right-module-col">
+					<%= render 'show_module_col' %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

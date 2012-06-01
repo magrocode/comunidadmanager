@@ -1,4 +1,4 @@
 <%= form_for @unidad.relacion_usuario_unidads.find_by_usuario_id(usuario),
-            html: { method: :delete }, remote: true do |f| %>
+            html: { method: :delete, class: "form_in_table" }, remote: true do |f| %>
   <%= f.submit "Desautorizar", class: "btn btn-small" %>
 <% end %>

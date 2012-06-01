@@ -15,7 +15,7 @@
 					<tr>
 						<td>
 							<strong><%= link_to usuario.nombre, usuario %></strong>
-							<% if !usuario.administrador? %>
+							<% if usuario.administrador? %>
 								<span class="label label-info">
 									Administrador
 								</span>

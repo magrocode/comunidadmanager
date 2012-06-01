@@ -1,4 +1,10 @@
 <div class="row-fluid">
+	<div class="span6">
+		<span><h3><%= @comunidad.usuarios.count %> <small>Usuarios</small> &nbsp;</h3></span>
+		<span><h3><%= @comunidad.usuarios.where(administrador: true).count %> <small>Admins</small></h3></span>
+	</div>	
+</div><br />
+<div class="row-fluid">
 	<div class="span12">
 		<strong>
 			Ordenar los usuarios por
@@ -9,13 +15,7 @@
 	</div>
 </div><br />
 <div class="row-fluid">
-	<div class="span6">
-		<span><h3><%= @comunidad.usuarios.count %> <small>Usuarios</small> &nbsp;</h3></span>
-		<span><h3><%= @comunidad.usuarios.where(administrador: true).count %> <small>Admins</small></h3></span>
-	</div>	
-</div><br />
-<div class="row-fluid">
-	<div class="span6">
+	<div class="span10">
 		
 		<%= will_paginate 	%>
 		<table class="table">
@@ -26,12 +26,22 @@
 					<%= gravatar_for usuario, size: 50 %>
 				</td>
 				<td>								
-					<strong><%= link_to usuario.nombre, usuario %><br/></strong>
-					<%= usuario.email %>
+					<strong>
+						<% if current_user?(usuario) or current_user.administrador? %>
+							<%= link_to usuario.nombre, usuario %>
+						<% else %>
+							<%= usuario.nombre %>
+						<% end %>
+					</strong>
 					<% if usuario.administrador? %>
-						<br />
-						<span class="label label-info">Administrador</span>
-					<% end %><br/>
+						<span class="label">Administrador</span>
+					<% end %>
+					<br />
+					<small class="small-indicator">
+						<%= usuario.email %>, 
+						<%= usuario.telefono %>, 
+						<%= usuario.twitter %>
+					</small>
 				</td>
 				<% if current_user.administrador? %>
 					<td class="ar">

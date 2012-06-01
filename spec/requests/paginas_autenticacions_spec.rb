@@ -44,7 +44,7 @@ describe "Autenticacion" do
          click_button "Sign in"
        end
        
-       it { should have_selector('title', text: 'Bienvenido') }
+       it { should have_selector('title', text: usuario.comunidad.nombre) }
        it { should have_link('Perfil', href: usuario_path(usuario)) }
        it { should have_link('Sign out', href: signout_path) }
        it { should_not have_link('Sign in', href: signin_path) }

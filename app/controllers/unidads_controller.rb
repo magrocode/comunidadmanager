@@ -1,11 +1,10 @@
 class UnidadsController < ApplicationController
   
   before_filter :signed_in_user
-  before_filter :correct_comunidad,   :only => [:index, :new]
-  before_filter :correct_user,        :only => [:show]
-  before_filter :admin_user,          :only => [:new, :edit, :update, :destroy]
-
-  #before_filter :propietario, :only => [:show, :edit, :destroy, :update]
+  before_filter :correct_comunidad,     :only => [:index, :new]
+  before_filter :usuario_en_comunidad,  :only => [:show, :vinculadas, :usuarios_autorizados]
+  before_filter :admin_user,            :only => [:new, :edit, :update, :destroy]
+  before_filter :usuario_autorizado,    :only => [:show, :vinculadas, :usuarios_autorizados]  #, :edit, :destroy, :update]
 
   helper_method :sort_column, :sort_direction
   
@@ -87,28 +86,31 @@ class UnidadsController < ApplicationController
   private
   
     def signed_in_user
+      # usuario logeado
       redirect_to signin_path, notice: "Por favor autentiquese." unless signed_in?      
     end
     
     def admin_user
-      redirect_to(root_path, notice: "No esta habilitado para ver la informacion!") unless current_user.administrador?
+      # permisos de usuario administrador
+      redirect_to comunidad_unidads_path(current_user.comunidad), notice: "Esto es injusto!! Solo el administrador puede realizar esta accion" unless current_user.administrador?
     end
     
-    def correct_user
+    def usuario_en_comunidad
       @unidad = Unidad.find(params[:id])
-      redirect_to root_path, notice: "noticia" if (@unidad.comunidad != current_user.comunidad or !current_user.administrador?)
+      redirect_to comunidad_unidads_path(current_user.comunidad), notice: "Bochornoso! no estas autorizado para realizar acciones en la comunidad que deseas" if (@unidad.comunidad != current_user.comunidad) #or !current_user.administrador?
     end
        
     def correct_comunidad
+      # comunidad correcta es una comunidad perteneciente al usuario logeado
       @comunidad_autorizada = current_user.comunidad
       @comunidad_solicitada = Comunidad.find(params[:comunidad_id])
-      redirect_to root_path if @comunidad_autorizada != @comunidad_solicitada  
+      redirect_to comunidad_unidads_path(current_user.comunidad), alert: "Ups!! parece que estas intentando con la comunidad equivocada" unless @comunidad_autorizada == @comunidad_solicitada  
     end
     
-    def propietario
-      # buscar en el usuario actual la unidad
-      @unidad = current_user.unidads.find_by_id(params[:id])
-      redirect_to root_path if @unidad.nil?
+    def usuario_autorizado      
+      # buscar en el usuario actual la unidad a la que tiene autorizacion
+      @unidad = current_user.unidades_autorizadas.find_by_id(params[:id])
+      redirect_to comunidad_unidads_path(current_user.comunidad), alert: "Algo salio mal?? no tienes permisos para la unidad que deseas" unless !@unidad.nil? or current_user.administrador?
     end
     
     def sort_column
