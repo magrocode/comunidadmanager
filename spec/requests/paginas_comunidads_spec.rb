@@ -66,16 +66,37 @@ describe "Paginas de Comunidad" do
   end
   
   describe "Viendo perfil de otras comunidades" do
-    let(:comunidadA) { FactoryGirl.create(:comunidad) }
-    let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidadA)}
-    let(:comunidadB) { FactoryGirl.create(:comunidad) }
-    before do
-      sign_in usuario
-      visit comunidad_path(comunidadB) 
-    end 
     
-    it { should_not have_selector('h1', text: comunidadB.nombre) }
-    it { should_not have_selector('title', text: comunidadB.nombre) }
+    
+
+    describe "como usuario no-admin no-system-admin" do
+      let(:comunidadA) { FactoryGirl.create(:comunidad) }
+      let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidadA)}
+      let(:comunidadB) { FactoryGirl.create(:comunidad) }
+    
+
+      before do
+        sign_in usuario
+        visit comunidad_path(comunidadB) 
+      end 
+      
+      it { should_not have_selector('h1', text: comunidadB.nombre) }
+      it { should_not have_selector('title', text: comunidadB.nombre) }  
+    end
+
+    describe "como usuario system-admin" do
+      let(:comunidadA) { FactoryGirl.create(:comunidad) }
+      let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidadA)}
+      let(:comunidadB) { FactoryGirl.create(:comunidad) }
+      let(:system_admin) { FactoryGirl.create(:system_admin, comunidad: comunidadA) }
+
+      before do
+        sign_in system_admin
+        visit comunidad_path(comunidadB)
+      end
+
+      it { should have_selector('h1', text: comunidadB.nombre) }
+    end
   end
   
   describe "Editando perfil de comunidad" do

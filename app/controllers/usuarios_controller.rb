@@ -94,12 +94,7 @@ class UsuariosController < ApplicationController
     end
     
     def correct_user
-      # usuario correcto es el propio usuario o el administrador
-      #@comunidad_autorizada = current_user.comunidad
-      #@usuario = Usuario.find(params[:id])
-      #@comunidad_solicitada = @usuario.comunidad
-      #redirect_to root_path if @comunidad_autorizada != @comunidad_solicitada    
-
+      # el usuario correcto es el mismo usuario conectado o administrador
       @usuario = Usuario.find(params[:id])
       redirect_to current_user, alert: "Ups!! parece que no tienes autorizacion sobre el usuario que deseas" unless current_user?(@usuario)  or current_user.administrador?
 

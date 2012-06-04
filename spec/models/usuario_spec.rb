@@ -21,6 +21,7 @@ describe Usuario do
   before { @usuario = comunidad.usuarios.build(email: "mario@foobar.com",
                                                nombre: "Mario Espinoza",
                                                administrador: true,
+                                               system_admin: false,
                                                twitter: "@codelious",
                                                telefono: "56-9-8806-0177",
                                                password: "foobar",
@@ -30,6 +31,7 @@ describe Usuario do
   it { should respond_to(:email) }
   it { should respond_to(:nombre) }
   it { should respond_to(:administrador) }
+  it { should respond_to(:system_admin) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:twitter) }
@@ -146,5 +148,15 @@ describe Usuario do
       it { should_not be_unidad_autorizada(unidad_autorizada) }
       its(:unidades_autorizadas) { should_not include(unidad_autorizada)}
     end
+  end
+
+  describe "Super-Admin Cambiando de comunidad" do
+    let(:comunidad_nueva) { FactoryGirl.create(:comunidad) }
+    before do
+      @usuario.save
+      @usuario.cambiar_comunidad!(comunidad_nueva)
+    end
+
+    it { should be_comunidad(comunidad_nueva) }
   end
 end

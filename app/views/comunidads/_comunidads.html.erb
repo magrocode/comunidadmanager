@@ -1,0 +1,55 @@
+<div class="row-fluid">
+	<div class="span6">
+		<span><h3><%= @comunidads.size %> <small>Comunidades</small> &nbsp;</h3></span>
+	</div>	
+</div><br />
+<div class="row-fluid">
+	<div class="span12">
+		<strong>
+			Ordenar las comunidades por
+			<%= sortable "nombre" %>,
+		</strong>
+	</div>
+</div><br />
+<div class="row-fluid">
+	<div class="span11">
+
+		<%= will_paginate %>
+		<table class="table">
+
+			<tr>
+				<th>nombre</th>
+				<th>unidades</th>
+				<th>usuarios</th>
+				<% if current_user.system_admin? %>
+					<th></th>
+				<% end %>
+			</tr>
+	
+			<% @comunidads.each do |comunidad| %>
+			<tr>
+				<td>
+					<strong>
+						<%= link_to comunidad.nombre, comunidad %>
+					</strong> 
+				</td>
+				<td>
+					<span class="badge badge-info"><%= comunidad.unidads.size %></span>
+				</td>
+				<td>
+					<span class="badge badge-info"><%= comunidad.usuarios.size %></span>
+				</td>
+				<% if current_user.system_admin? %>
+					<td class="ar">
+						<small>
+							<i class="icon-edit"></i> <%= link_to 'Editar', edit_comunidad_path(comunidad) %> 
+							<i class="icon-trash"></i> <%= link_to 'Eliminar', comunidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+						</small>
+					</td>	
+				<% end %>
+			</tr>
+			<% end %>
+		</table>
+		<%= will_paginate %>
+	</div>
+</div>

@@ -15,7 +15,7 @@
 
 class Usuario < ActiveRecord::Base
   
-  attr_accessible :email, :nombre, :twitter, :telefono, :administrador, :password, :password_confirmation
+  attr_accessible :email, :nombre, :twitter, :telefono, :administrador, :system_admin, :password, :password_confirmation
   has_secure_password
   before_save :create_remember_token
   
@@ -41,6 +41,15 @@ class Usuario < ActiveRecord::Base
 
   def desautorizar_unidad!(unidad)
     relacion_usuario_unidads.find_by_unidad_id(unidad.id).destroy
+  end
+
+  def cambiar_comunidad!(nueva_comunidad)
+    comunidad = nueva_comunidad
+    update_attribute(:comunidad, nueva_comunidad)
+  end
+
+  def comunidad?(nueva_comunidad)
+    comunidad == nueva_comunidad
   end
 
   private

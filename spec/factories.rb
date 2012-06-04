@@ -14,6 +14,11 @@ FactoryGirl.define do
     factory :usuario_admin do
       administrador true
     end
+
+    factory :system_admin do
+      administrador true
+      system_admin true
+    end
   end
 
   factory :tipounidad do

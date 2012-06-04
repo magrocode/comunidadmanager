@@ -8,9 +8,9 @@
 
 
 # COMUNIDAD A
-comunidadA = Comunidad.create(nombre: 'Condiminio Alcazar', street: 'Rafael Sotomayor 55', city: 'Santiago', country: 'Chile', telefono: '5626990177', email: 'alcazar@gmail.com', twitter: '@alcazarcondominio')
+comunidadA = Comunidad.create(nombre: 'Cloudapolis', street: 'Rafael Sotomayor 55', city: 'Santiago', country: 'Chile', telefono: '5626990177', email: 'cloudapolis@gmail.com', twitter: '@cloudapolis')
 
-  comunidadA.usuarios.create(email: 'mario@magrocode.com', nombre: 'Mario Espinoza', administrador: true, password: 'foobar', password_confirmation: 'foobar', twitter: '@codelious', telefono: '56-2-688-3010')
+  comunidadA.usuarios.create(email: 'mario@magrocode.com', nombre: 'Mario Espinoza', administrador: true, system_admin: true, password: 'foobar', password_confirmation: 'foobar', twitter: '@codelious', telefono: '56-2-688-3010')
   comunidadA.usuarios.create(email: 'claudia@foobar.com', nombre: 'Claudia Valenzuela', administrador: false, password: 'foobar', password_confirmation: 'foobar', twitter: '@claudiavalenzuela', telefono: '56-9-8199-0964')
   comunidadA.usuarios.create(email: 'pablo@foobar.com', nombre: 'Pablo Vicuna', administrador: false, password: 'foobar', password_confirmation: 'foobar', twitter: '@sabogados', telefono: '56-2-696-2356')
   comunidadA.usuarios.create(email: 'esteban@foobar.com', nombre: 'Esteban Espinoza', administrador: false, password: 'foobar', password_confirmation: 'foobar', twitter: '@reyflow', telefono: '56-2-627-0348')

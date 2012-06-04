@@ -1,0 +1,24 @@
+<% provide(:titulo, 'Comunidades') %>
+<div class="row-fluid">
+	<div class="span2">
+		<%= render 'menu_comunidads' %>
+	</div>
+	<div class="span10">
+		<div class="content-wrapper">
+			<!-- informacion del perfil -->
+			<%= render 'comunidads_header' %>
+
+			<div class="row-fluid">
+				<!-- columna de contenidos -->
+				<div class="span9">
+					<%= render 'comunidads' %>
+				</div>
+				<!-- columna de modulos right -->
+				<div class="span3  right-module-col">
+					<%= #render 'unidads_module_col' 
+					%>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>

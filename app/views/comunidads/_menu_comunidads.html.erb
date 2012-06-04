@@ -1,0 +1,13 @@
+<div>
+  <ul class="nav-list-m unstyled">
+  	<li class="menu-spacer">
+      <span>
+        <i class="icon-home"></i>&nbsp;
+        <%= link_to 'Comunidades', comunidads_path %>
+        <small class="small-indicator">
+            <%= pluralize(@comunidads.size, "comunidad", "comunidades") %>
+        </small>
+      </span>
+    </li>
+  </ul>
+</div>

@@ -63,7 +63,9 @@
 }
 
 .navbar-inner-white .nav > li > a{
-  color: gray;
+  /* color: gray; */
+  color: rgb(102 , 153, 204);
+  font-weight: bold;
   float:none;
   line-height:19px;
   padding-bottom:11px;
@@ -76,5 +78,5 @@
 
 .navbar-inner-white .nav > li > a:hover {
   color: gray; 
-  text-decoration: underline;
+  text-decoration: underline;  
 }

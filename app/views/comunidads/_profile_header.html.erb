@@ -6,11 +6,26 @@
 				<%= @comunidad.city %>, 
 				<%= @comunidad.country %>								
 			</small>
-		</h1>
-		<% if @current_user.administrador? %>
-			<small class="small-indicator">
-				<%= link_to 'Editar', edit_comunidad_path(@comunidad) %>
-			</small>
+		</h1><br />
+		<% if current_user.administrador? %>
+			<div class="btn-group">
+			  <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+			    Comunidad
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu">
+			    <!-- dropdown menu links -->
+			    <li><%= link_to 'Editar', edit_comunidad_path(@comunidad) %></li>			    
+			    <% if current_user.system_admin? %>
+			    <li><%= link_to 'Eliminar', '#' %></li>
+			    <% end %>
+			    <% if current_user.system_admin? %>
+			    <li class="divider"></li>
+			    <li><%= link_to 'Usar esta comunidad', '#' %></li>
+			    <% end %>
+			  </ul>
+			</div>
+
 		<% end %>
 	</div>	
 	<div class="span4">
