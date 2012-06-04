@@ -66,14 +66,11 @@ describe "Paginas de Comunidad" do
   end
   
   describe "Viendo perfil de otras comunidades" do
-    
-    
 
     describe "como usuario no-admin no-system-admin" do
       let(:comunidadA) { FactoryGirl.create(:comunidad) }
       let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidadA)}
       let(:comunidadB) { FactoryGirl.create(:comunidad) }
-    
 
       before do
         sign_in usuario
@@ -100,26 +97,43 @@ describe "Paginas de Comunidad" do
   end
   
   describe "Editando perfil de comunidad" do
-    
+
     let(:comunidad) { FactoryGirl.create(:comunidad) }
-    let(:usuario) { FactoryGirl.create(:usuario_admin, comunidad: comunidad) }
     
-    before do
-      sign_in usuario
-      visit edit_comunidad_path(comunidad)
+    describe "como usuario admin" do
+      let(:usuario_admin) { FactoryGirl.create(:usuario_admin, comunidad: comunidad) }
+      
+      before do
+        sign_in usuario_admin
+        visit edit_comunidad_path(comunidad)
+      end
+      
+      it { should have_selector('title', text: "Editando comunidad") }
+      it { should have_selector('h2', text: "Editando comunidad") }
     end
-    
-    it { should have_selector('title', text: "Editando comunidad") }
-    it { should have_selector('h2', text: "Editando comunidad") }
-    
-    
-    describe "por usuario no administrador" do
+
+    describe "como usuario system_admin" do
+      let(:system_admin) { FactoryGirl.create(:system_admin, comunidad: comunidad) }
       
+      before do
+        sign_in system_admin
+        visit edit_comunidad_path(comunidad)
+      end
+      
+      it { should have_selector('title', text: "Editando comunidad") }
+      it { should have_selector('h2', text: "Editando comunidad") }
+    end
+
+    describe "como usuario no administrador" do
       let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
-      
+
+      before do
+        sign_in usuario
+        visit edit_comunidad_path(comunidad)
+      end
+ 
       it { should_not have_selector('title', text: "Editando comunidad" )}  
+
     end 
   end
-
-  
 end

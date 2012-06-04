@@ -1,7 +1,7 @@
 class ComunidadsController < ApplicationController
 
   before_filter :signed_in_user, only: [:index, :edit, :update, :show]
-  before_filter :usuario_correcto, only: [:show, :edit]
+  before_filter :usuario_correcto, only: [:show]
   before_filter :usuario_administrador, only: [:edit, :update]
   before_filter :usuario_systemadmin, only: [:index]
 
@@ -57,6 +57,7 @@ class ComunidadsController < ApplicationController
       render action: 'edit'
     end  
   end
+
   
   #def unidads
   #  @comunidad = Comunidad.find(params[:id])
@@ -67,6 +68,7 @@ class ComunidadsController < ApplicationController
   private
   
     def signed_in_user
+      # un usuario que se ha logeado en el sistema
       redirect_to signin_path, notice: "Por favor autentiquese." unless signed_in?      
     end
     
@@ -77,20 +79,21 @@ class ComunidadsController < ApplicationController
       @comunidad_solicitada = Comunidad.find(params[:id])
       
       redirect_to comunidad_path(current_user.comunidad), alert: "Rayos! no tienes permisos en la comunidad que deseas..." unless @comunidad_autorizada == @comunidad_solicitada or current_user.system_admin?
-
-      # el usuario correcto es el mismo usuario conectado o el administrador, o el systemadmin
-      #@usuario = current_user
-      #redirect_to current_user.comunidad, alert: "Ups!! parece que no tienes autorizacion sobre el usuario que deseas" unless current_user?(@usuario)  or current_user.administrador? or current_user.system_admin?
     end
     
     def usuario_administrador
-      redirect_to(root_path) unless current_user.administrador?
+      # el usuario tiene privilegios de administrador
+      redirect_to(root_path) unless current_user.administrador? or current_user.system_admin?
     end
 
     def usuario_systemadmin
+      # el usuario tiene privilegios de system_admin
       redirect_to(root_path) unless current_user.system_admin?
     end
 
+    ###########################################################
+    # Helper Methods
+    ###########################################################
     def sort_column
       Comunidad.column_names.include?(params[:sort]) ? params[:sort] : "nombre"
     end

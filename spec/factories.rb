@@ -16,7 +16,7 @@ FactoryGirl.define do
     end
 
     factory :system_admin do
-      administrador true
+      administrador false
       system_admin true
     end
   end
