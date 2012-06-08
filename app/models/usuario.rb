@@ -7,10 +7,13 @@
 #  email           :string(255)
 #  nombre          :string(255)
 #  administrador   :boolean
+#  system_admin    :boolean
 #  password_digest :string(255)
 #  remember_token  :string(255)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
+#  twitter         :string(255)
+#  telefono        :string(255)
 #
 
 class Usuario < ActiveRecord::Base

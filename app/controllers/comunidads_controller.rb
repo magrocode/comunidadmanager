@@ -58,7 +58,20 @@ class ComunidadsController < ApplicationController
     end  
   end
 
-  
+  def desactivar
+    @comunidad = Comunidad.find(params[:id])
+    @comunidad.desactivar!
+    flash[:notice] = "Comunidad desactivada"
+    redirect_to comunidads_path
+  end
+
+  def activar
+    @comunidad = Comunidad.find(params[:id])
+    @comunidad.activar!
+    flash[:notice] = "Comunidad Activada"
+    redirect_to comunidads_path
+  end
+
   #def unidads
   #  @comunidad = Comunidad.find(params[:id])
   #  @unidads = @comunidad.unidads

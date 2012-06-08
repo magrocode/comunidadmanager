@@ -4,12 +4,15 @@
 #
 #  id         :integer         not null, primary key
 #  nombre     :string(255)
-#  direccion  :string(255)
-#  ciudad     :string(255)
-#  region     :string(255)
-#  pais       :string(255)
+#  street     :string(255)
+#  city       :string(255)
+#  country    :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+#  email      :string(255)
+#  twitter    :string(255)
+#  telefono   :string(255)
+#  activa     :boolean
 #
 
 require 'spec_helper'
@@ -73,27 +76,39 @@ describe Comunidad do
     it { should_not be_valid }
   end
 
-###
-##  
-#  describe "unidades de la comunidad" do
-#    
-#    before { @comunidad.save }
-#    let!(:unidad) do
-#      FactoryGirl.create(:unidad, comunidad: @comunidad)
-#    end
-#    
-#    it "debe tener las unidades correctas" do
-#      @comunidad.unidads.should == [unidad]
-#    end
-#    
-#    it "debe destruir las unidades de la comunidad" do
-#      unidads = @comunidad.unidads
-#      @comunidad.destroy
-#      unidads.each do |unidad|
-#        Unidad.find_by_id(unidad.id).should be_nil
-#      end
-#    end
-#  end
+  
+  describe "unidades de la comunidad" do
+    
+    before { @comunidad.save }
+    let!(:unidad) do
+      FactoryGirl.create(:unidad, comunidad: @comunidad)
+    end
+    
+    it "debe tener las unidades correctas" do
+      @comunidad.unidads.should == [unidad]
+    end
+    
+    it "debe destruir las unidades de la comunidad" do
+      unidads = @comunidad.unidads
+      @comunidad.destroy
+      unidads.each do |unidad|
+        Unidad.find_by_id(unidad.id).should be_nil
+      end
+    end
+  end
 
- 
+  describe "Desactivando comunidad" do
+    before do 
+      @comunidad.save
+      @comunidad.desactivar!
+    end
+
+    it { should_not be_activa }
+
+    describe "y activando comunidad" do
+      before { @comunidad.activar! }
+
+      it { should be_activa }
+    end
+  end 
 end

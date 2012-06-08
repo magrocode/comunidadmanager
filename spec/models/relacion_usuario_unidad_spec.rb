@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: relacion_usuario_unidads
+#
+#  id         :integer         not null, primary key
+#  usuario_id :integer
+#  unidad_id  :integer
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+
 require 'spec_helper'
 
 describe RelacionUsuarioUnidad do

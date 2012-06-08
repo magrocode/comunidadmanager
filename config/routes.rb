@@ -23,16 +23,23 @@ Comunidadmanager::Application.routes.draw do
   resources :tipounidads, only: [:index, :new, :edit, :create, :destroy, :update] 
   
   resources :comunidads do
+      member do
+        put :desactivar
+        put :activar
+      end
+      
       resources :unidads
+      resources :tipounidads
+      resources :usuarios
   end
   
-  resources :comunidads do
-    resources :usuarios
-  end
+  #resources :comunidads do
+  #  resources :usuarios
+  #end
 
-  resources :comunidads do
-    resources :tipounidads
-  end
+  #resources :comunidads do
+  #  resources :tipounidads
+  #end
 
 
   resources :sessions,                  only: [:new, :create, :destroy]

@@ -4,8 +4,8 @@ class CreateUsuarios < ActiveRecord::Migration
       t.integer :comunidad_id
       t.string :email
       t.string :nombre
-      t.boolean :administrador
-      t.boolean :system_admin
+      t.boolean :administrador, default: false
+      t.boolean :system_admin, default: false
       t.string :password_digest
       t.string :remember_token
 

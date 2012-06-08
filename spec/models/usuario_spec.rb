@@ -7,10 +7,13 @@
 #  email           :string(255)
 #  nombre          :string(255)
 #  administrador   :boolean
+#  system_admin    :boolean
 #  password_digest :string(255)
 #  remember_token  :string(255)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
+#  twitter         :string(255)
+#  telefono        :string(255)
 #
 
 require 'spec_helper'
@@ -149,14 +152,4 @@ describe Usuario do
       its(:unidades_autorizadas) { should_not include(unidad_autorizada)}
     end
   end
-
-  #describe "Super-Admin Cambiando de comunidad" do
-  #  let(:comunidad_nueva) { FactoryGirl.create(:comunidad) }
-  #  before do
-  #    @usuario.save
-  #    @usuario.cambiar_comunidad!(comunidad_nueva)
-  #  end
-  #
-  #  it { should be_comunidad(comunidad_nueva) }
-  #end
 end

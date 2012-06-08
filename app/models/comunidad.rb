@@ -4,12 +4,15 @@
 #
 #  id         :integer         not null, primary key
 #  nombre     :string(255)
-#  direccion  :string(255)
-#  ciudad     :string(255)
-#  region     :string(255)
-#  pais       :string(255)
+#  street     :string(255)
+#  city       :string(255)
+#  country    :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+#  email      :string(255)
+#  twitter    :string(255)
+#  telefono   :string(255)
+#  activa     :boolean
 #
 
 class Comunidad < ActiveRecord::Base
@@ -26,4 +29,11 @@ class Comunidad < ActiveRecord::Base
   validates :email, :twitter, length: { maximum: 255 }
   validates :telefono, length: { maximum: 50 }
 
+  def desactivar!
+  	update_attribute(:activa, false)  	
+  end
+
+  def activar!
+  	update_attribute(:activa, true)
+  end
 end

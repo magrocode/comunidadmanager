@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :comunidad do
     sequence(:nombre) { |n| "Condominio #{n}" }
     street "Avda. Bernardo Ohiggins 2200"
+    activa true
   end
 
   factory :usuario do
