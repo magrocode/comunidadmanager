@@ -27,13 +27,14 @@
 		<div class="control-group">
 			<%= f.label :tipounidad, "Tipo de unidad", class: "control-label" %>
 			<div class="controls">
-					<%= collection_select :unidad, :tipounidad_id, @comunidad.tipounidads, :id, :nombre, {} , {class: "span7"} %>
+					<%= collection_select :unidad, :tipounidad_id, @comunidad.tipounidads, :id, :nombre, {} , {class: "span7"} %>&nbsp;
+					<span>Gestiona los <%= link_to 'Tipos de unidad', comunidad_tipounidads_path(@comunidad) %></span>
 			</div>
 		</div>
 
 	</fieldset>
 	<div class="form-actions">
-		<%= f.submit "Guardar", class: "btn btn-primary" %>&nbsp;
-		<%= link_to "o Cancelar", :back %>
+		<%= f.submit "Guardar", class: "btn btn-primary" %> o
+		<%= link_to "Cancelar", :back %>
 	</div>
 <% end %>

@@ -16,7 +16,7 @@
 						<td>
 							<strong><%= link_to usuario.nombre, usuario %></strong>
 							<% if usuario.administrador? %>
-								<span class="label label-info">
+								<span class="label">
 									Administrador
 								</span>
 							<% end %>
@@ -28,7 +28,19 @@
 							</small>
 						</td>
 						<td>
-							<%= render 'autorizar_usuario_form', usuario: usuario %>
+							<% if current_user.administrador? or current_user.system_admin? %>
+							<div class="btn-group">
+								<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+							    	<i class="icon-cog"></i>
+							    	<span class="caret"></span>
+							  	</a>
+							  	<ul class="dropdown-menu">
+							    	<li>
+							    		<%= link_to 'Desautorizar', @unidad.relacion_usuario_unidads.find_by_usuario_id(usuario.id), :method => :delete %>
+							    	</li>
+							  	</ul>
+							</div>
+							<% end %>
 						</td>
 					</tr>
 			<% end %>

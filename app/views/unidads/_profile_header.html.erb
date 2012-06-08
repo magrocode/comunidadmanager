@@ -5,13 +5,13 @@
 				<td class="align-top">
 					<h1><%= @unidad.identificador %></h1>
 					<% if !@unidad.tipounidad.nil? %>
-						<span class="label label-info"><%= @unidad.tipounidad.nombre %></span><br /><br />
+						<span class="label"><%= @unidad.tipounidad.nombre %></span><br />
 					<% end %>
 
 					<% if @current_user.administrador? %>
+					<br />
 						<small class="small-indicator">
-							<i class="icon-edit"></i> <%= link_to 'Editar', edit_unidad_path(@unidad) %>
-							<i class="icon-trash"></i> <%= link_to 'Eliminar', @unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+							<%= link_to 'Editar', edit_unidad_path(@unidad) %>
 						</small>
 					<% end %>
 				</td>

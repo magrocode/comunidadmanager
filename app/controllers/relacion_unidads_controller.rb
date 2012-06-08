@@ -8,10 +8,9 @@ class RelacionUnidadsController < ApplicationController
   	@unidad_vinculada = Unidad.find(params[:relacion_unidad][:vinculada_id])
     @unidad.vincular!(@unidad_vinculada)
     #redirect_to @unidad
-    respond_to do |format|
-      format.html { redirect_to vinculadas_unidad_path(@unidad) }
-      format.js
-    end
+    flash[:success] = "Se ha vinculado la unidad #{@unidad_vinculada.identificador} a #{@unidad.identificador}"
+    redirect_to :back
+    
   end
 
   def destroy
@@ -19,10 +18,9 @@ class RelacionUnidadsController < ApplicationController
     @unidad = RelacionUnidad.find(params[:id]).principal
     @unidad.desvincular!(@unidad_vinculada)
     #redirect_to @unidad
-    respond_to do |format|
-      format.html { redirect_to vinculadas_unidad_path(@unidad) }
-      format.js
-    end
+    
+    flash[:success] = "Se ha desvinculado la unidad #{@unidad_vinculada.identificador} de #{@unidad.identificador}"
+    redirect_to :back
   end
 
   private 
@@ -34,6 +32,6 @@ class RelacionUnidadsController < ApplicationController
 
   def admin_user
     # el administrador de la comunidad
-    redirect_to(root_path) unless current_user.administrador?
+    redirect_to(root_path) unless current_user.administrador? or current_user.system_admin?
   end
 end

@@ -1,9 +1,9 @@
 class ComunidadsController < ApplicationController
 
-  before_filter :signed_in_user, only: [:index, :edit, :update, :show]
-  before_filter :usuario_correcto, only: [:show]
-  before_filter :usuario_administrador, only: [:edit, :update]
-  before_filter :usuario_systemadmin, only: [:index]
+  before_filter :signed_in_user,            only: [:index, :edit, :update, :show]
+  before_filter :usuario_correcto,          only: [:show]
+  before_filter :usuario_administrador,     only: [:edit, :update]
+  before_filter :usuario_systemadmin,       only: [:index]
 
   helper_method :sort_column, :sort_direction
 
@@ -78,17 +78,17 @@ class ComunidadsController < ApplicationController
       @comunidad_autorizada = current_user.comunidad
       @comunidad_solicitada = Comunidad.find(params[:id])
       
-      redirect_to comunidad_path(current_user.comunidad), alert: "Rayos! no tienes permisos en la comunidad que deseas..." unless @comunidad_autorizada == @comunidad_solicitada or current_user.system_admin?
+      redirect_to comunidad_path(current_user.comunidad), alert: "Rayos! no eres un usuario en la comunidad que deseas..." unless @comunidad_autorizada == @comunidad_solicitada or current_user.system_admin?
     end
     
     def usuario_administrador
       # el usuario tiene privilegios de administrador
-      redirect_to(root_path) unless current_user.administrador? or current_user.system_admin?
+      redirect_to comunidad_path(current_user.comunidad), alert: "Wrong! no eres un administrador" unless current_user.administrador? or current_user.system_admin?
     end
 
     def usuario_systemadmin
       # el usuario tiene privilegios de system_admin
-      redirect_to(root_path) unless current_user.system_admin?
+      redirect_to comunidad_path(current_user.comunidad), alert: "Hack! esto es imposible para ti" unless current_user.system_admin?
     end
 
     ###########################################################

@@ -1,34 +1,38 @@
-<div class="modal hide fade" id="modalAutorizarUsuarios" style="display: none;">
+<div class="modal hide" id="modalAutorizarUsuarios">
 	<div class="modal-header">
 		<button class="close" data-dismiss="modal">×</button>
-    	<h3>Autorizar usuarios</h3>
+    	<h3>Autorizar Usuarios</h3>
+    	<div class="clear"></div>
  	</div>
-  	<div class="modal-body">
-    	<p>Autorice usuarios para ver esta unidad</p>
+ 	<div class="modal-body">
+ 		<table class="table">
+ 			<thead>
+				<tr>
+					<th>Usuario</th>
+					<th></th>
+				</tr>
+			</thead>
+			<% @comunidad.usuarios.each do |usuario| %>
 
-					<table class="table table-bordered table-striped">
-						<tr>
-							<th>Nombre</th>
-							<th>Email</th>
-							<th></th>
-						</tr>
-					<% @comunidad.usuarios.each do |usuario| %>
-						<tr>
-							<td>
-								<%= usuario.nombre %> 
-								<% if usuario.administrador? %>
-									<span class="label label-info">Administrador</span>
-								<% end %>
-							</td>
-							<td><%= usuario.email %></td>
-							<td>
-								<%= render 'autorizar_usuario_form', usuario: usuario %>
-							</td>
-						</tr>
-					<% end %>
-					</table>
-  	</div>
-  	<div class="modal-footer">
+				<% unless usuario.unidad_autorizada?(@unidad) %>
+					<tr>
+						<td>
+							<%= usuario.nombre %> 
+							<% if usuario.administrador? %>
+								<span class="label">
+									Administrador
+								</span>
+							<% end %>
+						</td>
+						<td>
+							<%= render 'autorizar_usuario', usuario: usuario %>
+						</td>
+					</tr>
+				<% end %>
+			<% end %>
+		</table>
+ 	</div>
+ 	<div class="modal-footer">
     	<a href="#" class="btn" data-dismiss="modal">Cerrar</a>
   	</div>
 </div>

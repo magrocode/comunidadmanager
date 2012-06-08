@@ -8,42 +8,22 @@
 			</small>
 		</h1><br />
 		<% if current_user.administrador? or current_user.system_admin? %>
-			<div class="btn-group">
-			  <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
-			    Comunidad
-			    <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu">
-			    <!-- dropdown menu links -->
-			    <li><%= link_to 'Editar', edit_comunidad_path(@comunidad) %></li>			    
-			    <% if current_user.system_admin? %>
-				    <li><%= link_to 'Eliminar', '#' %></li>
-				    <li class="divider"></li>
-				    <li><%= link_to 'Bloquear esta comunidad', '#' %></li>
-			    <% end %>
-			  </ul>
-			</div>
+			    <small class="small-indicator"><%= link_to 'Editar', edit_comunidad_path(@comunidad) %></small>
 		<% end %>
 	</div>	
 	<div class="span4">
-		<ul class="unstyled">
+		<ul class="unstyled info-contacto">
 			<li>								
-				<strong>
 					<i class="icono-email"></i>&nbsp;
 					<%= @comunidad.email %>
-				</strong>
 			</li>
 			<li>
-				<strong>
 					<i class="icono-twitter"></i>&nbsp;
 					<%= @comunidad.twitter %>
-				</strong>
 			</li>	
 			<li>
-				<strong>
 					<i class="icono-telefono"></i>&nbsp;
 					<%= @comunidad.telefono %>
-				</strong>
 			</li>
 		</ul>
 	</div>

@@ -1,10 +1,17 @@
-<%= form_for([@comunidad, @tipounidad]) do |f| %>
+<%= form_for [@comunidad, @tipounidad], :html => { :class => "form-horizontal" } do |f| %> 
 	<%= render 'shared/error_messages', object: f.object %>
 	<fieldset>
-		<%= f.label :nombre %>
-		<%= f.text_field :nombre %>
+
+		<div class="control-group">
+			<%= f.label :nombre, class: "control-label" %>
+			<div class="controls">
+				<%= f.text_field :nombre, class: "span6" %>
+			</div>
+		</div>
+
 	</fieldset>
 	<div class="form-actions">
-		<%= f.submit "Enviar", :class => "btn btn-large btn-primary" %>
+		<%= f.submit "Guardar", :class => "btn btn-primary" %> o
+		<%= link_to "Cancelar", :back %>
 	</div>
 <% end %>

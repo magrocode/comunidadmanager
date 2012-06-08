@@ -2,10 +2,10 @@
 	<div class="span10">
 		<h2>Todos los usuarios</h2>
 	</div>	
-	<div class="span2">
+	<div class="span2 ar">
 		<% if current_user.administrador? %>
 			<%= link_to(new_comunidad_usuario_path(@comunidad), class: 'btn btn-primary') do %>
-  				<i class="icon-plus-sign icon-white"></i> <strong>Nuevo usuario</strong>
+  				<i class="icon-plus-sign icon-white"></i> Nuevo usuario
 			<% end %>
 		<% end %>
 	</div>

@@ -9,5 +9,6 @@ class CreateRelacionUsuarioUnidads < ActiveRecord::Migration
 
     add_index :relacion_usuario_unidads, :usuario_id
     add_index :relacion_usuario_unidads, :unidad_id
+    add_index :relacion_usuario_unidads, [:usuario_id, :unidad_id], unique: true
   end
 end

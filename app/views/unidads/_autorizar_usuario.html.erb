@@ -1,7 +1,7 @@
-<%= form_for @unidad.relacion_usuario_unidads.build(usuario_id: usuario.id), html: { class: "form_in_table"},  remote: true do |f| %>
+<%= form_for @unidad.relacion_usuario_unidads.build(usuario_id: usuario.id), html: { class: "form_in_table"} do |f| %>
   <div>
   	<%= f.hidden_field :usuario_id %>
   	<%= f.hidden_field :unidad_id %>
   </div>
-  <%= f.submit "Autorizar", class: "btn btn-small btn-primary" %>
+  <%= f.submit "Autorizar", class: "btn btn-mini btn-primary" %>
 <% end %>

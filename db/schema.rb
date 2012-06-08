@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20120524132452) do
   end
 
   add_index "relacion_usuario_unidads", ["unidad_id"], :name => "index_relacion_usuario_unidads_on_unidad_id"
+  add_index "relacion_usuario_unidads", ["usuario_id", "unidad_id"], :name => "index_relacion_usuario_unidads_on_usuario_id_and_unidad_id", :unique => true
   add_index "relacion_usuario_unidads", ["usuario_id"], :name => "index_relacion_usuario_unidads_on_usuario_id"
 
   create_table "tipounidads", :force => true do |t|

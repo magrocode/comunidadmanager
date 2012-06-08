@@ -1,0 +1,59 @@
+
+
+.nav-config-tabs.nav-config-stacked {
+  border-bottom-width:0;
+}
+
+.nav-config-tabs {
+  border-bottom-color:#DDDDDD;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+}
+
+.nav-config {
+  list-style:none;
+  margin-bottom:18px;
+  margin-left:0;
+}
+
+.nav-config-stacked > li {
+  float:none;
+}
+
+.nav-config-tabs > li {
+  margin-bottom:-1px;
+}
+
+.nav-config-tabs.nav-config-stacked > li > a {
+  border:1px solid #DDDDDD;
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  border-top-left-radius:0;
+  border-top-right-radius:0;
+}
+
+.nav-config-stacked > li > a {
+  margin-right:0;
+}
+
+.nav-config-tabs > li > a {
+  border:1px solid transparent;
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+  line-height:18px;
+  padding-bottom:8px;
+  padding-top:8px;
+}
+
+.nav-config > li > a {
+  display:block;
+}
+
+.nav-config-tabs > li > a, .nav-config-pills > li > a {
+  line-height:14px;
+  margin-right:2px;
+  padding-left:12px;
+  padding-right:12px;
+}

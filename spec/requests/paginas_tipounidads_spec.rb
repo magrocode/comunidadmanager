@@ -14,12 +14,12 @@ describe "Paginas Tipo unidades" do
 
 		describe "Con informacion invalida" do
 			it "no debe crear un tipounidad" do
-				expect { click_button "Enviar" }.should_not change(Tipounidad, :count)
+				expect { click_button "Guardar" }.should_not change(Tipounidad, :count)
 			end
 
 			describe "mensaje de error" do
 				let(:error) { 'El formulario contiene' }
-				before { click_button "Enviar" }
+				before { click_button "Guardar" }
 				it { should have_content(error) }
 			end
 		end
@@ -31,14 +31,13 @@ describe "Paginas Tipo unidades" do
 			end
 
 			it "debe crear un tipo de unidad" do
-				expect { click_button "Enviar" }.should change(Tipounidad, :count).by(1)
+				expect { click_button "Guardar" }.should change(Tipounidad, :count).by(1)
 			end
 
 			describe "despues de guardar el tipounidad" do
-				before { click_button "Enviar" }
-				let(:tipounidad) { Tipounidad.find_by_nombre('Departamento') }
-
-				it { should have_selector('title', text: tipounidad.nombre )}
+				before { click_button "Guardar" }
+				
+				it { should have_selector('title', text: 'Tipos de unidad' )}
 			end
 		end
 	end

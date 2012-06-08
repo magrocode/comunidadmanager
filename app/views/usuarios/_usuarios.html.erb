@@ -15,7 +15,7 @@
 	</div>
 </div><br />
 <div class="row-fluid">
-	<div class="span10">
+	<div class="span12">
 		
 		<%= will_paginate 	%>
 		<table class="table">
@@ -27,11 +27,7 @@
 				</td>
 				<td>								
 					<strong>
-						<% if current_user?(usuario) or current_user.administrador? %>
-							<%= link_to usuario.nombre, usuario %>
-						<% else %>
-							<%= usuario.nombre %>
-						<% end %>
+						<%= link_to usuario.nombre, usuario %>
 					</strong>
 					<% if usuario.administrador? %>
 						<span class="label">Administrador</span>
@@ -45,12 +41,20 @@
 				</td>
 				<% if current_user.administrador? %>
 					<td class="ar">
-						<small>
-							<i class="icon-edit"></i> <%= link_to 'Editar', edit_usuario_path(usuario) %> 
-							<i class="icon-trash"></i> <%= link_to 'Eliminar', usuario, 
-																	confirm: 'Estas seguro de eliminar?', 
-																	method: :delete %>
-						</small>
+						<div class="btn-group">
+						  <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+						    <i class="icon-cog"></i>
+						    <span class="caret"></span>
+						  </a>
+						  <ul class="dropdown-menu">
+						    <li>
+						    	<%= link_to 'Editar', edit_usuario_path(usuario) %>
+						    </li>
+						    <li>
+						    	<%= link_to 'Eliminar', usuario, confirm: 'Estas seguro de eliminar?', 	method: :delete %>
+						    </li>
+						  </ul>
+						</div>
 					</td>
 				<% end %>	
 			</tr>

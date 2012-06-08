@@ -1,59 +1,18 @@
-<% provide(:titlulo, 'Tipos de unidad') %>
+<% provide(:titulo, 'Tipos de unidad') %>
 <div class="row-fluid">
 	<div class="span2">
-		<%= render 'menu_tipounidads' %>
+		<%= render 'comunidads/navbar_configuracion' %>
 	</div>
 	<div class="span10">
 		<div class="content-wrapper">
-			<div class="page-header">
-				<h1>Tipos de unidad <small><%= @comunidad.nombre %></small></h1>
-			</div>
-			<div class="row">
-				<div class="span1"><h4><small><br />Orden:</small></h4></div>
-				<div class="span2">
-					<ul class="nav nav-pills">
-						<li <% if current_sort?('nombre') or current_sort.nil? %> class="active" <% end %> ><%= sortable "nombre" %></li>
-					</ul>
-				</div>
-				<div class="span2">
-					<h3><%= @comunidad.tipounidads.count %><br /><small>Tipos</small></h3>
+			<!-- header -->
+			<%= render 'tipounidads_header' %>
+
+			<div class="row-fluid">
+				<div class="span12">
+					<%= render 'tipounidads' %>
 				</div>
 			</div>
-			<div class="row">
-				<div class="span10">
-					<%= will_paginate %>
-					<table class="table table-bordered table-striped">
-						<tr>
-							<th>Tipo de unidad</th>
-							<% if current_user.administrador? %>
-							<th></th>
-							<% end %>
-						</tr>
-					<% @tipounidads.each do |tipounidad| %>
-						<tr>
-							<td><%= link_to tipounidad.nombre, tipounidad %></td>
-							<% if current_user.administrador? %>
-							<td class="ar">
-								<small>
-								<%= link_to 'Mostrar', tipounidad %> |
-								<%= link_to 'Editar', edit_tipounidad_path(tipounidad) %> |
-								<%= link_to 'Eliminar', tipounidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
-								</small>
-							</td>	
-							<% end %>
-						</tr>
-					<% end %>
-					</table>
-					<%= will_paginate %>
-				</div>
-			</div>
-			<% if current_user.administrador? %>
-			<div class="row">
-				<div class="span10">
-					<%= link_to 'Nuevo tipo', new_comunidad_tipounidad_path(@comunidad), :class => 'btn btn-primary btn-large' %>
-				</div>
-			</div>	
-			<% end %>
 		</div>
 	</div>
 </div>

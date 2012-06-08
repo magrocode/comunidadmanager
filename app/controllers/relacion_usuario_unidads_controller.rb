@@ -7,10 +7,9 @@ class RelacionUsuarioUnidadsController < ApplicationController
     @unidad = Unidad.find(params[:relacion_usuario_unidad][:unidad_id])
     @unidad.autorizar_usuario!(@usuario)
     
-    respond_to do |format|
-      format.html { redirect_to usuarios_autorizados_unidad_path(@unidad) }
-      format.js
-    end
+    #redirect_to unidades_autorizadas_usuario_path(@usuario)
+    flash[:success] = "Se ha autorizado correctamente a #{@usuario.nombre} para la unidad #{@unidad.identificador}!"  
+    redirect_to :back
   end
 
   def destroy
@@ -18,9 +17,8 @@ class RelacionUsuarioUnidadsController < ApplicationController
     @unidad = RelacionUsuarioUnidad.find(params[:id]).unidad
     @unidad.desautorizar_usuario!(@usuario)
     
-    respond_to do |format|
-      format.html { redirect_to usuarios_autorizados_unidad_path(@unidad) }
-      format.js
-    end
+    #redirect_to unidades_autorizadas_usuario_path(@usuario)
+    flash[:success] = "Se ha desautorizado a #{@usuario.nombre} para la unidad #{@unidad.identificador}!"
+    redirect_to :back
   end
 end

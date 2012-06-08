@@ -1,5 +1,5 @@
 <div class="row-fluid">
-	<div class="span6">
+	<div class="span12">
 		<span><h3><%= @comunidad.unidads.count %> <small>Unidades</small> &nbsp;</h3></span>
 		<span><h3><%= @comunidad.tipounidads.count %> <small>Tipos</small> &nbsp;</h3></span>
 		<span><h3><%= @comunidad.unidads.sum("participacion") %>% <small>Participacion</small> &nbsp;</h3></span>
@@ -16,52 +16,61 @@
 	</div>
 </div><br />
 <div class="row-fluid">
-	<div class="span11">
+	<div class="span12">
 
 		<%= will_paginate %>
 		<table class="table">
-
-			<tr>
-				<th>Identificador</th>
-				<th>%<br />Participacion</th>
-				<th>m2<br />Superficie</th>
-				<th>Unidades<br />vinculadas</th>
-				<th>Usuarios<br />autorizados</th>
-				<% if current_user.administrador? %>
+			<thead>
+				<tr>
+					<th>Vivienda</th>
+					<th>Participacion</th>
+					<th>Superficie</th>
+					<th>Usuarios</th>
+					<th>Vinculos</th>
 					<th></th>
-				<% end %>
-			</tr>
-	
+				</tr>
+			</thead>
+			
 			<% @unidads.each do |unidad| %>
 			<tr>
 				<td>
 					<strong>
-						<% if current_user.administrador? or current_user.unidades_autorizadas.exists?(unidad) %>
-							<%= link_to unidad.identificador, unidad %>
-						<% else %>
-							<%= unidad.identificador %>
-						<% end %>
+						<%= link_to unidad.identificador, unidad %>
 					</strong> 
 					<% if !unidad.tipounidad.nil? %>
-						<span class="label label-info">
+						<span class="label">
 							<%= unidad.tipounidad.nombre %>
 						</span>
-					<% end %>
-				</td>
-				<td><%= unidad.participacion %></td>
-				<td><%= unidad.superficie %></td>
-				<td>
-					<span class="badge"><%= unidad.vinculadas.count %></span>
+					<% end %><br />
 				</td>
 				<td>
-					<span class="badge badge-info"><%= unidad.usuarios_autorizados.count %></span>
+					<%= unidad.participacion %>%
 				</td>
-				<% if current_user.administrador? %>
+				<td>
+					<%= unidad.superficie %>m2
+				</td>
+				<td>
+					<%= link_to pluralize(unidad.usuarios_autorizados.count, 'persona', 'personas'), usuarios_autorizados_unidad_path(unidad) %>
+				</td>
+				<td>
+					<%= link_to pluralize(unidad.vinculadas.count, 'unidad', 'unidades'), vinculadas_unidad_path(unidad) %>
+				</td>
+				<% if current_user.administrador? or current_user.system_admin? %>
 					<td class="ar">
-						<small>
-							<i class="icon-edit"></i> <%= link_to 'Editar', edit_unidad_path(unidad) %> 
-							<i class="icon-trash"></i> <%= link_to 'Eliminar', unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
-						</small>
+						<div class="btn-group">
+							<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+						    	<i class="icon-cog"></i>
+						    	<span class="caret"></span>
+						  	</a>
+						  	<ul class="dropdown-menu">
+						    	<li>
+						    		<%= link_to 'Editar', edit_unidad_path(unidad) %>
+						    	</li>
+						    	<li>
+						    		<%= link_to 'Eliminar', unidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+						    	</li>
+						  	</ul>
+						</div>
 					</td>	
 				<% end %>
 			</tr>

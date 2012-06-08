@@ -1,5 +1,12 @@
+<%= render 'modal_autorizar_usuarios' %>
 <div class="row-fluid profile-header">	
-	<div class="span12">
-		<h2>Autorizando usuarios para ver <%= @unidad.identificador %></h2>
-	</div>	
+	<div class="span10">
+		<h2>Usuarios autorizados para <%= @unidad.identificador %></h2>
+	</div>
+	<div class="span2 ar">
+		<% if current_user.administrador? or current_user.system_admin? %>
+			<a data-toggle="modal" href="#modalAutorizarUsuarios" class="btn btn-primary">
+			<i class="icon-plus-sign icon-white"></i> Autorizar usuario</a>
+		<% end %>
+	</div>
 </div>

@@ -1,9 +1,9 @@
 class TipounidadsController < ApplicationController
 
 before_filter :signed_in_user
-before_filter :correct_comunidad, 	:only => [:index, :new]
-before_filter :correct_user,        :only => [:show]
-before_filter :admin_user,          :only => [:new, :edit, :update, :destroy]
+before_filter :comunidad_correcta, 	:only => [:index, :new]
+#before_filter :usuario_correcto,    :only => [:show]
+before_filter :admin_user,          :only => [:index, :new, :edit, :update, :destroy]
 
 helper_method :sort_column, :sort_direction
 
@@ -23,16 +23,16 @@ helper_method :sort_column, :sort_direction
 
 		if @tipounidad.save
 			flash[:success] = "Tipo de unidad creado!"
-			redirect_to @tipounidad
+			redirect_to comunidad_tipounidads_path(@comunidad)
 		else
 			render action: 'new'
 		end
 	end
 
-	def show
-		@tipounidad = Tipounidad.find(params[:id])
-		@comunidad = @tipounidad.comunidad
-	end
+	#def show
+	#	@tipounidad = Tipounidad.find(params[:id])
+	#	@comunidad = @tipounidad.comunidad
+	#end
 
 	def edit
 		@tipounidad = Tipounidad.find(params[:id])
@@ -66,18 +66,18 @@ helper_method :sort_column, :sort_direction
 	    end
 		
 		def admin_user
-	    	redirect_to(root_path, notice: "No esta habilitado para ver la informacion!") unless current_user.administrador?
+	    	redirect_to comunidad_path(current_user.comunidad), notice: "Wrong!! No eres administrador" unless current_user.administrador? or current_user.system_admin?
 	    end
 
-	    def correct_user
+	    def usuario_correcto
 	    	@tipounidad = Tipounidad.find(params[:id])
-	    	redirect_to root_path if (@tipounidad.comunidad != current_user.comunidad or !current_user.administrador?)
+	    	redirect_to comunidad_path(current_user.comunidad) unless @tipounidad.comunidad == current_user.comunidad or current_user.system_admin?
 	    end
 
-		def correct_comunidad
+		def comunidad_correcta
 	      @comunidad_autorizada = current_user.comunidad
 	      @comunidad_solicitada = Comunidad.find(params[:comunidad_id])
-	      redirect_to root_path if @comunidad_autorizada != @comunidad_solicitada  
+	      redirect_to comunidad_path(current_user.comunidad) unless @comunidad_autorizada == @comunidad_solicitada or current_user.system_admin?
 	    end
 
 		def sort_column

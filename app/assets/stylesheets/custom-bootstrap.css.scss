@@ -4,7 +4,7 @@
   color:#FFFFFF;
   font-size:10.998px;
   text-transform: capitalize;
-/*   font-weight:bold; */
+  font-weight:normal;
   line-height:14px;
   text-shadow:rgba(0, 0, 0, 0.246094) 0 -1px 0;
   vertical-align:baseline;
@@ -21,7 +21,7 @@
   padding-right:9px;
   padding-top:1px;  
 
-  font-weight:bold;
+  /* font-weight:bold; */
 }
 
 .label-info, .badge-info {
@@ -45,7 +45,6 @@
 }
 
 
-
 /* navbar inner */
 .navbar-inner-white {
   /* -webkit-box-shadow:rgba(0, 0, 0, 0.246094) 0 1px 3px, rgba(0, 0, 0, 0.0976563) 0 -1px 0 inset; */
@@ -64,8 +63,8 @@
 
 .navbar-inner-white .nav > li > a{
   /* color: gray; */
-  color: rgb(102 , 153, 204);
-  font-weight: bold;
+  color:  #084B8A;
+  font-weight: normal;
   float:none;
   line-height:19px;
   padding-bottom:11px;
@@ -77,6 +76,25 @@
 }
 
 .navbar-inner-white .nav > li > a:hover {
-  color: gray; 
+  color:  #084B8A; 
   text-decoration: underline;  
+}
+
+
+
+a.badge-link {
+  color: #FFFFFF;
+}
+
+
+.btn-mini {
+  font-size:10px;
+  line-height:14px;
+  padding:2px 6px;
+}
+
+.btn-small {
+  font-size:11px;
+  line-height:16px;
+  padding:5px 9px;
 }

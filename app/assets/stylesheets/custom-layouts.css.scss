@@ -14,4 +14,8 @@
 
 .form_in_table {
 	margin-bottom: 0px;
+
+	&input[type="submit"] {
+		margin-bottom: 2px;
+	}
 }

@@ -3,48 +3,36 @@
 		<table class="unstyled">
 			<tr>
 				<td class="align-top">
-					<%= gravatar_for @usuario %>
+					<%= gravatar_for @usuario %><br />
 				</td>
 				<td class="align-top">
 					<h1><%= @usuario.nombre %></h1>
 					<% if @usuario.administrador? %>
-						<span class="label">Administrador</span><br /><br />
+						<span class="label">Administrador</span><br />
 					<% end %>
-
-					<% if @current_user.administrador? %>
-						<small class="small-indicator">
-							<i class="icon-edit"></i> <%= link_to 'Editar', edit_usuario_path(@usuario) %>
-							<i class="icon-trash"></i> <%= link_to 'Eliminar', @usuario, confirm: 'Estas seguro de eliminar?', :method => :delete %>
-						</small>
-					<% end %>
+					<% if @current_user.administrador? or @current_user.system_admin? %>
+						<small class="small-indicator"><%= link_to 'Editar', edit_usuario_path(@usuario) %>	</small>
+					<% end %>	
 				</td>
 			</tr>
 		</table>
 	</div>	
 	<div class="span4">
-		<ul class="unstyled">
+		<ul class="unstyled info-contacto">
 			<li>								
-				<strong>
-					<i class="icono-email"></i>&nbsp;
-					<%= @usuario.email %>
-				</strong>
+				<i class="icono-email"></i>&nbsp;
+				<%= @usuario.email %>
 			</li>
 			<li>
-				<strong>
-					<i class="icono-twitter"></i>&nbsp;
-					<%= @usuario.twitter %>
-				</strong>
+				<i class="icono-twitter"></i>&nbsp;
+				<%= @usuario.twitter %>
 			</li>	
 			<li>
-				<strong>
-					<i class="icono-telefono"></i>&nbsp;
-					<%= @usuario.telefono %>
-				</strong>
+				<i class="icono-telefono"></i>&nbsp;
+				<%= @usuario.telefono %>
 			</li>
 		</ul>
-	</div>
-	<div class="span3">
-		<%= #render 'mapa' 
-		%>		  
+	</div> 
+	<div class="span3">  
 	</div>	
 </div>

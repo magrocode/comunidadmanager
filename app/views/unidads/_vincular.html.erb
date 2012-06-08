@@ -1,8 +1,8 @@
 <%= form_for @unidad.relacion_unidads.build(vinculada_id: unidad.id), 
-			html: { class: "form_in_table" }, remote: true do |f| %>
+			html: { class: "form_in_table" } do |f| %>
   <div>
   	<%= f.hidden_field :principal_id %>
   	<%= f.hidden_field :vinculada_id %>
   </div>
-  <%= f.submit "Vincular", class: "btn btn-small btn-primary" %>
+  <%= f.submit "Vincular", class: "btn btn-mini btn-primary" %>
 <% end %>

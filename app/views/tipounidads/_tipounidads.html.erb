@@ -1,0 +1,55 @@
+<div class="row-fluid">
+	<div class="span12">
+		<strong>
+			Ordenar tipos por
+			<%= sortable "nombre" %>
+		</strong>
+	</div>
+</div><br />
+<div class="row-fluid">
+	<div class="span12">
+		
+		<%= will_paginate %>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Tipo de unidad</th>
+					<th>Uso</th>
+					<% if current_user.administrador? %>
+						<th></th>
+					<% end %>
+				</tr>
+			</thead>
+		
+			<% @tipounidads.each do |tipounidad| %>
+				<tr>
+					<td>
+						<%= tipounidad.nombre %>
+					</td>
+					<td>
+						<%= pluralize(tipounidad.unidads.size, 'vivienda', 'viviendas') %>
+					</td>
+					<% if current_user.administrador? or current_user.system_admin? %>
+						<td class="ar">
+							<div class="btn-group">
+								<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+							    	<i class="icon-cog"></i>
+							    	<span class="caret"></span>
+							  	</a>
+							  	<ul class="dropdown-menu">
+							    	<li>
+							    		<%= link_to 'Editar', edit_tipounidad_path(tipounidad) %>
+							    	</li>
+							    	<li>
+							    		<%= link_to 'Eliminar', tipounidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
+							    	</li>
+							  	</ul>
+							</div>
+						</td>	
+					<% end %>
+				</tr>
+			<% end %>
+			</table>
+			<%= will_paginate %>
+	</div>
+</div>

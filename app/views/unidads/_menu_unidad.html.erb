@@ -23,14 +23,17 @@
     			<%= pluralize(@unidad.usuarios_autorizados.count, "autorizado", "autorizados") %>
     	</small>
       </span>
-    </li><br />
-    <li class="menu-spacer">
-      <span>        
-        <%= link_to 'Todas las viviendas', comunidad_unidads_path(@comunidad) %>
-        <small class="small-indicator">
-          <%= pluralize(@comunidad.unidads.size, "unidad", "unidades") %>
-      </small>
-      </span>
-    </li>    
+    </li>
+    <% if current_user.administrador? or current_user.system_admin? %>
+        <br />
+        <li class="menu-spacer">
+          <span>        
+            <%= link_to 'Todas las viviendas', comunidad_unidads_path(@comunidad) %>
+            <small class="small-indicator">
+              <%= pluralize(@comunidad.unidads.size, "unidad", "unidades") %>
+          </small>
+          </span>
+        </li>    
+    <% end %>
   </ul>
 </div>

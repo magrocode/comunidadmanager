@@ -1,0 +1,53 @@
+<div class="navbar-inner">
+	<div class="container-fluid">
+				
+  		<%= link_to "Cloudapolis", root_path, id: "logo" %>	
+				
+		<nav>
+			
+			<ul class="nav pull-left">
+				<li><%= link_to 'Panel de control', wellcome_path %></li>
+				<li><%= link_to 'Comunidad', comunidad_path(current_user.comunidad) %></li>
+				<li><%= link_to 'Mi Perfil', current_user %></li>
+			</ul>
+
+					
+			<ul class="nav pull-right">		
+				<% if current_user.administrador? or current_user.system_admin? %>					
+				<li id="fat-menu-comunidad" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<%= current_user.comunidad.nombre %>				
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<%= link_to "Configuracion de la comunidad", edit_comunidad_path(current_user.comunidad) %>
+						</li>
+						<li class="divider"></li>
+						<li><%= link_to "Usuarios", comunidad_usuarios_path(current_user.comunidad) %></li>
+						<li><%= link_to "Viviendas/Unidades", comunidad_unidads_path(current_user.comunidad) %></li>
+						<li><%= link_to "Tipos de viviendas", comunidad_tipounidads_path(current_user.comunidad) %></li>
+					</ul>
+				</li>
+				<% end %>
+				
+				<li id="fat-menu" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<%= gravatar_for current_user, size: 22 %>
+						<%= current_user.nombre %>				
+						<% if current_user.system_admin? %>
+							<i class="icon-flag icon-white"></i>
+						<% end %>				
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li><%= link_to "Ver mi perfil", current_user %></li>
+						<li><%= link_to "Editar mi perfil", edit_usuario_path(current_user) %></li>
+						<li class="divider"></li>
+						<li><%= link_to "Sign out", signout_path, method: "delete"%></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div> <!-- fin navbar inner -->

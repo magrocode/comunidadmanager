@@ -12,7 +12,16 @@
 <div class="row-fluid">
    		<%= will_paginate %>
 		<table class="table">
-
+			<thead>
+				<tr>
+					<th>Unidad o Vivienda</th>
+					<th>Participacion</th>
+					<th>Superficie</th>
+					<% if current_user.administrador? or current_user.system_admin? %>
+						<th></th>
+					<% end %>
+				</tr>
+			</thead>
 			<% @unidads.each do |unidad| %>
 
 				<% unless unidad == @unidad %>
@@ -20,25 +29,26 @@
 						<td>
 							<strong><%= link_to unidad.identificador, unidad %></strong>
 							<% if !unidad.tipounidad.nil? %>
-								<span class="label label-info">
+								<span class="label">
 									<%= unidad.tipounidad.nombre %>
 								</span>
 							<% end %>
-							<br/>
-							<small class="small-indicator">
-							<%= unidad.participacion %>% Participacion, 
-							<%= unidad.superficie %>m2 Superficie
-							</small>
 						</td>
+						<td><%= unidad.participacion %>%</td>
+						<td><%= unidad.superficie %>m2</td>
 						<td>
-							<% if current_user.administrador? %>
-								<% if unidad.principal? %>
-									<span class="label">Tiene vinculos</span>
-								<% elsif unidad.has_principal? and !@unidad.vinculada?(unidad) %>
-									<span class="label">Vinculada a otra</span>
-								<% else  %>
-									<%= render 'vincular_form', unidad: unidad %>
-								<% end %>
+							<% if current_user.administrador? or current_user.system_admin? %>
+							<div class="btn-group">
+								<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+							    	<i class="icon-cog"></i>
+							    	<span class="caret"></span>
+							  	</a>
+							  	<ul class="dropdown-menu">
+							    	<li>
+				  		<%= link_to 'Desvincular', @unidad.relacion_unidads.find_by_vinculada_id(unidad.id), :method => :delete %>
+							    	</li>
+							  	</ul>
+							</div>
 							<% end %>
 						</td>
 					</tr>

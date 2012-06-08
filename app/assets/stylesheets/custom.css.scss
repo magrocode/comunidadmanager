@@ -7,12 +7,14 @@
 
 $grayMediumLight: #eaeaea;
 
-/*
+
  .navbar-inner {
   //@navBarBgStart: #3D368B;
   //@navBarBgEnd: #232051; 
-  background-image: -webkit-linear-gradient(top,  darkgreen, darkgreen );
-} */
+  /* background-image: -webkit-linear-gradient(top,  darkgreen, darkgreen ); */
+  
+  background-image: -webkit-linear-gradient(top,  #0B3861, #0B3861 );
+} 
 /*
 .navbar .nav li a  {
   color: lightgray;
@@ -42,6 +44,7 @@ body {
 
   font-size: 13px; 
   line-height: 1.28;
+  color: #454545;
 
   unicode-bidi: embed;
 }
@@ -128,7 +131,7 @@ h3 {
   text-shadow: 0px;
   font-weight: bolder;
   color: $gray;
-  clear: right;
+  /* clear: right;  */
 }
 
 p {
@@ -165,7 +168,7 @@ p {
   font-size: 1.7em;
   /* font-family: "Comic Sans", "Comic Sans MS", cursive;*/
   /* color: #0197fd; */
-  color: rgb(102 , 153, 204);
+  color: #084B8A;
   
   /* text-transform: uppercase; */
   /* letter-spacing: -1px;*/
@@ -173,7 +176,7 @@ p {
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: rgb(102 , 153, 204);
+    color:#084B8A;
     text-decoration: none;
   }
 }
@@ -299,7 +302,13 @@ table .align-top {
 .content-wrapper {
   padding: 20px;
   background-color: white;
-  
+  border: solid 1px #D8D8D8;
+
+  border:solid 1px #D8D8D8;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+
   @include box_sizing;
 }
 
@@ -318,10 +327,16 @@ table .align-top {
 /* span menu */
 .menu-spacer   {
   line-height: 1.7;
+  padding: 2px;
   /* font-size: 12px;*/
   /* font-weight: bolder;*/
   text-shadow:#FFFFFF 1px 1px 0; 
   clear: both;
+
+  a {
+    color: #6E6E6E;
+    font-weight: bolder;
+  }
 }
 
 .nav-list-m {
@@ -396,5 +411,14 @@ table .align-top {
 
   &.asc {
     background: url(icons/sort-asc-gray.png) no-repeat;
+  }
+}
+
+
+/* info de contacto en perfiles */
+.info-contacto {
+
+  li {
+    margin-bottom: 5px;
   }
 }

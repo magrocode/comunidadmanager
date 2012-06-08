@@ -2,10 +2,10 @@
 	<div class="span10">
 		<h2>Todas las unidades</h2>
 	</div>	
-	<div class="span2">
-		<% if current_user.administrador? %>
-			<%= link_to(new_comunidad_unidad_path(@comunidad), class: 'btn btn-primary') do %>
-  				<i class="icon-plus-sign icon-white"></i> <strong>Nueva unidad</strong>
+	<div class="span2 ar">
+		<% if current_user.administrador? or current_user.system_admin? %>
+			<%= link_to(new_comunidad_unidad_path(@comunidad), class: 'btn btn-small btn-primary') do %>
+  				<i class="icon-plus-sign icon-white"></i> Nueva unidad
 			<% end %>
 		<% end %>
 	</div>

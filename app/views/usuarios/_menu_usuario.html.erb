@@ -2,7 +2,7 @@
   <ul class="nav-list-m unstyled">
   	<li class="menu-spacer">
       <span>
-        <%= gravatar_for @usuario, size: 14, addclass: 'mini'  %>
+        <i class="icon-user"></i>&nbsp;
         <%= link_to @usuario.nombre, @usuario %>
       </span>
     </li>
@@ -15,10 +15,16 @@
     	</small>
       </span>
     </li>  
+    <% if current_user.administrador? or current_user.system_admin? %>
+        <br />
+        <li class="menu-spacer">
+          <span>        
+            <%= link_to 'Todos los usuarios', comunidad_usuarios_path(@comunidad) %>
+            <small class="small-indicator">
+              <%= pluralize(@comunidad.usuarios.size, "persona", "personas") %>
+          </small>
+          </span>
+        </li>    
+    <% end %>
   </ul>
 </div>
-
-<% if current_user.administrador? %>
-<hr />
-<%= render 'comunidads/menu_comunidad' %>
-<% end %>

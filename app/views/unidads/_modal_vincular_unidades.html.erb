@@ -1,7 +1,7 @@
-<div class="modal hide" id="modalAutorizarUnidades">
+<div class="modal hide" id="modalVincularUnidades">
 	<div class="modal-header">
 		<button class="close" data-dismiss="modal">×</button>
-    	<h3>Autorizar Unidades o Viviendas</h3>
+    	<h3>Vincular Unidades o Viviendas</h3>
     	<div class="clear"></div>
  	</div>
  	<div class="modal-body">
@@ -16,7 +16,7 @@
 			</thead>
 			<% @comunidad.unidads.each do |unidad| %>
 
-				<% unless unidad.usuario_autorizado?(@usuario) %>
+				<% unless @unidad==unidad or @unidad.vinculada?(unidad) or unidad.principal? or unidad.has_principal? %>
 					<tr>
 						<td>
 							<%= unidad.identificador %> 
@@ -29,7 +29,7 @@
 						<td><%= unidad.participacion %>%</td>
 						<td><%= unidad.superficie %>m2</td>
 						<td>
-							<%= render 'autorizar_unidad', unidad: unidad %>
+							<%= render 'vincular', unidad: unidad %>
 						</td>
 					</tr>
 				<% end %>

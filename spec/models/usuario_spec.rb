@@ -150,13 +150,13 @@ describe Usuario do
     end
   end
 
-  describe "Super-Admin Cambiando de comunidad" do
-    let(:comunidad_nueva) { FactoryGirl.create(:comunidad) }
-    before do
-      @usuario.save
-      @usuario.cambiar_comunidad!(comunidad_nueva)
-    end
-
-    it { should be_comunidad(comunidad_nueva) }
-  end
+  #describe "Super-Admin Cambiando de comunidad" do
+  #  let(:comunidad_nueva) { FactoryGirl.create(:comunidad) }
+  #  before do
+  #    @usuario.save
+  #    @usuario.cambiar_comunidad!(comunidad_nueva)
+  #  end
+  #
+  #  it { should be_comunidad(comunidad_nueva) }
+  #end
 end

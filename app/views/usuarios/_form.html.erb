@@ -1,14 +1,13 @@
 <%= form_for [@comunidad, @usuario], :html => { :class => "form-horizontal" }  do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>			
 	<fieldset>
-		
+
 		<div class="control-group">
 			<%= f.label :email, class: "control-label" %>
 			<div class="controls">
 				<%= f.email_field :email, class: "span6" %>
 			</div>
 		</div>
-
 				
 		<div class="control-group">
 			<%= f.label :nombre, class: "control-label" %>
@@ -31,8 +30,17 @@
 			</div>
 		</div>
 
-				
-		<% if current_user.administrador? %>
+		<% if @usuario.email? %>
+		<div class="control-group">
+			<%= label_tag "Gravatar" %>
+			<div class="controls">
+				<%= gravatar_for @usuario %>
+				<%= link_to 'Cambiar el Gravatar', 'http://gravatar.com/emails' %>
+			</div>
+		</div>
+		<% end %>
+
+		<% if current_user.administrador? or current_user.system_admin? %>
 		<hr />
 		<div class="control-group">
 			<%= label_tag 'permisos', 'Permisos' %>
@@ -40,31 +48,37 @@
 				<label class="checkbox">
 					<%= f.check_box :administrador %> Administrador
 				</label>
+				<% if current_user.system_admin? %>
+					<label class="checkbox">
+						<%= f.check_box :system_admin %> System-Admin
+					</label>
+				<% end %>
 			</div>
-		</div>
-		<hr />
+		</div>		
 		<% end %>
 
-						
-		<div class="control-group">
-			<%= f.label :password, class: 'control-label' %>
-			<div class="controls">
-				<%= f.password_field :password, class: "span4" %>
+		<div id="password-controls">						
+			<hr />
+			<div class="control-group">
+				<%= f.label :password, class: 'control-label' %>
+				<div class="controls">
+					<%= f.password_field :password, class: "span4" %>
+				</div>
 			</div>
-		</div>
-	
-		<div class="control-group">
-			<%= f.label :password_confirmation, 'Confirmacion', class: 'control-label' %>
-			<div class="controls">
-				<%= f.password_field :password_confirmation, class: "span4" %>
+		
+			<div class="control-group">
+				<%= f.label :password_confirmation, 'Confirmacion', class: 'control-label' %>
+				<div class="controls">
+					<%= f.password_field :password_confirmation, class: "span4" %>
+				</div>
 			</div>
 		</div>
 
 	</fieldset>
 	
 	<div class="form-actions">
-		<%= f.submit "Guardar", :class => "btn btn-primary" %>&nbsp;
-		<%= link_to "o Cancelar", :back %>
+		<%= f.submit "Guardar", :class => "btn btn-primary" %>&nbsp;o
+		<%= link_to "Cancelar", :back %>
 	</div>	
 	
 <% end %>

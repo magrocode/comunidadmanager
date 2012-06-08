@@ -38,4 +38,14 @@ describe RelacionUsuarioUnidad do
 		before { relacion_usuario_unidad.unidad_id = nil }
 		it { should_not be_valid }
 	end
+
+	describe "Cuando usuario es autorizado mas de una vez a la misma unidad" do
+		before { relacion_usuario_unidad.save }
+
+		let(:relacion_duplicada) do
+			usuario.relacion_usuario_unidads.build(unidad_id: unidad.id)
+		end
+
+		it { relacion_duplicada.should_not be_valid }
+	end
 end

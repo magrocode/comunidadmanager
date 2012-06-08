@@ -76,6 +76,11 @@ describe Unidad do
     it { should_not be_valid }
   end
 
+  describe "cuando tipo de unidad es vacio" do
+    before { @unidad.tipounidad = nil }
+    it { should be_valid}
+  end
+
   describe "vinculando unidad" do
     let(:otra_unidad) { FactoryGirl.create(:unidad, comunidad: comunidad) }
     before do

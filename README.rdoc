@@ -1,1 +1,1 @@
-ComunidadManager es un proyecto desarrollado por MagroCode
+Cloudapolis es un proyecto desarrollado por MagroCode

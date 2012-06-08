@@ -20,7 +20,7 @@ Comunidadmanager::Application.routes.draw do
       get :usuarios_autorizados
     end
   end
-  resources :tipounidads 
+  resources :tipounidads, only: [:index, :new, :edit, :create, :destroy, :update] 
   
   resources :comunidads do
       resources :unidads

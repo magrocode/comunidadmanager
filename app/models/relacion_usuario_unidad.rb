@@ -6,4 +6,6 @@ class RelacionUsuarioUnidad < ActiveRecord::Base
 
 	validates :usuario_id, presence: true
 	validates :unidad_id, presence: true
+
+	validates_uniqueness_of :usuario_id, scope: :unidad_id
 end
