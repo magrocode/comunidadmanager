@@ -15,11 +15,11 @@
 		<ul class="unstyled info-contacto">
 			<li>								
 					<i class="icono-email"></i>&nbsp;
-					<%= @comunidad.email %>
+					<%= link_to @comunidad.email, 'mailto:'+@comunidad.email %>
 			</li>
 			<li>
 					<i class="icono-twitter"></i>&nbsp;
-					<%= @comunidad.twitter %>
+					<%= link_to @comunidad.twitter, 'http://twitter.com/'+@comunidad.twitter %>
 			</li>	
 			<li>
 					<i class="icono-telefono"></i>&nbsp;

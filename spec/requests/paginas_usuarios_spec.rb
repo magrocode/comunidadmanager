@@ -40,9 +40,8 @@ describe "Paginas de Usuarios" do
       
       describe "despues de guardar usuario" do        
         before { click_button "Guardar" }
-        let(:nuevo_usuario) { Usuario.find_by_email("miguel@foobar.com") }
-        
-        it { should have_selector('title', text: nuevo_usuario.email) }
+      
+        it { should have_selector('title', text: 'Usuarios')}
       end
     end
     
@@ -77,7 +76,7 @@ describe "Paginas de Usuarios" do
             click_button "Guardar"        
           end
           
-          it { should have_selector('title', text: usuario.email )}
+          it { should have_selector('title', text: 'Usuarios' )}
           
         end
       end
@@ -92,7 +91,7 @@ describe "Paginas de Usuarios" do
         describe "y viendo sus unidades autorizadas" do
           before { visit unidades_autorizadas_usuario_path(otro_usuario) }
 
-          it { should_not have_selector('h2', text: 'Viviendas o unidades autorizadas a') }
+          it { should have_selector('h2', text: 'Viviendas o unidades autorizadas a') }
         end
       end 
     end

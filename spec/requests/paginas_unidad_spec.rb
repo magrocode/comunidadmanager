@@ -40,12 +40,12 @@ describe "UnidadPages" do
         before { click_button "Guardar" }
         let(:unidad) { Unidad.find_by_identificador('DEP101') }
         
-        it { should have_selector('title', text: unidad.identificador) }
+        it { should have_selector('title', text: 'Unidades') }
       end
     end
   end
 
-  describe "Viendo unidad" do
+  describe "Viendo perfil de unidad" do
   
     describe "de otra comunidad" do
       let(:comunidadB) { FactoryGirl.create(:comunidad) }
@@ -114,15 +114,14 @@ describe "UnidadPages" do
         #save_and_open_page
       end
 
-      it { should_not have_selector('h1', text: unidad_no_autorizada.identificador) }      
+      it { should have_selector('h1', text: unidad_no_autorizada.identificador) }      
       
       describe "y viendo las unidades vinculadas de otra unidad" do
         before do
           visit vinculadas_unidad_path(unidad_no_autorizada)
         end
 
-        it { should_not have_selector('h2', text: unidad_no_autorizada.identificador) }
-        it { should have_content("Algo salio mal?? no tienes permisos para la unidad que deseas") }
+        it { should have_selector('h2', text: unidad_no_autorizada.identificador) }
       end
 
       describe "y viendo los usuarios autorizados de otra unidad" do
@@ -130,8 +129,7 @@ describe "UnidadPages" do
           visit usuarios_autorizados_unidad_path(unidad_no_autorizada)
         end
 
-        it { should_not have_selector('h2', text: unidad_no_autorizada.identificador) }
-        it { should have_content("Algo salio mal?? no tienes permisos para la unidad que deseas") }
+        it { should have_selector('h2', text: unidad_no_autorizada.identificador) }
       end
     end
   end

@@ -7,7 +7,9 @@
 	<div class="span12">
 		<strong>
 			Ordenar las comunidades por
-			<%= sortable "nombre" %>
+			<%= sortable "nombre" %>,
+			<%= sortable "activa", "Estado" %>,
+			<%= sortable "created_at", "Creado en" %>
 		</strong>
 	</div>
 </div><br />
@@ -22,7 +24,8 @@
 					<th>Comunidad</th>
 					<th>Viviendas</th>
 					<th>Usuarios</th>
-					<th>Activa?</th>
+					<th>Creado en</th>
+					<th>Estado</th>
 					<% if current_user.system_admin? %>
 						<th></th>
 					<% end %>
@@ -37,10 +40,15 @@
 					</strong> 
 				</td>
 				<td>
-					<%= pluralize(comunidad.unidads.size, 'unidad', 'unidades') %>
+					<%= link_to pluralize(comunidad.unidads.size, 'unidad', 'unidades'), 
+					comunidad_unidads_path(comunidad) %>
 				</td>
 				<td>
-					<%= pluralize(comunidad.usuarios.size, 'persona', 'personas') %>
+					<%= link_to pluralize(comunidad.usuarios.size, 'persona', 'personas'),
+					comunidad_usuarios_path(comunidad) %>
+				</td>
+				<td>
+					<%= l comunidad.created_at, format: :long %>
 				</td>
 				<td>
 					<% if comunidad.activa? %>

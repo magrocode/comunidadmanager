@@ -8,13 +8,13 @@
 $grayMediumLight: #eaeaea;
 
 
- .navbar-inner {
+/* .navbar-inner {
   //@navBarBgStart: #3D368B;
-  //@navBarBgEnd: #232051; 
+  //@navBarBgEnd: #232051; */
   /* background-image: -webkit-linear-gradient(top,  darkgreen, darkgreen ); */
-  
+  /*
   background-image: -webkit-linear-gradient(top,  #0B3861, #0B3861 );
-} 
+} */
 /*
 .navbar .nav li a  {
   color: lightgray;
@@ -185,8 +185,8 @@ p {
 
 #footer-bottom {
   position: relative;
-  margin-top: -240px; /* negative value of footer height */
-  height: 240px;
+  margin-top: -195px; /* negative value of footer height */
+  height: 195px;
   clear: both;
   padding: 0;
   background: url(cloudapolis-600x403.png) top repeat-x;
@@ -421,4 +421,16 @@ table .align-top {
   li {
     margin-bottom: 5px;
   }
+}
+
+
+/* fondo del signin */ 
+#sign_in_wrapper {
+  background: url(cloudapolis-600x403.png) no-repeat center;
+  padding-top: 60px;
+}
+
+.transparent-box {
+  opacity:0.95;
+  /* filter:alpha(opacity=60); *//* For IE8 and earlier */
 }

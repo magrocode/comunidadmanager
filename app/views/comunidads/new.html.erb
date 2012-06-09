@@ -1,10 +1,10 @@
 <% provide(:titulo, 'Sign up')%>
 <div class="row">
-	<div class="span7 offset3">
+	<div class="span8 offset2">
 		<div class="well">
 			<div class="page-header center"><h1>Sign up</h1></div>
 			<div class="row">
-				<div class="span6">
+				<div class="span7">
 					<%= form_for @comunidad, html: { class: "form-horizontal" } do |f| %>
 						
 						<%= render 'shared/error_messages', object: f.object %>
@@ -20,7 +20,7 @@
 							<div class="control-group">
 				  				<%= label_tag 'email_administrador', "Email administrador", class: "control-label" %>
 				  				<div class="controls">
-					  				<%= text_field(:usuario, :email, placeholder: "mi@comunidad.com" ) %>			
+					  				<%= text_field(:usuario, :email, placeholder: "administrador@comunidad.com" ) %>			
 					  			</div>
 					  		</div>
 

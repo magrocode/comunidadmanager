@@ -4,7 +4,7 @@ class UnidadsController < ApplicationController
   before_filter :comunidad_correcta,    :only => [:index, :new]
   before_filter :usuario_en_comunidad,  :only => [:show, :vinculadas, :usuarios_autorizados]
   before_filter :admin_user,            :only => [:new, :edit, :update, :destroy]
-  before_filter :usuario_autorizado,    :only => [:show, :vinculadas, :usuarios_autorizados]  #, :edit, :destroy, :update]
+  #before_filter :usuario_autorizado,    :only => [:show, :vinculadas, :usuarios_autorizados]  #, :edit, :destroy, :update]
 
   helper_method :sort_column, :sort_direction
   
@@ -27,7 +27,7 @@ class UnidadsController < ApplicationController
     
     if @unidad.save
       flash[:success] = "Unidad creada!"
-      redirect_to @unidad
+      redirect_to comunidad_unidads_path(@comunidad)
     else
        render action: 'new'  
     end
@@ -50,7 +50,7 @@ class UnidadsController < ApplicationController
     if @unidad.update_attributes(params[:unidad])
        flash[:success] = "Unidad actualizada exitosamente!"
        #redirect_to comunidad_unidad_path
-       redirect_to unidad_path
+       redirect_to comunidad_unidads_path(@comunidad)
      else
        render action: 'edit'
     end
@@ -60,7 +60,7 @@ class UnidadsController < ApplicationController
     @unidad = Unidad.find(params[:id])
     @comunidad = @unidad.comunidad
     @unidad.destroy
-
+    flash[:success] = "Unidad eliminada"
     redirect_to comunidad_unidads_path(@comunidad)
   end
   

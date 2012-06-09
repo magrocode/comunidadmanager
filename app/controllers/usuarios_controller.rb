@@ -1,12 +1,14 @@
 class UsuariosController < ApplicationController
  
   before_filter :signed_in_user
-  before_filter :correct_comunidad,   :only => [:index, :new]
-  before_filter :correct_user,        :only => [:show, :edit, :update, :unidades_autorizadas] 
+  before_filter :correct_comunidad,     :only => [:index, :new]
+  #before_filter :correct_user,         :only => [:show, :edit, :update, :unidades_autorizadas]
+  before_filter :correct_user,          :only => [:edit, :update,]
+  before_filter :usuario_en_comunidad,  :only => [:show, :unidades_autorizadas]
   
-  before_filter :admin_user,          :only => [:new, :destroy] 
+  before_filter :admin_user,            :only => [:new, :destroy] 
   
-  after_filter  :signin_after_update, :only => :update
+  after_filter  :signin_after_update,   :only => :update
 
   helper_method :sort_column, :sort_direction
   
@@ -31,7 +33,7 @@ class UsuariosController < ApplicationController
     
     if @usuario.save
       flash[:success] = "Usuario creado!"
-      redirect_to @usuario
+      redirect_to comunidad_usuarios_path(@comunidad)
     else
       render 'new'
     end
@@ -48,7 +50,7 @@ class UsuariosController < ApplicationController
     
     if @usuario.update_attributes(params[:usuario])
       flash[:success] = "Usuario actualizado exitosamente!"
-      redirect_to usuario_path
+      redirect_to comunidad_usuarios_path(@comunidad)
     else
       render action: 'edit'
     end
@@ -58,7 +60,7 @@ class UsuariosController < ApplicationController
     @usuario = Usuario.find(params[:id])
     @comunidad = @usuario.comunidad
     @usuario.destroy
-    
+    flash[:success] = "Usuario eliminado"
     redirect_to comunidad_usuarios_path(@comunidad)
   end
   
@@ -86,7 +88,11 @@ class UsuariosController < ApplicationController
       # el usuario correcto es el mismo usuario conectado o administrador
       @usuario = Usuario.find(params[:id])
       redirect_to comunidad_usuarios_path(@usuario.comunidad), alert: "Ups!! parece que no tienes autorizacion sobre el usuario que deseas" unless current_user?(@usuario)  or current_user.administrador?
+    end
 
+    def usuario_en_comunidad
+      @usuario = Usuario.find(params[:id])
+      redirect_to comunidad_usuarios_path(current_user.comunidad), notice: "Bochornoso! no estas autorizado para realizar acciones en la comunidad que deseas" unless (@usuario.comunidad == current_user.comunidad) or current_user.system_admin?
     end
     
     def correct_comunidad
