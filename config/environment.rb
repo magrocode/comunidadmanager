@@ -5,4 +5,4 @@ require File.expand_path('../application', __FILE__)
 Comunidadmanager::Application.initialize!
 
 # action mailer en stmp
-config.action_mailer.delivery_method = :smtp
+#config.action_mailer.delivery_method = :smtp
