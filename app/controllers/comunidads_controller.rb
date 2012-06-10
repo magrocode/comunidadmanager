@@ -31,9 +31,10 @@ class ComunidadsController < ApplicationController
                                          password_confirmation: params[:usuario][:password_confirmation])
     if @comunidad.valid? and @usuario.valid?                                     
       if @comunidad.save
-        if @usuario.save 
+        if @usuario.save           
           sign_in @usuario
-          flash[:success] = "Bienvenido a Bloombee!"
+          UsuarioMailer.registration_confirmation(@usuario).deliver
+          flash[:success] = "Bienvenido a Cloudapolis"
           redirect_to @comunidad
           #redirect_to root_path
         end
@@ -56,6 +57,13 @@ class ComunidadsController < ApplicationController
     else
       render action: 'edit'
     end  
+  end
+
+  def destroy
+    @comunidad = Comunidad.find(params[:id])
+    @comunidad.destroy
+    flash[:success] = "Comunidad eliminada"
+    redirect_to comunidads_path
   end
 
   def desactivar
