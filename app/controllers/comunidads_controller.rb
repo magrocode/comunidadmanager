@@ -32,10 +32,10 @@ class ComunidadsController < ApplicationController
     if @comunidad.valid? and @usuario.valid?                                     
       if @comunidad.save
         if @usuario.save           
-          sign_in @usuario
-          UsuarioMailer.welcome_email(@usuario).deliver
+          sign_in @usuario          
           flash[:success] = "Bienvenido a Cloudapolis"
           redirect_to @comunidad
+          UsuarioMailer.welcome_email(@usuario).deliver
           #redirect_to root_path
         end
       end      

@@ -1,9 +1,12 @@
-Welcome to example.com, <%= @usuario.nombre %>
+Bienvenido a cloudapolis.com, <%= @usuario.nombre %>
 ===============================================
  
-You have successfully signed up to example.com,
-your username is: <%= @usuario.email %>.
+ Has creado exitosamente la cuenta para tu
+comunidad <%= @usuario.comunidad.nombre %> en cloudapolis.com, 
+ahora tu has sido asignado como administrador y puedes acceder
+con tu nombre de usuario: <%= @usuario.email %>.
  
-To login to the site, just follow this link: <%= @url %>.
- 
-Thanks for joining and have a great day!
+Para logearte al sitio, solo sigue el siguiente
+link: <%= @url %>.
+
+Gracias por unirte y ten un gran dia! 

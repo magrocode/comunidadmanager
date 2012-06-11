@@ -4,14 +4,17 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @usuario.nombre %></h1>
+    <h1>Bienvenido a cloudapolis.com, <%= @usuario.nombre %></h1>
     <p>
-      You have successfully signed up to example.com,
-      your username is: <%= @usuario.email %>.<br/>
+      Has creado exitosamente la cuenta para tu
+comunidad <%= @usuario.comunidad.nombre %> en cloudapolis.com, 
+ahora tu has sido asignado como administrador y puedes acceder
+con tu nombre de usuario: <%= @usuario.email %>.<br/>
     </p>
     <p>
-      To login to the site, just follow this link: <%= @url %>.
+      Para logearte al sitio, solo sigue el siguiente
+link: <%= @url %>.
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>Gracias por unirte y ten un gran dia!</p>
   </body>
 </html>
