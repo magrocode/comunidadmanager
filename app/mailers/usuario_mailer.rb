@@ -1,5 +1,5 @@
 class UsuarioMailer < ActionMailer::Base
-  default from: "mario@magrocode.com"
+  default from: "cloudapolis@magrocode.com"
   
   def welcome_email(usuario)
   	@usuario = usuario
