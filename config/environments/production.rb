@@ -68,12 +68,20 @@ Comunidadmanager::Application.configure do
 
   # configurando smtp mailes
   config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.smtp_settings = {
+  #  :address              => "smtp.gmail.com",
+  #  :port                 => 587,
+  #  :domain               => 'magrocode.com',
+  #  :user_name            => 'cloudapolis',
+  #  :password             => 'gmail@cloud7',
+  #  :authentication       => 'plain',
+  #  :enable_starttls_auto => true  }
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
+    :address              => "mail.magrocode.com",
+    :port                 => 26,
     :domain               => 'magrocode.com',
-    :user_name            => 'cloudapolis',
-    :password             => 'gmail@cloud7',
+    :user_name            => 'cloudapolis@magrocode.com',
+    :password             => 'magro@cloud7',
     :authentication       => 'plain',
-    :enable_starttls_auto => true  }
+    :enable_starttls_auto => false  }
 end

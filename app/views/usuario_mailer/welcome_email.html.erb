@@ -6,15 +6,14 @@
   <body>
     <h1>Bienvenido a cloudapolis.com, <%= @usuario.nombre %></h1>
     <p>
-      Has creado exitosamente la cuenta para tu
-comunidad <%= @usuario.comunidad.nombre %> en cloudapolis.com, 
-ahora tu has sido asignado como administrador y puedes acceder
-con tu nombre de usuario: <%= @usuario.email %>.<br/>
+      Se ha creado exitosamente tu cuenta de usuario para tu
+comunidad "<%= @usuario.comunidad.nombre %>" en cloudapolis.com, 
+ahora puedes acceder con tu email: <%= @usuario.email %> y tu password.<br/>
     </p>
     <p>
-      Para logearte al sitio, solo sigue el siguiente
-link: <%= @url %>.
+      Si necesitas ayuda por favor escribenos a cloudapolis@magrocode.com o llamanos
+      en chile al +56-2-688-3010 y con gusto te atenderemos.
     </p>
-    <p>Gracias por unirte y ten un gran dia!</p>
+    <p>Gracias por unirte a cloudapolis.com y ten un gran dia!</p>
   </body>
 </html>

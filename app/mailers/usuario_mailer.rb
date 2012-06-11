@@ -3,6 +3,6 @@ class UsuarioMailer < ActionMailer::Base
   
   def welcome_email(usuario)
   	@usuario = usuario
-  	mail(:to => usuario.email, :subject => "Registrado")
+  	mail(:to => usuario.email, :subject => "Usuario Registrado en Cloudapolis")
   end
 end
