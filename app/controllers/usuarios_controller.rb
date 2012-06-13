@@ -32,6 +32,7 @@ class UsuariosController < ApplicationController
     @usuario = @comunidad.usuarios.build(params[:usuario])
     
     if @usuario.save
+      UsuarioMailer.welcome_email(@usuario).deliver
       flash[:success] = "Usuario creado!"
       redirect_to comunidad_usuarios_path(@comunidad)
     else
