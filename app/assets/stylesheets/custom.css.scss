@@ -20,7 +20,6 @@ $grayMediumLight: #eaeaea;
   color: lightgray;
 }*/
 
-
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
@@ -150,14 +149,14 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   /* font-family: "Comic Sans", "Comic Sans MS", cursive;*/
-  color: white;
+  color: lightblue;
   /* text-transform: uppercase; */
   /* letter-spacing: -1px;*/
   padding-top: 8px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: white;
+    color: lightblue;
     text-decoration: none;
   }
 }
@@ -168,7 +167,7 @@ p {
   font-size: 1.7em;
   /* font-family: "Comic Sans", "Comic Sans MS", cursive;*/
   /* color: #0197fd; */
-  color: #084B8A;
+  color: #02608C;
   
   /* text-transform: uppercase; */
   /* letter-spacing: -1px;*/
@@ -176,7 +175,7 @@ p {
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color:#084B8A;
+    color:#02608C;
     text-decoration: none;
   }
 }
@@ -433,4 +432,8 @@ table .align-top {
 .transparent-box {
   opacity:0.95;
   /* filter:alpha(opacity=60); *//* For IE8 and earlier */
+}
+
+.navbar .nav > li > a:hover  {
+  color: lightblue;
 }
