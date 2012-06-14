@@ -34,4 +34,11 @@ FactoryGirl.define do
     comunidad
     tipounidad
   end
+
+  factory :post do
+    sequence(:titulo) { |n| "Post numero #{n}" }
+    contenido "Contenido del post"
+    comunidad
+    usuario 
+  end
 end

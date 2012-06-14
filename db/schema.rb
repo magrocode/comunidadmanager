@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120608154152) do
+ActiveRecord::Schema.define(:version => 20120614173432) do
 
   create_table "comunidads", :force => true do |t|
     t.string   "nombre"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(:version => 20120608154152) do
     t.string   "telefono"
     t.boolean  "activa",     :default => true
   end
+
+  create_table "posts", :force => true do |t|
+    t.integer  "comunidad_id"
+    t.integer  "usuario_id"
+    t.string   "titulo"
+    t.text     "contenido"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "posts", ["comunidad_id"], :name => "index_posts_on_comunidad_id"
+  add_index "posts", ["usuario_id"], :name => "index_posts_on_usuario_id"
 
   create_table "relacion_unidads", :force => true do |t|
     t.integer  "principal_id"

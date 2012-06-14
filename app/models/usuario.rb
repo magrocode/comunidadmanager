@@ -25,6 +25,7 @@ class Usuario < ActiveRecord::Base
   belongs_to :comunidad
   has_many :relacion_usuario_unidads, dependent: :destroy
   has_many :unidades_autorizadas, through: :relacion_usuario_unidads, source: :unidad
+  has_many :posts, dependent: :destroy
   
   validates :nombre, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

@@ -1,10 +1,5 @@
 Comunidadmanager::Application.routes.draw do
 
-
-  #get "unidads/new"
-
-  #get "usuarios/new"
-
   get "paginas/home"
   get "paginas/wellcome"
   
@@ -31,6 +26,7 @@ Comunidadmanager::Application.routes.draw do
       resources :unidads
       resources :tipounidads
       resources :usuarios
+      resources :posts
   end
   
   #resources :comunidads do
