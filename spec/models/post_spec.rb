@@ -44,7 +44,7 @@ describe Post do
 
   describe "Cuando titulo no esta presente" do
   	before { @post.titulo = nil }
-  	it { should_not be_valid }
+  	it { should be_valid }
   end
 
   describe "Cuando contenido no esta presente" do

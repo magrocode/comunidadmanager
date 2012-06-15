@@ -17,6 +17,8 @@ Comunidadmanager::Application.routes.draw do
   end
   resources :tipounidads, only: [:index, :new, :edit, :create, :destroy, :update] 
   
+  resources :posts, only: [:create, :destroy]
+  
   resources :comunidads do
       member do
         put :desactivar

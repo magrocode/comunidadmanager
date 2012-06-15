@@ -19,6 +19,7 @@ class ComunidadsController < ApplicationController
 
   def show
     @comunidad = Comunidad.find(params[:id])
+    @posts = @comunidad.posts
     redirect_to root_path if @comunidad.nil?
   end
   

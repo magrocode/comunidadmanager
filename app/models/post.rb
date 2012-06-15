@@ -13,13 +13,13 @@
 
 class Post < ActiveRecord::Base
 
-	attr_accessible :titulo, :contenido, :usuario
+	attr_accessible :titulo, :contenido, :usuario, :usuario_id
 
 	belongs_to :comunidad
 	belongs_to :usuario
 
 	validates :comunidad_id, presence: true
 	validates :usuario_id, presence: true
-	validates :titulo, presence: true, length: { maximum: 50 }
+	validates :titulo, length: { maximum: 50 }
 	validates :contenido, presence: true
 end

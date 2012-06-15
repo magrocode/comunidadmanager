@@ -1,0 +1,11 @@
+<%= form_for @comunidad.posts.build(usuario_id: current_user.id) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div>
+		<%= #f.text_field :titulo, placeholder: "Asunto o Titulo de la nota" 
+		%>
+		<%= f.hidden_field :usuario_id %>
+		<%= f.text_area :contenido,placeholder: "Agrega una nota en la comunidad",  size: "24x12" %>
+	</div>
+		<small class="small-indicator"><%= link_to 'Mostrar opciones', '#' %></small>
+		<%= f.submit "Agregar esta nota", class: "btn btn-mini pull-right" %>
+<% end %>

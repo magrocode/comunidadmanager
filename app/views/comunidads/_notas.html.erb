@@ -1,5 +1,8 @@
 <div class="row-fluid">
-	<div class="span9">
+	<div class="span11">
 		<strong>Notas en <%= @comunidad.nombre %></strong>
+		<br/><br/>
+		<%= render 'shared/post_form' %><br>
+		<%= render 'show_posts' %>
 	</div>
 </div>
