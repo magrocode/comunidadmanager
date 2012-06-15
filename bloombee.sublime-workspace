@@ -275,7 +275,7 @@
 			"file": "app/controllers/usuarios_controller.rb",
 			"settings":
 			{
-				"buffer_size": 4114,
+				"buffer_size": 4320,
 				"line_ending": "Unix"
 			}
 		},
@@ -542,6 +542,7 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -605,15 +606,15 @@
 					"file": "app/controllers/usuarios_controller.rb",
 					"settings":
 					{
-						"buffer_size": 4114,
+						"buffer_size": 4320,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1595,
+								1595
 							]
 						],
 						"settings":
@@ -798,6 +799,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 467.0,
+	"side_bar_width": 267.0,
 	"status_bar_visible": true
 }

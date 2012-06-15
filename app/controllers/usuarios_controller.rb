@@ -49,9 +49,11 @@ class UsuariosController < ApplicationController
     @usuario = Usuario.find(params[:id])
     @comunidad = @usuario.comunidad
     
+    params[:usuario].delete(:password) if params[:usuario][:password].blank?
+    params[:usuario].delete(:password_confirmation) if params[:usuario][:password].blank? and params[:usuario][:password_confirmation].blank?
     if @usuario.update_attributes(params[:usuario])
       flash[:success] = "Usuario actualizado exitosamente!"
-      redirect_to comunidad_usuarios_path(@comunidad)
+      redirect_to usuario_path(@usuario)
     else
       render action: 'edit'
     end
