@@ -1,0 +1,29 @@
+<tr id="<%= feed_post.id %>" class="tr-post">
+	<td style="width: 18px;"><i class="icon-file"></i></td>
+	<td>
+		<h4><%= feed_post.created_at %></h4>
+		<% if !feed_post.titulo.nil? %><small class="small-indicator">Asunto: <%= feed_post.titulo %></small><br><% end %>
+		<small class="small-indicator">Escrito por: <%= link_to feed_post.usuario.nombre, feed_post.usuario %>
+			<% if feed_post.usuario.administrador? %>
+				<span class="label">Administrador</span>
+			<% end %>
+		</small>
+		<br /><br />
+	  	<span class="content"><%= feed_post.contenido %></span><br><br>
+	</td>
+
+	<td>
+  		<% if current_user.administrador? or current_user.system_admin? or feed_post.writer?(current_user) %>				
+			<div class="btn-group pull-right">
+				<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+					<i class="icon-cog"></i>
+				</a>
+				<ul class="dropdown-menu">
+					<li><%= link_to 'Editar', edit_post_path(feed_post) %></li>
+					<li><%= link_to 'Eliminar', feed_post, confirm: 'Estas seguro de eliminar?', :method => :delete %></li>
+				</ul>
+			</div>
+		<% end %>
+	</td>	
+	</div>
+</tr>

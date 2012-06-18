@@ -1,5 +1,10 @@
 <div class="row-fluid">
 	<div class="span9">
 		<strong>Notas de <%= @usuario.nombre %></strong>
+		<br><br>
+		<% if @usuario == current_user %>
+			<%= render 'shared/post_form' %><br>
+		<% end %>
+		<%= render 'shared/feed_posts' %>
 	</div>
 </div>

@@ -1,4 +1,7 @@
-<%= form_for @comunidad.posts.build(usuario_id: current_user.id) do |f| %>
+<!-- 
+<%= #form_for @comunidad.posts.build(usuario_id: current_user.id) do |f| 
+%> -->
+<%= form_for @post do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<div>
 		<%= #f.text_field :titulo, placeholder: "Asunto o Titulo de la nota" 

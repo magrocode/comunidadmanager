@@ -22,4 +22,8 @@ class Post < ActiveRecord::Base
 	validates :usuario_id, presence: true
 	validates :titulo, length: { maximum: 50 }
 	validates :contenido, presence: true
+
+	def writer?(_usuario)
+		usuario == _usuario
+	end
 end

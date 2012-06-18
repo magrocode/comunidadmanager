@@ -19,8 +19,9 @@ class ComunidadsController < ApplicationController
 
   def show
     @comunidad = Comunidad.find(params[:id])
-    @posts = @comunidad.posts
-    redirect_to root_path if @comunidad.nil?
+    @post = @comunidad.posts.build(usuario_id: current_user.id)
+    @feed_posts = @comunidad.feed_posts.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+    #redirect_to root_path if @comunidad.nil?
   end
   
   def create

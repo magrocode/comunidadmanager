@@ -34,6 +34,9 @@ class Usuario < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true, length: { minimum: 6 }
   
+  def feed_posts
+    posts
+  end
   
   def unidad_autorizada?(unidad)
     relacion_usuario_unidads.find_by_unidad_id(unidad.id)

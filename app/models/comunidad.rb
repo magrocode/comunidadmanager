@@ -30,6 +30,10 @@ class Comunidad < ActiveRecord::Base
   validates :email, :twitter, length: { maximum: 255 }
   validates :telefono, length: { maximum: 50 }
 
+  def feed_posts
+    posts
+  end
+
   def desactivar!
   	update_attribute(:activa, false)  	
   end
