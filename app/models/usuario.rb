@@ -6,19 +6,20 @@
 #  comunidad_id    :integer
 #  email           :string(255)
 #  nombre          :string(255)
-#  administrador   :boolean
-#  system_admin    :boolean
+#  administrador   :boolean         default(FALSE)
+#  system_admin    :boolean         default(FALSE)
 #  password_digest :string(255)
 #  remember_token  :string(255)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
 #  twitter         :string(255)
 #  telefono        :string(255)
+#  lenguaje        :string(255)
 #
 
 class Usuario < ActiveRecord::Base
   
-  attr_accessible :email, :nombre, :twitter, :telefono, :administrador, :system_admin, :password, :password_confirmation
+  attr_accessible :email, :nombre, :twitter, :telefono, :administrador, :system_admin, :password, :password_confirmation, :lenguaje
   has_secure_password
   before_save :create_remember_token
   

@@ -6,14 +6,15 @@
 #  comunidad_id    :integer
 #  email           :string(255)
 #  nombre          :string(255)
-#  administrador   :boolean
-#  system_admin    :boolean
+#  administrador   :boolean         default(FALSE)
+#  system_admin    :boolean         default(FALSE)
 #  password_digest :string(255)
 #  remember_token  :string(255)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
 #  twitter         :string(255)
 #  telefono        :string(255)
+#  lenguaje        :string(255)
 #
 
 require 'spec_helper'
@@ -28,7 +29,8 @@ describe Usuario do
                                                twitter: "@codelious",
                                                telefono: "56-9-8806-0177",
                                                password: "foobar",
-                                               password_confirmation: "foobar") }
+                                               password_confirmation: "foobar",
+                                               lenguaje: "es-CL") }
   subject { @usuario }
   
   it { should respond_to(:email) }
@@ -39,6 +41,7 @@ describe Usuario do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:twitter) }
   it { should respond_to(:telefono) }
+  it { should respond_to(:lenguaje) }
   it { should respond_to(:relacion_usuario_unidads) }
   it { should respond_to(:unidades_autorizadas) }
   it { should respond_to(:unidad_autorizada?) }

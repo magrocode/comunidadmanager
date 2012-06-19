@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614173432) do
+ActiveRecord::Schema.define(:version => 20120619214557) do
 
   create_table "comunidads", :force => true do |t|
     t.string   "nombre"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20120614173432) do
     t.datetime "updated_at",                         :null => false
     t.string   "twitter"
     t.string   "telefono"
+    t.string   "lenguaje"
   end
 
   add_index "usuarios", ["comunidad_id"], :name => "index_usuarios_on_comunidad_id"

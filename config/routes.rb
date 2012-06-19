@@ -1,55 +1,61 @@
 Comunidadmanager::Application.routes.draw do
-
-  get "paginas/home"
-  get "paginas/wellcome"
-  
-  resources :usuarios do
-    member do
-      get :unidades_autorizadas
-    end
+ 
+  filter :locale
+ 
+  scope "/:locale" do
+    get "paginas/home"
+    get "paginas/wellcome"
   end
 
-  resources :unidads do
-    member do
-      get :vinculadas
-      get :usuarios_autorizados
-    end
-  end
-  resources :tipounidads, only: [:index, :new, :edit, :create, :destroy, :update] 
-  
-  resources :posts, only: [:create, :destroy, :edit, :update]
-  
-  resources :comunidads do
+  scope "/:locale" do  
+    resources :usuarios do
       member do
-        put :desactivar
-        put :activar
+        get :unidades_autorizadas
       end
-      
-      resources :unidads
-      resources :tipounidads
-      resources :usuarios
-      resources :posts
+    end
+
+    resources :unidads do
+      member do
+        get :vinculadas
+        get :usuarios_autorizados
+      end
+    end
+    resources :tipounidads, only: [:index, :new, :edit, :create, :destroy, :update] 
+    
+    resources :posts, only: [:create, :destroy, :edit, :update]
   end
-  
-  #resources :comunidads do
-  #  resources :usuarios
+
+  scope "/:locale" do
+    resources :comunidads do
+        member do
+          put :desactivar
+          put :activar
+        end
+          resources :unidads
+          resources :tipounidads
+          resources :usuarios
+          resources :posts
+    end
+  end
+
+  scope "/:locale" do
+    resources :sessions,                  only: [:new, :create, :destroy]
+    resources :relacion_unidads,          only: [:create, :destroy]
+    resources :relacion_usuario_unidads,  only: [:create, :destroy]
+  end
+
+  #scope "/:locale" do
+    match '/wellcome', to: 'paginas#wellcome'
+    match '/signup', to: 'comunidads#new'
+    match '/signin', to: 'sessions#new'
+    match '/signout', to: 'sessions#destroy', via: :delete
   #end
-
-  #resources :comunidads do
-  #  resources :tipounidads
-  #end
-
-
-  resources :sessions,                  only: [:new, :create, :destroy]
-  resources :relacion_unidads,          only: [:create, :destroy]
-  resources :relacion_usuario_unidads,  only: [:create, :destroy]
+  #match '/:locale' => 'dashboard#index'
   
-  match '/wellcome', to: 'paginas#wellcome'
-  match '/signup', to: 'comunidads#new'
-  match '/signin', to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
-  
+  #match '/:locale' => 'paginas#home'
   root :to => 'paginas#home'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
