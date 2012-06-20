@@ -2,12 +2,12 @@ Comunidadmanager::Application.routes.draw do
  
   filter :locale
  
-  scope "/:locale" do
+  #scope "/:locale" do
     get "paginas/home"
     get "paginas/wellcome"
-  end
+  #end
 
-  scope "/:locale" do  
+  #scope "/:locale" do  
     resources :usuarios do
       member do
         get :unidades_autorizadas
@@ -23,9 +23,9 @@ Comunidadmanager::Application.routes.draw do
     resources :tipounidads, only: [:index, :new, :edit, :create, :destroy, :update] 
     
     resources :posts, only: [:create, :destroy, :edit, :update]
-  end
+  #end
 
-  scope "/:locale" do
+  #scope "/:locale" do
     resources :comunidads do
         member do
           put :desactivar
@@ -36,13 +36,13 @@ Comunidadmanager::Application.routes.draw do
           resources :usuarios
           resources :posts
     end
-  end
+  #end
 
-  scope "/:locale" do
+  #scope "/:locale" do
     resources :sessions,                  only: [:new, :create, :destroy]
     resources :relacion_unidads,          only: [:create, :destroy]
     resources :relacion_usuario_unidads,  only: [:create, :destroy]
-  end
+  #end
 
   #scope "/:locale" do
     match '/wellcome', to: 'paginas#wellcome'

@@ -9,13 +9,15 @@ describe "PaginasPosts" do
 	before { sign_in usuario }
 
 	describe "Creacion de post" do
-		before { visit new_comunidad_post_path(usuario) }
+		#before { visit new_comunidad_post_path(comunidad) }
 
-		describe "Con informacion invalida" do
+		
+
+		#describe "Con informacion invalida" do
 			# es invalida porque no llenamos ningun dato
-			it "no debe crear un post" do
-				expect { click_button "Guardar" }.should_not change(Post, :count)
-			end
-		end
+		#	it "no debe crear un post" do
+		#		expect { click_button "Guardar" }.should_not change(Post, :count)
+		#	end
+		#end
 	end
 end

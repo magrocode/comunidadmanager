@@ -77,7 +77,7 @@ describe "Paginas de Usuarios" do
             click_button "Guardar"        
           end
           
-          it { should have_selector('title', text: 'Usuarios' )}
+          it { should have_selector('h1', text: usuario.nombre )}
           
         end
       end
