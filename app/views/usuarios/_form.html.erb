@@ -32,13 +32,30 @@
 
 		<% if @usuario.email? %>
 		<div class="control-group">
-			<%= label_tag "Gravatar" %>
+			<%= label_tag "Foto de perfil" %>
 			<div class="controls">
-				<%= gravatar_for @usuario %>
-				<%= link_to 'Cambiar el Gravatar', 'http://gravatar.com/emails' %>
+				<%= gravatar_for @usuario, size: 100 %>
+				<span>
+					Cloudapolis utiliza Gravatar para la foto de perfil. 
+					Este te permite utilizar la misma imagen en multiples
+					sitios. <br><br>
+					Si aun no tienes Gravatar por favor registrate haciendo click 
+					<%= link_to 'aqui', 'http://gravatar.com/emails' %>, 
+					es gratis y solo te llevara un minuto<br><br>
+					Necesitas inscribirte con la misma direccion de email (<%= @usuario.email %>) que 
+					estas usando en este sitio.
+				</span>
+				
 			</div>
 		</div>
 		<% end %>
+
+		<div class="control-group">
+			<%= f.label :lenguaje, class: 'control-label' %>
+			<div class="controls">
+				<%= f.select :lenguaje, [['Español', 'es'], ['Español (Chile)', 'es-CL'], ['English', 'en']], {} , {class: "span6"}  %>
+			</div>
+		</div>
 
 		<% if current_user.administrador? or current_user.system_admin? %>
 		<hr />

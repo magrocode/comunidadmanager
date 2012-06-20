@@ -32,7 +32,7 @@ describe "Paginas de Usuarios" do
         check   'usuario_administrador'
         fill_in 'Password', with: "foobar"
         fill_in 'Confirmacion', with: "foobar" 
-        #select('English', :from => 'Lenguaje')       
+        select('English', :from => 'Lenguaje')       
       end
       
       it "debe crear un usuario" do
