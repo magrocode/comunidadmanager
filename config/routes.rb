@@ -5,6 +5,7 @@ Comunidadmanager::Application.routes.draw do
   #scope "/:locale" do
     get "paginas/home"
     get "paginas/wellcome"
+    get "paginas/comunidad_desactivada"
   #end
 
   #scope "/:locale" do  
@@ -46,6 +47,7 @@ Comunidadmanager::Application.routes.draw do
 
   #scope "/:locale" do
     match '/wellcome', to: 'paginas#wellcome'
+    match '/comunidad_desactivada', to: 'paginas#comunidad_desactivada'
     match '/signup', to: 'comunidads#new'
     match '/signin', to: 'sessions#new'
     match '/signout', to: 'sessions#destroy', via: :delete

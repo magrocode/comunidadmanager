@@ -1,7 +1,7 @@
 <tr id="<%= feed_post.id %>" class="tr-post">
 	<td style="width: 18px;"><i class="icon-file"></i></td>
 	<td>
-		<h4><%= feed_post.created_at %></h4>
+		<h4><%= l feed_post.created_at, :format => :long %></h4>
 		<% if !feed_post.titulo.nil? %><small class="small-indicator">Asunto: <%= feed_post.titulo %></small><br><% end %>
 		<small class="small-indicator">Escrito por: <%= link_to feed_post.usuario.nombre, feed_post.usuario %>
 			<% if feed_post.usuario.administrador? %>

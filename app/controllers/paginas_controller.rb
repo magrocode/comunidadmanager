@@ -1,11 +1,14 @@
 class PaginasController < ApplicationController
-  before_filter :signed_in_user, only: [:wellcome]
+  before_filter :signed_in_user, only: [:wellcome, :comunidad_desactivada]
   before_filter :home_signed_in_user, only: [:home]
   
   def home
   end
   
   def wellcome
+  end
+
+  def comunidad_desactivada
   end
   
   private

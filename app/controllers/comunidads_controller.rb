@@ -4,6 +4,7 @@ class ComunidadsController < ApplicationController
   before_filter :usuario_correcto,          only: [:show]
   before_filter :usuario_administrador,     only: [:edit, :update]
   before_filter :usuario_systemadmin,       only: [:index]
+  before_filter :comunidad_desactivada,     only: [:show, :edit, :update]
 
   helper_method :sort_column, :sort_direction
 
@@ -112,6 +113,11 @@ class ComunidadsController < ApplicationController
     def usuario_systemadmin
       # el usuario tiene privilegios de system_admin
       redirect_to comunidad_path(current_user.comunidad), alert: "Hack! esto es imposible para ti" unless current_user.system_admin?
+    end
+
+    def comunidad_desactivada
+      @comunidad = Comunidad.find(params[:id])
+      redirect_to comunidad_desactivada_path unless @comunidad.activa? or current_user.system_admin?
     end
 
     ###########################################################

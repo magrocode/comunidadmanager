@@ -19,7 +19,7 @@ class Comunidad < ActiveRecord::Base
 
   attr_accessible :nombre, :street, :city, :country
   attr_accessible :email, :twitter, :telefono
-
+  
   has_many :unidads, dependent: :destroy
   has_many :usuarios, dependent: :destroy
   has_many :tipounidads, dependent: :destroy
@@ -41,4 +41,5 @@ class Comunidad < ActiveRecord::Base
   def activar!
   	update_attribute(:activa, true)
   end
+
 end

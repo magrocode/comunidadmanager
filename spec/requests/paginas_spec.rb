@@ -44,6 +44,20 @@ describe "Paginas" do
 
       it { should have_link('Mi Perfil', href: usuario_path(usuario) ) }
     end
+  end
 
+  describe "Pagina de comunidad inactiva" do
+    let(:comunidad) { FactoryGirl.create(:comunidad) }
+    let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
+
+    before do 
+      comunidad.desactivar!
+      sign_in usuario 
+    end
+
+    describe "Viendo pagina de bloqueo" do
+
+      it { should have_selector('h1', text: "Esta comunidad se encuentra actualmente desactivada") }
+    end
   end
 end

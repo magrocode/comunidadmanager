@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     if usuario && usuario.authenticate(params[:session][:password])
       # Sign la comunidad y redirecciona a la pagina de comunidad
       sign_in usuario 
+      set_locale
       redirect_to usuario.comunidad
     else
       # crea un mensaje de error y re-renderiza el formulario signin
