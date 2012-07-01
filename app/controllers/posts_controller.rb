@@ -1,18 +1,23 @@
 class PostsController < ApplicationController
 
+	before_filter :signed_in_user
+
 	def create
-		@post = current_user.comunidad.posts.build(params[:post])
+		@comunidad = Comunidad.find(params[:comunidad_id])
+		@post = @comunidad.posts.build(params[:post])
 	    if @post.save
-	      flash[:success] = "Nota o Post Creado!"
-	      redirect_back_or root_path
+	      flash[:success] = "Nota Creada!"
+	      redirect_to :back
 	    else
-	      redirect_back_or root_path
+	      redirect_to :back
 	    end
 	end
   
   	def destroy
   		@post = Post.find(params[:id])
+  		@comunidad = @post.comunidad
    		@post.destroy
+   		flash[:success] = "Nota eliminada"
     	redirect_back_or root_path
 	end
 
@@ -26,11 +31,17 @@ class PostsController < ApplicationController
 		@comunidad = @post.comunidad
 
 		if @post.update_attributes(params[:post])
-			flash[:success] = "Nota o Post actualizado exitosamente!"
+			flash[:success] = "Nota actualizada exitosamente!"
 			redirect_to comunidad_path(@comunidad)
 		else
 			render action: 'edit'
 		end
 	end
 
+	private
+  
+	    def signed_in_user
+	      # usuario logeado
+	      redirect_to signin_path, notice: "Por favor autentiquese." unless signed_in?      
+	    end
 end

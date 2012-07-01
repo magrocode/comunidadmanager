@@ -57,7 +57,7 @@ describe "Paginas" do
 
     describe "Viendo pagina de bloqueo" do
 
-      it { should have_selector('h1', text: "Esta comunidad se encuentra actualmente desactivada") }
+      it { should have_selector('p', text: "Esta comunidad se encuentra actualmente desactivada") }
     end
   end
 end

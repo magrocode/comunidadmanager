@@ -2,12 +2,19 @@
 	<td style="width: 18px;"><i class="icon-file"></i></td>
 	<td>
 		<h4><%= l feed_post.created_at, :format => :long %></h4>
-		<% if !feed_post.titulo.nil? %><small class="small-indicator">Asunto: <%= feed_post.titulo %></small><br><% end %>
-		<small class="small-indicator">Escrito por: <%= link_to feed_post.usuario.nombre, feed_post.usuario %>
+		<% if !feed_post.titulo.nil? %>
+			<small class="small-indicator">Asunto: <%= feed_post.titulo %></small>
+			<br>
+		<% end %>
+		<small class="small-indicator">Escrito por <%= link_to feed_post.usuario.nombre, feed_post.usuario %>
 			<% if feed_post.usuario.administrador? %>
 				<span class="label">Administrador</span>
 			<% end %>
 		</small>
+		<% if current_user.system_admin? %>
+			<small class="small-indicator">para <%= link_to feed_post.comunidad.nombre, feed_post.comunidad %>
+			</small>
+		<% end %>
 		<br /><br />
 	  	<span class="content"><%= feed_post.contenido %></span><br><br>
 	</td>
