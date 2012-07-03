@@ -4,6 +4,11 @@ module SessionsHelper
     cookies.permanent[:remember_token] = usuario.remember_token
     current_user = usuario
   end
+
+  def set_comunidad(comunidad)
+    cookies.permanent[:comunidad_id] = comunidad.id 
+    current_comunidad = comunidad
+  end
   
   def signed_in?
     !current_user.nil?
@@ -12,13 +17,25 @@ module SessionsHelper
   def current_user=(usuario)
     @current_user = usuario
   end
+
+  def current_comunidad=(comunidad)
+    @current_comunidad = comunidad
+  end
   
   def current_user
     @current_user  ||= user_from_remember_token
   end
+
+  def current_comunidad
+    @current_comunidad ||= comunidad_from_cookie
+  end
   
   def current_user?(usuario)
     usuario == current_user
+  end
+
+  def current_comunidad?(comunidad)
+    comunidad == current_comunidad
   end
   
   def signed_in_user
@@ -47,6 +64,11 @@ module SessionsHelper
     def user_from_remember_token
       remember_token = cookies[:remember_token]
       Usuario.find_by_remember_token(remember_token) unless remember_token.nil?
+    end
+
+    def comunidad_from_cookie
+      comunidad_id = cookies[:comunidad_id]
+      Comunidad.find_by_id(comunidad_id) unless comunidad_id.nil?
     end
     
     def clear_return_to

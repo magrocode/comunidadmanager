@@ -10,7 +10,7 @@ FactoryGirl.define do
     sequence(:nombre) { |n| "Usuario#{n}" }
     password "foobar"
     password_confirmation "foobar"
-    comunidad
+    #comunidad
     # asigna permso de administracion
     factory :usuario_admin do
       administrador true

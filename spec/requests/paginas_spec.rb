@@ -21,12 +21,13 @@ describe "Paginas" do
   
   describe "Pagina 'Panel de Control'" do
     let(:comunidad) { FactoryGirl.create(:comunidad) }
-    let(:usuario_admin) { FactoryGirl.create(:usuario_admin, comunidad: comunidad) }
+    let(:usuario_admin) { FactoryGirl.create(:usuario_admin) }
     
     let(:heading) { 'Cloudapolis' }
     let(:page_title) { 'Panel de control' }
     
     before do
+      comunidad.autorizar_usuario!(usuario_admin)
       sign_in usuario_admin
       visit wellcome_path
     end
@@ -36,9 +37,12 @@ describe "Paginas" do
 
   describe "Paginas de usuario autenticado" do
     let(:comunidad) { FactoryGirl.create(:comunidad) }
-    let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
+    let(:usuario) { FactoryGirl.create(:usuario) }
 
-    before { sign_in usuario }
+    before do  
+      comunidad.autorizar_usuario!(usuario)
+      sign_in usuario 
+    end
 
     describe "viendo el menu superior" do
 
@@ -48,9 +52,10 @@ describe "Paginas" do
 
   describe "Pagina de comunidad inactiva" do
     let(:comunidad) { FactoryGirl.create(:comunidad) }
-    let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
+    let(:usuario) { FactoryGirl.create(:usuario) }
 
     before do 
+      comunidad.autorizar_usuario!(usuario)
       comunidad.desactivar!
       sign_in usuario 
     end

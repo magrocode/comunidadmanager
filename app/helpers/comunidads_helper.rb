@@ -5,7 +5,7 @@ module ComunidadsHelper
 	end
 	
 	def current_comunidad
-		@current_comunidad  ||= current_user.comunidad
+		@current_comunidad  ||= current_comunidad
 	end
 	 
 	def current_comunidad?(comunidad)

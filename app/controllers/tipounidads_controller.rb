@@ -66,18 +66,18 @@ helper_method :sort_column, :sort_direction
 	    end
 		
 		def admin_user
-	    	redirect_to comunidad_path(current_user.comunidad), notice: "Wrong!! No eres administrador" unless current_user.administrador? or current_user.system_admin?
+	    	redirect_to comunidad_path(current_comunidad), notice: "Wrong!! No eres administrador" unless current_user.administrador? or current_user.system_admin?
 	    end
 
 	    def usuario_correcto
 	    	@tipounidad = Tipounidad.find(params[:id])
-	    	redirect_to comunidad_path(current_user.comunidad) unless @tipounidad.comunidad == current_user.comunidad or current_user.system_admin?
+	    	redirect_to comunidad_path(current_comunidad) unless @tipounidad.comunidad == current_comunidad or current_user.system_admin?
 	    end
 
 		def comunidad_correcta
-	      @comunidad_autorizada = current_user.comunidad
+	      @comunidad_autorizada = current_comunidad
 	      @comunidad_solicitada = Comunidad.find(params[:comunidad_id])
-	      redirect_to comunidad_path(current_user.comunidad) unless @comunidad_autorizada == @comunidad_solicitada or current_user.system_admin?
+	      redirect_to comunidad_path(current_comunidad) unless @comunidad_autorizada == @comunidad_solicitada or current_user.system_admin?
 	    end
 
 		def sort_column

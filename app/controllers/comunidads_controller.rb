@@ -35,7 +35,8 @@ class ComunidadsController < ApplicationController
     if @comunidad.valid? and @usuario.valid?                                     
       if @comunidad.save
         if @usuario.save           
-          sign_in @usuario          
+          sign_in @usuario
+          set_comunidad @comunidad          
           flash[:success] = "Bienvenido a Cloudapolis"
           redirect_to @comunidad
           UsuarioMailer.welcome_email(@usuario).deliver
@@ -99,20 +100,23 @@ class ComunidadsController < ApplicationController
     def usuario_correcto
       # el usuario correcto pertenece a la comunidad, o es system_admin
       # el usuario correcto podra ver solamente :show
-      @comunidad_autorizada = current_user.comunidad
+      #@comunidad_autorizada = current_comunidad
+      @comunidad_autorizada = current_comunidad
       @comunidad_solicitada = Comunidad.find(params[:id])
       
-      redirect_to comunidad_path(current_user.comunidad), alert: "Rayos! no eres un usuario en la comunidad que deseas..." unless @comunidad_autorizada == @comunidad_solicitada or current_user.system_admin?
+      redirect_to comunidad_path(current_comunidad), alert: "Rayos! no eres un usuario en la comunidad que deseas..." unless @comunidad_autorizada == @comunidad_solicitada or current_user.system_admin?
     end
     
     def usuario_administrador
       # el usuario tiene privilegios de administrador
-      redirect_to comunidad_path(current_user.comunidad), alert: "Wrong! no eres un administrador" unless current_user.administrador? or current_user.system_admin?
+      #redirect_to comunidad_path(current_comunidad), alert: "Wrong! no eres un administrador" unless current_user.administrador? or current_user.system_admin?
+      redirect_to comunidad_path(current_comunidad), alert: "Wrong! no eres un administrador" unless current_user.administrador? or current_user.system_admin?
     end
 
     def usuario_systemadmin
       # el usuario tiene privilegios de system_admin
-      redirect_to comunidad_path(current_user.comunidad), alert: "Hack! esto es imposible para ti" unless current_user.system_admin?
+      #redirect_to comunidad_path(current_comunidad), alert: "Hack! esto es imposible para ti" unless current_user.system_admin?
+      redirect_to comunidad_path(current_comunidad), alert: "Hack! esto es imposible para ti" unless current_user.system_admin?
     end
 
     def comunidad_desactivada

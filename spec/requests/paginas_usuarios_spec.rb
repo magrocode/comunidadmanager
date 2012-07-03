@@ -5,8 +5,11 @@ describe "Paginas de Usuarios" do
   subject { page }
   
   let(:comunidad) { FactoryGirl.create(:comunidad) }
-  let(:usuario_admin) { FactoryGirl.create(:usuario_admin, comunidad: comunidad) }
-  before { sign_in usuario_admin }
+  let(:usuario_admin) { FactoryGirl.create(:usuario_admin) }
+  before do
+    comunidad.autorizar_usuario!(usuario_admin)
+    sign_in usuario_admin 
+  end
   
   describe "Creacion de usuario" do
     
@@ -47,8 +50,9 @@ describe "Paginas de Usuarios" do
     end
     
     describe "por usuario no admin" do
-      let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
+      let(:usuario) { FactoryGirl.create(:usuario) }
       before do 
+         comunidad.autorizar_usuario!(usuario)
          sign_in usuario
          visit new_comunidad_usuario_path(comunidad)
       end
@@ -62,8 +66,11 @@ describe "Paginas de Usuarios" do
     #before { visit edit_usuario_path(usuario) }
     
     describe "por usuario no administrador" do
-      let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
-      before {  sign_in usuario }
+      let(:usuario) { FactoryGirl.create(:usuario) }
+      before do
+        comunidad.autorizar_usuario!(usuario)
+        sign_in usuario
+      end
       
       describe "editando su propio perfil" do
         before { visit edit_usuario_path(usuario) } 
@@ -83,8 +90,11 @@ describe "Paginas de Usuarios" do
       end
       
       describe "editando perfil de otro usuario" do
-        let(:otro_usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
-        before { visit edit_usuario_path(otro_usuario) }
+        let(:otro_usuario) { FactoryGirl.create(:usuario) }
+        before do
+          comunidad.autorizar_usuario!(otro_usuario)
+          visit edit_usuario_path(otro_usuario)
+        end
         
         it { should_not have_selector('title', text: 'Editando usuario') }  
         it { should have_content("Ups!! parece que no tienes autorizacion sobre el usuario que deseas")}

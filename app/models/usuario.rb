@@ -23,7 +23,9 @@ class Usuario < ActiveRecord::Base
   has_secure_password
   before_save :create_remember_token
   
-  belongs_to :comunidad
+  #belongs_to :comunidad
+  has_many :relacion_comunidad_usuarios
+  has_many :comunidads, through: :relacion_comunidad_usuarios
   has_many :relacion_usuario_unidads, dependent: :destroy
   has_many :unidades_autorizadas, through: :relacion_usuario_unidads, source: :unidad
   has_many :posts, dependent: :destroy

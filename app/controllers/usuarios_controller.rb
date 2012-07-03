@@ -24,7 +24,7 @@ class UsuariosController < ApplicationController
   
   def show
     @usuario = Usuario.find(params[:id])
-    @comunidad = @usuario.comunidad
+    @comunidad = current_comunidad
     @post = @comunidad.posts.build(usuario_id: current_user.id)
     @feed_posts = @usuario.feed_posts.paginate(page: params[:page], per_page: 10).order("created_at DESC")
   end
@@ -34,6 +34,7 @@ class UsuariosController < ApplicationController
     @usuario = @comunidad.usuarios.build(params[:usuario])
     
     if @usuario.save
+      @comunidad.autorizar_usuario!(@usuario)
       UsuarioMailer.welcome_email(@usuario).deliver
       flash[:success] = "Usuario creado!"
       redirect_to comunidad_usuarios_path(@comunidad)
@@ -44,12 +45,12 @@ class UsuariosController < ApplicationController
   
   def edit
     @usuario = Usuario.find(params[:id])
-    @comunidad =  @usuario.comunidad
+    @comunidad = current_comunidad
   end
   
   def update
     @usuario = Usuario.find(params[:id])
-    @comunidad = @usuario.comunidad
+    @comunidad = current_comunidad
     
     params[:usuario].delete(:password) if params[:usuario][:password].blank?
     params[:usuario].delete(:password_confirmation) if params[:usuario][:password].blank? and params[:usuario][:password_confirmation].blank?
@@ -63,7 +64,7 @@ class UsuariosController < ApplicationController
   
   def destroy
     @usuario = Usuario.find(params[:id])
-    @comunidad = @usuario.comunidad
+    @comunidad = current_comunidad
     @usuario.destroy
     flash[:success] = "Usuario eliminado"
     redirect_to comunidad_usuarios_path(@comunidad)
@@ -71,7 +72,7 @@ class UsuariosController < ApplicationController
   
   def unidades_autorizadas
     @usuario = Usuario.find(params[:id])
-    @comunidad = @usuario.comunidad
+    @comunidad = current_comunidad
     @unidads = @usuario.unidades_autorizadas.paginate(page: params[:page], per_page: 10)
     render 'show_unidades_autorizadas'
   end
@@ -86,25 +87,26 @@ class UsuariosController < ApplicationController
            
     def admin_user
       # el administrador de la comunidad o system_admin
-      redirect_to comunidad_usuarios_path(current_user.comunidad), alert: "Wrong!! no eres administrador" unless current_user.administrador? or current_user.system_admin?
+      redirect_to comunidad_usuarios_path(current_comunidad), alert: "Wrong!! no eres administrador" unless current_user.administrador? or current_user.system_admin?
     end
     
     def correct_user
       # el usuario correcto es el mismo usuario conectado o administrador
       @usuario = Usuario.find(params[:id])
-      redirect_to comunidad_usuarios_path(@usuario.comunidad), alert: "Ups!! parece que no tienes autorizacion sobre el usuario que deseas" unless current_user?(@usuario)  or current_user.administrador?
+      redirect_to comunidad_usuarios_path(current_comunidad), alert: "Ups!! parece que no tienes autorizacion sobre el usuario que deseas" unless current_user?(@usuario)  or current_user.administrador?
     end
 
     def usuario_en_comunidad
       @usuario = Usuario.find(params[:id])
-      redirect_to comunidad_usuarios_path(current_user.comunidad), notice: "Bochornoso! no estas autorizado para realizar acciones en la comunidad que deseas" unless (@usuario.comunidad == current_user.comunidad) or current_user.system_admin?
+      #redirect_to comunidad_usuarios_path(current_comunidad), notice: "Bochornoso! no estas autorizado para realizar acciones en la comunidad que deseas" unless (@usuario.comunidad == current_comunidad) or current_user.system_admin?
+      redirect_to comunidad_usuarios_path(current_comunidad), notice: "Bochornoso! no estas autorizado para realizar acciones en la comunidad que deseas" unless (current_comunidad.usuario_autorizado?(@usuario)) or current_user.system_admin?
     end
     
     def correct_comunidad
       # comunidad correcta es una comunidad perteneciente al usuario
-      @comunidad_autorizada = current_user.comunidad
+      @comunidad_autorizada = current_comunidad
       @comunidad_solicitada = Comunidad.find(params[:comunidad_id])
-      redirect_to comunidad_path(current_user.comunidad) unless @comunidad_autorizada == @comunidad_solicitada  or current_user.system_admin?
+      redirect_to comunidad_path(current_comunidad) unless @comunidad_autorizada == @comunidad_solicitada  or current_user.system_admin?
     end
 
     def signin_after_update

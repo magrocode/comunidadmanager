@@ -42,3 +42,9 @@ comunidadB = Comunidad.create(nombre: 'Parcelacion Dona Ines del Oliveto', stree
   comunidadB.unidads.create(identificador: 'C', participacion: 12.5, superficie: 54.65, tipounidad: parcela )
   comunidadB.unidads.create(identificador: 'D', participacion: 25.0000, superficie: 75, tipounidad: bodegaB )
   comunidadB.unidads.create(identificador: 'E', participacion: 25.0000, superficie: 75, tipounidad: parcela )
+
+
+# COMUNIDAD C
+comunidadC = Comunidad.create(nombre: 'Edificio Agua Azul', street: 'Alameda 1315', city: 'Santiago', country: 'Chile', telefono: '5695553265', email: 'aguaazul@yahoo.es', twitter: '@aguaazul')
+
+  comunidadC.usuarios.create(email: 'mario@nuevomundo.com', nombre: 'Mario Espinoza', administrador: true, password: 'foobar', password_confirmation: 'foobar', twitter: '@codelious', telefono: '56-2-688-3010')

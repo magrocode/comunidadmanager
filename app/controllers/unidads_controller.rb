@@ -92,25 +92,25 @@ class UnidadsController < ApplicationController
     
     def admin_user
       # permisos de usuario administrador
-      redirect_to comunidad_unidads_path(current_user.comunidad), notice: "Esto es injusto!! Solo el administrador puede realizar esta accion" unless current_user.administrador? or current_user.system_admin?
+      redirect_to comunidad_unidads_path(current_comunidad), notice: "Esto es injusto!! Solo el administrador puede realizar esta accion" unless current_user.administrador? or current_user.system_admin?
     end
     
     def usuario_en_comunidad
       @unidad = Unidad.find(params[:id])
-      redirect_to comunidad_unidads_path(current_user.comunidad), notice: "Bochornoso! no estas autorizado para realizar acciones en la comunidad que deseas" unless (@unidad.comunidad == current_user.comunidad) or current_user.system_admin?
+      redirect_to comunidad_unidads_path(current_comunidad), notice: "Bochornoso! no estas autorizado para realizar acciones en la comunidad que deseas" unless (@unidad.comunidad == current_comunidad) or current_user.system_admin?
     end
        
     def comunidad_correcta
       # comunidad correcta es una comunidad perteneciente al usuario logeado
-      @comunidad_autorizada = current_user.comunidad
+      @comunidad_autorizada = current_comunidad
       @comunidad_solicitada = Comunidad.find(params[:comunidad_id])
-      redirect_to comunidad_unidads_path(current_user.comunidad), alert: "Ups!! parece que estas intentando con la comunidad equivocada" unless @comunidad_autorizada == @comunidad_solicitada  or current_user.system_admin?
+      redirect_to comunidad_unidads_path(current_comunidad), alert: "Ups!! parece que estas intentando con la comunidad equivocada" unless @comunidad_autorizada == @comunidad_solicitada  or current_user.system_admin?
     end
     
     def usuario_autorizado      
       # buscar en el usuario actual la unidad a la que tiene autorizacion
       @unidad = current_user.unidades_autorizadas.find_by_id(params[:id])
-      redirect_to comunidad_unidads_path(current_user.comunidad), alert: "Algo salio mal?? no tienes permisos para la unidad que deseas" unless !@unidad.nil? or current_user.administrador? or current_user.system_admin?
+      redirect_to comunidad_unidads_path(current_comunidad), alert: "Algo salio mal?? no tienes permisos para la unidad que deseas" unless !@unidad.nil? or current_user.administrador? or current_user.system_admin?
     end
     
     def sort_column

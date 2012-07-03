@@ -5,8 +5,11 @@ describe "Paginas Tipo unidades" do
 	subject { page }
 
 	let(:comunidad) { FactoryGirl.create(:comunidad) }
-	let(:usuario_admin) { FactoryGirl.create(:usuario_admin, comunidad: comunidad) }
-	before { sign_in usuario_admin }
+	let(:usuario_admin) { FactoryGirl.create(:usuario_admin) }
+	before do 
+		comunidad.autorizar_usuario!(usuario_admin)
+		sign_in usuario_admin 
+	end
 
 	describe "Creacion de Tipo de Unidad" do
 		

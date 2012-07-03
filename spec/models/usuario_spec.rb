@@ -47,7 +47,7 @@ describe Usuario do
   it { should respond_to(:unidad_autorizada?) }
   it { should respond_to(:autorizar_unidad!) }
   it { should respond_to(:desautorizar_unidad!) }
-  its(:comunidad) { should == comunidad }
+  #its(:comunidad) { should == comunidad }
 
   it { should be_valid }
   

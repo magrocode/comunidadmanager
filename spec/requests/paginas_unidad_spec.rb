@@ -5,8 +5,11 @@ describe "UnidadPages" do
   subject { page }
   
   let(:comunidad) { FactoryGirl.create(:comunidad) }
-  let(:usuario_admin) { FactoryGirl.create(:usuario_admin, comunidad: comunidad) }
-  before { sign_in usuario_admin }
+  let(:usuario_admin) { FactoryGirl.create(:usuario_admin) }
+  before do
+    comunidad.autorizar_usuario!(usuario_admin)
+    sign_in usuario_admin 
+  end
   
   describe "Creacion de unidad" do 
  
@@ -72,9 +75,10 @@ describe "UnidadPages" do
     end
 
     describe "de su comunidad como usuario autorizado" do
-      let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
+      let(:usuario) { FactoryGirl.create(:usuario) }
       let(:unidad_autorizada) { FactoryGirl.create(:unidad, comunidad: comunidad) }
       before do
+        comunidad.autorizar_usuario!(usuario)
         unidad_autorizada.autorizar_usuario!(usuario)
         sign_in usuario
         visit unidad_path(unidad_autorizada)
@@ -106,9 +110,10 @@ describe "UnidadPages" do
     end
 
     describe "de su comunidad como usuario no autorizado" do
-      let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
+      let(:usuario) { FactoryGirl.create(:usuario) }
       let(:unidad_no_autorizada) { FactoryGirl.create(:unidad, comunidad: comunidad) }
       before do
+        comunidad.autorizar_usuario!(usuario)
         sign_in usuario
         visit unidad_path(unidad_no_autorizada)
         #save_and_open_page

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120619214557) do
+ActiveRecord::Schema.define(:version => 20120701035602) do
 
   create_table "comunidads", :force => true do |t|
     t.string   "nombre"
@@ -37,6 +37,17 @@ ActiveRecord::Schema.define(:version => 20120619214557) do
 
   add_index "posts", ["comunidad_id"], :name => "index_posts_on_comunidad_id"
   add_index "posts", ["usuario_id"], :name => "index_posts_on_usuario_id"
+
+  create_table "relacion_comunidad_usuarios", :force => true do |t|
+    t.integer  "comunidad_id"
+    t.integer  "usuario_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "relacion_comunidad_usuarios", ["comunidad_id", "usuario_id"], :name => "index_relacion_comunidad_usuarios_on_comunidad_id_and_usuario_id", :unique => true
+  add_index "relacion_comunidad_usuarios", ["comunidad_id"], :name => "index_relacion_comunidad_usuarios_on_comunidad_id"
+  add_index "relacion_comunidad_usuarios", ["usuario_id"], :name => "index_relacion_comunidad_usuarios_on_usuario_id"
 
   create_table "relacion_unidads", :force => true do |t|
     t.integer  "principal_id"
@@ -83,7 +94,6 @@ ActiveRecord::Schema.define(:version => 20120619214557) do
   add_index "unidads", ["identificador"], :name => "index_unidads_on_identificador"
 
   create_table "usuarios", :force => true do |t|
-    t.integer  "comunidad_id"
     t.string   "email"
     t.string   "nombre"
     t.boolean  "administrador",   :default => false
@@ -97,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20120619214557) do
     t.string   "lenguaje"
   end
 
-  add_index "usuarios", ["comunidad_id"], :name => "index_usuarios_on_comunidad_id"
   add_index "usuarios", ["email"], :name => "index_usuarios_on_email"
   add_index "usuarios", ["remember_token"], :name => "index_usuarios_on_remember_token"
 

@@ -7,9 +7,18 @@ class SessionsController < ApplicationController
     usuario = Usuario.find_by_email(params[:session][:email])
     if usuario && usuario.authenticate(params[:session][:password])
       # Sign la comunidad y redirecciona a la pagina de comunidad
-      sign_in usuario 
+      sign_in usuario
+
       set_locale
-      redirect_to usuario.comunidad
+
+      if usuario.comunidads.size > 1
+        set_comunidad usuario.comunidads.first
+        redirect_to usuario.comunidads.first
+      else
+        # redireccionar a seleccionar una unidad
+        set_comunidad usuario.comunidads.first
+        redirect_to usuario.comunidads.first
+      end
     else
       # crea un mensaje de error y re-renderiza el formulario signin
       flash.now[:error] = 'Combinacion email/password es invalida'

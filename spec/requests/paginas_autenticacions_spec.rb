@@ -36,15 +36,16 @@ describe "Autenticacion" do
      describe "con informacion valida" do
        
        let(:comunidad) { FactoryGirl.create(:comunidad) }
-       let(:usuario) { FactoryGirl.create(:usuario, comunidad: comunidad) }
+       let(:usuario) { FactoryGirl.create(:usuario) }
        
        before do
-         fill_in "session_email", with: usuario.email
-         fill_in "session_password", with: usuario.password
-         click_button "Sign in"
+          comunidad.autorizar_usuario!(usuario)
+          fill_in "session_email", with: usuario.email
+          fill_in "session_password", with: usuario.password
+          click_button "Sign in"
        end
        
-       it { should have_selector('title', text: usuario.comunidad.nombre) }
+       it { should have_selector('title', text: comunidad.nombre) }
        it { should have_link('Perfil', href: usuario_path(usuario)) }
        it { should have_link('Sign out', href: signout_path) }
        it { should_not have_link('Sign in', href: signin_path) }

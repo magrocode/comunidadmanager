@@ -12,11 +12,11 @@
 			<h3>Configurar la comunidad</h3><br /><br />
 			<ul class="unstyled">
 				<li><%= link_to 'Crear Unidades (viviendas)', 
-								new_comunidad_unidad_path(current_user.comunidad) %></li>
-				<li><%= link_to 'Manejar Tipos de unidad (casa, depto, parc.)', comunidad_tipounidads_path(current_user.comunidad) %></li>
-				<li><%= link_to 'Crear Usuarios', new_comunidad_usuario_path(current_user.comunidad) %></li>
+								new_comunidad_unidad_path(current_comunidad) %></li>
+				<li><%= link_to 'Manejar Tipos de unidad (casa, depto, parc.)', comunidad_tipounidads_path(current_comunidad) %></li>
+				<li><%= link_to 'Crear Usuarios', new_comunidad_usuario_path(current_comunidad) %></li>
 				<li><%= link_to 'Crear Cuentas (banco, caja chica, etc)', '#' %></li>
-				<li><%= link_to 'Editar perfil de comunidad', edit_comunidad_path(current_user.comunidad) %></li>
+				<li><%= link_to 'Editar perfil de comunidad', edit_comunidad_path(current_comunidad) %></li>
 			</ul>
 		</div>
 		<div class="span4">

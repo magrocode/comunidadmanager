@@ -21,7 +21,9 @@ class Comunidad < ActiveRecord::Base
   attr_accessible :email, :twitter, :telefono
   
   has_many :unidads, dependent: :destroy
-  has_many :usuarios, dependent: :destroy
+  #has_many :usuarios, dependent: :destroy
+  has_many :relacion_comunidad_usuarios
+  has_many :usuarios, through: :relacion_comunidad_usuarios
   has_many :tipounidads, dependent: :destroy
   has_many :posts, dependent: :destroy
 
@@ -40,6 +42,14 @@ class Comunidad < ActiveRecord::Base
 
   def activar!
   	update_attribute(:activa, true)
+  end
+
+  def autorizar_usuario!(usuario)
+    relacion_comunidad_usuarios.create!(usuario_id: usuario.id)
+  end
+
+  def usuario_autorizado?(usuario)
+    relacion_comunidad_usuarios.find_by_usuario_id(usuario.id)
   end
 
 end
