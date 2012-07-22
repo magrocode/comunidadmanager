@@ -10,10 +10,10 @@
 # COMUNIDAD A
 comunidadA = Comunidad.create(nombre: 'Cloudapolis', street: 'Rafael Sotomayor 55', city: 'Santiago', country: 'Chile', telefono: '5626990177', email: 'cloudapolis@gmail.com', twitter: '@cloudapolis')
 
-  comunidadA.usuarios.create(email: 'mario@magrocode.com', nombre: 'Mario Espinoza', administrador: true, system_admin: true, password: 'foobar', password_confirmation: 'foobar', twitter: '@codelious', telefono: '56-2-688-3010')
-  comunidadA.usuarios.create(email: 'claudia@foobar.com', nombre: 'Claudia Valenzuela', administrador: false, password: 'foobar', password_confirmation: 'foobar', twitter: '@claudiavalenzuela', telefono: '56-9-8199-0964')
-  comunidadA.usuarios.create(email: 'pablo@foobar.com', nombre: 'Pablo Vicuna', administrador: false, password: 'foobar', password_confirmation: 'foobar', twitter: '@sabogados', telefono: '56-2-696-2356')
-  comunidadA.usuarios.create(email: 'esteban@foobar.com', nombre: 'Esteban Espinoza', administrador: false, password: 'foobar', password_confirmation: 'foobar', twitter: '@reyflow', telefono: '56-2-627-0348')
+  comunidadA.usuarios.create(email: 'mario@magrocode.com', nombre: 'Mario Espinoza', system_admin: true, password: 'foobar', password_confirmation: 'foobar', twitter: '@codelious', telefono: '56-2-688-3010')
+  comunidadA.usuarios.create(email: 'claudia@foobar.com', nombre: 'Claudia Valenzuela', password: 'foobar', password_confirmation: 'foobar', twitter: '@claudiavalenzuela', telefono: '56-9-8199-0964')
+  comunidadA.usuarios.create(email: 'pablo@foobar.com', nombre: 'Pablo Vicuna', password: 'foobar', password_confirmation: 'foobar', twitter: '@sabogados', telefono: '56-2-696-2356')
+  comunidadA.usuarios.create(email: 'esteban@foobar.com', nombre: 'Esteban Espinoza', password: 'foobar', password_confirmation: 'foobar', twitter: '@reyflow', telefono: '56-2-627-0348')
 
   departamento = comunidadA.tipounidads.create(nombre: "Departamento")
   bodega = comunidadA.tipounidads.create(nombre: "Bodega")
@@ -28,10 +28,10 @@ comunidadA = Comunidad.create(nombre: 'Cloudapolis', street: 'Rafael Sotomayor 5
 # COMUNIDAD B
 comunidadB = Comunidad.create(nombre: 'Parcelacion Dona Ines del Oliveto', street: 'Camino Lonquen p. 29', city: 'Calera de Tango', country: 'Chile', telefono: '5695553265', email: 'donainesdeloliveto@yahoo.es', twitter: '@donainesdeloliveto')
 
-  comunidadB.usuarios.create(email: 'mario@nuevomundo.com', nombre: 'Mario Espinoza', administrador: true, password: 'foobar', password_confirmation: 'foobar', twitter: '@codelious', telefono: '56-2-688-3010')
-  comunidadB.usuarios.create(email: 'claudia@nuevomundo.com', nombre: 'Claudia Valenzuela', administrador: false, password: 'foobar', password_confirmation: 'foobar', twitter: '@claudiavalenzuela', telefono: '56-9-8199-0964')
-  comunidadB.usuarios.create(email: 'pablo@nuevomundo.com', nombre: 'Pablo Vicuna', administrador: false, password: 'foobar', password_confirmation: 'foobar', twitter: '@sabogados', telefono: '56-2-696-2356')
-  comunidadB.usuarios.create(email: 'esteban@nuevomundo.com', nombre: 'Esteban Espinoza', administrador: false, password: 'foobar', password_confirmation: 'foobar', twitter: '@reyflow', telefono: '56-2-627-0348')
+  comunidadB.usuarios.create(email: 'mario@nuevomundo.com', nombre: 'Mario Espinoza', password: 'foobar', password_confirmation: 'foobar', twitter: '@codelious', telefono: '56-2-688-3010')
+  comunidadB.usuarios.create(email: 'claudia@nuevomundo.com', nombre: 'Claudia Valenzuela', password: 'foobar', password_confirmation: 'foobar', twitter: '@claudiavalenzuela', telefono: '56-9-8199-0964')
+  comunidadB.usuarios.create(email: 'pablo@nuevomundo.com', nombre: 'Pablo Vicuna', password: 'foobar', password_confirmation: 'foobar', twitter: '@sabogados', telefono: '56-2-696-2356')
+  comunidadB.usuarios.create(email: 'esteban@nuevomundo.com', nombre: 'Esteban Espinoza', password: 'foobar', password_confirmation: 'foobar', twitter: '@reyflow', telefono: '56-2-627-0348')
 
   parcela = comunidadB.tipounidads.create(nombre: "Parcela")
   bodegaB = comunidadB.tipounidads.create(nombre: "Bodega")
@@ -47,4 +47,4 @@ comunidadB = Comunidad.create(nombre: 'Parcelacion Dona Ines del Oliveto', stree
 # COMUNIDAD C
 comunidadC = Comunidad.create(nombre: 'Edificio Agua Azul', street: 'Alameda 1315', city: 'Santiago', country: 'Chile', telefono: '5695553265', email: 'aguaazul@yahoo.es', twitter: '@aguaazul')
 
-  comunidadC.usuarios.create(email: 'mario@nuevomundo.com', nombre: 'Mario Espinoza', administrador: true, password: 'foobar', password_confirmation: 'foobar', twitter: '@codelious', telefono: '56-2-688-3010')
+  comunidadC.usuarios.create(email: 'mario@nuevomundo.com', nombre: 'Mario Espinoza', password: 'foobar', password_confirmation: 'foobar', twitter: '@codelious', telefono: '56-2-688-3010')

@@ -2,7 +2,8 @@
   <ul class="nav-list-m unstyled">
   	<li class="menu-spacer">
       <span>
-        <i class="icon-home"></i>&nbsp;
+        <i class="icono16">
+            <%= image_tag("icons/fatcow_icons/16x16/building.png", :alt => "Comunidades") %></i>&nbsp;
         <%= link_to 'Comunidades', comunidads_path %>
         <small class="small-indicator">
             <%= pluralize(@comunidads.size, "comunidad", "comunidades") %>

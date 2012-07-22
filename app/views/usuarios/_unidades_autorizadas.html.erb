@@ -18,7 +18,7 @@
 					<th>Vivienda</th>
 					<th>Participacion</th>
 					<th>Superficie</th>
-					<% if current_user.administrador? or current_user.system_admin? %>
+					<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
 						<th></th>
 					<% end %>
 				</tr>				
@@ -39,7 +39,7 @@
 						<td>
 							<%= unidad.superficie %>m2
 						</td>
-						<% if current_user.administrador? or current_user.system_admin? %>
+						<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
 							<td>
 								<div class="btn-group">
 								<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">

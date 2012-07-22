@@ -2,24 +2,28 @@
   <ul class="nav-list-m unstyled">
   	<li class="menu-spacer">
       <span>
-        <i class="icon-user"></i>&nbsp;
-        <%= link_to @usuario.nombre, @usuario %>
+        <i class="icono16">
+            <%= image_tag("icons/fatcow_icons/16x16/user.png", :alt => "#{@usuario.nombre}") %></i>&nbsp;
+        <%= link_to truncate(@usuario.nombre, :length => 25), @usuario %>
       </span>
     </li>
     <li class="menu-spacer">
       <span>
-        <i class="icon-th"></i>&nbsp;
+        <i class="icono16">
+            <%= image_tag("icons/fatcow_icons/16x16/house.png", :alt => "Viviendas") %></i>&nbsp;
         <%= link_to 'Viviendas', unidades_autorizadas_usuario_path(@usuario) %>
         <small class="small-indicator">
     			<%= pluralize(@usuario.unidades_autorizadas.size, "unidad", "unidades") %>
     	</small>
       </span>
     </li>  
-    <% if current_user.administrador? or current_user.system_admin? %>
+    <% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
         <br />
         <li class="menu-spacer">
-          <span>        
-            <%= link_to 'Todos los usuarios', comunidad_usuarios_path(@comunidad) %>
+          <span> 
+            <i class="icono16">
+              <%= image_tag("icons/fatcow_icons/16x16/group.png", :alt => "Usuarios") %></i>&nbsp;       
+            <%= link_to 'Usuarios', comunidad_usuarios_path(@comunidad) %>
             <small class="small-indicator">
               <%= pluralize(@comunidad.usuarios.size, "persona", "personas") %>
           </small>

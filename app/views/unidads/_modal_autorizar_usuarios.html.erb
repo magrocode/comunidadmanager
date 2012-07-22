@@ -18,7 +18,7 @@
 					<tr>
 						<td>
 							<%= usuario.nombre %> 
-							<% if usuario.administrador? %>
+							<% if usuario.administrador?(current_comunidad) %>
 								<span class="label">
 									Administrador
 								</span>

@@ -109,8 +109,8 @@ class ComunidadsController < ApplicationController
     
     def usuario_administrador
       # el usuario tiene privilegios de administrador
-      #redirect_to comunidad_path(current_comunidad), alert: "Wrong! no eres un administrador" unless current_user.administrador? or current_user.system_admin?
-      redirect_to comunidad_path(current_comunidad), alert: "Wrong! no eres un administrador" unless current_user.administrador? or current_user.system_admin?
+      #redirect_to comunidad_path(current_comunidad), alert: "Wrong! no eres un administrador" unless current_user.administrador?(current_comunidad) or current_user.system_admin?
+      redirect_to comunidad_path(current_comunidad), alert: "Wrong! no eres un administrador" unless current_user.administrador?(current_comunidad) or current_user.system_admin?
     end
 
     def usuario_systemadmin

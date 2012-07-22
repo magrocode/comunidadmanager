@@ -41,8 +41,9 @@ ActiveRecord::Schema.define(:version => 20120701035602) do
   create_table "relacion_comunidad_usuarios", :force => true do |t|
     t.integer  "comunidad_id"
     t.integer  "usuario_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.boolean  "administrador", :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "relacion_comunidad_usuarios", ["comunidad_id", "usuario_id"], :name => "index_relacion_comunidad_usuarios_on_comunidad_id_and_usuario_id", :unique => true
@@ -96,7 +97,6 @@ ActiveRecord::Schema.define(:version => 20120701035602) do
   create_table "usuarios", :force => true do |t|
     t.string   "email"
     t.string   "nombre"
-    t.boolean  "administrador",   :default => false
     t.boolean  "system_admin",    :default => false
     t.string   "password_digest"
     t.string   "remember_token"

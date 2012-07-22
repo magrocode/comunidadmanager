@@ -3,6 +3,7 @@ class CreateRelacionComunidadUsuarios < ActiveRecord::Migration
     create_table :relacion_comunidad_usuarios do |t|
       t.integer :comunidad_id
       t.integer :usuario_id
+      t.boolean :administrador, default: false
 
       t.timestamps
     end

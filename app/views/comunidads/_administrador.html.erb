@@ -3,19 +3,19 @@
 		<h3>Informacion del administrador</h3>
 	</div>
 	<table class="unstyled" id="tabla-usuarios-admin">
-		<% @comunidad.usuarios.where(:administrador => true).limit(2).each do |administrador| %>
+		<% @comunidad.administradores.limit(2).each do |admin| %>
 		<tr>
 			<td>
-				<%= gravatar_for administrador, size: 35 %>
+				<%= gravatar_for admin.usuario, size: 35 %>
 			</td>
 			<td>
 				<strong>
-					<%= link_to administrador.nombre, administrador %>
+					<%= link_to admin.usuario.nombre, admin.usuario %>
 				</strong><br />
-				<%= administrador.email %><br/>
+				<%= admin.usuario.email %><br/>
 				<small class="small-indicator">
-					<%= administrador.telefono %><br />
-					<%= administrador.twitter %>
+					<%= admin.usuario.telefono %><br />
+					<%= admin.usuario.twitter %>
 				</small><br />
 			</td>
 		</tr>

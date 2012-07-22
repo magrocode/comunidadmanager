@@ -15,7 +15,7 @@
 					<tr>
 						<td>
 							<strong><%= link_to usuario.nombre, usuario %></strong>
-							<% if usuario.administrador? %>
+							<% if usuario.administrador?(@comunidad) %>
 								<span class="label">
 									Administrador
 								</span>
@@ -28,7 +28,7 @@
 							</small>
 						</td>
 						<td>
-							<% if current_user.administrador? or current_user.system_admin? %>
+							<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
 							<div class="btn-group">
 								<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
 							    	<i class="icon-cog"></i>

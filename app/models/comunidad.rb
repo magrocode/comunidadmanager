@@ -52,4 +52,8 @@ class Comunidad < ActiveRecord::Base
     relacion_comunidad_usuarios.find_by_usuario_id(usuario.id)
   end
 
+  def administradores
+    relacion_comunidad_usuarios.where(:administrador => true)
+  end
+
 end

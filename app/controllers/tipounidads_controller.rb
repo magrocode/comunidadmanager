@@ -66,7 +66,7 @@ helper_method :sort_column, :sort_direction
 	    end
 		
 		def admin_user
-	    	redirect_to comunidad_path(current_comunidad), notice: "Wrong!! No eres administrador" unless current_user.administrador? or current_user.system_admin?
+	    	redirect_to comunidad_path(current_comunidad), notice: "Wrong!! No eres administrador" unless current_user.administrador?(current_comunidad) or current_user.system_admin?
 	    end
 
 	    def usuario_correcto

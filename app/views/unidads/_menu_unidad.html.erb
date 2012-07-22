@@ -2,13 +2,15 @@
   <ul class="nav-list-m unstyled">
   	<li class="menu-spacer">
       <span>
-        <i class="icon-th-large"></i>&nbsp;
+        <i class="icono16">
+            <%= image_tag("icons/fatcow_icons/16x16/house_go.png", :alt => "#{@unidad.identificador}") %></i>&nbsp;
         <%= link_to @unidad.identificador, @unidad %>
       </span>
     </li>
     <li class="menu-spacer">
       <span>
-        <i class="icon-magnet"></i>&nbsp;
+        <i class="icono16">
+            <%= image_tag("icons/fatcow_icons/16x16/house_link.png", :alt => "Viviendas vinculadas") %></i>&nbsp;
         <%= link_to 'Vinculos', vinculadas_unidad_path(@unidad) %>
         <small id="vinculos_stats" class="small-indicator">
     			<%= pluralize(@unidad.vinculadas.size, "unidad", "unidades") %>
@@ -17,18 +19,21 @@
     </li>    
     <li class="menu-spacer">
       <span>
-        <i class="icon-user"></i>&nbsp;
+        <i class="icono16">
+            <%= image_tag("icons/fatcow_icons/16x16/user_go.png", :alt => "Usuarios autorizados") %></i>&nbsp;
         <%= link_to 'Usuarios', usuarios_autorizados_unidad_path(@unidad) %>
         <small id="usuarios_autorizados_stats" class="small-indicator">
     			<%= pluralize(@unidad.usuarios_autorizados.count, "autorizado", "autorizados") %>
     	</small>
       </span>
     </li>
-    <% if current_user.administrador? or current_user.system_admin? %>
+    <% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
         <br />
         <li class="menu-spacer">
-          <span>        
-            <%= link_to 'Todas las viviendas', comunidad_unidads_path(@comunidad) %>
+          <span>   
+            <i class="icono16">
+              <%= image_tag("icons/fatcow_icons/16x16/house.png", :alt => "Usuarios autorizados") %></i>&nbsp;     
+            <%= link_to 'Viviendas', comunidad_unidads_path(@comunidad) %>
             <small class="small-indicator">
               <%= pluralize(@comunidad.unidads.size, "unidad", "unidades") %>
           </small>

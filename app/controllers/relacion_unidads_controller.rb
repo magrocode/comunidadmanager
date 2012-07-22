@@ -32,6 +32,6 @@ class RelacionUnidadsController < ApplicationController
 
   def admin_user
     # el administrador de la comunidad
-    redirect_to(root_path) unless current_user.administrador? or current_user.system_admin?
+    redirect_to(root_path) unless current_user.administrador?(current_comunidad) or current_user.system_admin?
   end
 end

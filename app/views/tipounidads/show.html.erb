@@ -15,7 +15,7 @@
 			</div>
 			<div class="row">
 				<div class="span10">
-					<% if current_user.administrador? %>
+					<% if current_user.administrador?(current_comunidad) %>
 						<%= link_to 'Editar', edit_tipounidad_path(@tipounidad) %> |
 						<%= link_to 'Eliminar', @tipounidad, confirm: 'Estas seguro de eliminar?', :method => :delete %>
 					<% end %>

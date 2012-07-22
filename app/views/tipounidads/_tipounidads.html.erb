@@ -15,7 +15,7 @@
 				<tr>
 					<th>Tipo de unidad</th>
 					<th>Uso</th>
-					<% if current_user.administrador? %>
+					<% if current_user.administrador?(current_comunidad) %>
 						<th></th>
 					<% end %>
 				</tr>
@@ -29,7 +29,7 @@
 					<td>
 						<%= pluralize(tipounidad.unidads.size, 'vivienda', 'viviendas') %>
 					</td>
-					<% if current_user.administrador? or current_user.system_admin? %>
+					<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
 						<td class="ar">
 							<div class="btn-group">
 								<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">

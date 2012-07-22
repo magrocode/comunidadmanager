@@ -32,7 +32,7 @@
     		</small>
     	</span>
     </li>
-    <% if current_user.administrador? or current_user.system_admin? %>
+    <% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
         <li class="menu-spacer">
           <span>        
             <i class="icon-tags"></i>&nbsp;

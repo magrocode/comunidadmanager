@@ -17,7 +17,7 @@
 					<th>Unidad o Vivienda</th>
 					<th>Participacion</th>
 					<th>Superficie</th>
-					<% if current_user.administrador? or current_user.system_admin? %>
+					<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
 						<th></th>
 					<% end %>
 				</tr>

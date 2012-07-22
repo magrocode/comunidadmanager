@@ -13,11 +13,11 @@ FactoryGirl.define do
     #comunidad
     # asigna permso de administracion
     factory :usuario_admin do
-      administrador true
+      #administrador true
     end
 
     factory :system_admin do
-      administrador false
+      #administrador false
       system_admin true
     end
   end

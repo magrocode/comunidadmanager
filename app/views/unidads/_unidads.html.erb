@@ -55,7 +55,7 @@
 				<td>
 					<%= link_to pluralize(unidad.vinculadas.count, 'unidad', 'unidades'), vinculadas_unidad_path(unidad) %>
 				</td>
-				<% if current_user.administrador? or current_user.system_admin? %>
+				<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
 					<td class="ar">
 						<div class="btn-group">
 							<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">

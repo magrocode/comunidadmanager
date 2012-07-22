@@ -7,7 +7,7 @@
 			<br>
 		<% end %>
 		<small class="small-indicator">Escrito por <%= link_to feed_post.usuario.nombre, feed_post.usuario %>
-			<% if feed_post.usuario.administrador? %>
+			<% if feed_post.usuario.administrador?(current_comunidad) %>
 				<span class="label">Administrador</span>
 			<% end %>
 		</small>
@@ -20,7 +20,7 @@
 	</td>
 
 	<td>
-  		<% if current_user.administrador? or current_user.system_admin? or feed_post.writer?(current_user) %>				
+  		<% if current_user.administrador?(current_comunidad) or current_user.system_admin? or feed_post.writer?(current_user) %>				
 			<div class="btn-group pull-right">
 				<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
 					<i class="icon-cog"></i>

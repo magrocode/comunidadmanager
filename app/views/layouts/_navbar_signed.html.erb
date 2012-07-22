@@ -13,7 +13,7 @@
 
 					
 			<ul class="nav pull-right">		
-				<% if current_user.administrador? or current_user.system_admin? %>					
+				<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>					
 				<li id="fat-menu-comunidad" class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<%= current_comunidad.nombre %>				
@@ -36,7 +36,9 @@
 						<%= gravatar_for current_user, size: 22 %>
 						<%= current_user.nombre %>				
 						<% if current_user.system_admin? %>
-							<i class="icon-flag icon-white"></i>
+							<i class="icono16">
+			            		<%= image_tag("icons/fatcow_icons/16x16/administrator.png") %>
+			            	</i>
 						<% end %>				
 						<b class="caret"></b>
 					</a>

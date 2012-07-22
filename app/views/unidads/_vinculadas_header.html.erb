@@ -4,7 +4,7 @@
 		<h2>Vinculando unidades o viviendas a <%= @unidad.identificador %></h2>
 	</div>
 	<div class="span2 ar">
-		<% if current_user.administrador? or current_user.system_admin? %>
+		<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
 			<a data-toggle="modal" href="#modalVincularUnidades" class="btn btn-primary">
 			<i class="icon-plus-sign icon-white"></i> Vincular unidad</a>
 		<% end %>

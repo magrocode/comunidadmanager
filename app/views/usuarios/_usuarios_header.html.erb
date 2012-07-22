@@ -3,7 +3,7 @@
 		<h2>Todos los usuarios</h2>
 	</div>	
 	<div class="span2 ar">
-		<% if current_user.administrador? or current_user.system_admin? %>
+		<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
 			<%= link_to(new_comunidad_usuario_path(@comunidad), class: 'btn btn-primary') do %>
   				<i class="icon-plus-sign icon-white"></i> Nuevo usuario
 			<% end %>

@@ -24,7 +24,6 @@ describe Usuario do
   let(:comunidad) { FactoryGirl.create(:comunidad) }
   before { @usuario = comunidad.usuarios.build(email: "mario@foobar.com",
                                                nombre: "Mario Espinoza",
-                                               administrador: true,
                                                system_admin: false,
                                                twitter: "@codelious",
                                                telefono: "56-9-8806-0177",
@@ -35,7 +34,6 @@ describe Usuario do
   
   it { should respond_to(:email) }
   it { should respond_to(:nombre) }
-  it { should respond_to(:administrador) }
   it { should respond_to(:system_admin) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }

@@ -62,6 +62,11 @@ class Usuario < ActiveRecord::Base
     comunidad == nueva_comunidad
   end
 
+  def administrador?(comunidad)
+    relacion_comunidad_usuarios.find_by_comunidad_id(comunidad.id).administrador?
+  end
+
+
   private
   
     def create_remember_token

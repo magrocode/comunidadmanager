@@ -1,7 +1,7 @@
 <div class="row-fluid">
 	<div class="span6">
 		<span><h3><%= @comunidad.usuarios.count %> <small>Usuarios</small> &nbsp;</h3></span>
-		<span><h3><%= @comunidad.usuarios.where(administrador: true).count %> <small>Admins</small></h3></span>
+		<span><h3><%= @comunidad.administradores.size %> <small><%= pluralize(@comunidad.administradores.size, 'administrador', ' administradores') %></small></h3></span>
 	</div>	
 </div><br />
 <div class="row-fluid">
@@ -29,7 +29,7 @@
 					<strong>
 						<%= link_to usuario.nombre, usuario %>
 					</strong>
-					<% if usuario.administrador? %>
+					<% if usuario.administrador?(@comunidad) %>
 						<span class="label">Administrador</span>
 					<% end %>
 					<br />
@@ -39,7 +39,7 @@
 						<%= usuario.twitter %>
 					</small>
 				</td>
-				<% if current_user.administrador? or current_user.system_admin? %>
+				<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
 					<td class="ar">
 						<div class="btn-group">
 						  <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
