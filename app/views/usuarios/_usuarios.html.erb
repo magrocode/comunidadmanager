@@ -1,7 +1,7 @@
 <div class="row-fluid">
 	<div class="span6">
 		<span><h3><%= @comunidad.usuarios.count %> <small>Usuarios</small> &nbsp;</h3></span>
-		<span><h3><%= @comunidad.administradores.size %> <small><%= pluralize(@comunidad.administradores.size, 'administrador', ' administradores') %></small></h3></span>
+		<span><h3><%= @comunidad.administradores.size %> <small>Administradores</small></h3></span>
 	</div>	
 </div><br />
 <div class="row-fluid">
@@ -58,6 +58,19 @@
 					</td>
 				<% end %>	
 			</tr>
+		<% end %>
+		<% if @usuarios.size == 0 %>
+			<div class="alert alert-block fade in">
+				<h4 class="alert-heading">No existen usuarios en <%= @comunidad.nombre %>!</h4>
+				<p>No se muestra ningun usuario porque aun no han sido agregados</p>
+				<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
+					<p>Puedes agregar un nuevo usuario ahora...
+						<%= link_to(new_comunidad_usuario_path(@comunidad), class: 'btn btn-primary') do %>
+			  				<i class="icon-plus-sign icon-white"></i> Nuevo usuario
+						<% end %>
+					</p>
+				<% end %>
+			</div>
 		<% end %>
 		
 		</table>

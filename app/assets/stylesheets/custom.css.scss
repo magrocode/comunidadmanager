@@ -154,10 +154,27 @@ p {
   /* text-transform: uppercase; */
   /* letter-spacing: -1px;*/
   padding-top: 8px;
-  font-weight: bold;
+  font-weight: normal;
   line-height: 1;
   &:hover {
     color: lightblue;
+    text-decoration: none;
+  }
+}
+
+#logo_magrocode {
+  float: left;
+  margin-right: 2px;
+  font-size: 1.3em;
+  font-family: Helvetica;
+  color: white;
+  /* text-transform: uppercase; */
+  /* letter-spacing: -1px;*/
+  padding-top: 12px;
+  font-weight: normal;
+  line-height: 1;
+  &:hover {
+    color: white;
     text-decoration: none;
   }
 }
@@ -364,7 +381,7 @@ table .align-top {
   border-left: 1px solid $grayMediumLight;
 }
 
-.border-right {
+.border-right {  
   border-right: 1px solid $grayMediumLight;
 }
 
@@ -421,13 +438,18 @@ table .align-top {
 
 
 /* info de contacto en perfiles */
-.info-contacto {
-
+.profile-info-contacto {
+  padding-left: 15px;
   li {
     margin-bottom: 5px;
   }
 }
 
+.profile-info {
+  padding-right: 10px;
+  border-right: 1px solid #ebebeb;
+  height: 100%;
+}
 
 /* fondo del signin */ 
 #sign_in_wrapper {

@@ -84,6 +84,13 @@ class ComunidadsController < ApplicationController
     redirect_to comunidads_path
   end
 
+  def seleccionar
+    @comunidad = Comunidad.find(params[:id])
+    set_comunidad @comunidad
+    flash[:success] = "Ahora estas usando la comunidad #{@comunidad.nombre}!"
+    redirect_to @comunidad
+  end
+
   #def unidads
   #  @comunidad = Comunidad.find(params[:id])
   #  @unidads = @comunidad.unidads

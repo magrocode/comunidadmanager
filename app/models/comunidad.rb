@@ -56,4 +56,13 @@ class Comunidad < ActiveRecord::Base
     relacion_comunidad_usuarios.where(:administrador => true)
   end
 
+  def administrador?(usuario)
+     # verifica si es administrador en comunidad
+    if relacion_comunidad_usuarios.find_by_usuario_id(usuario.id) == nil
+      false
+    else
+      relacion_comunidad_usuarios.find_by_usuario_id(usuario.id).administrador?
+    end
+  end
+
 end

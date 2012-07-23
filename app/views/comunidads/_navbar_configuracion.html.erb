@@ -3,42 +3,47 @@
     <% if current_user.system_admin? %>
       <li class="menu-spacer">
         <span>
-          <i class="icon-search"></i>&nbsp;
+          <i class="icono16">
+            <%= image_tag("icons/fatcow_icons/16x16/building_add.png", :alt => "Otras comunidades") %></i>&nbsp;
           <%= link_to 'Otras comunidades', comunidads_path %>
         </span>
       </li>
     <% end %>
   	<li class="menu-spacer">
       <span>
-        <i class="icon-cog"></i>&nbsp;
+        <i class="icono16">
+            <%= image_tag("icons/fatcow_icons/16x16/building_key.png", :alt => "Configurar comunidad") %></i>&nbsp;
         <%= link_to 'Configurar comunidad', edit_comunidad_path(@comunidad) %>
       </span>
     </li>
     <li class="menu-spacer">
     	<span>
-    		<i class="icon-user"></i>&nbsp;
+    		 <i class="icono16">
+            <%= image_tag("icons/fatcow_icons/16x16/group.png", :alt => "Usuarios") %></i>&nbsp;
     		<%= link_to 'Usuarios', comunidad_usuarios_path(@comunidad) %> 
     		<small class="small-indicator">
-    			<%= pluralize(@comunidad.usuarios.size, "persona", "personas") %>
+    			<%= pluralize(@comunidad.usuarios.count, "persona", "personas") %>
     		</small>
     	</span>
     </li>
     <li class="menu-spacer">
     	<span>
-    		<i class="icon-th"></i>&nbsp;
+    		<i class="icono16">
+            <%= image_tag("icons/fatcow_icons/16x16/house.png", :alt => "Viviendas") %></i>&nbsp;
     		<%= link_to 'Viviendas', comunidad_unidads_path(@comunidad) %>
     		<small class="small-indicator">
-    			<%= pluralize(@comunidad.unidads.size, "unidad", "unidades") %>
+    			<%= pluralize(@comunidad.unidads.count, "unidad", "unidades") %>
     		</small>
     	</span>
     </li>
     <% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
         <li class="menu-spacer">
           <span>        
-            <i class="icon-tags"></i>&nbsp;
+            <i class="icono16">
+            <%= image_tag("icons/fatcow_icons/16x16/tag_blue.png", :alt => "Tipos de unidad") %></i>&nbsp;
             <%= link_to 'Tipos de unidad', comunidad_tipounidads_path(@comunidad) %>
             <small class="small-indicator">
-              <%= pluralize(@comunidad.tipounidads.size, "tipo", "tipos") %>
+              <%= pluralize(@comunidad.tipounidads.count, "tipo", "tipos") %>
           </small>
           </span>
         </li>    

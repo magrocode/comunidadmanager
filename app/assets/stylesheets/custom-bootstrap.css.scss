@@ -98,3 +98,17 @@ a.badge-link {
   line-height:16px;
   padding:5px 9px;
 }
+
+.container-fluid {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.container {
+  width: 1200px;
+}
+
+.row-fluid > [class*="span"] {
+  float:left;
+  margin-left:0;
+}

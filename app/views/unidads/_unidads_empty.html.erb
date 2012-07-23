@@ -1,0 +1,11 @@
+<div class="alert alert-block fade in">
+				<h4 class="alert-heading">No existen unidades en <%= @comunidad.nombre %>!</h4>
+				<p>No se muestra ninguna unidad o vivienda porque aun no han sido agregadas</p>
+				<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
+					<p>Puedes agregar una nueva unidad ahora...
+						<%= link_to(new_comunidad_unidad_path(@comunidad), class: 'btn btn-primary') do %>
+			  				<i class="icon-plus-sign icon-white"></i> Nueva unidad
+						<% end %>
+					</p>
+				<% end %>
+			</div>

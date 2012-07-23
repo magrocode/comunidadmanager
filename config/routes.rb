@@ -2,13 +2,11 @@ Comunidadmanager::Application.routes.draw do
  
   filter :locale
  
-  #scope "/:locale" do
+
     get "paginas/home"
     get "paginas/wellcome"
     get "paginas/comunidad_desactivada"
-  #end
 
-  #scope "/:locale" do  
     resources :usuarios do
       member do
         get :unidades_autorizadas
@@ -22,36 +20,29 @@ Comunidadmanager::Application.routes.draw do
       end
     end
     resources :tipounidads, only: [:index, :new, :edit, :create, :destroy, :update] 
-    
     resources :posts, only: [:create, :destroy, :edit, :update]
-  #end
-
-  #scope "/:locale" do
+  
     resources :comunidads do
         member do
           put :desactivar
           put :activar
+          put :seleccionar
         end
           resources :unidads
           resources :tipounidads
           resources :usuarios
           resources :posts
     end
-  #end
 
-  #scope "/:locale" do
     resources :sessions,                  only: [:new, :create, :destroy]
     resources :relacion_unidads,          only: [:create, :destroy]
     resources :relacion_usuario_unidads,  only: [:create, :destroy]
-  #end
 
-  #scope "/:locale" do
     match '/wellcome', to: 'paginas#wellcome'
     match '/comunidad_desactivada', to: 'paginas#comunidad_desactivada'
     match '/signup', to: 'comunidads#new'
     match '/signin', to: 'sessions#new'
     match '/signout', to: 'sessions#destroy', via: :delete
-  #end
   #match '/:locale' => 'dashboard#index'
   
   #match '/:locale' => 'paginas#home'

@@ -25,7 +25,7 @@ class UsuariosController < ApplicationController
   def show
     @usuario = Usuario.find(params[:id])
     @comunidad = current_comunidad
-    @post = @comunidad.posts.build(usuario_id: current_user.id)
+    @post = @comunidad.posts.build(usuario_id: @usuario.id)
     @feed_posts = @usuario.feed_posts.paginate(page: params[:page], per_page: 10).order("created_at DESC")
   end
   
