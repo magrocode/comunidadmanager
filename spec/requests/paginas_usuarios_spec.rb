@@ -8,6 +8,7 @@ describe "Paginas de Usuarios" do
   let(:usuario_admin) { FactoryGirl.create(:usuario_admin) }
   before do
     comunidad.autorizar_usuario!(usuario_admin)
+    comunidad.autorizar_administrador!(usuario_admin)
     sign_in usuario_admin 
   end
   

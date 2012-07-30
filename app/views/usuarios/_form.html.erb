@@ -57,27 +57,31 @@
 			</div>
 		</div>
 
-		<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
+		<% if current_user.system_admin? %>
 		<hr />
 		
 		<div class="control-group">
 			<%= label_tag 'permisos', 'Permisos' %>
 			<div class="controls">				
-				<label class="checkbox">
+				<!-- <label class="checkbox">
 					<%= #f.check_box :administrador 
 					%> Administrador
-				</label>
-				<% if current_user.system_admin? %>
+				</label> -->
 					<label class="checkbox">
 						<%= f.check_box :system_admin %> System-Admin
 					</label>
-				<% end %>
 			</div>
 		</div>		 
 		<% end %>
 
 		<div id="password-controls">						
 			<hr />
+			<div class="control-group">
+				<div class="controls">
+				<span>
+					Dejar en blanco si no desea cambiar su contraseña.
+				</span></div>
+			</div>
 			<div class="control-group">
 				<%= f.label :password, class: 'control-label' %>
 				<div class="controls">

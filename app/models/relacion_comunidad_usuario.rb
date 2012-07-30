@@ -7,4 +7,5 @@ class RelacionComunidadUsuario < ActiveRecord::Base
 	validates :usuario_id, presence: true
 
 	validates_uniqueness_of :comunidad_id, scope: :usuario_id
+
 end

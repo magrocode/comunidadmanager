@@ -3,7 +3,7 @@
 		<table class="unstyled">
 			<tr>
 				<td class="align-top">
-					<%= gravatar_for @usuario %><br />
+					<%= gravatar_for @usuario, size: 80 %><br />
 				</td>
 				<td class="align-top">
 					<h1><%= @usuario.nombre %></h1>
@@ -18,7 +18,7 @@
 		</table>
 	</div>	
 	<div class="span4">
-		<ul class="unstyled info-contacto">
+		<ul class="unstyled profile-info-contacto">
 			<li>								
 				<i class="icono16">
             		<%= image_tag("icons/fatcow_icons/16x16/email.png", :alt => "Email") %>

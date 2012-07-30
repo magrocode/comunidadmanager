@@ -1,3 +1,11 @@
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
 .align-top {
 	vertical-align: top;
 }
@@ -18,4 +26,83 @@
 	&input[type="submit"] {
 		margin-bottom: 2px;
 	}
+}
+
+/* Base */
+.content-wrapper {
+  padding: 0px;
+  background-color: white;
+  border: solid 1px #D8D8D8;
+
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+
+  @include box_sizing;
+}
+
+.content {
+  padding: 20px;
+}
+
+.profile-content {
+  padding: 15px 20px 10px; 
+}
+
+
+/* encabezado de perfiles */
+.profile-header {
+  padding-bottom: 0px;
+  border-bottom: 1px solid $grayMediumLight;
+  margin-bottom: 0px;
+  background-color: #FFFBF3;
+
+  -moz-border-radius: 5px 5px 0px 0px;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+
+/* info de contacto en perfiles */
+.profile-info-contacto {
+  padding-left: 15px;
+  margin-left: 0px;
+  li {
+    margin-bottom: 5px;
+  }
+}
+
+.profile-info {
+  margin-left: 0px;
+  padding-right: 10px;
+  border-right: 1px solid #ebebeb;
+  height: 100%;
+}
+
+.profile-simple {
+  margin-left: 0px;
+  padding-right: 10px;
+  /* border-right: 1px solid #ebebeb;*/
+  height: 100%;
+}
+
+.profile-actions {
+    float: right;
+    text-align: right;
+}
+
+
+.module-header {
+  display: block;
+  margin-bottom: 10px;
+  clear:both;
+
+  h3 {
+    font-size:100%;
+    font-weight:bold;
+    line-height:2;
+    color: #999;
+    width: 100%;
+    padding-bottom: 5px;
+  }
 }

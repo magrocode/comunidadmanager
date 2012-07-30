@@ -1,17 +1,26 @@
 <% provide(:titulo, 'Editando comunidad')%>
-
 <div class="row-fluid">
 	<div class="span2">
-		<%= render 'navbar_configuracion' %>
+		<%= render 'menu_comunidad' %>
 	</div>
 	<div class="span8">
-		<div class="content-wrapper"> 
-			<div class="row-fluid profile-header">
-				<h2>Editando comunidad</h2>
+		<div class="content-wrapper">
+			<div class="profile-header">
+				<div class="profile-content">
+					<div class="row-fluid">
+						<div class="span5 profile-simple">
+							<h2>Editando comunidad</h2>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
 			</div>
-			<div class="row-fluid">
-				<div class="span12">
-					<%= render 'form_edit' %>
+			<div class="content">
+				<div class="row-fluid">
+					<div class="span12">
+						<%= render 'form_edit' %>
+					</div>
+					<div class="clear"></div>
 				</div>
 			</div>
 		</div>

@@ -1,12 +1,15 @@
-<div class="row-fluid profile-header">	
-	<div class="span10">
-		<h2>Todas las Comunidades</h2>
-	</div>	
-	<div class="span2">
-		<% if current_user.system_admin? %>
-			<%= link_to(new_comunidad_path, class: 'btn btn-primary') do %>
-  				<i class="icon-plus-sign icon-white"></i> Nueva comunidad
+<div class="profile-content">	
+	<div class="row-fluid">
+		<div class="span8 profile-simple">
+			<h2>Todas las Comunidades</h2>
+		</div>	
+		<div class="span4 profile-actions">
+			<% if current_user.system_admin? %>
+				<%= link_to(new_comunidad_path, class: 'btn btn-mini btn-primary') do %>
+	  				<i class="icon-plus-sign icon-white"></i> Nueva comunidad
+				<% end %>
 			<% end %>
-		<% end %>
+		</div>
+		<div class="clear"></div>
 	</div>
 </div>

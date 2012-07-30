@@ -5,7 +5,7 @@
 
 /* mixins, variables, etc. */
 
-$grayMediumLight: #eaeaea;
+
 
 
 /* .navbar-inner {
@@ -20,11 +20,7 @@ $grayMediumLight: #eaeaea;
   color: lightgray;
 }*/
 
-@mixin box_sizing {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-  box-sizing: border-box;
-}
+
 
 
 /* universal */
@@ -320,19 +316,6 @@ table .align-top {
 }
 
 
-/* Base */
-.content-wrapper {
-  padding: 20px;
-  background-color: white;
-  border: solid 1px #D8D8D8;
-
-  border:solid 1px #D8D8D8;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-
-  @include box_sizing;
-}
 
 
 .clear {
@@ -394,27 +377,7 @@ table .align-top {
 
 
 
-/* encabezado de perfiles */
-.profile-header {
-  padding-bottom: 15px;
-  border-bottom: 1px solid $grayMediumLight;
-  margin-bottom: 20px;
-}
 
-.module-header {
-  display: block;
-  margin-bottom: 10px;
-  clear:both;
-
-  h3 {
-    font-size:100%;
-    font-weight:bold;
-    line-height:2;
-    color: #999;
-    width: 100%;
-    padding-bottom: 5px;
-  }
-}
 
 /* Labelinfo */
 .label-info {
@@ -437,25 +400,7 @@ table .align-top {
 }
 
 
-/* info de contacto en perfiles */
-.profile-info-contacto {
-  padding-left: 15px;
-  li {
-    margin-bottom: 5px;
-  }
-}
 
-.profile-info {
-  padding-right: 10px;
-  border-right: 1px solid #ebebeb;
-  height: 100%;
-}
-
-/* fondo del signin */ 
-#sign_in_wrapper {
-  background: url(cloudapolis-600x403.png) no-repeat center;
-  padding-top: 60px;
-}
 
 .transparent-box {
   opacity:0.95;

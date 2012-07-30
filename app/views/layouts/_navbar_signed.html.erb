@@ -36,9 +36,7 @@
 						<%= gravatar_for current_user, size: 22 %>
 						<%= current_user.nombre %>				
 						<% if current_user.system_admin? %>
-							<i class="icono16">
-			            		<%= image_tag("icons/fatcow_icons/16x16/administrator.png") %>
-			            	</i>
+							<span class="label label-inverse">System-Admin</span>
 						<% end %>				
 						<b class="caret"></b>
 					</a>

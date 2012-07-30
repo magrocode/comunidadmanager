@@ -95,20 +95,20 @@ describe Usuario do
     it { should be_invalid }
   end
 
-  describe "Cuando el password no esta presente" do
-    before { @usuario.password = @usuario.password_confirmation = " " }
-    it { should_not be_valid }
-  end
+  #describe "Cuando el password no esta presente" do
+  #  before { @usuario.password = @usuario.password_confirmation = " " }
+  #  it { should_not be_valid }
+  #end
   
   describe "Cuando el password no coincide con la confirmacion" do
     before { @usuario.password_confirmation = "nocoincidente" }
     it { should_not be_valid }
   end
   
-  describe "Cuando confirmacion de password esta vacia" do
-    before { @usuario.password_confirmation = nil }
-    it { should_not be_valid }
-  end
+  #describe "Cuando confirmacion de password esta vacia" do
+  #  before { @usuario.password_confirmation = nil }
+  #  it { should_not be_valid }
+  #end
   
   describe "con un password que esta muy corto" do
     before { @usuario.password = @usuario.password_confirmation = "a" * 5 }

@@ -29,12 +29,13 @@ class ComunidadsController < ApplicationController
     @comunidad = Comunidad.new(nombre: params[:comunidad][:nombre])
     @usuario = @comunidad.usuarios.build(email: params[:usuario][:email],
                                          nombre: params[:usuario][:nombre],
-                                         administrador: true,
+                                         ##administrador: true,
                                          password: params[:usuario][:password],
                                          password_confirmation: params[:usuario][:password_confirmation])
     if @comunidad.valid? and @usuario.valid?                                     
       if @comunidad.save
-        if @usuario.save           
+        if @usuario.save
+          @comunidad.autorizar_administrador!(@usuario)
           sign_in @usuario
           set_comunidad @comunidad          
           flash[:success] = "Bienvenido a Cloudapolis"

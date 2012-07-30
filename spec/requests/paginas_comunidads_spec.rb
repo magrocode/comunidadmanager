@@ -116,6 +116,7 @@ describe "Paginas de Comunidad" do
       
       before do
         comunidad.autorizar_usuario!(usuario_admin)
+        comunidad.autorizar_administrador!(usuario_admin)
         sign_in usuario_admin
         visit edit_comunidad_path(comunidad)
       end

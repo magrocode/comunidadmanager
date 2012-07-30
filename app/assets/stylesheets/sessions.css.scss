@@ -1,3 +1,16 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* fondo del signin */ 
+#signin-wrapper {
+  background: url(cloudapolis-600x403.png) no-repeat center;
+  padding-top: 60px;
+  height: 420px;
+  margin: 0 auto;
+}
+
+#signin-box {
+	margin: 0 auto;
+	width: 300px;
+}

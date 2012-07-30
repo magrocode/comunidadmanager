@@ -21,7 +21,7 @@ describe "Autenticacion" do
      before { visit signin_path }
      
      describe "con informacion invalida" do
-       before { click_button "Sign in" }
+       before { click_button "Entrar" }
        
        it { should have_selector('title', text: 'Sign in') }
        it { should have_selector('div.alert.alert-error', text: 'invalid') }
@@ -42,7 +42,7 @@ describe "Autenticacion" do
           comunidad.autorizar_usuario!(usuario)
           fill_in "session_email", with: usuario.email
           fill_in "session_password", with: usuario.password
-          click_button "Sign in"
+          click_button "Entrar"
        end
        
        it { should have_selector('title', text: comunidad.nombre) }

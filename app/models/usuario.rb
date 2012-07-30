@@ -34,8 +34,8 @@ class Usuario < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :twitter, :telefono, length: { maximum: 50 }
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, :unless => "password.blank?"
+  validates :password_confirmation, presence: true, length: { minimum: 6 }, :unless => "password_confirmation.blank?"
   
   def feed_posts
     posts
@@ -70,7 +70,6 @@ class Usuario < ActiveRecord::Base
       relacion_comunidad_usuarios.find_by_comunidad_id(comunidad.id).administrador?
     end
   end
-
 
   private
   

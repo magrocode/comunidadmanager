@@ -1,55 +1,63 @@
 <% provide(:titulo, 'Sign up')%>
-<div class="row">
-	<div class="span8 offset2">
-		<div class="well">
-			<div class="page-header center"><h1>Sign up</h1></div>
-			<div class="row">
-				<div class="span7">
-					<%= form_for @comunidad, html: { class: "form-horizontal" } do |f| %>
-						
-						<%= render 'shared/error_messages', object: f.object %>
+<div id="signup-wrapper">
+	<div id="signup-box">
+		<div class="content-wrapper transparent-box">
+			<div class="profile-header center">
+				<div class="profile-content">
+					<div class="row-fluid">
+						<h1>Sign up</h1>
+					</div>
+				</div>
+			</div>
+			<div class="content">
+				<div class="row-fluid">
+					<div class="span11 center">
+						<%= form_for @comunidad, html: { class: "form-horizontal span12" } do |f| %>
+							
+							<%= render 'shared/error_messages', object: f.object %>
 
-						<fieldset>
-							<div class="control-group">
-								<%= f.label :nombre_comunidad, "Nombre de Comunidad", class: "control-label" %>
-								<div class="controls">
-									<%= f.text_field :nombre, placeholder: "Mi comunidad" %>
+							<fieldset>
+								<div class="control-group">
+									<%= f.label :nombre_comunidad, "Nombre de Comunidad", class: "control-label" %>
+									<div class="controls">
+										<%= f.text_field :nombre, placeholder: "Mi comunidad" %>
+									</div>
 								</div>
-							</div>
 
-							<div class="control-group">
-				  				<%= label_tag 'email_administrador', "Email administrador", class: "control-label" %>
-				  				<div class="controls">
-					  				<%= text_field(:usuario, :email, placeholder: "administrador@comunidad.com" ) %>			
-					  			</div>
-					  		</div>
+						  		<div class="control-group">				
+						  			<%= label_tag 'nombre_administrador', "Nombre administrador", class: "control-label" %>
+						  			<div class="controls">
+						  				<%= text_field(:usuario, :nombre, placeholder: "Nombre de administrador" ) %>
+						  			</div>
+						  		</div>
+						  		
+								<div class="control-group">
+					  				<%= label_tag 'email_administrador', "Email administrador", class: "control-label" %>
+					  				<div class="controls">
+						  				<%= text_field(:usuario, :email, placeholder: "administrador@comunidad.com" ) %>			
+						  			</div>
+						  		</div>
 
-					  		<div class="control-group">				
-					  			<%= label_tag 'nombre_administrador', "Nombre administrador", class: "control-label" %>
-					  			<div class="controls">
-					  				<%= text_field(:usuario, :nombre, placeholder: "Nombre de administrador" ) %>
-					  			</div>
-					  		</div>
+						  		<div class="control-group">
+						  			<%= label_tag 'password', "Password administrador", class: "control-label" %>
+						  			<div class="controls">
+						  				<%= password_field(:usuario, :password) %>
+						  			</div>
+						  		</div>
 
-					  		<div class="control-group">
-					  			<%= label_tag 'password', "Password administrador", class: "control-label" %>
-					  			<div class="controls">
-					  				<%= password_field(:usuario, :password) %>
-					  			</div>
-					  		</div>
+						  		<div class="control-group">				  			
+						  			<%= label_tag 'password_confirmation', "Confirmacion password", class: "control-label" %>
+						  			<div class="controls">
+						  				<%= password_field(:usuario, :password_confirmation) %>
+						  			</div>
+						  		</div>
 
-					  		<div class="control-group">				  			
-					  			<%= label_tag 'password_confirmation', "Confirmacion password", class: "control-label" %>
-					  			<div class="controls">
-					  				<%= password_field(:usuario, :password_confirmation) %>
-					  			</div>
-					  		</div>
-
-					  		<div class="form-actions">
-								<%= f.submit "Crear Comunidad", :class => "btn btn-large btn-primary" %>
-							</div>
-						</fieldset>
-					<% end %>
+						  		<div class="form-actions">
+									<%= f.submit "Crear Comunidad", :class => "btn btn-large btn-primary" %>
+								</div>
+							</fieldset>
+						<% end %>
+					</div>
 				</div>
 			</div>
 		</div>
