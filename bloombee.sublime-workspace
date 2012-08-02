@@ -336,14 +336,6 @@
 	"buffers":
 	[
 		{
-			"file": "app/views/sessions/new.html.erb",
-			"settings":
-			{
-				"buffer_size": 962,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "app/views/comunidads/show.html.erb",
 			"settings":
 			{
@@ -384,10 +376,50 @@
 			}
 		},
 		{
-			"file": "app/views/comunidads/new.html.erb",
+			"file": "app/assets/stylesheets/custom.css.scss",
 			"settings":
 			{
-				"buffer_size": 2176,
+				"buffer_size": 6517,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/usuarios/edit.html.erb",
+			"settings":
+			{
+				"buffer_size": 539,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/usuarios/show.html.erb",
+			"settings":
+			{
+				"buffer_size": 614,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/usuarios/_profile_header.html.erb",
+			"settings":
+			{
+				"buffer_size": 1395,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/usuarios/new.html.erb",
+			"settings":
+			{
+				"buffer_size": 577,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/usuarios/_form.html.erb",
+			"settings":
+			{
+				"buffer_size": 2978,
 				"line_ending": "Unix"
 			}
 		}
@@ -420,6 +452,9 @@
 	},
 	"file_history":
 	[
+		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/index.html.erb",
+		"/home/codelious/railsprojects/comunidadmanager/app/views/sessions/new.html.erb",
+		"/home/codelious/railsprojects/comunidadmanager/app/views/comunidads/new.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/paginas/comunidad_desactivada.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/layouts/_navbar_signed.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/paginas/wellcome.html.erb",
@@ -444,8 +479,6 @@
 		"/home/codelious/railsprojects/comunidadmanager/app/models/usuario.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/models/comunidad.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/assets/stylesheets/sessions.css.scss",
-		"/home/codelious/railsprojects/comunidadmanager/app/views/sessions/new.html.erb",
-		"/home/codelious/railsprojects/comunidadmanager/app/views/comunidads/new.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/assets/stylesheets/comunidads.css.scss",
 		"/home/codelious/railsprojects/comunidadmanager/app/assets/javascripts/posts.js.coffee",
 		"/home/codelious/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
@@ -546,8 +579,7 @@
 		"/home/codelious/railsprojects/comunidadmanager/README.rdoc",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/unidads/_modal_vincular_unidades.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/unidads/_vincular.html.erb",
-		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_autorizar_unidad.html.erb",
-		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_modal_autorizar_unidades.html.erb"
+		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_autorizar_unidad.html.erb"
 	],
 	"find":
 	{
@@ -566,6 +598,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"span5",
+			"control",
 			"administrador? ",
 			"administrador?",
 			"current_user.comunidad",
@@ -627,23 +661,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/views/sessions/new.html.erb",
+					"file": "app/views/comunidads/show.html.erb",
 					"settings":
 					{
-						"buffer_size": 962,
+						"buffer_size": 658,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								57,
-								57
+								409,
+								409
 							]
 						],
 						"settings":
@@ -659,18 +693,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/views/comunidads/show.html.erb",
+					"file": "app/views/comunidads/_profile_header.html.erb",
 					"settings":
 					{
-						"buffer_size": 658,
+						"buffer_size": 1229,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								285,
-								285
+								55,
+								55
 							]
 						],
 						"settings":
@@ -686,33 +720,6 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app/views/comunidads/_profile_header.html.erb",
-					"settings":
-					{
-						"buffer_size": 1229,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								53,
-								53
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "app/assets/stylesheets/custom-layouts.css.scss",
 					"settings":
 					{
@@ -723,8 +730,8 @@
 						"selection":
 						[
 							[
-								628,
-								628
+								1042,
+								1042
 							]
 						],
 						"settings":
@@ -734,13 +741,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 756.0,
+						"translation.y": 972.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "app/assets/stylesheets/paginas.css.scss",
 					"settings":
 					{
@@ -766,7 +773,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "app/assets/stylesheets/sessions.css.scss",
 					"settings":
 					{
@@ -790,27 +797,49 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 6,
-					"file": "app/views/comunidads/new.html.erb",
+					"buffer": 5,
+					"file": "app/assets/stylesheets/custom.css.scss",
 					"settings":
 					{
-						"buffer_size": 2176,
+						"buffer_size": 6517,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1113,
-								1113
+								4652,
+								4652
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4962.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/views/usuarios/edit.html.erb",
+					"settings":
+					{
+						"buffer_size": 539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -819,7 +848,121 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 308.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 7,
+					"file": "app/views/usuarios/show.html.erb",
+					"settings":
+					{
+						"buffer_size": 614,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								580,
+								580
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/views/usuarios/_profile_header.html.erb",
+					"settings":
+					{
+						"buffer_size": 1395,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1380,
+								1380
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/views/usuarios/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 577,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								502,
+								502
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/views/usuarios/_form.html.erb",
+					"settings":
+					{
+						"buffer_size": 2978,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2548,
+								2548
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1440.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -860,7 +1003,7 @@
 		"rows":
 		[
 			0.0,
-			0.358386091173,
+			0.452041680297,
 			1.0
 		]
 	},
