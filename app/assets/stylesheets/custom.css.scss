@@ -388,7 +388,7 @@ table .align-top {
 
 /* sortable  */
 .current {
-  font-weight: bold;
+  text-decoration: underline;
   padding-left: 16px;
   &.desc {
     background: url(icons/sort-desc-gray.png) no-repeat;

@@ -1,39 +1,40 @@
-<tr id="<%= feed_post.id %>" class="tr-post">
-	<td style="width: 18px;">
-		<i class="icono16">
-            <%= image_tag("icons/fatcow_icons/16x16/note.png", :alt => "Nota") %></i>&nbsp;
-	</td>
-	<td>
-		<h4><%= l feed_post.created_at, :format => :long %></h4>
-		<% if !feed_post.titulo.nil? %>
-			<small class="small-indicator">Asunto: <%= feed_post.titulo %></small>
-			<br>
-		<% end %>
-		<small class="small-indicator">Escrito por <%= link_to feed_post.usuario.nombre, feed_post.usuario %>
-			<% if feed_post.usuario.administrador?(current_comunidad) %>
-				<span class="label">Administrador</span>
-			<% end %>
-		</small>
-		<% if current_user.system_admin? %>
-			<small class="small-indicator">para <%= link_to feed_post.comunidad.nombre, feed_post.comunidad %>
-			</small>
-		<% end %>
-		<br /><br />
-	  	<span class="content"><%= feed_post.contenido %></span><br><br>
-	</td>
-
-	<td>
-  		<% if current_user.administrador?(current_comunidad) or current_user.system_admin? or feed_post.writer?(current_user) %>				
-			<div class="btn-group pull-right">
-				<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
-					<i class="icon-cog"></i>
-				</a>
-				<ul class="dropdown-menu">
-					<li><%= link_to 'Editar', edit_post_path(feed_post) %></li>
-					<li><%= link_to 'Eliminar', feed_post, confirm: 'Estas seguro de eliminar?', :method => :delete %></li>
-				</ul>
-			</div>
-		<% end %>
-	</td>	
-	</div>
-</tr>
+	<tr id="<%= feed_post.id %>" class="feed-post" >
+			<td style="width: 18px;">
+				<i class="icono16">
+		            <%= image_tag("icons/fatcow_icons/16x16/note.png", :alt => "Nota") %></i>&nbsp;
+			</td>
+			<td>
+				<div class="post-title">
+					<h4><%= l feed_post.created_at, :format => :long %></h4>
+					<% if !feed_post.titulo.nil? %>
+						<small class="small-indicator">Asunto: <%= feed_post.titulo %></small>
+						<br>
+					<% end %>
+					<small class="small-indicator">Escrito por <%= link_to feed_post.usuario.nombre, feed_post.usuario %>
+						<% if feed_post.usuario.administrador?(current_comunidad) %>
+							<span class="label">Administrador</span>
+						<% end %>
+					</small>
+					<% if current_user.system_admin? %>
+						<small class="small-indicator">para <%= link_to feed_post.comunidad.nombre, feed_post.comunidad %>
+						</small>
+					<% end %>
+				</div>
+				<div class="post-content">
+			  		<span><%= feed_post.contenido %></span>
+			  	</div>
+			</td>
+			<td>
+		  		<% if current_user.administrador?(current_comunidad) or current_user.system_admin? or feed_post.writer?(current_user) %>				
+					<div class="btn-group pull-right">
+						<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+							<i class="icon-cog"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><%= link_to 'Editar', edit_post_path(feed_post) %></li>
+							<li><%= link_to 'Eliminar', feed_post, confirm: 'Estas seguro de eliminar?', :method => :delete %></li>
+						</ul>
+					</div>
+				<% end %>
+			</td>
+	</tr>

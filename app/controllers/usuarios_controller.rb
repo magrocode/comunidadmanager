@@ -14,6 +14,8 @@ class UsuariosController < ApplicationController
   
   def index
     @comunidad = Comunidad.find(params[:comunidad_id])
+    @sort_model = Usuario 
+    @sort_column = 'email'
     @usuarios = @comunidad.usuarios.paginate(page: params[:page], per_page: 10).order(sort_column + " " + sort_direction)
   end
   
@@ -73,10 +75,11 @@ class UsuariosController < ApplicationController
   def unidades_autorizadas
     @usuario = Usuario.find(params[:id])
     @comunidad = current_comunidad
-    @unidads = @usuario.unidades_autorizadas.paginate(page: params[:page], per_page: 10)
+    @sort_model = Unidad
+    @sort_column = 'identificador' 
+    @unidads = @usuario.unidades_autorizadas.paginate(page: params[:page], per_page: 10).order(sort_column + " " + sort_direction)
     render 'show_unidades_autorizadas'
   end
-
 
   private
   
@@ -116,7 +119,7 @@ class UsuariosController < ApplicationController
     end
     
     def sort_column
-      Usuario.column_names.include?(params[:sort]) ? params[:sort] : "email"
+      @sort_model.column_names.include?(params[:sort]) ? params[:sort] : @sort_column
     end
     
     def sort_direction

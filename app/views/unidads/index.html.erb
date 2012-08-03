@@ -5,20 +5,24 @@
 	</div>
 	<div class="span10">
 		<div class="content-wrapper">
-			<!-- informacion del perfil -->
-			<%= render 'unidads_header' %>
-
-			<div class="row-fluid">
-				<!-- columna de contenidos -->
-				<div class="span12">
-					<%= render 'unidads' %>
+			<div class="profile-header">
+				<!-- informacion del perfil -->
+				<%= render 'unidads_header' %>
+			</div>
+			<div class="content">
+				<div class="row-fluid">
+					<!-- columna de contenidos -->
+					<div class="span12">
+						<%= render 'unidads' %>
+					</div>
+					<!-- columna de modulos right -->
+					<!-- <div class="span3  right-module-col">
+						<%= #render 'unidads_module_col' 
+						%>
+					</div>
+					-->
 				</div>
-				<!-- columna de modulos right -->
-				<!-- <div class="span3  right-module-col">
-					<%= #render 'unidads_module_col' 
-					%>
-				</div>
-				-->
+				<div class="clear">
 			</div>
 		</div>		
 	</div>

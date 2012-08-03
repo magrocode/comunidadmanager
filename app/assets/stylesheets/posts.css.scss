@@ -2,12 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-table .tr-post {
-	padding-top: 20px;
+.posts-on-board {
+	padding-top: 0px;
 	padding-bottom: 20px;
+}
 
+.feed-post {
+	margin-bottom: 50px;
 }
 
 .text-post {
 	margin-bottom: 5px;
+}
+
+.post-content {
+	padding: 0px 5px 5px 0px;
+	margin-top: 10px;
+}
+
+.post-title {
+	h4 {
+		color: #555;
+	}
 }

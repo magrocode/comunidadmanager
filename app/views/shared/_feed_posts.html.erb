@@ -1,6 +1,9 @@
 <% if @feed_posts.any? %>
-	<table class="table">
-    	<%= render partial: 'shared/feed_post', collection: @feed_posts %>
-  	</table>
-  	<%= will_paginate @feed_posts %>
+	<div class="posts-on-board">
+		<table class="table">
+	    	<%= render partial: 'shared/feed_post', collection: @feed_posts %>
+	  	</table>
+	  	<%= will_paginate @feed_posts %>
+	  	<div class="clear"></div>
+	</div>
 <% end %>
