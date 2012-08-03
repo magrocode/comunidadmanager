@@ -1,17 +1,17 @@
-<div class="row-fluid">
+<!-- <div class="row-fluid">
 	<div class="span6">
 		<span><h3><%= @comunidad.usuarios.count %> <small>Usuarios</small> &nbsp;</h3></span>
 		<span><h3><%= @comunidad.administradores.size %> <small>Administradores</small></h3></span>
 	</div>	
-</div><br />
+</div><br /> -->
 <div class="row-fluid">
 	<div class="span12">
-		<strong>
-			Ordenar los usuarios por
+		<p>
+			Ordenar los usuarios por:<br>
 			<%= sortable "email" %>,
 			<%= sortable "nombre" %>,
 			<%= sortable "administrador" %>
-		</strong>
+		</p>
 	</div>
 </div><br />
 <div class="row-fluid">
