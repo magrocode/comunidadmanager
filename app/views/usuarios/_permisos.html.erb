@@ -1,0 +1,43 @@
+<div class="row-fluid">
+   		<%= #will_paginate 
+   		%>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Comunidad</th>
+					<th>Administrador?</th>
+					<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
+						<th></th>
+					<% end %>
+				</tr>				
+			</thead>
+			<% @permisos.each do |permiso| %>
+					<tr>
+						<td>
+							<%= permiso.comunidad.nombre %>
+						</td>
+						<td>
+							<%= permiso.administrador %>
+							<%= permiso.id %>
+						</td>
+						<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
+							<td>
+								<div class="btn-group">
+								<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+							    	<i class="icon-cog"></i>
+							    	<span class="caret"></span>
+							  	</a>
+							  	<ul class="dropdown-menu">
+							    	<li>
+							    		<%= link_to 'Desautorizar', @usuario.relacion_comunidad_usuarios.find_by_id(permiso.id), :method => :delete %>
+							    	</li>
+							  	</ul>
+							</div>
+							</td>
+						<% end %>
+					</tr>
+			<% end %>
+		</table>
+		<%= #will_paginate 
+		%>
+</div>

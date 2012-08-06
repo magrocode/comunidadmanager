@@ -1,4 +1,5 @@
 class RelacionComunidadUsuario < ActiveRecord::Base
+	attr_accessible :comunidad_id, :usuario_id
 
 	belongs_to :comunidad 
 	belongs_to :usuario 

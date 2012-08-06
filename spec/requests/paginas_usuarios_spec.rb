@@ -6,9 +6,12 @@ describe "Paginas de Usuarios" do
   
   let(:comunidad) { FactoryGirl.create(:comunidad) }
   let(:usuario_admin) { FactoryGirl.create(:usuario_admin) }
+  let(:usuario) { FactoryGirl.create(:usuario) }
+
   before do
     comunidad.autorizar_usuario!(usuario_admin)
     comunidad.autorizar_administrador!(usuario_admin)
+    comunidad.autorizar_usuario!(usuario)
     sign_in usuario_admin 
   end
   
@@ -51,9 +54,7 @@ describe "Paginas de Usuarios" do
     end
     
     describe "por usuario no admin" do
-      let(:usuario) { FactoryGirl.create(:usuario) }
       before do 
-         comunidad.autorizar_usuario!(usuario)
          sign_in usuario
          visit new_comunidad_usuario_path(comunidad)
       end
@@ -67,9 +68,7 @@ describe "Paginas de Usuarios" do
     #before { visit edit_usuario_path(usuario) }
     
     describe "por usuario no administrador" do
-      let(:usuario) { FactoryGirl.create(:usuario) }
       before do
-        comunidad.autorizar_usuario!(usuario)
         sign_in usuario
       end
       
@@ -107,6 +106,15 @@ describe "Paginas de Usuarios" do
         end
       end 
     end
+  end
+
+  describe "Viendo permisos en esta comunidad" do
+    before do
+      sign_in usuario
+      visit permisos_usuario_path(usuario)
+    end
+
+    it { should have_selector('h2', text: 'Permisos de usuario') }
   end
   
 end

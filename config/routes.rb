@@ -10,6 +10,7 @@ Comunidadmanager::Application.routes.draw do
     resources :usuarios do
       member do
         get :unidades_autorizadas
+        get :permisos
       end
     end
 
@@ -23,18 +24,20 @@ Comunidadmanager::Application.routes.draw do
     resources :posts, only: [:create, :destroy, :edit, :update]
   
     resources :comunidads do
-        member do
-          put :desactivar
-          put :activar
-          put :seleccionar
-        end
-          resources :unidads
-          resources :tipounidads
-          resources :usuarios
-          resources :posts
+      member do
+        put :desactivar
+        put :activar
+        put :seleccionar
+      end
+        
+      resources :unidads
+      resources :tipounidads
+      resources :usuarios
+      resources :posts
     end
 
     resources :sessions,                  only: [:new, :create, :destroy]
+    resources :relacion_comunidad_usuarios,  only: [:create, :destroy]
     resources :relacion_unidads,          only: [:create, :destroy]
     resources :relacion_usuario_unidads,  only: [:create, :destroy]
 

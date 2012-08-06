@@ -81,6 +81,13 @@ class UsuariosController < ApplicationController
     render 'show_unidades_autorizadas'
   end
 
+  def permisos
+    @usuario = Usuario.find(params[:id])
+    @comunidad = current_comunidad
+    @permisos = @usuario.relacion_comunidad_usuarios.paginate(page: params[:page], per_page: 10)
+    render 'show_permisos'
+  end
+
   private
   
     def signed_in_user

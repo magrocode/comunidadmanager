@@ -1,0 +1,2 @@
+module RelacionComunidadUsuariosHelper
+end
