@@ -1,14 +1,14 @@
 <div class="row-fluid">
 	<div class="span12">
 		<p>
-			Ordenar las unidades por:</br>
-			<%= sortable "identificador" %>
-			<%= sortable "tipounidad_id", "Tipo" %>
-			<%= sortable "participacion" %>	 
+			Ordenar unidades por:
+			<%= sortable "identificador" %>&nbsp;
+			<%= sortable "tipounidad_id", "Tipo" %>&nbsp;
+			<%= sortable "participacion" %>&nbsp;
 			<%= sortable "superficie" %>
 		</p>
 	</div>
-</div><br /><br />
+</div><br />
 <div class="row-fluid">
    		<%= will_paginate %>
 		<table class="table">

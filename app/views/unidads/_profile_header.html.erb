@@ -8,13 +8,6 @@
 						<% if !@unidad.tipounidad.nil? %>
 							<span class="label"><%= @unidad.tipounidad.nombre %></span><br />
 						<% end %>
-
-						<% if @current_user.administrador?(current_comunidad) %>
-						<br />
-							<small class="small-indicator">
-								<%= link_to 'Editar', edit_unidad_path(@unidad) %>
-							</small>
-						<% end %>
 					</td>
 				</tr>
 			</table>

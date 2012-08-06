@@ -27,18 +27,5 @@
     	</small>
       </span>
     </li>
-    <% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
-        <br />
-        <li class="menu-spacer">
-          <span>   
-            <i class="icono16">
-              <%= image_tag("icons/fatcow_icons/16x16/house.png", :alt => "Unidades") %></i>&nbsp;     
-            <%= link_to 'Viviendas', comunidad_unidads_path(@comunidad) %>
-            <small class="small-indicator">
-              <%= pluralize(@comunidad.unidads.count, "unidad", "unidades") %>
-          </small>
-          </span>
-        </li>    
-    <% end %>
   </ul>
 </div>

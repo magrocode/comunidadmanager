@@ -1,6 +1,6 @@
 <div class="profile-content">	
 	<div class="row-fluid">
-		<div class="span5 profile-info">
+		<div class="span6 profile-info">
 			<table class="unstyled">
 				<tr>
 					<td class="align-top">
@@ -8,12 +8,9 @@
 					</td>
 					<td class="align-top">
 						<h1><%= @usuario.nombre %></h1>
-						<% if @comunidad.administrador?(@usuario) %>
+						<% if 	@comunidad.administrador?(@usuario) %>
 							<span class="label">Administrador</span><br />
 						<% end %>
-						<% if @current_user.administrador?(current_comunidad) or @current_user.system_admin? %>
-							<small class="small-indicator"><%= link_to 'Editar', edit_usuario_path(@usuario) %>	</small>
-						<% end %>	
 					</td>
 				</tr>
 			</table>
@@ -22,19 +19,19 @@
 			<ul class="unstyled">
 				<li>								
 					<i class="icono16">
-	            		<%= image_tag("icons/fatcow_icons/16x16/email.png", :alt => "Email") %>
+	            		<%= image_tag("icons/fatcow_icons/16x16/desaturados/email.png", :alt => "Email") %>
 	            	</i>&nbsp;
 					<%= @usuario.email %>
 				</li>
 				<li>
 					<i class="icono16">
-	            		<%= image_tag("icons/fatcow_icons/16x16/twitter_1.png", :alt => "Twitter") %>
+	            		<%= image_tag("icons/fatcow_icons/16x16/desaturados/twitter_1.png", :alt => "Twitter") %>
 	            	</i>&nbsp;
 					<%= @usuario.twitter %>
 				</li>	
 				<li>
 					<i class="icono16">
-	            		<%= image_tag("icons/fatcow_icons/16x16/phone.png", :alt => "Telefono") %>
+	            		<%= image_tag("icons/fatcow_icons/16x16/desaturados/phone.png", :alt => "Telefono") %>
 	            	</i>&nbsp;
 					<%= @usuario.telefono %>
 				</li>

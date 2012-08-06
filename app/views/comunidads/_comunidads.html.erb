@@ -1,16 +1,11 @@
 <div class="row-fluid">
 	<div class="span12">
-		<span><h3><%= @comunidads.size %> <small>Comunidades</small> &nbsp;</h3></span>
-	</div>	
-</div><br />
-<div class="row-fluid">
-	<div class="span12">
-		<strong>
-			Ordenar las comunidades por
-			<%= sortable "nombre" %>,
-			<%= sortable "activa", "Estado" %>,
+		<p>
+			Ordenar comunidades por:
+			<%= sortable "nombre" %>&nbsp;
+			<%= sortable "activa", "Estado" %>&nbsp;
 			<%= sortable "created_at", "Creado en" %>
-		</strong>
+		</p>
 	</div>
 </div><br />
 <div class="row-fluid">

@@ -7,16 +7,15 @@
 <div class="row-fluid">
 	<div class="span12">
 		<p>
-			Ordenar los usuarios por:<br>
-			<%= sortable "email" %>
+			Ordenar usuarios por:
+			<%= sortable "email" %>&nbsp;
 			<%= sortable "nombre" %>
 		</p>
 	</div>
 </div><br />
 <div class="row-fluid">
 	<div class="span12">
-		
-		<%= will_paginate 	%>
+		<%= will_paginate %>
 		<table class="table">
 					
 		<% @usuarios.each do |usuario| %>

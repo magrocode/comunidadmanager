@@ -1,4 +1,7 @@
-<div class="row-fluid">
-	<%= #render 'moduloxxx' 
-	%>
+<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
+<div class="edit-it">
+	<div class="row-fluid">
+		<%= link_to 'Editar esta persona', edit_usuario_path(@usuario) %>
+	</div>	
 </div>
+<% end %>

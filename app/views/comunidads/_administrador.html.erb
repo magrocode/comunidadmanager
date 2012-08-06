@@ -1,20 +1,16 @@
-<div class="span12">
-	<div class="module-header">
-		<h3>Informacion del administrador</h3>
-	</div>
+<div>
 	<table class="unstyled" id="tabla-usuarios-admin">
 		<% @comunidad.administradores.limit(2).each do |admin| %>
 		<tr>
 			<td>
-				<%= gravatar_for admin.usuario, size: 35 %>
+				<%= gravatar_for admin.usuario, size: 45 %>
 			</td>
 			<td>
-				<strong>
-					<%= link_to admin.usuario.nombre, admin.usuario %>
-				</strong><br />
-				<%= admin.usuario.email %><br/>
+				<%= link_to admin.usuario.nombre, admin.usuario %>
+				<br />
+				<%= link_to admin.usuario.email, 'mailto:'+admin.usuario.email %><br/>
 				<small class="small-indicator">
-					<%= admin.usuario.telefono %><br />
+					<%= admin.usuario.telefono %>&nbsp;
 					<%= admin.usuario.twitter %>
 				</small><br />
 			</td>

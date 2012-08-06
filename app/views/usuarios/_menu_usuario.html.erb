@@ -1,4 +1,4 @@
-<div>
+<div class="menu-layout">
   <ul class="nav-list-m unstyled">
   	<li class="menu-spacer">
       <span>
@@ -17,18 +17,5 @@
     	</small>
       </span>
     </li>  
-    <% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
-        <br />
-        <li class="menu-spacer">
-          <span> 
-            <i class="icono16">
-              <%= image_tag("icons/fatcow_icons/16x16/group.png", :alt => "Usuarios") %></i>&nbsp;       
-            <%= link_to 'Usuarios', comunidad_usuarios_path(@comunidad) %>
-            <small class="small-indicator">
-              <%= pluralize(@comunidad.usuarios.size, "persona", "personas") %>
-          </small>
-          </span>
-        </li>    
-    <% end %>
   </ul>
 </div>

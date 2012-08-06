@@ -1,3 +1,17 @@
-<div class="row-fluid">
-	<%= render 'administrador' %>
+<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
+<div class="edit-it">
+	<div class="row-fluid">
+		<%= link_to 'Editar esta comunidad', edit_comunidad_path(@comunidad) %>
+	</div>	
+</div>
+<% end %>
+<div class="module-header">
+	<div class="row-fluid">
+		<h3>Contacto administrador</h3>
+	</div>
+</div>
+<div class="module-body">
+	<div class="row-fluid">
+		<%= render 'administrador' %>
+	</div>
 </div>

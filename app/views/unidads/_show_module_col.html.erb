@@ -1,0 +1,7 @@
+<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
+<div class="edit-it">
+	<div class="row-fluid">
+		<%= link_to 'Editar esta unidad', edit_unidad_path(@unidad) %>
+	</div>	
+</div>
+<% end %>

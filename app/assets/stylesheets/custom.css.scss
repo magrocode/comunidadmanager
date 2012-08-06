@@ -330,6 +330,11 @@ table .align-top {
 }
 
 /* span menu */
+
+.menu-layout {
+  padding-top: 15px;
+}
+
 .menu-spacer   {
   line-height: 1.7;
   padding: 2px;
@@ -339,8 +344,8 @@ table .align-top {
   clear: both;
 
   a {
-    color: #6E6E6E;
-    font-weight: bolder;
+    color: #555;
+    font-weight: normal;
   }
 }
 

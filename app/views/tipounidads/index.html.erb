@@ -1,16 +1,19 @@
 <% provide(:titulo, 'Tipos de unidad') %>
 <div class="row-fluid">
 	<div class="span2">
-		<%= render 'comunidads/navbar_configuracion' %>
+		<%= render 'comunidads/menu_comunidad' %>
 	</div>
 	<div class="span10">
 		<div class="content-wrapper">
-			<!-- header -->
-			<%= render 'tipounidads_header' %>
-
-			<div class="row-fluid">
-				<div class="span12">
-					<%= render 'tipounidads' %>
+			<div class="profile-header">
+				<!-- header -->
+				<%= render 'tipounidads_header' %>
+			</div>
+			<div class="content">
+				<div class="row-fluid">
+					<div class="span12">
+						<%= render 'tipounidads' %>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,26 +1,31 @@
 <% provide(:titulo, @unidad.identificador) %>
 <div class="row-fluid">
-	<div class="span2">
+	<div class="side-left">
 		<%= render 'menu_unidad' %>
 	</div>
-	<div class="span10">
-		<div class="content-wrapper">
-			<div class="profile-header">
-				<!-- informacion del perfil -->
-				<%= render 'profile_header' %>
-			</div>
-			<div class="content">
-				<div class="row-fluid">
-					<!-- columna de contenidos -->
-					<div class="span9">
-						<%= #render '' 
-						%>
+	<div class="content-layout">
+		<div class="content-wrapper party">
+			<div class="two_columns_page_layout clearfix">
+				<div class="primary">
+					<div class="profile-header">
+						<%= render 'profile_header' %>
 					</div>
-					<!-- columna de modulos right -->
-					<div class="span3 right-module-col">
+					<div class="content">
+						<div class="row-fluid">
+							<!-- columna de contenidos -->
+							<div class="span12">
+								<%= #render '' 
+								%>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="sidebar">
+					<div class="row-fluid">
 						<%= render 'show_module_col' %>
 					</div>
 				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
 	</div>
