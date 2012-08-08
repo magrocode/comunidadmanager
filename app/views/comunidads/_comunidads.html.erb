@@ -35,12 +35,10 @@
 					</strong> 
 				</td>
 				<td>
-					<%= link_to pluralize(comunidad.unidads.size, 'unidad', 'unidades'), 
-					comunidad_unidads_path(comunidad) %>
+					<%= pluralize(comunidad.unidads.size, 'unidad', 'unidades') %>
 				</td>
 				<td>
-					<%= link_to pluralize(comunidad.usuarios.size, 'persona', 'personas'),
-					comunidad_usuarios_path(comunidad) %>
+					<%= pluralize(comunidad.usuarios.size, 'persona', 'personas') %>
 				</td>
 				<td>
 					<%= l comunidad.created_at, format: :long %>

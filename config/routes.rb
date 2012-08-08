@@ -37,7 +37,7 @@ Comunidadmanager::Application.routes.draw do
     end
 
     resources :sessions,                  only: [:new, :create, :destroy]
-    resources :relacion_comunidad_usuarios,  only: [:create, :destroy]
+    resources :relacion_comunidad_usuarios,  only: [:create, :destroy, :update]
     resources :relacion_unidads,          only: [:create, :destroy]
     resources :relacion_usuario_unidads,  only: [:create, :destroy]
 

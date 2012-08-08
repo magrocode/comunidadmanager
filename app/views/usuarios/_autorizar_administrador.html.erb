@@ -1,0 +1,5 @@
+<%= form_for usuario.relacion_comunidad_usuarios.find_by_comunidad_id(current_comunidad.id), html: { class: "form_in_table", id: "form_#{usuario.id}"} do |f| %>
+  <div>
+  	<%= f.check_box :administrador, { class: "checkbox", :onclick => "$('form_#{usuario.id}').submit();" } %> Administrador
+  </div>
+<% end %>

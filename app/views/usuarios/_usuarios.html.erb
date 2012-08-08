@@ -27,15 +27,15 @@
 					<strong>
 						<%= link_to usuario.nombre, usuario %>
 					</strong>
-					<% if usuario.administrador?(@comunidad) %>
-						<span class="label">Administrador</span>
-					<% end %>
 					<br />
 					<small class="small-indicator">
 						<%= usuario.email %>, 
 						<%= usuario.telefono %>, 
 						<%= usuario.twitter %>
 					</small>
+				</td>
+				<td>
+					<%= render 'usuarios_form_permisos', usuario: usuario %>
 				</td>
 				<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
 					<td class="ar">
