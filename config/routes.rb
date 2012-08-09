@@ -10,7 +10,6 @@ Comunidadmanager::Application.routes.draw do
     resources :usuarios do
       member do
         get :unidades_autorizadas
-        get :permisos
       end
     end
 

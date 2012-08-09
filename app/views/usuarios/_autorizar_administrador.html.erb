@@ -1,5 +1,12 @@
-<%= form_for usuario.relacion_comunidad_usuarios.find_by_comunidad_id(current_comunidad.id), html: { class: "form_in_table", id: "form_#{usuario.id}"} do |f| %>
+<%= form_for usuario.relacion_comunidad_usuarios.find_by_comunidad_id(current_comunidad.id), html: { class: "form_in_table", id: "form_#{usuario.id}"}, remote: true do |f| %>
   <div>
-  	<%= f.check_box :administrador, { class: "checkbox", :onclick => "$('form_#{usuario.id}').submit();" } %> Administrador
+  	<%= f.hidden_field :id %>
+  	<%= f.hidden_field :comunidad_id %>
+  	<%= f.hidden_field :usuario_id %>
+  	<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
+  		<%= f.check_box :administrador, { class: "checkbox", :onclick => "form_#{usuario.id}.submit();" } %> Administrador
+  	<% else %>
+  		<%= f.check_box :administrador, { class: "checkbox", disabled: true } %> Administrador
+  	<% end %>
   </div>
 <% end %>

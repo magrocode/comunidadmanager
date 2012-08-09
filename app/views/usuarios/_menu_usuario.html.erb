@@ -16,13 +16,6 @@
     			<%= pluralize(@usuario.unidades_autorizadas.size, "unidad", "unidades") %>
     	</small>
       </span>
-    </li>  
-    <li class="menu-spacer">
-      <span>
-        <i class="icono16">
-            <%= image_tag("icons/fatcow_icons/16x16/shield.png", :alt => "Permisos") %></i>&nbsp;
-        <%= link_to 'Permisos', permisos_usuario_path(@usuario) %>
-      </span>
-    </li>  
+    </li>   
   </ul>
 </div>
