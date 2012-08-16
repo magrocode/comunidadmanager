@@ -1,4 +1,5 @@
 <% provide(:titulo, 'Usuarios') %>
+
 <div class="row-fluid">
 	<div class="side-left">
 		<%= render 'comunidads/menu_comunidad' %>
@@ -20,3 +21,32 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+      $(function () {
+        /*$('#link_genial').click(function () {
+          alert('Destinado al exito!');
+          return false;
+        })*/
+
+        $('.checkeable').click(function () {
+        	var formulario = "#form_admin_" + this.getAttribute('id').split("_")[1];
+        	$(formulario).submit();        	
+        	//alert('Un peldaño mas ' + formulario);     
+        	return true;
+        })
+
+        $('.form_in_table').submit(function() {
+		  
+		    $.ajax({
+		    type: this.method,
+		    url: this.action,
+		    data: $(this).serialize(),
+		    success: function(){
+		      //alert('Directo al exito!');
+		    }
+		    });
+		  return false;
+		});
+      });
+</script>

@@ -10,6 +10,8 @@ Comunidadmanager::Application.routes.draw do
     resources :usuarios do
       member do
         get :unidades_autorizadas
+        put :autorizar_administrador
+        put :desautorizar_administrador
       end
     end
 
@@ -27,6 +29,8 @@ Comunidadmanager::Application.routes.draw do
         put :desactivar
         put :activar
         put :seleccionar
+        put :autorizar_administrador
+        put :desautorizar_administrador
       end
         
       resources :unidads
@@ -36,7 +40,7 @@ Comunidadmanager::Application.routes.draw do
     end
 
     resources :sessions,                  only: [:new, :create, :destroy]
-    resources :relacion_comunidad_usuarios,  only: [:create, :destroy, :update]
+    resources :relacion_comunidad_usuarios,  only: [:create, :destroy, :update, :autorizar_administrador]
     resources :relacion_unidads,          only: [:create, :destroy]
     resources :relacion_usuario_unidads,  only: [:create, :destroy]
 

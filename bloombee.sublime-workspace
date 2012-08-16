@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"get",
+				"getAttribute"
+			],
+			[
+				"che",
+				"checkeable"
+			],
+			[
+				"to",
+				"togglePath"
+			],
+			[
+				"ch",
+				"checkeable"
+			],
+			[
+				"autori",
+				"autorizar_administrador"
+			],
+			[
+				"s",
+				"script	Tag"
+			],
+			[
 				"sub",
 				"submit"
 			],
@@ -90,10 +114,6 @@
 			[
 				"comun",
 				"comunidad_a"
-			],
-			[
-				"autori",
-				"autorizar_usuario"
 			],
 			[
 				"otro",
@@ -360,48 +380,7 @@
 			"file": "app/views/usuarios/index.html.erb",
 			"settings":
 			{
-				"buffer_size": 516,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/usuarios_controller.rb",
-			"settings":
-			{
-				"buffer_size": 4946,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/relacion_usuario_unidads_controller.rb",
-			"settings":
-			{
-				"buffer_size": 899,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/relacion_comunidad_usuarios_controller.rb",
-			"settings":
-			{
-				"buffer_size": 946,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/relacion_comunidad_usuarios/update.js.erb",
-			"settings":
-			{
-				"buffer_size": 96,
-				"line_ending": "Unix",
-				"name": "$(\"#follow_form\").html(\"<%= escape_javascript(rend"
-			}
-		},
-		{
-			"file": "app/views/usuarios/_usuarios.html.erb",
-			"settings":
-			{
-				"buffer_size": 2268,
+				"buffer_size": 1233,
 				"line_ending": "Unix"
 			}
 		},
@@ -409,7 +388,7 @@
 			"file": "app/views/usuarios/_usuarios_form_permisos.html.erb",
 			"settings":
 			{
-				"buffer_size": 232,
+				"buffer_size": 583,
 				"line_ending": "Unix"
 			}
 		},
@@ -417,7 +396,7 @@
 			"file": "app/views/usuarios/_autorizar_administrador.html.erb",
 			"settings":
 			{
-				"buffer_size": 668,
+				"buffer_size": 658,
 				"line_ending": "Unix"
 			}
 		},
@@ -425,7 +404,7 @@
 			"file": "app/views/usuarios/index.js.erb",
 			"settings":
 			{
-				"buffer_size": 67,
+				"buffer_size": 0,
 				"line_ending": "Unix",
 				"name": "index.js.erb"
 			}
@@ -434,7 +413,15 @@
 			"file": "app/views/layouts/application.html.erb",
 			"settings":
 			{
-				"buffer_size": 1054,
+				"buffer_size": 1012,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/comunidads/_comunidads.html.erb",
+			"settings":
+			{
+				"buffer_size": 2067,
 				"line_ending": "Unix"
 			}
 		}
@@ -467,22 +454,31 @@
 	},
 	"file_history":
 	[
-		"/home/codelious/railsprojects/comunidadmanager/app/controllers/relacion_usuario_unidads_controller.rb",
-		"/home/codelious/railsprojects/comunidadmanager/app/views/unidads/_desvincular.html.erb",
+		"/home/codelious/railsprojects/comunidadmanager/app/controllers/relacion_comunidad_usuarios_controller.rb",
+		"/home/codelious/railsprojects/comunidadmanager/app/models/comunidad.rb",
+		"/home/codelious/railsprojects/comunidadmanager/app/controllers/comunidads_controller.rb",
+		"/home/codelious/railsprojects/comunidadmanager/app/controllers/usuarios_controller.rb",
+		"/home/codelious/railsprojects/comunidadmanager/config/routes.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_usuarios.html.erb",
+		"/home/codelious/railsprojects/comunidadmanager/app/assets/javascripts/usuarios.js.coffee",
+		"/home/codelious/railsprojects/comunidadmanager/public/javascripts/usuarios/index.js",
+		"/home/codelious/railsprojects/comunidadmanager/public/js/usuarios/index.js",
+		"/home/codelious/railsprojects/comunidadmanager/app/assets/javascripts/application.js",
+		"/home/codelious/railsprojects/comunidadmanager/app/views/layouts/application.html.erb",
+		"/home/codelious/railsprojects/comunidadmanager/app/controllers/relacion_usuario_unidads_controller.rb",
+		"/home/codelious/railsprojects/comunidadmanager/app/views/relacion_comunidad_usuarios/update.js.erb",
+		"/home/codelious/railsprojects/episode-205/store/app/views/products/index.html.erb",
+		"/home/codelious/railsprojects/episode-205/store/app/views/products/index.js.erb",
+		"/home/codelious/railsprojects/comunidadmanager/app/views/unidads/_desvincular.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_usuarios_form_permisos.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_autorizar_administrador.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/unidads/_vincular_form.html.erb",
-		"/home/codelious/railsprojects/comunidadmanager/app/controllers/relacion_comunidad_usuarios_controller.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/models/relacion_comunidad_usuario.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_permisos.html.erb",
-		"/home/codelious/railsprojects/comunidadmanager/app/controllers/usuarios_controller.rb",
-		"/home/codelious/railsprojects/comunidadmanager/config/routes.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_menu_usuario.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_form.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/relacion_unidads/destroy.js.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/assets/javascripts/relacion_comunidad_usuarios.js.coffee",
-		"/home/codelious/railsprojects/comunidadmanager/app/assets/javascripts/usuarios.js.coffee",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/comunidads/_comunidads.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_profile_header.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/show.html.erb",
@@ -542,9 +538,7 @@
 		"/home/codelious/railsprojects/comunidadmanager/spec/requests/paginas_unidad_spec.rb",
 		"/home/codelious/railsprojects/comunidadmanager/spec/requests/paginas_tipounidads_spec.rb",
 		"/home/codelious/railsprojects/comunidadmanager/spec/requests/paginas_autenticacions_spec.rb",
-		"/home/codelious/railsprojects/comunidadmanager/app/controllers/comunidads_controller.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/models/usuario.rb",
-		"/home/codelious/railsprojects/comunidadmanager/app/models/comunidad.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/assets/stylesheets/comunidads.css.scss",
 		"/home/codelious/railsprojects/comunidadmanager/app/assets/javascripts/posts.js.coffee",
 		"/home/codelious/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
@@ -557,7 +551,6 @@
 		"/home/codelious/railsprojects/comunidadmanager/app/views/unidads/_unidads.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/comunidads/_navbar_configuracion.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/comunidads/_form_edit.html.erb",
-		"/home/codelious/railsprojects/comunidadmanager/app/views/layouts/application.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/spec/factories.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/unidads/_unidads_header.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/assets/stylesheets/custom-icons.css.scss",
@@ -588,13 +581,7 @@
 		"/home/codelious/railsprojects/comunidadmanager/db/migrate/20120410203153_create_usuarios.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/controllers/posts_controller.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/shared/_post_form.html.erb",
-		"/home/codelious/railsprojects/comunidadmanager/app/assets/stylesheets/posts.css.scss",
-		"/home/codelious/railsprojects/comunidadmanager/app/models/unidad.rb",
-		"/home/codelious/railsprojects/comunidadmanager/spec/models/post_spec.rb",
-		"/home/codelious/railsprojects/comunidadmanager/app/views/unidads/_form.html.erb",
-		"/home/codelious/railsprojects/comunidadmanager/app/models/post.rb",
-		"/home/codelious/railsprojects/comunidadmanager/app/views/posts/_form.html.erb",
-		"/home/codelious/railsprojects/comunidadmanager/app/views/comunidads/_notas.html.erb"
+		"/home/codelious/railsprojects/comunidadmanager/app/assets/stylesheets/posts.css.scss"
 	],
 	"find":
 	{
@@ -613,6 +600,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			").",
 			"content-wrapper",
 			"span5",
 			"control",
@@ -677,7 +665,7 @@
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -692,17 +680,18 @@
 						"selection":
 						[
 							[
-								290,
-								290
+								157,
+								157
 							]
 						],
 						"settings":
 						{
 							"auto_name": "prueba_ajax.html",
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 135.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -712,15 +701,15 @@
 					"file": "app/views/usuarios/index.html.erb",
 					"settings":
 					{
-						"buffer_size": 516,
+						"buffer_size": 1233,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								35,
-								35
+								1213,
+								1213
 							]
 						],
 						"settings":
@@ -729,163 +718,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 135.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "app/controllers/usuarios_controller.rb",
-					"settings":
-					{
-						"buffer_size": 4946,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								726,
-								726
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 90.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/controllers/relacion_usuario_unidads_controller.rb",
-					"settings":
-					{
-						"buffer_size": 899,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								888,
-								888
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/controllers/relacion_comunidad_usuarios_controller.rb",
-					"settings":
-					{
-						"buffer_size": 946,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								917,
-								917
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/views/relacion_comunidad_usuarios/update.js.erb",
-					"settings":
-					{
-						"buffer_size": 96,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								17,
-								17
-							]
-						],
-						"settings":
-						{
-							"auto_name": "$(\"#follow_form\").html(\"<%= escape_javascript(rend",
-							"syntax": "Packages/Rails/JavaScript (Rails).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/views/usuarios/_usuarios.html.erb",
-					"settings":
-					{
-						"buffer_size": 2268,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								934,
-								934
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 405.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
 					"file": "app/views/usuarios/_usuarios_form_permisos.html.erb",
 					"settings":
 					{
-						"buffer_size": 232,
+						"buffer_size": 583,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10,
-								10
+								574,
+								574
 							]
 						],
 						"settings":
@@ -899,19 +750,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 3,
 					"file": "app/views/usuarios/_autorizar_administrador.html.erb",
 					"settings":
 					{
-						"buffer_size": 668,
+						"buffer_size": 658,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								137,
-								137
+								109,
+								109
 							]
 						],
 						"settings":
@@ -929,29 +780,31 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 9,
+					"buffer": 4,
 					"file": "app/views/usuarios/index.js.erb",
 					"settings":
 					{
-						"buffer_size": 67,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								63,
-								63
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"auto_name": "index.js.erb",
-							"syntax": "Packages/Rails/JavaScript (Rails).tmLanguage"
+							"syntax": "Packages/Rails/JavaScript (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -960,19 +813,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 5,
 					"file": "app/views/layouts/application.html.erb",
 					"settings":
 					{
-						"buffer_size": 1054,
+						"buffer_size": 1012,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								304,
-								304
+								1003,
+								1003
 							]
 						],
 						"settings":
@@ -981,6 +834,33 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/views/comunidads/_comunidads.html.erb",
+					"settings":
+					{
+						"buffer_size": 2067,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1809,
+								1809
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1021,7 +901,7 @@
 		"rows":
 		[
 			0.0,
-			0.702416918429,
+			0.593655589124,
 			1.0
 		]
 	},
@@ -1051,6 +931,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 352.0,
+	"side_bar_width": 191.0,
 	"status_bar_visible": true
 }

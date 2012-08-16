@@ -1,7 +1,14 @@
 <div class="permisos_form">
 	<% if current_comunidad.administrador?(usuario) %>
-		<%= render 'autorizar_administrador', usuario: usuario %>
+		<%= render 'autorizar_administrador', usuario: usuario 	%>
+		<%= #link_to 'Es Administrador', desautorizar_administrador_usuario_path(usuario), :method => :put 
+		%>
 	<% else %>
 	   	<%= render 'autorizar_administrador', usuario: usuario %>
+	   	<%= #link_to 'No es Administrador', autorizar_administrador_usuario_path(usuario), :method => :put 
+	   	%>
 	<% end %>
+
+	<%= #check_box_tag(dom_id(usuario), value = nil, checked = current_comunidad.administrador?(usuario), class: "checkeable") 
+	%>
 </div>

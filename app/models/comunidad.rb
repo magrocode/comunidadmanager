@@ -71,4 +71,10 @@ class Comunidad < ActiveRecord::Base
     end
   end
 
+  def desautorizar_administrador!(usuario)
+    if relacion_comunidad_usuarios.find_by_usuario_id(usuario.id) != nil
+      relacion_comunidad_usuarios.find_by_usuario_id(usuario.id).update_attribute(:administrador, false)
+    end
+  end
+
 end

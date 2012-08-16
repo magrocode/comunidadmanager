@@ -81,6 +81,20 @@ class UsuariosController < ApplicationController
     render 'show_unidades_autorizadas'
   end
 
+  def autorizar_administrador
+    @usuario = Usuario.find(params[:id])
+    @comunidad = current_comunidad
+    @comunidad.autorizar_administrador!(@usuario)
+    redirect_to comunidad_usuarios_path(@comunidad)
+  end
+
+  def desautorizar_administrador
+    @usuario = Usuario.find(params[:id])
+    @comunidad = current_comunidad
+    @comunidad.desautorizar_administrador!(@usuario)
+    redirect_to comunidad_usuarios_path(@comunidad)
+  end
+
   private
   
     def signed_in_user

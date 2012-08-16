@@ -1,13 +1,12 @@
-<%= form_for usuario.relacion_comunidad_usuarios.find_by_comunidad_id(current_comunidad.id),:url => { :action => "autorizar_administrador" }, html: { class: "form_in_table", id: "form_#{usuario.id}" }, remote: true do |f| %>
+<%= form_for usuario.relacion_comunidad_usuarios.find_by_comunidad_id(current_comunidad.id), html: { class: "form_in_table", id: "form_admin_#{usuario.id}" }, remote: true do |f| %>
   <div>
   	<%= f.hidden_field :id %>
   	<%= f.hidden_field :comunidad_id %>
   	<%= f.hidden_field :usuario_id %>
   	<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
-  		<%= f.check_box :administrador, { class: "checkbox" } %> Administrador
+  		<%= f.check_box :administrador, { id: "usuario_#{usuario.id}",  class: "checkeable" } %> Administrador
   	<% else %>
-  		<%= f.check_box :administrador, { class: "checkbox", disabled: true } %> Administrador
+  		<%= f.check_box :administrador, { id: "usuario_#{usuario.id}", class: "checkeable", disabled: true } %> Administrador
   	<% end %>
-    <%=  f.submit 'Enviar' %>
   </div>
 <% end %>
