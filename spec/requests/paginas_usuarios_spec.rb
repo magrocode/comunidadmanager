@@ -110,11 +110,11 @@ describe "Paginas de Usuarios" do
 
   describe "Viendo permisos en esta comunidad" do
     before do
-      sign_in usuario
-      visit permisos_usuario_path(usuario)
+      sign_in usuario_admin
+      visit comunidad_usuarios_path(comunidad)
     end
 
-    it { should have_selector('h2', text: 'Permisos de usuario') }
+    it { should have_selector('input', text: 'Administrador') }
   end
   
 end

@@ -34,9 +34,15 @@ class Usuario < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :twitter, :telefono, length: { maximum: 50 }
-  validates :password, presence: true, length: { minimum: 6 }, :unless => "password.blank?"
-  validates :password_confirmation, presence: true, length: { minimum: 6 }, :unless => "password_confirmation.blank?"
+
+  validates :password, presence: true, length: { minimum: 6 }, :on => :create
+  validates :password_confirmation, presence: true, length: { minimum: 6 }, :on => :create
+
+  validates :password, presence: true, length: { minimum: 6 }, :unless => "password.blank?", :on => :update
+  validates :password_confirmation, presence: true, length: { minimum: 6 }, :unless => "password_confirmation.blank?", :on => :update
   
+
+
   def feed_posts
     posts
   end

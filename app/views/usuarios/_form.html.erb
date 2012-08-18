@@ -30,7 +30,7 @@
 			</div>
 		</div>
 
-		<% if @usuario.email? %>
+		<% if params[:action] == 'edit' and @usuario.email? %>
 		<div class="control-group">
 			<%= label_tag "Foto de perfil" %>
 			<div class="controls">
@@ -76,12 +76,15 @@
 
 		<div id="password-controls">						
 			<hr />
+			<% if params[:action] == 'edit' %>
 			<div class="control-group">
 				<div class="controls">
-				<span>
-					Dejar en blanco si no desea cambiar su contraseña.
-				</span></div>
+					<span>					
+						Dejar en blanco si no desea cambiar su contraseña.
+					</span>
+				</div>
 			</div>
+			<% end %>
 			<div class="control-group">
 				<%= f.label :password, class: 'control-label' %>
 				<div class="controls">
