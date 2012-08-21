@@ -1,7 +1,11 @@
-<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
+<% if current_user.administrador?(current_comunidad) or current_user.system_admin? or current_user == @usuario %>
 <div class="edit-it">
 	<div class="row-fluid">
-		<%= link_to 'Editar esta persona', edit_usuario_path(@usuario) %>
+		<% if current_user == @usuario %>
+			<%= link_to 'Editar mi perfil', edit_usuario_path(@usuario) %>
+		<% else %>
+			<%= link_to 'Editar esta persona', edit_usuario_path(@usuario) %>
+		<% end %>
 	</div>	
 </div>
 <% end %>

@@ -5,28 +5,28 @@
 		<div class="control-group">
 			<%= f.label :email, class: "control-label" %>
 			<div class="controls">
-				<%= f.email_field :email, class: "span6" %>
+				<%= f.email_field :email, class: "span8" %>
 			</div>
 		</div>
 				
 		<div class="control-group">
 			<%= f.label :nombre, class: "control-label" %>
 			<div class="controls">
-				<%= f.text_field :nombre, class: "span6" %>
+				<%= f.text_field :nombre, class: "span8" %>
 			</div>
 		</div>
 
 		<div class="control-group">
 			<%= f.label :twitter, class: "control-label" %>
 			<div class="controls">
-				<%= f.text_field :twitter, class: "span6" %>
+				<%= f.text_field :twitter, class: "span8" %>
 			</div>
 		</div>
 
 		<div class="control-group">
 			<%= f.label :telefono, class: "control-label" %>
 			<div class="controls">
-				<%= f.text_field :telefono, class: "span6" %>
+				<%= f.text_field :telefono, class: "span8" %>
 			</div>
 		</div>
 
@@ -53,7 +53,7 @@
 		<div class="control-group">
 			<%= f.label :lenguaje, class: 'control-label' %>
 			<div class="controls">
-				<%= f.select :lenguaje, [['Español', 'es'], ['Español (Chile)', 'es-CL'], ['English', 'en']], {} , {class: "span6"}  %>
+				<%= f.select :lenguaje, [['Español', 'es'], ['Español (Chile)', 'es-CL'], ['English', 'en']], {} , {class: "span8"}  %>
 			</div>
 		</div>
 
@@ -88,14 +88,14 @@
 			<div class="control-group">
 				<%= f.label :password, class: 'control-label' %>
 				<div class="controls">
-					<%= f.password_field :password, class: "span5" %>
+					<%= f.password_field :password, class: "span6" %>
 				</div>
 			</div>
 		
 			<div class="control-group">
 				<%= f.label :password_confirmation, 'Confirmacion', class: 'control-label' %>
 				<div class="controls">
-					<%= f.password_field :password_confirmation, class: "span5" %>
+					<%= f.password_field :password_confirmation, class: "span6" %>
 				</div>
 			</div>
 		</div>

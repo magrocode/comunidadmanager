@@ -1,0 +1,50 @@
+<div class="row-fluid">
+   		<%= #will_paginate 
+   		%>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Comunidad</th>
+					<th>Unidades</th>
+					<th>Usuarios</th>
+					<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
+						<th></th>
+					<% end %>
+				</tr>				
+			</thead>
+			<% @comunidads.each do |comunidad| %>
+					<tr>
+						<td>
+							<%= link_to comunidad.nombre, seleccionar_comunidad_path(comunidad), :method => :put %><br>
+							<%= comunidad.city %>, <%= comunidad.country %>
+						</td>
+						<td>
+							<%= pluralize(comunidad.unidads.size, 'vivienda', 'viviendas') %>
+						</td>
+						<td>
+							<%= pluralize comunidad.usuarios.size, 'persona', 'personas' %>
+						</td>
+							<td>
+								<div class="btn-group ar">
+								<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+							    	<i class="icon-cog"></i>
+							    	<span class="caret"></span>
+							  	</a>
+							  	<ul class="dropdown-menu">
+							  		<% if current_user.system_admin? %>
+							    	<li>
+							    		<%= link_to 'Desautorizar', @usuario.relacion_comunidad_usuarios.find_by_comunidad_id(comunidad.id), :method => :delete %>
+							    	</li>
+							    	<% end %>
+							    	<li>
+							    		<%= link_to 'Usar esta comunidad', seleccionar_comunidad_path(comunidad), :method => :put %>
+							    	</li>
+							  	</ul>
+							</div>
+							</td>
+					</tr>
+			<% end %>
+		</table>
+		<%= #will_paginate 
+		%>
+</div>

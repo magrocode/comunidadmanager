@@ -45,7 +45,7 @@ helper_method :sort_column, :sort_direction
 
 		if @tipounidad.update_attributes(params[:tipounidad])
 			flash[:success] = 'Tipo de unidad actualizado exitosamente!'
-			redirect_to tipounidad_path
+			redirect_to comunidad_tipounidads_path(@comunidad)
 		else
 			render action: 'edit'
 		end

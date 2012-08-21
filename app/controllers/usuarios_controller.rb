@@ -40,7 +40,7 @@ class UsuariosController < ApplicationController
       UsuarioMailer.welcome_email(@usuario).deliver
       flash[:success] = "Usuario creado!"
       redirect_to comunidad_usuarios_path(@comunidad)
-    else
+    else      
       render 'new'
     end
   end
@@ -79,6 +79,12 @@ class UsuariosController < ApplicationController
     @sort_column = 'identificador' 
     @unidads = @usuario.unidades_autorizadas.paginate(page: params[:page], per_page: 10).order(sort_column + " " + sort_direction)
     render 'show_unidades_autorizadas'
+  end
+
+  def comunidades_autorizadas
+    @usuario = Usuario.find(params[:id])
+    @comunidads = @usuario.comunidads 
+    render 'show_comunidades_autorizadas'
   end
 
   def autorizar_administrador

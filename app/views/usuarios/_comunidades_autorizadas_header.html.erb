@@ -1,0 +1,13 @@
+<%= #render 'modal_autorizar_unidades' 
+%>
+<div class="profile-content">	
+	<div class="row-fluid">
+		<div class="span8 profile-simple">
+			<h2>Comunidades autorizadas a <%= @usuario.nombre %></h2>
+		</div>
+		<div class="span4 profile-actions">
+			<% if current_user.system_admin? %>
+			<% end %>
+		</div>
+	</div>
+</div>

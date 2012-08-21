@@ -41,8 +41,9 @@
 						<b class="caret"></b>
 					</a>
 					<ul class="dropdown-menu">
-						<li><%= link_to "Ver mi perfil", current_user %></li>
+						<li><%= link_to "Mi perfil", current_user %></li>
 						<li><%= link_to "Editar mi perfil", edit_usuario_path(current_user) %></li>
+						<li><%= link_to "Mis comunidades", comunidades_autorizadas_usuario_path(current_user) %></li>
 						<li class="divider"></li>
 						<li><%= link_to "Sign out", signout_path, method: "delete"%></li>
 					</ul>
