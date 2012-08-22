@@ -4,32 +4,44 @@
 		<%= render 'comunidads/menu_comunidad' %>
 	</div>
 	<div class="content-layout">
-		<div class="two_simple_columns_page_layout clearfix">
-			<div>
-				<div class="content-wrapper">
+		<div class="">
+			<div class="two_simple_columns_page_layout clearfix">
 					<div class="primary">
-						<div class="profile-header">	
-							<div class="profile-content">
-								<div class="row-fluid">
-									<h2>Crea un nuevo usuario a <%= @comunidad.nombre %></h2>
+						<div class="content-wrapper">
+							<div class="profile-header">	
+								<div class="profile-content">
+									<div class="row-fluid">
+										<h2>Crea un nuevo usuario a <%= @comunidad.nombre %></h2>
+									</div>
 								</div>
 							</div>
-						</div>					
-						<div class="content">
-							<div class="row-fluid">
-								<div class="span12">
-									<%= render 'form' %>
-								</div>
-							</div>						
+							<div class="content">
+								<div class="row-fluid">
+									<div class="span12">
+										<%= render 'form' %>
+									</div>
+								</div>						
 						</div>
+					</div>
 					</div>				
+				<!--
+					<div class="sidebar">
+						<div class="bub-module-wrapper">				
+							<div class="bub-module-header">
+								<div class="row-fluid">
+									<h3>
+										Agregar usuario de otra comunidad?
+									</h3>
+								</div>
+							</div>
+							<div class="bub-module-body">
+								<div class="row-fluid">
+									<p>Nada que decir</p>
+								</div>
+							</div>
+						</div>
+					</div> -->
 					<div class="clear"></div>
-				</div>
-			</div>
-			<div class="sidebar">		
-				<div class="row-fluid">
-					<p>HOLA</p>
-				</div>
 			</div>
 		</div>
 	</div>

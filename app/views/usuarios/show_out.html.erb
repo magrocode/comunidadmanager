@@ -1,0 +1,52 @@
+<% provide(:titulo, @usuario.email) %>
+<div class="row-fluid">
+	<div class="side-left">
+		<%= render 'comunidads/menu_comunidad' %>
+	</div>	
+	<div class="content-layout">
+		<div class="content-wrapper party">		
+			<div class="two_columns_page_layout clearfix">
+					<div class="primary">
+						<div class="profile-header">
+							<%= render 'profile_header' %>
+						</div>
+						<div class="content">
+							<div class="row-fluid">
+								<!-- columna de contenidos -->
+								<div class="span12">
+									<div class="alert alert-info">
+										<button type="button" class="close" data-dismiss="alert">×</button>
+										<strong>Usuario existente!</strong> <%= @usuario.nombre %> ya es un usuario registrado en otra comunidad, abajo puede ver mas informacion de las comunidades en que esta autorizado, si desea autorizarlo en esta comunidad haga clic en el boton autorizar en esta comunidad.
+									</div>
+								</div>
+								<div class="span12">
+									<h4>Comunidades autorizadas a <%= @usuario.nombre %>:</h4>
+									<br>
+
+									<ul>
+										<% @comunidads.each do |comunidad| %>
+											<li><%= comunidad.nombre %></li>
+										<% end %>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sidebar">
+						<div class="row-fluid">
+								<%= #render 'show_module_col' 
+								%>
+								<%= form_for @comunidad.relacion_comunidad_usuarios.build(usuario_id: @usuario.id), html: { class: "form_in_table"} do |f| %>
+  									<%= f.hidden_field :comunidad_id %>
+									<%= f.hidden_field :usuario_id %>
+									
+								  	<%= f.submit "Autorizar en esta comunidad", class: "btn btn-small btn-primary" %>
+								<% end %>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>

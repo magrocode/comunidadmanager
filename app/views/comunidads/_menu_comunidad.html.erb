@@ -12,17 +12,17 @@
   	<li class="menu-spacer">
       <span>
         <i class="icono16">
-            <%= image_tag("icons/fatcow_icons/16x16/building.png", :alt => "#{@comunidad.nombre}") %></i>&nbsp;
-        <%= link_to truncate(@comunidad.nombre, :length => 25), @comunidad %>
+            <%= image_tag("icons/fatcow_icons/16x16/building.png", :alt => "#{current_comunidad.nombre}") %></i>&nbsp;
+        <%= link_to truncate(current_comunidad.nombre, :length => 25), current_comunidad %>
       </span>
     </li>
     <li class="menu-spacer">
       <span>
         <i class="icono16">
             <%= image_tag("icons/fatcow_icons/16x16/group.png", :alt => "Usuarios") %></i>&nbsp;
-        <%= link_to 'Usuarios', comunidad_usuarios_path(@comunidad) %> 
+        <%= link_to 'Usuarios', comunidad_usuarios_path(current_comunidad) %> 
         <small class="small-indicator">
-          <%= pluralize(@comunidad.usuarios.size, "persona", "personas") %>
+          <%= pluralize(current_comunidad.usuarios.size, "persona", "personas") %>
         </small>
       </span>
     </li>
@@ -30,9 +30,9 @@
       <span>
         <i class="icono16">
             <%= image_tag("icons/fatcow_icons/16x16/house.png", :alt => "Viviendas") %></i>&nbsp;
-        <%= link_to 'Viviendas', comunidad_unidads_path(@comunidad) %>
+        <%= link_to 'Viviendas', comunidad_unidads_path(current_comunidad) %>
         <small class="small-indicator">
-          <%= pluralize(@comunidad.unidads.size, "unidad", "unidades") %>
+          <%= pluralize(current_comunidad.unidads.size, "unidad", "unidades") %>
         </small>
       </span>
     </li>

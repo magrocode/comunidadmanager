@@ -9,3 +9,20 @@
 	</div>	
 </div>
 <% end %>
+
+<% if @comunidads.count > 1 %>
+<div class="module-header">
+	<div class="row-fluid">
+		<h3>Comunidades autorizadas</h3>
+	</div>
+</div>
+<div class="module-body">
+	<div class="row-fluid">
+		<ul>
+		<% @comunidads.each do |comunidad| %>
+			<li><%= comunidad.nombre %></li>
+		<% end %>
+		</ul>
+	</div>
+</div>
+<% end %>

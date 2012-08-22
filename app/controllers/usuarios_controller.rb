@@ -6,7 +6,7 @@ class UsuariosController < ApplicationController
   before_filter :correct_user,          :only => [:edit, :update,]
   before_filter :usuario_en_comunidad,  :only => [:show, :unidades_autorizadas]
   
-  before_filter :admin_user,            :only => [:new, :destroy] 
+  before_filter :admin_user,            :only => [:new, :destroy, :show_out, :autorizar_administrador, :desautorizar_administrador] 
   
   after_filter  :signin_after_update,   :only => :update
 
@@ -27,8 +27,16 @@ class UsuariosController < ApplicationController
   def show
     @usuario = Usuario.find(params[:id])
     @comunidad = current_comunidad
+    @comunidads = @usuario.comunidads
     @post = @comunidad.posts.build(usuario_id: @usuario.id)
     @feed_posts = @usuario.feed_posts.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+  end
+
+  def show_out
+    @usuario = Usuario.find(params[:id])
+    @comunidad = current_comunidad
+    @comunidads = @usuario.comunidads
+    render 'show_out'
   end
   
   def create
@@ -40,8 +48,13 @@ class UsuariosController < ApplicationController
       UsuarioMailer.welcome_email(@usuario).deliver
       flash[:success] = "Usuario creado!"
       redirect_to comunidad_usuarios_path(@comunidad)
-    else      
-      render 'new'
+    else
+      @usuario_existente = Usuario.find_by_email(params[:usuario][:email])
+      if @usuario_existente != nil and !@comunidad.usuario_autorizado?(@usuario_existente)
+        redirect_to show_out_usuario_path @usuario_existente
+      else
+        render 'new'
+      end
     end
   end
   
@@ -67,7 +80,12 @@ class UsuariosController < ApplicationController
   def destroy
     @usuario = Usuario.find(params[:id])
     @comunidad = current_comunidad
-    @usuario.destroy
+    @comunidads = @usuario.comunidads
+    if @comunidads.size > 1
+      @relacion_actual = @usuario.relacion_comunidad_usuarios.find_by_comunidad_id(@comunidad.id).destroy
+    else
+      @usuario.destroy
+    end
     flash[:success] = "Usuario eliminado"
     redirect_to comunidad_usuarios_path(@comunidad)
   end

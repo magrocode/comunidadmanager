@@ -11,6 +11,7 @@ Comunidadmanager::Application.routes.draw do
       member do
         get :unidades_autorizadas
         get :comunidades_autorizadas
+        get :show_out
         put :autorizar_administrador
         put :desautorizar_administrador
       end
