@@ -114,7 +114,7 @@ describe "Paginas de Usuarios" do
       visit comunidad_usuarios_path(comunidad)
     end
 
-    it { should have_selector('input', text: 'Administrador') }
+    it { should have_selector('input', id: 'usuario_#{usuario.id}') }
   end
   
 end
