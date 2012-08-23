@@ -395,6 +395,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "db/migrate/20120701035151_create_relacion_comunidad_usuarios.rb",
+			"settings":
+			{
+				"buffer_size": 544,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -636,8 +644,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "db/migrate/20120701035151_create_relacion_comunidad_usuarios.rb",
+					"settings":
+					{
+						"buffer_size": 544,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								382,
+								382
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 28.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

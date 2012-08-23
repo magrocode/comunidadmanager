@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   
   def create
     usuario = Usuario.find_by_email(params[:session][:email])
+
     if usuario && usuario.authenticate(params[:session][:password])
       # Sign la comunidad y redirecciona a la pagina de comunidad
       sign_in usuario
@@ -13,7 +14,9 @@ class SessionsController < ApplicationController
 
       if usuario.comunidads.size > 1
         set_comunidad usuario.comunidads.first
-        redirect_to usuario.comunidads.first
+        #redirect_to usuario.comunidads.first
+        redirect_to comunidades_autorizadas_usuario_path(usuario)
+        
       else
         # redireccionar a seleccionar una unidad
         set_comunidad usuario.comunidads.first
