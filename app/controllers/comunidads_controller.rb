@@ -27,25 +27,55 @@ class ComunidadsController < ApplicationController
   
   def create
     @comunidad = Comunidad.new(nombre: params[:comunidad][:nombre])
-    @usuario = @comunidad.usuarios.build(email: params[:usuario][:email],
+    @usuario = Usuario.new(email: params[:usuario][:email],
                                          nombre: params[:usuario][:nombre],
                                          ##administrador: true,
                                          password: params[:usuario][:password],
                                          password_confirmation: params[:usuario][:password_confirmation])
-    if @comunidad.valid? and @usuario.valid?                                     
-      if @comunidad.save
-        if @usuario.save
-          @comunidad.autorizar_administrador!(@usuario)
-          sign_in @usuario
-          set_comunidad @comunidad          
-          flash[:success] = "Bienvenido a Cloudapolis"
-          redirect_to @comunidad
-          UsuarioMailer.welcome_email(@usuario).deliver
-          #redirect_to root_path
-        end
-      end      
+    @usuario_existente = Usuario.find_by_email(params[:usuario][:email])
+
+    if @usuario_existente != nil
+    # usuario si existe
+      @usuario = @usuario_existente
+
+      if @comunidad.valid?
+
+        if @comunidad.save
+            @comunidad.autorizar_usuario!(@usuario)
+            @comunidad.autorizar_administrador!(@usuario)
+            sign_in @usuario
+            set_comunidad @comunidad          
+            flash[:success] = "Bienvenido a Cloudapolis"
+            redirect_to @comunidad
+            UsuarioMailer.welcome_email(@usuario).deliver  
+        end 
+
+      else
+        render 'new'
+      end
+
     else
-      render 'new'
+
+      if @comunidad.valid? and @usuario.valid?
+
+        if @comunidad.save
+
+          if@usuario.save
+            
+            @comunidad.autorizar_usuario!(@usuario)
+            @comunidad.autorizar_administrador!(@usuario)
+            sign_in @usuario
+            set_comunidad @comunidad          
+            flash[:success] = "Bienvenido a Cloudapolis"
+            redirect_to @comunidad
+            UsuarioMailer.welcome_email(@usuario).deliver
+          end                    
+        end   
+
+      else
+        render 'new'
+      end
+
     end
   end
   

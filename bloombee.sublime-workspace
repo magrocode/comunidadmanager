@@ -396,26 +396,18 @@
 	"buffers":
 	[
 		{
-			"file": "db/migrate/20120701035151_create_relacion_comunidad_usuarios.rb",
+			"file": "app/controllers/comunidads_controller.rb",
 			"settings":
 			{
-				"buffer_size": 544,
+				"buffer_size": 5853,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/controllers/sessions_controller.rb",
+			"file": "app/controllers/usuarios_controller.rb",
 			"settings":
 			{
-				"buffer_size": 988,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/relacion_comunidad_usuarios_controller.rb",
-			"settings":
-			{
-				"buffer_size": 2047,
+				"buffer_size": 6274,
 				"line_ending": "Unix"
 			}
 		}
@@ -448,6 +440,12 @@
 	},
 	"file_history":
 	[
+		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_autorizar_administrador.html.erb",
+		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/index.html.erb",
+		"/home/codelious/railsprojects/comunidadmanager/spec/requests/paginas_usuarios_spec.rb",
+		"/home/codelious/railsprojects/comunidadmanager/db/migrate/20120701035151_create_relacion_comunidad_usuarios.rb",
+		"/home/codelious/railsprojects/comunidadmanager/app/controllers/sessions_controller.rb",
+		"/home/codelious/railsprojects/comunidadmanager/app/controllers/relacion_comunidad_usuarios_controller.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/comunidads/_show_module_col.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/controllers/usuarios_controller.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_show_module_col.html.erb",
@@ -470,14 +468,10 @@
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_form.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/assets/stylesheets/custom.css.scss",
 		"/home/codelious/railsprojects/comunidadmanager/app/assets/stylesheets/usuarios.css.scss",
-		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/index.html.erb",
-		"/home/codelious/railsprojects/comunidadmanager/spec/requests/paginas_usuarios_spec.rb",
-		"/home/codelious/railsprojects/comunidadmanager/app/controllers/relacion_comunidad_usuarios_controller.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/controllers/relacion_usuario_unidads_controller.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/controllers/tipounidads_controller.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/models/usuario.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/models/relacion_unidad.rb",
-		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_autorizar_administrador.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/_usuarios_form_permisos.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuarios/index.js.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/comunidads/_comunidads.html.erb",
@@ -565,7 +559,6 @@
 		"/home/codelious/railsprojects/comunidadmanager/app/controllers/unidads_controller.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/controllers/relacion_unidads_controller.rb",
 		"/home/codelious/railsprojects/comunidadmanager/db/migrate/20120701035602_remove_comunidad_id_from_usuarios.rb",
-		"/home/codelious/railsprojects/comunidadmanager/db/migrate/20120701035151_create_relacion_comunidad_usuarios.rb",
 		"/home/codelious/railsprojects/comunidadmanager/spec/models/relacion_usuario_unidad_spec.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/models/relacion_usuario_unidad.rb",
 		"/home/codelious/railsprojects/comunidadmanager/db/seeds.rb",
@@ -574,8 +567,7 @@
 		"/home/codelious/railsprojects/comunidadmanager/app/mailers/usuario_mailer.rb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuario_mailer/welcome_email.html.erb",
 		"/home/codelious/railsprojects/comunidadmanager/app/views/usuario_mailer/welcome_email.text.erb",
-		"/home/codelious/railsprojects/comunidadmanager/spec/requests/paginas_spec.rb",
-		"/home/codelious/railsprojects/comunidadmanager/spec/models/comunidad_spec.rb"
+		"/home/codelious/railsprojects/comunidadmanager/spec/requests/paginas_spec.rb"
 	],
 	"find":
 	{
@@ -660,23 +652,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "db/migrate/20120701035151_create_relacion_comunidad_usuarios.rb",
+					"file": "app/controllers/comunidads_controller.rb",
 					"settings":
 					{
-						"buffer_size": 544,
+						"buffer_size": 5853,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								382,
-								382
+								2157,
+								2157
 							]
 						],
 						"settings":
@@ -685,26 +677,26 @@
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 28.0,
-						"translation.y": 0.0,
+						"translation.x": 0.0,
+						"translation.y": 1364.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/controllers/sessions_controller.rb",
+					"file": "app/controllers/usuarios_controller.rb",
 					"settings":
 					{
-						"buffer_size": 988,
+						"buffer_size": 6274,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								367,
-								367
+								1983,
+								1983
 							]
 						],
 						"settings":
@@ -714,35 +706,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/controllers/relacion_comunidad_usuarios_controller.rb",
-					"settings":
-					{
-						"buffer_size": 2047,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 336.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
