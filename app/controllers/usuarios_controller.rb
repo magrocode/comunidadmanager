@@ -16,7 +16,9 @@ class UsuariosController < ApplicationController
     @comunidad = Comunidad.find(params[:comunidad_id])
     @sort_model = Usuario 
     @sort_column = 'email'
-    @usuarios = @comunidad.usuarios.paginate(page: params[:page], per_page: 10).order(sort_column + " " + sort_direction)
+    #@usuarios = @comunidad.usuarios.paginate(page: params[:page], per_page: 10).order(sort_column + " " + sort_direction)
+    # @products = Product.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @usuarios = @comunidad.usuarios.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
   end
   
   def new

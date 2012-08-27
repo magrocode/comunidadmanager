@@ -77,6 +77,14 @@ class Usuario < ActiveRecord::Base
     end
   end
 
+  def self.search(search)
+    if search
+      where('nombre LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+
   private
   
     def create_remember_token

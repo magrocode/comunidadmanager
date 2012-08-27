@@ -11,12 +11,25 @@
 				<%= render 'usuarios_header' %>
 			</div>
 			<div class="content">
-				<div class="row-fluid">
-					<!-- columna de contenidos -->
-					<div class="span12">
+
+					<div class="row-fluid">
+						<div id="searching">
+							<%= form_tag comunidad_usuarios_path(current_comunidad), :method => 'get',
+								:id => "usuarios_search", :class => "form-search" do %>
+
+									<%= hidden_field_tag :direction, params[:direction] %>
+									<%= hidden_field_tag :sort, params[:sort] %>
+
+									<%= text_field_tag :search, params[:search], :class => "input-medium search-query" %>
+									<%= submit_tag "Buscar Usuarios", :name => nil, :class => "btn" %>
+
+							<% end %>
+						</div>	
+					</div>
+					<div id="usuarios">
 						<%= render 'usuarios' %>
 					</div>
-				</div>		
+
 			</div>
 		</div>
 	</div>
@@ -24,29 +37,54 @@
 
 <script type="text/javascript">
       $(function () {
-        /*$('#link_genial').click(function () {
+
+       /* $('#link_genial').live('click', function () {
           alert('Destinado al exito!');
           return false;
-        })*/
+        }) */
 
-        $('.checkeable').click(function () {
+        $(function () {
+		  $('#ordering a, #usuarios .pagination a').live('click', function () {
+		    $.getScript(this.href);
+		    return false;
+		  });
+		})
+
+		
+		// Search form.
+		$('#usuarios_search').submit(function () {
+		  $.get(this.action, $(this).serialize(), null, 'script');
+		  return false;
+		});
+
+		$('#usuarios .autorizacion .checkeable').live('click', function () {
+			
         	var formulario = "#form_admin_" + this.getAttribute('id').split("_")[1];
+        	//$.getScript(this.href);
         	$(formulario).submit();        	
         	//alert('Un peldaño mas ' + formulario);     
         	return true;
-        })
-
-        $('.form_in_table').submit(function() {
-		  
-		    $.ajax({
-		    type: this.method,
-		    url: this.action,
-		    data: $(this).serialize(),
-		    success: function(){
-		      //alert('Directo al exito!');
-		    }
-		    });
+        }) 
+/*
+        $('#usuarios .autorizacion .checkeable').click(function () {
+        	var formulario = "#form_admin_" + this.getAttribute('id').split("_")[1];
+        	//$(formulario).submit();        	
+        	alert('Un peldaño mas ' + formulario);     
+        	return true;
+        }) 
+*/
+        $('#usuarios .autorizacion .form_in_table').submit(function() {
+		  	$.get(this.action, $(this).serialize(), null, 'script');
+		    /*$.ajax({
+			    type: this.method,
+			    url: this.action,
+			    data: $(this).serialize(),
+			    success: function(){
+			      //alert('Directo al exito!' + url);
+			    }
+		    });*/
 		  return false;
 		});
+
       });
 </script>
