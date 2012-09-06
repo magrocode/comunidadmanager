@@ -6,7 +6,7 @@ class UsuariosController < ApplicationController
   before_filter :correct_user,          :only => [:edit, :update,]
   before_filter :usuario_en_comunidad,  :only => [:show, :unidades_autorizadas]
   
-  before_filter :admin_user,            :only => [:new, :destroy, :show_out, :autorizar_administrador, :desautorizar_administrador] 
+  before_filter :admin_user,            :only => [:new, :destroy, :show_out, :autorizar_administrador, :desautorizar_administrador, :toggle_administrador] 
   
   after_filter  :signin_after_update,   :only => :update
 
