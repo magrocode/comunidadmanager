@@ -36,55 +36,39 @@
 </div>
 
 <script type="text/javascript">
-      $(function () {
+    $(function () {
 
        /* $('#link_genial').live('click', function () {
           alert('Destinado al exito!');
           return false;
         }) */
 
+      	// paginacion
         $(function () {
 		  $('#ordering a, #usuarios .pagination a').live('click', function () {
 		    $.getScript(this.href);
 		    return false;
 		  });
 		})
-
 		
-		// Search form.
+		// formulario de busqueda
 		$('#usuarios_search').submit(function () {
 		  $.get(this.action, $(this).serialize(), null, 'script');
 		  return false;
 		});
 
-		$('#usuarios .autorizacion .checkeable').live('click', function () {
-			
-        	var formulario = "#form_admin_" + this.getAttribute('id').split("_")[1];
-        	//$.getScript(this.href);
-        	$(formulario).submit();        	
-        	//alert('Un peldaño mas ' + formulario);     
-        	return true;
-        }) 
-/*
-        $('#usuarios .autorizacion .checkeable').click(function () {
-        	var formulario = "#form_admin_" + this.getAttribute('id').split("_")[1];
-        	//$(formulario).submit();        	
-        	alert('Un peldaño mas ' + formulario);     
-        	return true;
-        }) 
-*/
-        $('#usuarios .autorizacion .form_in_table').submit(function() {
-		  	$.get(this.action, $(this).serialize(), null, 'script');
-		    /*$.ajax({
-			    type: this.method,
-			    url: this.action,
-			    data: $(this).serialize(),
-			    success: function(){
-			      //alert('Directo al exito!' + url);
-			    }
-		    });*/
-		  return false;
-		});
+		// toggle administrador
+		$(".administrador_status").live("change", function(usuario_id) {
+			var usu = this.getAttribute('value');
+	        $.ajax({
+	        	type: "put",
+	            url: "/usuarios/"+ usu + "/toggle_administrador",
+	            //beforeSend: function() { alert("Hi "+ usu); },
+	            data: "id="+usu, 
+	            success: function() { alert('Bye') }
+	        });
+	        return false;
+	    });
 
-      });
+    });
 </script>

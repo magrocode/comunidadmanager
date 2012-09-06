@@ -14,6 +14,7 @@ Comunidadmanager::Application.routes.draw do
         get :show_out
         put :autorizar_administrador
         put :desautorizar_administrador
+        put :toggle_administrador
       end
     end
 

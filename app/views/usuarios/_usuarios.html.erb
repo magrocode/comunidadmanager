@@ -35,7 +35,7 @@
 				</td>
 				<td>
 					<div class="autorizacion">
-						<%= render 'autorizar_administrador', usuario: usuario %>
+						<%= render 'toggle_administrador', usuario: usuario %>
 					</div>
 				</td>
 				<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>

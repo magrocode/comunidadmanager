@@ -121,6 +121,16 @@ class UsuariosController < ApplicationController
     redirect_to comunidad_usuarios_path(@comunidad)
   end
 
+  def toggle_administrador
+    @usuario = Usuario.find(params[:id])
+    @comunidad = current_comunidad
+    if @usuario.administrador?(@comunidad)
+      @comunidad.desautorizar_administrador!(@usuario)
+    else
+      @comunidad.autorizar_administrador!(@usuario)
+    end
+  end
+
   private
   
     def signed_in_user
