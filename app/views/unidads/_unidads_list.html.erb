@@ -43,10 +43,10 @@
 						<% end %><br />
 					</td>
 					<td>
-						<%= unidad.participacion %>%
+						<%= unidad.participacion %> %
 					</td>
 					<td>
-						<%= unidad.superficie %>m2
+						<%= unidad.superficie %> m2
 					</td>
 					<td>
 						<%= link_to pluralize(unidad.usuarios_autorizados.count, 'persona', 'personas'), usuarios_autorizados_unidad_path(unidad) %>

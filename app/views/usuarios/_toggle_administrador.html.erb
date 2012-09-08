@@ -1,3 +1,7 @@
 <div class="checklist_check">
-    <%= check_box_tag dom_id(usuario, :admin), usuario.id, usuario.administrador?(current_comunidad), :class => 'administrador_status' %> Administrador
+	<% if current_user.administrador?(current_comunidad) or current_user.system_admin? %>
+    	<%= check_box_tag dom_id(usuario, :admin), usuario.id, usuario.administrador?(current_comunidad), :class => 'administrador_status' %> Administrador
+    <% else %>
+    	<%= check_box_tag dom_id(usuario, :admin), usuario.id, usuario.administrador?(current_comunidad), :disabled => true, :class => 'administrador_status' %> Administrador
+    <% end %>
 </div>
