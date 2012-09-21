@@ -19,6 +19,9 @@
 					
 		<% @usuarios.each do |usuario| %>
 			<tr>
+				<td>
+					<%= check_box_tag 'usuario_ids[]', usuario.id %>
+				</td>
 				<td style="width: 50px;">
 					<%= gravatar_for usuario, size: 50 %>
 				</td>
