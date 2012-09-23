@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: relacion_comunidad_usuarios
+#
+#  id            :integer         not null, primary key
+#  comunidad_id  :integer
+#  usuario_id    :integer
+#  administrador :boolean         default(FALSE)
+#  created_at    :datetime        not null
+#  updated_at    :datetime        not null
+#
+
 require 'spec_helper'
 
 describe RelacionComunidadUsuario do

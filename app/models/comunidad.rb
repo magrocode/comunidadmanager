@@ -26,6 +26,7 @@ class Comunidad < ActiveRecord::Base
   has_many :usuarios, through: :relacion_comunidad_usuarios
   has_many :tipounidads, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :accounts, dependent: :destroy
 
   validates :nombre, presence: true, length: { maximum: 50 }
   validates :street, :city, :country, length: { maximum: 255 }

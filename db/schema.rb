@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701035602) do
+ActiveRecord::Schema.define(:version => 20120923015337) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "nombre"
+    t.string   "codigo"
+    t.string   "descripcion"
+    t.text     "notas"
+    t.integer  "comunidad_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "comunidads", :force => true do |t|
     t.string   "nombre"
@@ -46,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20120701035602) do
     t.datetime "updated_at",                       :null => false
   end
 
-  add_index "relacion_comunidad_usuarios", ["comunidad_id", "usuario_id"], :name => "index_relacion_comunidad_usuarios_on_comunidad_id_and_usuario_id", :unique => true
+  add_index "relacion_comunidad_usuarios", ["comunidad_id", "usuario_id"], :name => "index_rel_comunidad_usuarios_on_comunidad_id_and_usuario_id", :unique => true
   add_index "relacion_comunidad_usuarios", ["comunidad_id"], :name => "index_relacion_comunidad_usuarios_on_comunidad_id"
   add_index "relacion_comunidad_usuarios", ["usuario_id"], :name => "index_relacion_comunidad_usuarios_on_usuario_id"
 
