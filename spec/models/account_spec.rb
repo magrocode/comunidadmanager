@@ -12,6 +12,7 @@
 #  updated_at   :datetime        not null
 #
 
+
 require 'spec_helper'
 
 describe Account do
@@ -37,25 +38,25 @@ describe Account do
 		it { should_not be_valid }
 	end
 
-	describe "Cuando nombre es vacio" do
+	describe "Cuando nombre no esta presente" do
 		before { @account.nombre = "" }
 		it { should_not be_valid }
 	end
 
-	describe "Cuando nombre es muy largo" do
+	describe "Cuando el nombre es muy largo" do
 		before { @account.nombre = "a" * 51 }
 		it { should_not be_valid }
 	end
 
-	describe "Cuando codigo es muy largo" do
-		before { @account.codigo = "a" * 21 }
+	describe "Cuando el codigo es muy largo" do
+		before { @account.codigo = "a" * 31 }
 		it { should_not be_valid }
 	end
 
 	describe "Cuando descripcion es muy largo" do
 		before { @account.descripcion = "a" * 51 }
 		it { should_not be_valid }
-	end
+	end	
 
 	describe "Cuando notas es muy largo" do
 		before { @account.notas = "a" * 501 }

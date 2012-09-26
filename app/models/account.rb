@@ -18,7 +18,7 @@ class Account < ActiveRecord::Base
 
 	validates :comunidad_id, presence: true
 	validates :nombre, presence: true, length: { maximum: 50 }
-	validates :codigo, length: { maximum: 20 }
+	validates :codigo, length: { maximum: 30 }
 	validates :descripcion, length: { maximum: 50 }
 	validates :notas, length: { maximum: 500 }
 
