@@ -26,6 +26,7 @@ Comunidadmanager::Application.routes.draw do
     end
     resources :tipounidads, only: [:index, :new, :edit, :create, :destroy, :update] 
     resources :posts, only: [:create, :destroy, :edit, :update]
+    resources :accounts, only: [:index]
   
     resources :comunidads do
       member do
@@ -40,6 +41,7 @@ Comunidadmanager::Application.routes.draw do
       resources :tipounidads
       resources :usuarios
       resources :posts
+      resources :accounts
     end
 
     resources :sessions,                  only: [:new, :create, :destroy]
